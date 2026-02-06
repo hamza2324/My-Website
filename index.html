@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Automation Agency | GenAI + n8n Solutions | hamzajadoon.cloud</title>
+    <meta name="description" content="Professional AI Automation Agency specializing in n8n workflows, GenAI integrations, and business automation solutions. Transform your operations with cutting-edge automation.">
+    <meta name="keywords" content="n8n, GenAI, AI Automation, Workflow Automation, Business Automation, AI Integration">
+    <meta name="author" content="AI Automation Agency">
+    
+    <!-- SEO Meta Tags -->
+
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta name="twitter:title" content="AI Automation Agency | GenAI + n8n Solutions | hamzajadoon.cloud">
+    <meta name="twitter:description" content="Professional AI Automation Agency specializing in n8n workflows, GenAI integrations, and business automation solutions. Transform your operations with cutting-edge automation.">
+    <meta property="og:title" content="AI Automation Agency | GenAI + n8n Solutions">
+    <meta property="og:description" content="Transform your business with professional AI automation solutions">
+    <meta property="og:image" content="https://hamzajadoon.cloud/assets/images/og-image.jpg">
+    <meta property="og:url" content="https://hamzajadoon.cloud">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://hamzajadoon.cloud">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/icons/logo-icon.svg">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+</head>
+<body class="is-home">
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-pulse"></div>
+                <span class="logo-text">AI Automation Agency</span>
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar"></div>
+            </div>
+            <div class="loading-stats">
+                <span class="stat">Initializing AI Systems...</span>
+                <span class="stat">Loading n8n Workflows...</span>
+                <span class="stat">Preparing Automation Tools...</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <span class="logo-text">
+                    <span class="logo-main">AI</span>
+                    <span class="logo-sub">Automation</span>
+                </span>
+            </a>
+            
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+                <a href="services.html" class="nav-link"><i class="fas fa-cogs"></i> Services</a>
+                <a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Blog</a>
+                <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
+                <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="nav-cta" onclick="window.location.href='contact.html'">
+                    <i class="fas fa-bolt"></i>
+                    Get Started
+                </button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <span>Navigation</span>
+                <button class="mobile-menu-close" id="mobileMenuClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="mobile-menu-links">
+                <a href="index.html" class="mobile-link active"><i class="fas fa-home"></i> Home</a>
+                <a href="services.html" class="mobile-link"><i class="fas fa-cogs"></i> Services</a>
+                <a href="blog.html" class="mobile-link"><i class="fas fa-blog"></i> Blog</a>
+                <a href="about.html" class="mobile-link"><i class="fas fa-info-circle"></i> About</a>
+                <a href="contact.html" class="mobile-link"><i class="fas fa-envelope"></i> Contact</a>
+            </div>
+            <div class="mobile-menu-footer">
+                <button class="mobile-cta" onclick="window.location.href='contact.html'">
+                    Start Automation Journey
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-background">
+            <div class="hero-grid">
+                <div class="grid-line"></div>
+                <div class="grid-line"></div>
+                <div class="grid-line"></div>
+            </div>
+            <div class="hero-particles" id="heroParticles"></div>
+            <div class="hero-orbits">
+                <div class="orbit orbit-1"></div>
+                <div class="orbit orbit-2"></div>
+                <div class="orbit orbit-3"></div>
+            </div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-text">AI-Powered Automation</span>
+                <div class="badge-pulse"></div>
+            </div>
+            
+            <h1 class="hero-title">
+                <span class="title-line">Transform Your Business with</span>
+                <span class="title-highlight">
+                    <span class="highlight-text">Intelligent Automation</span>
+                    <span class="highlight-glow"></span>
+                </span>
+            </h1>
+            
+            <p class="hero-description">
+                We specialize in creating cutting-edge n8n workflows and GenAI integrations that automate complex business processes, 
+                reduce operational costs by 60%, and boost productivity overnight.
+            </p>
+            
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="200">0</div>
+                    <div class="stat-label">Automations Built</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="85">0</div>
+                    <div class="stat-label">% Efficiency Gain</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="50">0</div>
+                    <div class="stat-label">Happy Clients</div>
+                </div>
+            </div>
+            
+            <div class="hero-actions">
+                <button class="hero-cta primary" onclick="window.location.href='contact.html'">
+                    <i class="fas fa-rocket"></i>
+                    Start Free Consultation
+                </button>
+                <button class="hero-cta secondary" onclick="window.location.href='services.html#case-studies'">
+                    <i class="fas fa-chart-line"></i>
+                    View Case Studies
+                </button>
+            </div>
+            
+            <div class="hero-tech">
+                <span class="tech-label">Powered by:</span>
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <i class="fab fa-n8n"></i>
+                        <span>n8n</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-brain"></i>
+                        <span>OpenAI</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-google"></i>
+                        <span>Gemini</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-cloud"></i>
+                        <span>Cloud</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-visual">
+            <div class="automation-flow">
+                <div class="flow-node" data-tooltip="Data Input">
+                    <i class="fas fa-database"></i>
+                </div>
+                <div class="flow-connector animated"></div>
+                <div class="flow-node" data-tooltip="AI Processing">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="flow-connector animated"></div>
+                <div class="flow-node" data-tooltip="n8n Workflow">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <div class="flow-connector animated"></div>
+                <div class="flow-node" data-tooltip="Output">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+            </div>
+
+            <!-- Animated robots representing automation -->
+            <div class="robot-belt">
+                <div class="robot-unit">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="robot-unit robot-unit-delay">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <div class="robot-unit robot-unit-delay-2">
+                    <i class="fas fa-cogs"></i>
+                </div>
+            </div>
+        </div>
+        
+        <a href="#services" class="hero-scroll">
+            <div class="scroll-indicator">
+                <div class="scroll-dot"></div>
+            </div>
+            <span>Explore Solutions</span>
+        </a>
+    </section>
+
+    <!-- Services Preview -->
+    <section class="services-preview" id="services">
+        <div class="section-header">
+            <span class="section-label">What We Offer</span>
+            <h2 class="section-title">Automation Solutions That Scale</h2>
+            <p class="section-description">
+                Comprehensive automation services combining n8n's powerful workflow engine with cutting-edge GenAI capabilities
+            </p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-robot"></i>
+                    <div class="icon-glow"></div>
+                </div>
+                <h3 class="service-title">n8n Workflow Development</h3>
+                <p class="service-description">
+                    Custom n8n workflows that connect your apps, automate processes, and transform data without coding.
+                </p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Multi-app integrations</li>
+                    <li><i class="fas fa-check"></i> Custom triggers & actions</li>
+                    <li><i class="fas fa-check"></i> Error handling & logging</li>
+                </ul>
+                <a href="services.html#n8n" class="service-link">
+                    Learn More
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="service-card featured">
+                <div class="featured-badge">Most Popular</div>
+                <div class="service-icon">
+                    <i class="fas fa-brain"></i>
+                    <div class="icon-glow"></div>
+                </div>
+                <h3 class="service-title">GenAI Integration</h3>
+                <p class="service-description">
+                    Implement OpenAI, Anthropic, and Google AI into your workflows for intelligent automation.
+                </p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> ChatGPT integration</li>
+                    <li><i class="fas fa-check"></i> Custom AI models</li>
+                    <li><i class="fas fa-check"></i> Real-time processing</li>
+                </ul>
+                <a href="services.html#genai" class="service-link">
+                    Explore AI Solutions
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-chart-network"></i>
+                    <div class="icon-glow"></div>
+                </div>
+                <h3 class="service-title">Business Process Automation</h3>
+                <p class="service-description">
+                    End-to-end automation of complex business processes across departments and systems.
+                </p>
+                <ul class="service-features">
+                    <li><i class="fas fa-check"></i> Process mapping</li>
+                    <li><i class="fas fa-check"></i> Efficiency analysis</li>
+                    <li><i class="fas fa-check"></i> ROI tracking</li>
+                </ul>
+                <a href="services.html#bpa" class="service-link">
+                    See Examples
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="services-cta">
+            <a href="services.html" class="view-all-btn">
+                View All Services
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Blog Preview -->
+    <section class="blog-preview" id="blog">
+        <div class="section-header">
+            <span class="section-label">Latest Insights</span>
+            <h2 class="section-title">Automation Knowledge Hub</h2>
+            <p class="section-description">
+                Learn about n8n, GenAI, and automation best practices from our expert team
+            </p>
+        </div>
+        
+        <div class="blog-grid">
+            <article class="blog-card">
+                <div class="blog-card-header">
+                    <span class="blog-category">n8n Tutorial</span>
+                    <span class="blog-date">Mar 15, 2026</span>
+                </div>
+                <h3 class="blog-title">Getting Started with n8n: Complete Beginner's Guide</h3>
+                <p class="blog-excerpt">
+                    Learn how to set up your first n8n workflow, connect apps, and automate tasks without writing code.
+                </p>
+                <div class="blog-meta">
+                    <span class="read-time">
+                        <i class="far fa-clock"></i>
+                        8 min read
+                    </span>
+                    <span class="blog-tags">
+                        <span class="tag">n8n</span>
+                        <span class="tag">Beginner</span>
+                    </span>
+                </div>
+                <a href="blog-posts/getting-started-with-n8n.html" class="blog-link">
+                    Read Article
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </article>
+            
+            <article class="blog-card featured-post">
+                <div class="featured-label">Featured</div>
+                <div class="blog-card-header">
+                    <span class="blog-category">GenAI</span>
+                    <span class="blog-date">Mar 10, 2026</span>
+                </div>
+                <h3 class="blog-title">10 Business Processes You Can Automate with AI Today</h3>
+                <p class="blog-excerpt">
+                    Discover practical AI automation use cases that can save your business 20+ hours per week.
+                </p>
+                <div class="blog-meta">
+                    <span class="read-time">
+                        <i class="far fa-clock"></i>
+                        12 min read
+                    </span>
+                    <span class="blog-tags">
+                        <span class="tag">AI</span>
+                        <span class="tag">Business</span>
+                        <span class="tag">Automation</span>
+                    </span>
+                </div>
+                <a href="blog-posts/genai-business-automation.html" class="blog-link">
+                    Read Article
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </article>
+            
+            <article class="blog-card">
+                <div class="blog-card-header">
+                    <span class="blog-category">Best Practices</span>
+                    <span class="blog-date">Mar 5, 2026</span>
+                </div>
+                <h3 class="blog-title">Workflow Error Handling & Monitoring in n8n</h3>
+                <p class="blog-excerpt">
+                    Learn advanced techniques for error handling, logging, and monitoring your n8n workflows.
+                </p>
+                <div class="blog-meta">
+                    <span class="read-time">
+                        <i class="far fa-clock"></i>
+                        10 min read
+                    </span>
+                    <span class="blog-tags">
+                        <span class="tag">n8n</span>
+                        <span class="tag">Advanced</span>
+                        <span class="tag">Monitoring</span>
+                    </span>
+                </div>
+                <a href="blog-posts/workflow-error-handling.html" class="blog-link">
+                    Read Article
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </article>
+        </div>
+        
+        <div class="blog-cta">
+            <a href="blog.html" class="view-all-blog">
+                <i class="fas fa-book-open"></i>
+                Browse All Articles
+            </a>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-background">
+            <div class="cta-glow"></div>
+            <div class="cta-pattern"></div>
+        </div>
+        
+        <div class="cta-content">
+            <h2 class="cta-title">Ready to Automate Your Business?</h2>
+            <p class="cta-description">
+                Book a free 30-minute consultation and get a custom automation roadmap for your business.
+            </p>
+            
+            <div class="cta-features">
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>No commitment required</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Custom automation plan</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    <span>ROI analysis included</span>
+                </div>
+            </div>
+            
+            <div class="cta-actions">
+                <button class="cta-btn primary" onclick="window.location.href='contact.html'">
+                    <i class="fas fa-calendar-check"></i>
+                    Schedule Free Call
+                </button>
+                <button class="cta-btn secondary" onclick="window.location.href='services.html'">
+                    <i class="fas fa-file-alt"></i>
+                    View Services
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <i class="fas fa-robot"></i>
+                        <div class="logo-text">
+                            <span class="logo-main">AI</span>
+                            <span class="logo-sub">Automation</span>
+                        </div>
+                    </a>
+                    <p class="footer-description">
+                        Transforming businesses through intelligent automation with n8n and GenAI solutions.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4 class="link-group-title">Services</h4>
+                        <a href="services.html#n8n" class="footer-link">n8n Development</a>
+                        <a href="services.html#genai" class="footer-link">GenAI Integration</a>
+                        <a href="services.html#consulting" class="footer-link">Automation Consulting</a>
+                        <a href="services.html#support" class="footer-link">Support & Maintenance</a>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4 class="link-group-title">Resources</h4>
+                        <a href="blog.html" class="footer-link">Blog</a>
+                        <a href="blog.html#tutorials" class="footer-link">Tutorials</a>
+                        <a href="blog.html#case-studies" class="footer-link">Case Studies</a>
+                        <a href="resources.html" class="footer-link">Free Templates</a>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4 class="link-group-title">Company</h4>
+                        <a href="about.html" class="footer-link">About Us</a>
+                        <a href="contact.html" class="footer-link">Contact</a>
+                        <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-link">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-newsletter">
+                <h4 class="newsletter-title">Automation Insights</h4>
+                <p class="newsletter-description">
+                    Get weekly tips on n8n, AI automation, and productivity hacks.
+                </p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <div class="form-group">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                            Subscribe
+                        </button>
+                    </div>
+                    <p class="form-note">No spam. Unsubscribe anytime.</p>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-copyright">
+                © 2026 AI Automation Agency. All rights reserved.
+            </div>
+            <div class="footer-extra">
+                <a href="sitemap.html" class="footer-extra-link">Sitemap</a>
+                <span class="footer-separator">•</span>
+                <a href="contact.html#faq" class="footer-extra-link">FAQ</a>
+                <span class="footer-separator">•</span>
+                <a href="contact.html" class="footer-extra-link">Support</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "AI Automation Agency",
+        "description": "Professional AI Automation Agency specializing in n8n workflows and GenAI integrations",
+        "url": "https://hamzajadoon.cloud",
+        "logo": "https://hamzajadoon.cloud/assets/images/logo.svg",
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "Global"
+        },
+        "serviceType": "Business Automation, AI Integration, n8n Development",
+        "email": "contact@hamzajadoon.cloud"
+    }
+    </script>
+</body>
+</html>
