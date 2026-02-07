@@ -20,9 +20,6 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://hamzajadoon.cloud/blog-post-template.html">
     <meta property="og:image" content="https://hamzajadoon.cloud/assets/images/og-image.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Blog Post Template | AI Automation Agency">
-    <meta name="twitter:description" content="Template for AI automation blog posts about n8n, GenAI, and business automation.">
 
     
     <!-- Google Fonts -->
@@ -106,7 +103,7 @@
     </nav>
 
     <!-- Blog Post Header -->
-    <header class="blog-post-header">
+    <header class="blog-post-header page-banner">
         <div class="breadcrumb">
             <a href="index.html">Home</a>
             <i class="fas fa-chevron-right"></i>
@@ -116,6 +113,7 @@
         </div>
         
         <div class="post-header-content">
+            <div class="banner-brand">HJ Ai Automation Agency</div>
             <div class="post-category-badge">
                 <span class="category">n8n Tutorial</span>
                 <span class="read-time">10 min read</span>
@@ -513,9 +511,9 @@ const monitoringConfig = {
                     and AI integration, our team has delivered 200+ automation projects for businesses worldwide.</p>
                     
                     <div class="author-social">
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/hamza-jadoon-6645a7259/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/hamza2324" class="social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                        <a href="https://www.youtube.com/@TrendsWithHJ" class="social-link" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 
@@ -578,10 +576,6 @@ const monitoringConfig = {
         <div class="post-share">
             <h3>Share this article:</h3>
             <div class="share-buttons">
-                <button class="share-btn twitter">
-                    <i class="fab fa-twitter"></i>
-                    Twitter
-                </button>
                 <button class="share-btn linkedin">
                     <i class="fab fa-linkedin"></i>
                     LinkedIn
@@ -659,16 +653,13 @@ const monitoringConfig = {
                         Transforming businesses through intelligent automation with n8n and GenAI solutions.
                     </p>
                     <div class="footer-social">
-                        <a href="#" class="social-link" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/in/hamza-jadoon-6645a7259/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="#" class="social-link" aria-label="GitHub">
+                        <a href="https://github.com/hamza2324" class="social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="#" class="social-link" aria-label="YouTube">
+                        <a href="https://www.youtube.com/@TrendsWithHJ" class="social-link" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>
@@ -867,9 +858,7 @@ const monitoringConfig = {
                 btn.addEventListener('click', () => {
                     let shareUrl = '';
                     
-                    if (btn.classList.contains('twitter')) {
-                        shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(postUrl)}&text=${encodeURIComponent(postTitle)}`;
-                    } else if (btn.classList.contains('linkedin')) {
+                    if (btn.classList.contains('linkedin')) {
                         shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(postUrl)}&title=${encodeURIComponent(postTitle)}`;
                     } else if (btn.classList.contains('facebook')) {
                         shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(postUrl)}`;

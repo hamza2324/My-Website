@@ -3,13 +3,11 @@
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all components
-    initLoadingScreen();
     initNavigation();
     initHeroAnimations();
     initServiceCards();
     initBlogCards();
     initContactForm();
-    initThemeToggle();
     initScrollAnimations();
     initParticleEffects();
     initCounters();
@@ -19,23 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initLazyLoading();
     initSEOOptimization();
 });
-
-// Loading Screen
-function initLoadingScreen() {
-    const loadingScreen = document.getElementById('loadingScreen');
-    // Only show the full loading experience on the homepage
-    if (!loadingScreen || !document.body.classList.contains('is-home')) return;
-    
-    // Hide loading screen after 2 seconds
-    setTimeout(() => {
-        loadingScreen.style.opacity = '0';
-        setTimeout(() => {
-            loadingScreen.style.display = 'none';
-            // Trigger initial animations
-            document.body.classList.add('loaded');
-        }, 500);
-    }, 2000);
-}
 
 // Navigation
 function initNavigation() {
@@ -93,12 +74,14 @@ function initMobileMenu() {
     if (!mobileMenuBtn || !mobileMenu) return;
     
     mobileMenuBtn.addEventListener('click', () => {
-        mobileMenu.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        mobileMenu.classList.toggle('active');
+        mobileMenuBtn.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
     });
     
     mobileMenuClose.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
+        mobileMenuBtn.classList.remove('active');
         document.body.style.overflow = '';
     });
     
@@ -115,6 +98,7 @@ function initMobileMenu() {
     mobileLinks.forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.classList.remove('active');
+            if (mobileMenuBtn) mobileMenuBtn.classList.remove('active');
             document.body.style.overflow = '';
         });
     });
@@ -266,67 +250,46 @@ function initContactForm() {
         });
     });
     
-    // Newsletter form
+    // Newsletter form — sends to Formspree (configure hamzajadoon71@gmail.com in Formspree)
     const newsletterForm = document.getElementById('newsletterForm');
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            const email = this.querySelector('input[type="email"]').value;
-            
-            if (!isValidEmail(email)) {
+            const emailInput = this.querySelector('input[name="email"]');
+            const email = emailInput && emailInput.value ? emailInput.value.trim() : '';
+            if (!email || !isValidEmail(email)) {
                 showNotification('Please enter a valid email address', 'error');
                 return;
             }
-            
-            // Show success
-            showNotification('Thank you for subscribing!', 'success');
-            this.reset();
-            
-            // Analytics event
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'newsletter_subscribe', {
-                    'event_category': 'Newsletter',
-                    'event_label': 'Subscription'
-                });
+            const formData = new FormData(this);
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalHtml = submitBtn ? submitBtn.innerHTML : '';
+            if (submitBtn) {
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
+                submitBtn.disabled = true;
             }
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(res => res.json())
+            .then(() => {
+                showNotification('Thank you for subscribing! You’ll hear from us.', 'success');
+                this.reset();
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'newsletter_subscribe', { event_category: 'Newsletter', event_label: 'Subscription' });
+                }
+            })
+            .catch(() => showNotification('Something went wrong. Please try again.', 'error'))
+            .finally(() => {
+                if (submitBtn) {
+                    submitBtn.innerHTML = originalHtml;
+                    submitBtn.disabled = false;
+                }
+            });
         });
     }
-}
-
-// Theme Toggle
-function initThemeToggle() {
-    const themeToggle = document.getElementById('themeToggle');
-    const themeIcon = themeToggle?.querySelector('i');
-    
-    if (!themeToggle) return;
-    
-    // Check for saved theme or prefer-color-scheme
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        if (themeIcon) themeIcon.className = 'fas fa-sun';
-    }
-    
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        
-        if (themeIcon) {
-            themeIcon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-        }
-        
-        // Add transition class for smooth change
-        document.documentElement.classList.add('theme-transition');
-        setTimeout(() => {
-            document.documentElement.classList.remove('theme-transition');
-        }, 300);
-    });
 }
 
 // Scroll Animations

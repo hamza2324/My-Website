@@ -79,6 +79,20 @@
     .case-study {
         grid-template-columns: 1fr;
     }
+
+    .post-content-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .table-of-contents,
+    .post-sidebar {
+        position: static;
+        top: auto;
+    }
+
+    .post-sidebar {
+        display: none;
+    }
 }
 
 @media (max-width: 768px) {
@@ -179,6 +193,17 @@
     .blog-posts-grid {
         grid-template-columns: 1fr;
     }
+
+    .page-banner {
+        margin: calc(80px + 1rem) 1rem var(--space-md);
+        padding: 3rem 1.5rem;
+        border-radius: 22px;
+    }
+
+    .blog-hero .blog-hero-stats {
+        flex-direction: column;
+        gap: var(--space-md);
+    }
     
     .post-navigation {
         flex-direction: column;
@@ -188,6 +213,20 @@
     .author-bio {
         flex-direction: column;
         text-align: center;
+    }
+
+    .post-meta {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .post-actions {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .comment-form {
+        grid-template-columns: 1fr;
     }
     
     .timeline::before {

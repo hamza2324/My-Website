@@ -12,9 +12,9 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Automation Blog | n8n Tutorials & GenAI Guides | hamzajadoon.cloud</title>
-    <meta name="description" content="Learn about n8n, GenAI, and business automation through our comprehensive tutorials, guides, and case studies.">
-    <meta name="keywords" content="n8n tutorials, GenAI guides, automation blog, AI automation learning, workflow tutorials">
+    <title>Blog | HJ Ai Automation Agency — n8n & GenAI Tutorials</title>
+    <meta name="description" content="Learn n8n, GenAI, and automation through HJ Ai Automation Agency's blog: tutorials, guides, and free resources.">
+    <meta name="keywords" content="n8n tutorials, GenAI guides, automation blog, HJ Ai, workflow tutorials">
     
     <!-- SEO Meta Tags -->
 
@@ -22,11 +22,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://hamzajadoon.cloud/blog.html">
     <meta property="og:image" content="https://hamzajadoon.cloud/assets/images/og-image.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AI Automation Blog | n8n Tutorials & GenAI Guides | hamzajadoon.cloud">
-    <meta name="twitter:description" content="Learn about n8n, GenAI, and business automation through our comprehensive tutorials, guides, and case studies.">
-    <meta property="og:title" content="AI Automation Blog | n8n Tutorials & GenAI Guides">
-    <meta property="og:description" content="Learn automation through comprehensive tutorials and guides">
+    <meta property="og:title" content="Blog | HJ Ai Automation Agency">
+    <meta property="og:description" content="Learn automation through tutorials and guides">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -42,260 +39,70 @@
         <link rel="canonical" href="https://hamzajadoon.cloud/blog.html">
 
 <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="assets/icons/logo-icon.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo-hj.svg">
 </head>
 
 <body>
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <span class="logo-text">
-                    <span class="logo-main">AI</span>
-                    <span class="logo-sub">Automation</span>
-                </span>
+            <a href="index.html" class="logo logo-hj">
+                <img src="assets/images/logo-hj.svg" alt="HJ Ai Automation Agency" class="logo-img">
+                <span class="logo-text"><span class="logo-main">HJ Ai</span><span class="logo-sub">automation agency</span></span>
             </a>
-            
             <div class="nav-links">
                 <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
-                <a href="services.html" class="nav-link"><i class="fas fa-cogs"></i> Services</a>
                 <a href="blog.html" class="nav-link active"><i class="fas fa-blog"></i> Blog</a>
                 <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
                 <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="services.html" class="nav-link nav-link-coming"><i class="fas fa-cogs"></i> Services <span class="coming-badge">Soon</span></a>
             </div>
-            
             <div class="nav-actions">
-                <button class="theme-toggle" id="themeToggle">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button class="nav-cta" onclick="window.location.href='contact.html'">
-                    <i class="fas fa-bolt"></i>
-                    Get Started
-                </button>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
+                <button class="nav-cta" onclick="window.location.href='contact.html'"><i class="fas fa-paper-plane"></i> Contact</button>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
+                    <span class="hamburger"></span><span class="hamburger"></span><span class="hamburger"></span>
                 </button>
             </div>
         </div>
-        
-        <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <div class="mobile-menu-header">
-                <span>Navigation</span>
-                <button class="mobile-menu-close" id="mobileMenuClose">
-                    <i class="fas fa-times"></i>
-                </button>
+                <span>Menu</span>
+                <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close"><i class="fas fa-times"></i></button>
             </div>
             <div class="mobile-menu-links">
-                <a href="index.html" class="mobile-link"><i class="fas fa-home"></i> Home</a>
-                <a href="services.html" class="mobile-link"><i class="fas fa-cogs"></i> Services</a>
-                <a href="blog.html" class="mobile-link active"><i class="fas fa-blog"></i> Blog</a>
-                <a href="about.html" class="mobile-link"><i class="fas fa-info-circle"></i> About</a>
-                <a href="contact.html" class="mobile-link"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="index.html" class="mobile-link">Home</a>
+                <a href="blog.html" class="mobile-link active">Blog</a>
+                <a href="about.html" class="mobile-link">About</a>
+                <a href="contact.html" class="mobile-link">Contact</a>
+                <a href="services.html" class="mobile-link">Services (Coming Soon)</a>
             </div>
-            <div class="mobile-menu-footer">
-                <button class="mobile-cta" onclick="window.location.href='contact.html'">
-                    Start Automation Journey
-                </button>
-            </div>
+            <button class="mobile-cta" onclick="window.location.href='contact.html'">Contact Us</button>
         </div>
     </nav>
 
-    <!-- Blog Hero -->
-    <section class="blog-hero">
+    <section class="blog-hero page-banner">
         <div class="blog-hero-content">
+            <div class="banner-brand">HJ Ai Automation Agency</div>
             <h1 class="blog-hero-title">
                 <span class="title-line">AI Automation</span>
-                <span class="title-highlight">
-                    <span class="highlight-text">Knowledge Hub</span>
-                    <span class="highlight-glow"></span>
-                </span>
+                <span class="title-highlight"><span class="highlight-text">Knowledge Hub</span><span class="highlight-glow"></span></span>
             </h1>
-            
-            <p class="blog-hero-description">
-                Learn n8n, GenAI, and automation best practices through comprehensive tutorials, guides, and real-world case studies.
-            </p>
-            
-            <div class="blog-search">
-                <div class="search-container">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="blogSearch" placeholder="Search articles, tutorials, guides...">
-                    <button class="search-btn">Search</button>
-                </div>
-                <div class="search-tags">
-                    <span class="tag-label">Popular:</span>
-                    <a href="#n8n" class="tag">n8n</a>
-                    <a href="#genai" class="tag">GenAI</a>
-                    <a href="#tutorials" class="tag">Tutorials</a>
-                    <a href="#case-studies" class="tag">Case Studies</a>
-                </div>
-            </div>
+            <p class="blog-hero-description">Learn n8n, GenAI, and automation through tutorials and guides. Click an article below to read.</p>
         </div>
-        
         <div class="blog-hero-stats">
-            <div class="stat-item">
-                <div class="stat-number" data-count="150">0</div>
-                <div class="stat-label">Articles</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" data-count="50">0</div>
-                <div class="stat-label">Tutorials</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number" data-count="25">0</div>
-                <div class="stat-label">Case Studies</div>
-            </div>
+            <div class="stat-item"><div class="stat-number" data-count="3">0</div><div class="stat-label">Articles</div></div>
+            <div class="stat-item"><div class="stat-number" data-count="100">0</div><div class="stat-label">% Free</div></div>
         </div>
     </section>
 
-    <!-- Blog Main -->
     <main class="blog-main">
-        <!-- Categories -->
-        <section class="blog-categories">
-            <h2>Browse by Category</h2>
-            
-            <div class="categories-grid">
-                <a href="#n8n" class="category-card">
-                    <div class="category-icon">
-                        <i class="fab fa-n8n"></i>
-                    </div>
-                    <h3>n8n Tutorials</h3>
-                    <p>Complete guides and tutorials for n8n workflow automation</p>
-                    <span class="category-count">45 Articles</span>
-                </a>
-                
-                <a href="#genai" class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>GenAI Guides</h3>
-                    <p>AI integration, prompt engineering, and model training</p>
-                    <span class="category-count">38 Articles</span>
-                </a>
-                
-                <a href="#business" class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Business Automation</h3>
-                    <p>Process automation and efficiency optimization</p>
-                    <span class="category-count">32 Articles</span>
-                </a>
-                
-                <a href="#case-studies" class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-chart-bar"></i>
-                    </div>
-                    <h3>Case Studies</h3>
-                    <p>Real-world automation implementations and results</p>
-                    <span class="category-count">25 Articles</span>
-                </a>
-            </div>
-        </section>
-
-        <!-- Featured Posts -->
-        <section class="featured-posts" id="featured">
-            <h2>Featured Articles</h2>
-            
-            <div class="featured-grid">
-                <article class="featured-post-card">
-                    <div class="post-image">
-                        <div class="post-category">n8n Tutorial</div>
-                        <div class="read-time">15 min read</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="post-date">Mar 20, 2026</span>
-                            <span class="post-author">By AI Team</span>
-                        </div>
-                        <h3 class="post-title">Complete Guide to n8n Workflow Error Handling</h3>
-                        <p class="post-excerpt">Learn advanced error handling techniques in n8n to create robust, production-ready workflows that never fail.</p>
-                        <div class="post-tags">
-                            <span class="tag">n8n</span>
-                            <span class="tag">Advanced</span>
-                            <span class="tag">Error Handling</span>
-                        </div>
-                        <a href="blog-posts/n8n-error-handling.html" class="read-more">
-                            Read Article
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-                
-                <article class="featured-post-card">
-                    <div class="post-image">
-                        <div class="post-category">GenAI Guide</div>
-                        <div class="read-time">12 min read</div>
-                    </div>
-                    <div class="post-content">
-                        <div class="post-meta">
-                            <span class="post-date">Mar 18, 2026</span>
-                            <span class="post-author">By AI Team</span>
-                        </div>
-                        <h3 class="post-title">Building Custom AI Assistants with OpenAI & n8n</h3>
-                        <p class="post-excerpt">Step-by-step guide to creating custom AI assistants that integrate with your business applications.</p>
-                        <div class="post-tags">
-                            <span class="tag">GenAI</span>
-                            <span class="tag">OpenAI</span>
-                            <span class="tag">Integration</span>
-                        </div>
-                        <a href="blog-posts/custom-ai-assistants.html" class="read-more">
-                            Read Article
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- Latest Posts -->
         <section class="latest-posts" id="latest">
             <div class="section-header">
-                <h2>Latest Articles</h2>
-                <div class="view-options">
-                    <button class="view-btn active" data-view="grid">
-                        <i class="fas fa-th"></i>
-                    </button>
-                    <button class="view-btn" data-view="list">
-                        <i class="fas fa-list"></i>
-                    </button>
-                </div>
+                <h2>Articles</h2>
+                <p class="section-description">Click an article to read the full guide.</p>
             </div>
-            
-            <div class="posts-grid" id="postsContainer">
-                <!-- Posts will be loaded here by JavaScript -->
-            </div>
-            
-            <div class="load-more">
-                <button class="load-more-btn" id="loadMore">
-                    <i class="fas fa-sync-alt"></i>
-                    Load More Articles
-                </button>
-            </div>
-        </section>
-
-        <!-- Newsletter -->
-        <section class="blog-newsletter">
-            <div class="newsletter-content">
-                <div class="newsletter-icon">
-                    <i class="fas fa-paper-plane"></i>
-                </div>
-                <h2>Get Automation Insights</h2>
-                <p>Subscribe to our newsletter for weekly n8n tips, AI automation trends, and exclusive tutorials.</p>
-                
-                <form class="newsletter-form" id="blogNewsletterForm">
-                    <div class="form-group">
-                        <input type="email" placeholder="Your email address" required>
-                        <button type="submit">
-                            <i class="fas fa-paper-plane"></i>
-                            Subscribe
-                        </button>
-                    </div>
-                    <p class="form-note">Join 5,000+ automation professionals. No spam, unsubscribe anytime.</p>
-                </form>
+            <div class="posts-grid blog-grid-centered" id="postsContainer">
+                <!-- Filled by blog.js from blogPosts (3 articles) -->
             </div>
         </section>
     </main>
@@ -306,28 +113,14 @@
             <div class="footer-main">
                 <div class="footer-brand">
                     <a href="index.html" class="footer-logo">
-                        <i class="fas fa-robot"></i>
-                        <div class="logo-text">
-                            <span class="logo-main">AI</span>
-                            <span class="logo-sub">Automation</span>
-                        </div>
+                        <img src="assets/images/logo-hj.svg" alt="HJ" class="footer-logo-img">
+                        <div class="logo-text"><span class="logo-main">HJ Ai</span><span class="logo-sub">automation agency</span></div>
                     </a>
-                    <p class="footer-description">
-                        Transforming businesses through intelligent automation with n8n and GenAI solutions.
-                    </p>
+                    <p class="footer-description">Education-first AI automation. Free blog, tutorials, and resources.</p>
                     <div class="footer-social">
-                        <a href="#" class="social-link" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="YouTube">
-                            <i class="fab fa-youtube"></i>
-                        </a>
+                        <a href="https://www.linkedin.com/in/hamza-jadoon-6645a7259/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/hamza2324" class="social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                        <a href="https://www.youtube.com/@TrendsWithHJ" class="social-link" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 
@@ -358,28 +151,9 @@
                 </div>
             </div>
             
-            <div class="footer-newsletter">
-                <h4 class="newsletter-title">Automation Insights</h4>
-                <p class="newsletter-description">
-                    Get weekly tips on n8n, AI automation, and productivity hacks.
-                </p>
-                <form class="newsletter-form" id="newsletterForm">
-                    <div class="form-group">
-                        <input type="email" placeholder="Your email address" required>
-                        <button type="submit">
-                            <i class="fas fa-paper-plane"></i>
-                            Subscribe
-                        </button>
-                    </div>
-                    <p class="form-note">No spam. Unsubscribe anytime.</p>
-                </form>
-            </div>
         </div>
-        
         <div class="footer-bottom">
-            <div class="footer-copyright">
-                © 2026 AI Automation Agency. All rights reserved.
-            </div>
+            <div class="footer-copyright">© 2026 HJ Ai Automation Agency. All rights reserved.</div>
             <div class="footer-extra">
                 <a href="sitemap.html" class="footer-extra-link">Sitemap</a>
                 <span class="footer-separator">•</span>
@@ -392,86 +166,14 @@
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
-    <script src="js/blog.js"></script>
-    <script src="js/animations.js"></script>
-    
-    <!-- Blog Data -->
     <script>
-        // Blog posts data
-        const blogPosts = [
-            {
-                id: 1,
-                title: "Getting Started with n8n: Complete Beginner's Guide",
-                excerpt: "Learn how to set up your first n8n workflow, connect apps, and automate tasks without writing any code.",
-                category: "n8n Tutorial",
-                date: "Mar 15, 2026",
-                readTime: "8 min read",
-                tags: ["n8n", "Beginner", "Tutorial"],
-                image: "assets/images/blog/n8n-beginner.jpg",
-                url: "blog-posts/getting-started-with-n8n.html",
-                featured: true
-            },
-            {
-                id: 2,
-                title: "10 Business Processes You Can Automate with AI Today",
-                excerpt: "Discover practical AI automation use cases that can save your business 20+ hours per week immediately.",
-                category: "GenAI Guide",
-                date: "Mar 10, 2026",
-                readTime: "12 min read",
-                tags: ["AI", "Business", "Automation"],
-                image: "assets/images/blog/ai-business.jpg",
-                url: "blog-posts/genai-business-automation.html",
-                featured: true
-            },
-            {
-                id: 3,
-                title: "Advanced n8n Workflow Error Handling & Monitoring",
-                excerpt: "Learn professional techniques for error handling, logging, and monitoring in production n8n workflows.",
-                category: "n8n Tutorial",
-                date: "Mar 5, 2026",
-                readTime: "10 min read",
-                tags: ["n8n", "Advanced", "Monitoring"],
-                image: "assets/images/blog/n8n-error.jpg",
-                url: "blog-posts/workflow-error-handling.html",
-                featured: false
-            },
-            {
-                id: 4,
-                title: "Integrating ChatGPT with Google Sheets via n8n",
-                excerpt: "Step-by-step guide to connect ChatGPT with Google Sheets for automated data processing and analysis.",
-                category: "Integration",
-                date: "Feb 28, 2026",
-                readTime: "9 min read",
-                tags: ["ChatGPT", "Google Sheets", "Integration"],
-                image: "assets/images/blog/chatgpt-sheets.jpg",
-                url: "blog-posts/chatgpt-google-sheets.html",
-                featured: false
-            },
-            {
-                id: 5,
-                title: "E-commerce Automation Case Study: Saving 40 Hours Weekly",
-                excerpt: "How we automated order processing for an e-commerce business, saving 40+ hours weekly.",
-                category: "Case Study",
-                date: "Feb 20, 2026",
-                readTime: "15 min read",
-                tags: ["Case Study", "E-commerce", "Automation"],
-                image: "assets/images/blog/ecommerce-case.jpg",
-                url: "blog-posts/ecommerce-automation.html",
-                featured: false
-            },
-            {
-                id: 6,
-                title: "Building Custom AI Models for Business Automation",
-                excerpt: "Guide to training and deploying custom AI models for specific business automation tasks.",
-                category: "GenAI Guide",
-                date: "Feb 15, 2026",
-                readTime: "14 min read",
-                tags: ["AI Models", "Custom", "Training"],
-                image: "assets/images/blog/custom-ai.jpg",
-                url: "blog-posts/custom-ai-models.html",
-                featured: false
-            }
+        window.blogPosts = [
+            { id: 1, title: "Getting Started with n8n: Complete Beginner's Guide", excerpt: "Set up your first n8n workflow, connect apps, and automate tasks without code.", category: "n8n Tutorial", date: "Mar 15, 2026", readTime: "8 min read", tags: ["n8n", "Beginner"], url: "blog-posts/getting-started-with-n8n.html", featured: true },
+            { id: 2, title: "10 Business Processes You Can Automate with AI Today", excerpt: "Practical AI automation use cases that can save 20+ hours per week.", category: "GenAI", date: "Mar 10, 2026", readTime: "12 min read", tags: ["AI", "Business"], url: "blog-posts/genai-business-automation.html", featured: true },
+            { id: 3, title: "Workflow Automation Best Practices in n8n", excerpt: "Error handling, logging, and monitoring for production n8n workflows.", category: "n8n", date: "Mar 5, 2026", readTime: "10 min read", tags: ["n8n", "Advanced"], url: "blog-posts/workflow-automation-best-practices.html", featured: false }
         ];
     </script>
+    <script src="js/blog.js"></script>
+    <script src="js/animations.js"></script>
 </body>
 </html>

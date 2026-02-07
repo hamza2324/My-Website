@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 80" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="hjGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e11d48"/>
+      <stop offset="100%" style="stop-color:#be123c"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="1" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- H -->
+  <path d="M8 8v64h14V44h36v28h14V8H62v28H26V8H8z" fill="url(#hjGrad)" filter="url(#glow)"/>
+  <!-- J with robot head -->
+  <circle cx="128" cy="24" r="18" fill="url(#hjGrad)" filter="url(#glow)"/>
+  <circle cx="124" cy="20" r="4" fill="#fff"/>
+  <circle cx="132" cy="20" r="4" fill="#fff"/>
+  <rect x="120" y="38" width="16" height="4" rx="2" fill="url(#hjGrad)"/>
+  <path d="M108 42v26c0 6 8 12 20 12s20-6 20-12V42" stroke="url(#hjGrad)" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M128 8v6" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+</svg>
