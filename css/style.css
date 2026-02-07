@@ -327,10 +327,16 @@ a {
     transition: var(--transition-normal);
     display: flex;
     flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 .mobile-menu.active {
     right: 0;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .mobile-menu-header {
@@ -2689,6 +2695,8 @@ a {
     border-radius: 28px;
     position: relative;
     overflow: hidden;
+    isolation: isolate;
+    color: var(--color-text);
     border: 1px solid rgba(225, 29, 72, 0.18);
     box-shadow: 0 24px 50px rgba(15, 23, 42, 0.12);
 }
