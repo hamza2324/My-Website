@@ -80,6 +80,11 @@
         grid-template-columns: 1fr;
     }
 
+    .page-banner {
+        max-width: 960px;
+        padding: 3.75rem 2rem;
+    }
+
     .post-content-wrapper {
         grid-template-columns: 1fr;
     }
@@ -204,6 +209,34 @@
         flex-direction: column;
         gap: var(--space-md);
     }
+
+    .hero-orbits,
+    .hero-grid,
+    .hero-particles {
+        opacity: 0.6;
+    }
+
+    .hero-orbit.orbit-3 {
+        display: none;
+    }
+
+    .blog-hero-title,
+    .about-hero-title,
+    .services-hero-title,
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .blog-hero-description,
+    .about-hero-description,
+    .services-hero-description,
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .banner-brand {
+        margin-bottom: 0.75rem;
+    }
     
     .post-navigation {
         flex-direction: column;
@@ -314,6 +347,17 @@
     
     .team-grid {
         grid-template-columns: 1fr;
+    }
+
+    .page-banner {
+        padding: 2.5rem 1.25rem;
+        border-radius: 20px;
+    }
+
+    .hero-orbits,
+    .hero-grid,
+    .hero-particles {
+        display: none;
     }
 }
 
