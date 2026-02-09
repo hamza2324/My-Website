@@ -1,345 +1,323 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-K7RZ77Q0G7"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-3311QHJ556');
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HJ Ai Automation Agency | Blog, Education &amp; Free Resources</title>
-    <meta name="description" content="HJ Ai Automation Agency — Learn AI automation, n8n, and GenAI through free tutorials, blog posts, and resources. Education-first. Automation services coming soon.">
-    <meta name="keywords" content="HJ Ai automation, n8n tutorials, GenAI guides, automation blog, free automation resources, AI education">
-    <meta name="author" content="HJ Ai Automation Agency">
-    <meta name="robots" content="index, follow">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="HJ Ai Automation Agency | Blog, Education &amp; Resources">
-    <meta property="og:description" content="Learn AI automation with free tutorials, blog posts, and resources. Education-first.">
-    <meta property="og:url" content="https://hamzajadoon.cloud">
-    <meta property="og:image" content="https://hamzajadoon.cloud/assets/images/og-image.jpg">
-    <link rel="canonical" href="https://hamzajadoon.cloud">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="icon" type="image/svg+xml" href="assets/images/logo-hj.svg">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HJ Automations - n8n + GenAI Automation Agency</title>
+  <meta name="robots" content="index,follow" />
+  <meta name="description" content="Premium n8n + GenAI automation agency delivering measurable ROI. Strategy, build, deployment, and optimization." />
+  <meta property="og:title" content="HJ Automations" />
+  <meta property="og:description" content="Premium n8n + GenAI automation agency delivering measurable ROI. Strategy, build, deployment, and optimization." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
-<body class="is-home">
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo logo-hj">
-                <img src="assets/images/logo-hj.svg" alt="HJ Ai Automation Agency" class="logo-img">
-                <span class="logo-text">
-                    <span class="logo-main">HJ Ai</span>
-                    <span class="logo-sub">automation agency</span>
-                </span>
-            </a>
-            <div class="nav-links">
-                <a href="index.html" class="nav-link active"><i class="fas fa-home"></i> Home</a>
-                <a href="blog.html" class="nav-link"><i class="fas fa-blog"></i> Blog</a>
-                <a href="about.html" class="nav-link"><i class="fas fa-info-circle"></i> About</a>
-                <a href="contact.html" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
-                <a href="services.html" class="nav-link nav-link-coming"><i class="fas fa-cogs"></i> Services <span class="coming-badge">Soon</span></a>
-            </div>
-            <div class="nav-actions">
-                <button class="nav-cta" onclick="window.location.href='contact.html'">
-                    <i class="fas fa-paper-plane"></i> Contact
-                </button>
-                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
-                    <span class="hamburger"></span>
-                    <span class="hamburger"></span>
-                    <span class="hamburger"></span>
-                </button>
-            </div>
-        </div>
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="mobile-menu-header">
-                <span>Menu</span>
-                <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="mobile-menu-links">
-                <a href="index.html" class="mobile-link active"><i class="fas fa-home"></i> Home</a>
-                <a href="blog.html" class="mobile-link"><i class="fas fa-blog"></i> Blog</a>
-                <a href="about.html" class="mobile-link"><i class="fas fa-info-circle"></i> About</a>
-                <a href="contact.html" class="mobile-link"><i class="fas fa-envelope"></i> Contact</a>
-                <a href="services.html" class="mobile-link"><i class="fas fa-cogs"></i> Services (Coming Soon)</a>
-            </div>
-            <button class="mobile-cta" onclick="window.location.href='contact.html'">Contact Us</button>
-        </div>
-    </nav>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-mark">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="hjg" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#ff4d5a" />
+                <stop offset="0.5" stop-color="#ff6b6b" />
+                <stop offset="1" stop-color="#ff9a8b" />
+              </linearGradient>
+            </defs>
+            <rect x="1.5" y="1.5" width="25" height="25" rx="8" stroke="url(#hjg)" stroke-width="2" />
+            <path d="M8 19V9H10.6V12.8H16.2V9H18.8V19H16.2V14.9H10.6V19H8Z" fill="url(#hjg)" />
+          </svg>
+        </span>
+        <span class="logo-text">HJ Automations</span>
+      </a>
+      <button class="nav-toggle" data-nav-toggle aria-label="Open menu"><span></span><span></span><span></span></button>
+      <div class="nav-links">
+        <a class="active" href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="about.html">About</a>
+        <a href="blog/index.html">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <a class="btn" href="contact.html">Book Strategy Call</a>
+    </div>
+  </nav>
 
-    <section class="hero hero-advanced" id="hero">
-        <div class="hero-bg-moving" aria-hidden="true">
-            <div class="hero-mesh"></div>
-            <div class="hero-gradient-orb hero-orb-1"></div>
-            <div class="hero-gradient-orb hero-orb-2"></div>
-            <div class="hero-gradient-orb hero-orb-3"></div>
-            <div class="hero-grid-pattern"></div>
+  <header class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <h1>HJ Automations - GenAI + n8n systems that scale revenue</h1>
+        <p>High-performance automation and AI workflows that eliminate manual ops, improve speed, and create measurable ROI. Built like a premium product.</p>
+        <div class="hero-cta">
+          <a class="btn" href="services.html">Start a Project</a>
+          <a class="btn btn-ghost" href="resources.html">Get Free Templates</a>
         </div>
-        <div class="hero-inner">
-            <div class="hero-content hero-content-centered">
-                <div class="hero-brand-block">
-                    <img src="assets/images/logo-hj.svg" alt="HJ" class="hero-logo-large">
-                    <div class="banner-brand">HJ Ai Automation Agency</div>
-                    <h1 class="hero-title-single">
-                        <span class="title-brand">HJ Ai</span>
-                        <span class="title-rest">automation agency</span>
-                    </h1>
-                    <p class="hero-tagline">Education first. Learn automation. Free resources for everyone.</p>
-                </div>
-                <div class="hero-workflow">
-                    <div class="workflow-step"><span class="workflow-icon"><i class="fas fa-book-open"></i></span><span class="workflow-label">Learn</span></div>
-                    <div class="workflow-arrow"><i class="fas fa-chevron-right"></i></div>
-                    <div class="workflow-step"><span class="workflow-icon"><i class="fas fa-lightbulb"></i></span><span class="workflow-label">Build</span></div>
-                    <div class="workflow-arrow"><i class="fas fa-chevron-right"></i></div>
-                    <div class="workflow-step"><span class="workflow-icon"><i class="fas fa-rocket"></i></span><span class="workflow-label">Automate</span></div>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat-item"><div class="stat-number" data-count="3">0</div><div class="stat-label">Articles</div></div>
-                    <div class="stat-item"><div class="stat-number" data-count="100">0</div><div class="stat-label">% Free</div></div>
-                    <div class="stat-item"><div class="stat-number" data-count="1">0</div><div class="stat-label">Mission</div></div>
-                </div>
-                <div class="hero-actions">
-                    <a href="blog.html" class="hero-cta primary"><i class="fas fa-book-open"></i> Read the Blog</a>
-                    <a href="contact.html" class="hero-cta secondary"><i class="fas fa-envelope"></i> Contact</a>
-                </div>
-            </div>
-            <div class="hero-robots">
-                <div class="robot-scene">
-                    <div class="robot-big robot-1" aria-hidden="true"><div class="robot-body"><i class="fas fa-robot"></i></div><div class="robot-nut"></div></div>
-                    <div class="robot-big robot-2" aria-hidden="true"><div class="robot-body"><i class="fas fa-robot"></i></div><div class="robot-nut robot-nut-2"></div></div>
-                    <div class="robot-big robot-3" aria-hidden="true"><div class="robot-body"><i class="fas fa-cogs"></i></div><div class="robot-nut"></div></div>
-                </div>
-            </div>
-            <a href="#focus" class="hero-scroll"><div class="scroll-indicator"><div class="scroll-dot"></div></div><span>Explore</span></a>
+        <div class="badges">
+          <span class="badge">Automation Studio</span>
+          <span class="badge">GenAI Agents</span>
+          <span class="badge">ROI-First Delivery</span>
         </div>
-    </section>
+      </div>
+      <div class="hero-card">
+        <div class="roi-panel">
+          <h3>ROI Calculator</h3>
+          <p>Click to calculate monthly savings.</p>
+          <form class="form" data-roi-form>
+            <label>Manual hours per week
+              <input type="number" name="hours" value="12" />
+            </label>
+            <label>Hourly cost ($)
+              <input type="number" name="rate" value="40" />
+            </label>
+            <label>Weeks per month
+              <input type="number" name="weeks" value="4" />
+            </label>
+            <button class="btn btn-ghost" type="button" data-roi-calc>Calculate Savings</button>
+            <div class="roi-output">
+              <strong>Estimated savings:</strong>
+              <div style="font-size: 24px; margin-top: 4px;" data-roi-output>$1,920</div>
+            </div>
+            <div class="roi-chart" aria-hidden="true">
+              <span style="height: 38%"></span>
+              <span style="height: 62%"></span>
+              <span style="height: 78%"></span>
+              <span style="height: 92%"></span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    <section class="focus-section" id="focus">
-        <div class="section-header">
-            <span class="section-label">What we do</span>
-            <h2 class="section-title">Blog, Education &amp; Resources</h2>
-            <p class="section-description">We focus on teaching AI automation through articles, tutorials, and free resources. No paywall — learn at your own pace.</p>
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Automation Solutions</h2>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v10H4z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 7v10M16 7v10" stroke="currentColor" stroke-width="1.6"/></svg>
+          </div>
+          <h3>Automation Studio</h3>
+          <p>Custom n8n workflows built for scale with reliability, monitoring, and clean architecture.</p>
+          <a href="services.html">Learn More</a>
         </div>
-        <div class="focus-grid">
-            <article class="focus-card" data-reveal>
-                <div class="focus-card-icon"><i class="fas fa-blog"></i></div>
-                <h3>Blog &amp; Articles</h3>
-                <p>n8n guides, GenAI tutorials, automation best practices, and real-world tips.</p>
-                <a href="blog.html" class="focus-link">Browse Blog <i class="fas fa-arrow-right"></i></a>
-            </article>
-            <article class="focus-card featured" data-reveal>
-                <div class="focus-card-icon"><i class="fas fa-graduation-cap"></i></div>
-                <h3>Education</h3>
-                <p>Step-by-step tutorials and learning paths so you can build automation yourself.</p>
-                <a href="blog.html" class="focus-link">Start Learning <i class="fas fa-arrow-right"></i></a>
-            </article>
-            <article class="focus-card" data-reveal>
-                <div class="focus-card-icon"><i class="fas fa-folder-open"></i></div>
-                <h3>Free Resources</h3>
-                <p>Templates, checklists, and tools to speed up your automation journey.</p>
-                <a href="blog.html" class="focus-link">Get Resources <i class="fas fa-arrow-right"></i></a>
-            </article>
+        <div class="card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l3 5h5l-4 4 2 6-6-3-6 3 2-6-4-4h5z" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          </div>
+          <h3>GenAI Agents</h3>
+          <p>Intelligent assistants for summarization, classification, and decisioning.</p>
+          <a href="services.html">Learn More</a>
         </div>
-        <div class="coming-soon-block">
-            <div class="coming-soon-card">
-                <span class="coming-soon-badge">Coming in 1 month</span>
-                <h3>Automation Services</h3>
-                <p>Custom n8n workflows, GenAI integration, and automation consulting will be available soon. Until then, use our blog and resources to learn.</p>
-                <a href="contact.html" class="coming-soon-cta">Notify me when ready</a>
-            </div>
+        <div class="card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h6l2-4 2 8 2-4h4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          </div>
+          <h3>ROI-First Delivery</h3>
+          <p>Every system targets measurable savings and revenue gains.</p>
+          <a href="services.html">Learn More</a>
         </div>
-    </section>
+        <div class="card">
+          <div class="icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14v10H5z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8 10h8M8 14h5" stroke="currentColor" stroke-width="1.6"/></svg>
+          </div>
+          <h3>Custom Workflow Development</h3>
+          <p>Complex integrations across CRM, databases, and operations tools.</p>
+          <a href="services.html">Learn More</a>
+        </div>
+      </div>
+      <div class="art-illus"><svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg"><rect width="360" height="200" rx="18" fill="#111625"/><rect x="30" y="50" width="90" height="40" rx="8" fill="#ff4d5a"/><rect x="140" y="50" width="90" height="40" rx="8" fill="#ff6b6b"/><rect x="250" y="50" width="80" height="40" rx="8" fill="#ff9a8b"/><path d="M120 70 H140" stroke="#ff9a8b" stroke-width="3"/><path d="M230 70 H250" stroke="#ff9a8b" stroke-width="3"/><rect x="80" y="120" width="200" height="40" rx="12" fill="#0b0d12" stroke="#ff6b6b" stroke-width="2"/><text x="95" y="145" fill="#e5e7eb" font-size="12">Ingest • Transform • Deploy</text></svg></div>
+      <div class="art-illus"><svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg"><rect width="360" height="200" rx="18" fill="#111625"/><circle cx="80" cy="90" r="32" fill="#ff4d5a"/><circle cx="160" cy="90" r="32" fill="#ff6b6b"/><circle cx="240" cy="90" r="32" fill="#ff9a8b"/><path d="M112 90 H128" stroke="#e5e7eb" stroke-width="3"/><path d="M192 90 H208" stroke="#e5e7eb" stroke-width="3"/><text x="80" y="94" fill="#0b0d12" font-size="11" text-anchor="middle">AI</text><text x="160" y="94" fill="#0b0d12" font-size="11" text-anchor="middle">Logic</text><text x="240" y="94" fill="#0b0d12" font-size="11" text-anchor="middle">Ops</text><rect x="60" y="140" width="240" height="30" rx="10" fill="#0b0d12" stroke="#ff6b6b"/><text x="90" y="160" fill="#e5e7eb" font-size="12">AI • Logic • Automation</text></svg></div>
+      <div class="art-illus"><svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg"><rect width="360" height="200" rx="18" fill="#111625"/><rect x="20" y="40" width="120" height="50" rx="10" fill="#ff4d5a"/><rect x="170" y="40" width="160" height="50" rx="10" fill="#ff6b6b"/><rect x="90" y="120" width="180" height="40" rx="10" fill="#0b0d12" stroke="#ff9a8b"/><text x="60" y="75" fill="#0b0d12" font-size="12">Webhook</text><text x="195" y="75" fill="#0b0d12" font-size="12">GenAI</text><text x="120" y="145" fill="#e5e7eb" font-size="12">CRM + Alerts</text></svg></div>
+    </div>
+  </section>
 
-    <section class="expertise-section">
-        <div class="section-header">
-            <span class="section-label">Expertise</span>
-            <h2 class="section-title">What We Cover: n8n, GenAI &amp; Automation</h2>
-            <p class="section-description">As a GenAI and n8n automation expert, we create content that helps you build workflows, integrate AI, and automate real business processes.</p>
-        </div>
-        <div class="expertise-graph-wrap">
-            <div class="expertise-graph">
-                <div class="graph-bar-wrap">
-                    <span class="graph-label">n8n Workflows</span>
-                    <div class="graph-bar-bg"><div class="graph-bar-fill" data-pct="95" style="width:95%"></div></div>
-                    <span class="graph-pct">95%</span>
-                </div>
-                <div class="graph-bar-wrap">
-                    <span class="graph-label">GenAI / LLM Integration</span>
-                    <div class="graph-bar-bg"><div class="graph-bar-fill" data-pct="90" style="width:90%"></div></div>
-                    <span class="graph-pct">90%</span>
-                </div>
-                <div class="graph-bar-wrap">
-                    <span class="graph-label">Business Process Automation</span>
-                    <div class="graph-bar-bg"><div class="graph-bar-fill" data-pct="88" style="width:88%"></div></div>
-                    <span class="graph-pct">88%</span>
-                </div>
-                <div class="graph-bar-wrap">
-                    <span class="graph-label">API &amp; Integrations</span>
-                    <div class="graph-bar-bg"><div class="graph-bar-fill" data-pct="92" style="width:92%"></div></div>
-                    <span class="graph-pct">92%</span>
-                </div>
-            </div>
-        </div>
-        <div class="expertise-detail">
-            <p><strong>n8n</strong> is a workflow automation tool that connects your apps and services without code. We write guides on triggers, nodes, error handling, and production best practices.</p>
-            <p><strong>GenAI</strong> (generative AI) includes OpenAI, Claude, and other LLMs. We cover prompt engineering, AI-powered workflows, and embedding AI into your existing tools.</p>
-            <p><strong>Automation</strong> here means reducing manual work: data sync, lead handling, content pipelines, and reporting — all topics we explain step by step in the blog.</p>
-        </div>
-    </section>
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Agency Delivery Flow</h2>
+        <p class="muted">A circular process built for speed, reliability, and ROI.</p>
+      </div>
+      <div class="flowchart">
+        <svg viewBox="0 0 520 320" role="img" aria-label="Circular delivery flowchart">
+          <defs>
+            <linearGradient id="flowRed" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#ff4d5a"/>
+              <stop offset="1" stop-color="#ff9a8b"/>
+            </linearGradient>
+          </defs>
+          <circle cx="260" cy="160" r="110" fill="none" stroke="rgba(255,255,255,0.14)" stroke-width="18"/>
+          <circle cx="260" cy="160" r="110" fill="none" stroke="url(#flowRed)" stroke-width="18" stroke-dasharray="520 220" stroke-linecap="round"/>
+          <g class="node">
+            <circle cx="260" cy="40" r="42" fill="#1b1f2e" stroke="#ff4d5a" stroke-width="2"/>
+            <text x="260" y="36">Discovery</text>
+            <text x="260" y="54" class="small">Audit</text>
+          </g>
+          <g class="node">
+            <circle cx="420" cy="160" r="42" fill="#1b1f2e" stroke="#ff6b6b" stroke-width="2"/>
+            <text x="420" y="156">Design</text>
+            <text x="420" y="174" class="small">Blueprint</text>
+          </g>
+          <g class="node">
+            <circle cx="260" cy="280" r="42" fill="#1b1f2e" stroke="#ff9a8b" stroke-width="2"/>
+            <text x="260" y="276">Build</text>
+            <text x="260" y="294" class="small">Test</text>
+          </g>
+          <g class="node">
+            <circle cx="100" cy="160" r="42" fill="#1b1f2e" stroke="#ff6b6b" stroke-width="2"/>
+            <text x="100" y="156">Deploy</text>
+            <text x="100" y="174" class="small">Scale</text>
+          </g>
+          <text x="260" y="165" class="center-title">ROI Loop</text>
+        </svg>
+      </div>
+    </div>
+  </section>
 
-    <section class="blog-preview" id="blog">
-        <div class="section-header">
-            <span class="section-label">Articles</span>
-            <h2 class="section-title">Read the Blog</h2>
-            <p class="section-description">Click an article below to read full guides on n8n, GenAI, and automation.</p>
-        </div>
-        <div class="blog-grid blog-grid-scalable blog-grid-centered">
-            <article class="blog-card blog-card-clickable" data-reveal>
-                <a href="blog-posts/getting-started-with-n8n.html" class="blog-card-link">
-                    <span class="pointer-hint"><i class="fas fa-hand-pointer"></i> Click to read</span>
-                    <div class="blog-card-header">
-                        <span class="blog-category">n8n Tutorial</span>
-                        <span class="blog-date">Mar 15, 2026</span>
-                    </div>
-                    <h3 class="blog-title">Getting Started with n8n: Complete Beginner's Guide</h3>
-                    <p class="blog-excerpt">Set up your first n8n workflow, connect apps, and automate tasks without code.</p>
-                    <div class="blog-meta">
-                        <span class="read-time"><i class="far fa-clock"></i> 8 min read</span>
-                        <span class="blog-tags"><span class="tag">n8n</span><span class="tag">Beginner</span></span>
-                    </div>
-                    <span class="blog-link">Read Article <i class="fas fa-arrow-right"></i></span>
-                </a>
-            </article>
-            <article class="blog-card blog-card-clickable featured-post" data-reveal>
-                <a href="blog-posts/genai-business-automation.html" class="blog-card-link">
-                    <span class="pointer-hint"><i class="fas fa-hand-pointer"></i> Click to read</span>
-                    <div class="featured-label">Featured</div>
-                    <div class="blog-card-header">
-                        <span class="blog-category">GenAI</span>
-                        <span class="blog-date">Mar 10, 2026</span>
-                    </div>
-                    <h3 class="blog-title">10 Business Processes You Can Automate with AI Today</h3>
-                    <p class="blog-excerpt">Practical AI automation use cases that can save 20+ hours per week.</p>
-                    <div class="blog-meta">
-                        <span class="read-time"><i class="far fa-clock"></i> 12 min read</span>
-                        <span class="blog-tags"><span class="tag">AI</span><span class="tag">Business</span></span>
-                    </div>
-                    <span class="blog-link">Read Article <i class="fas fa-arrow-right"></i></span>
-                </a>
-            </article>
-            <article class="blog-card blog-card-clickable" data-reveal>
-                <a href="blog-posts/workflow-automation-best-practices.html" class="blog-card-link">
-                    <span class="pointer-hint"><i class="fas fa-hand-pointer"></i> Click to read</span>
-                    <div class="blog-card-header">
-                        <span class="blog-category">Best Practices</span>
-                        <span class="blog-date">Mar 5, 2026</span>
-                    </div>
-                    <h3 class="blog-title">Workflow Automation Best Practices in n8n</h3>
-                    <p class="blog-excerpt">Error handling, logging, and monitoring for production n8n workflows.</p>
-                    <div class="blog-meta">
-                        <span class="read-time"><i class="far fa-clock"></i> 10 min read</span>
-                        <span class="blog-tags"><span class="tag">n8n</span><span class="tag">Advanced</span></span>
-                    </div>
-                    <span class="blog-link">Read Article <i class="fas fa-arrow-right"></i></span>
-                </a>
-            </article>
-        </div>
-        <div class="blog-cta">
-            <a href="blog.html" class="view-all-blog"><i class="fas fa-book-open"></i> All Articles</a>
-        </div>
-    </section>
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Proven Process</h2>
+      </div>
+      <div class="timeline">
+        <div class="step"><strong>Discovery</strong><p>Audit workflows, identify bottlenecks and ROI targets.</p></div>
+        <div class="step"><strong>Design</strong><p>Architect scalable automations and AI components.</p></div>
+        <div class="step"><strong>Development</strong><p>Build, integrate, test, and deploy.</p></div>
+        <div class="step"><strong>Delivery & Support</strong><p>Optimize, monitor, and scale.</p></div>
+      </div>
+    </div>
+  </section>
 
-    <section class="cta-section">
-        <div class="cta-background" aria-hidden="true"><div class="cta-glow"></div><div class="cta-pattern"></div></div>
-        <div class="cta-content">
-            <h2 class="cta-title">Want to Learn or Get in Touch?</h2>
-            <p class="cta-description">Read our blog for n8n and GenAI guides, or contact us for questions and collaboration.</p>
-            <div class="cta-actions">
-                <a href="blog.html" class="cta-btn primary"><i class="fas fa-book-open"></i> Read Blog</a>
-                <a href="contact.html" class="cta-btn secondary"><i class="fas fa-paper-plane"></i> Contact</a>
-            </div>
-        </div>
-    </section>
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Automation Visuals</h2>
+        <p class="muted">Unique robot and workflow graphics for credibility.</p>
+      </div>
+      <div class="media">
+        <div class="art-illus"><svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg"><rect width="360" height="200" rx="18" fill="#111625"/><rect x="30" y="40" width="120" height="100" rx="16" fill="#0b0d12" stroke="#ff6b6b" stroke-width="2"/><circle cx="70" cy="85" r="12" fill="#ff4d5a"/><circle cx="110" cy="85" r="12" fill="#ff4d5a"/><rect x="70" y="110" width="50" height="8" rx="4" fill="#ff9a8b"/><rect x="170" y="55" width="160" height="30" rx="8" fill="#ff4d5a" opacity="0.25"/><rect x="170" y="95" width="120" height="20" rx="8" fill="#ff6b6b" opacity="0.2"/><text x="180" y="75" fill="#a8b3d1" font-size="12">AI Robot Node</text></svg></div>
+        <div class="art-illus"><svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg"><rect width="360" height="200" rx="18" fill="#111625"/><rect x="20" y="45" width="80" height="35" rx="8" fill="#ff4d5a"/><rect x="110" y="45" width="80" height="35" rx="8" fill="#ff6b6b"/><rect x="200" y="45" width="80" height="35" rx="8" fill="#ff9a8b"/><rect x="290" y="45" width="50" height="35" rx="8" fill="#ff6b6b" opacity="0.7"/><path d="M100 62 H110" stroke="#ff6b6b" stroke-width="3"/><path d="M190 62 H200" stroke="#ff6b6b" stroke-width="3"/><path d="M280 62 H290" stroke="#ff6b6b" stroke-width="3"/><text x="60" y="110" fill="#a8b3d1" font-size="12">Trigger</text><text x="150" y="110" fill="#a8b3d1" font-size="12">Enrich</text><text x="240" y="110" fill="#a8b3d1" font-size="12">GenAI</text><text x="300" y="110" fill="#a8b3d1" font-size="12">CRM</text></svg></div>
+        <div class="art-illus"><svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg"><rect width="360" height="200" rx="18" fill="#111625"/><circle cx="50" cy="100" r="14" fill="#ff4d5a"/><circle cx="130" cy="100" r="14" fill="#ff6b6b"/><circle cx="210" cy="100" r="14" fill="#ff9a8b"/><circle cx="290" cy="100" r="14" fill="#ff6b6b"/><path d="M64 100 H116" stroke="#ff6b6b" stroke-width="3"/><path d="M144 100 H196" stroke="#ff6b6b" stroke-width="3"/><path d="M224 100 H276" stroke="#ff6b6b" stroke-width="3"/><rect x="80" y="140" width="200" height="30" rx="10" fill="#0b0d12" stroke="#ff6b6b" stroke-width="2"/><text x="95" y="160" fill="#a8b3d1" font-size="12">Workflow Path</text></svg></div>
+        <div class="art-illus"><svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg"><rect width="360" height="200" rx="18" fill="#111625"/><rect x="28" y="36" width="120" height="50" rx="10" fill="#ff4d5a"/><rect x="28" y="110" width="120" height="50" rx="10" fill="#ff6b6b"/><rect x="200" y="70" width="130" height="60" rx="14" fill="#0b0d12" stroke="#ff9a8b" stroke-width="2"/><path d="M148 62 H200" stroke="#ff9a8b" stroke-width="3"/><path d="M148 136 H200" stroke="#ff9a8b" stroke-width="3"/><text x="55" y="66" fill="#0b0d12" font-size="12">Webhook</text><text x="60" y="140" fill="#0b0d12" font-size="12">Database</text><text x="220" y="104" fill="#a8b3d1" font-size="12">AI Router</text></svg></div>
+        <div class="art-illus"><svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg"><rect width="360" height="200" rx="18" fill="#111625"/><circle cx="60" cy="90" r="26" fill="#ff6b6b"/><rect x="110" y="60" width="90" height="60" rx="12" fill="#ff4d5a"/><rect x="220" y="60" width="110" height="60" rx="12" fill="#ff9a8b"/><path d="M86 90 H110" stroke="#ff9a8b" stroke-width="3"/><path d="M200 90 H220" stroke="#ff9a8b" stroke-width="3"/><rect x="60" y="140" width="240" height="30" rx="10" fill="#0b0d12" stroke="#ff6b6b" stroke-width="2"/><text x="70" y="160" fill="#a8b3d1" font-size="12">Lead Enrichment Pipeline</text></svg></div>
+        <div class="art-illus"><svg viewBox="0 0 360 200" xmlns="http://www.w3.org/2000/svg"><rect width="360" height="200" rx="18" fill="#111625"/><rect x="24" y="46" width="90" height="40" rx="8" fill="#ff9a8b"/><rect x="134" y="46" width="90" height="40" rx="8" fill="#ff6b6b"/><rect x="244" y="46" width="90" height="40" rx="8" fill="#ff4d5a"/><path d="M114 66 H134" stroke="#ff6b6b" stroke-width="3"/><path d="M224 66 H244" stroke="#ff6b6b" stroke-width="3"/><rect x="84" y="118" width="190" height="40" rx="12" fill="#0b0d12" stroke="#ff6b6b" stroke-width="2"/><text x="96" y="144" fill="#a8b3d1" font-size="12">Doc Summarizer + CRM</text></svg></div>
+      </div>
+    </div>
+  </section>
 
-    <footer class="footer" id="newsletter">
-        <div class="footer-content">
-            <div class="footer-main">
-                <div class="footer-brand">
-                    <a href="index.html" class="footer-logo">
-                        <img src="assets/images/logo-hj.svg" alt="HJ" class="footer-logo-img">
-                        <div class="logo-text">
-                            <span class="logo-main">HJ Ai</span>
-                            <span class="logo-sub">automation agency</span>
-                        </div>
-                    </a>
-                    <p class="footer-description">Education-first AI automation. Free blog, tutorials, and resources.</p>
-                    <div class="footer-social">
-                        <a href="https://www.linkedin.com/in/hamza-jadoon-6645a7259/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/hamza2324" class="social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-                        <a href="https://www.youtube.com/@TrendsWithHJ" class="social-link" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <div class="link-group">
-                        <h4 class="link-group-title">Content</h4>
-                        <a href="blog.html" class="footer-link">Blog</a>
-                        <a href="blog.html#tutorials" class="footer-link">Tutorials</a>
-                        <a href="about.html" class="footer-link">About</a>
-                        <a href="contact.html" class="footer-link">Contact</a>
-                    </div>
-                    <div class="link-group">
-                        <h4 class="link-group-title">Legal</h4>
-                        <a href="privacy.html" class="footer-link">Privacy Policy</a>
-                        <a href="terms.html" class="footer-link">Terms of Service</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-newsletter">
-                <h4 class="newsletter-title">Subscribe for New Posts &amp; Resources</h4>
-                <p class="newsletter-description">Get new articles and tutorials in your inbox. No spam. Unsubscribe anytime.</p>
-                <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/mpqjagyd" method="POST">
-                    <input type="hidden" name="_subject" value="Newsletter: New Subscriber - HJ Ai Automation Agency">
-                    <input type="hidden" name="_next" value="">
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Your email address" required>
-                        <button type="submit"><i class="fas fa-paper-plane"></i> Subscribe</button>
-                    </div>
-                    <p class="form-note">We'll send updates to your email. You'll get a notification when you subscribe.</p>
-                </form>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="footer-copyright">© 2026 HJ Ai Automation Agency. All rights reserved.</div>
-            <div class="footer-extra">
-                <a href="contact.html" class="footer-extra-link">Contact</a>
-                <span class="footer-separator">·</span>
-                <a href="privacy.html" class="footer-extra-link">Privacy</a>
-                <span class="footer-separator">·</span>
-                <a href="terms.html" class="footer-extra-link">Terms</a>
-            </div>
-        </div>
-    </footer>
+  <section class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Real Results for Real Businesses</h2>
+      </div>
+      <div class="card-grid">
+        <div class="card"><h3>Fintech Onboarding</h3><p>Automated KYC + CRM updates.</p><strong>61% faster onboarding</strong></div>
+        <div class="card"><h3>E-commerce Ops</h3><p>Order routing + inventory sync.</p><strong>200+ hours saved/month</strong></div>
+        <div class="card"><h3>Support Triage</h3><p>GenAI classification + routing.</p><strong>48% faster response</strong></div>
+      </div>
+      <div class="metric-grid">
+        <div class="metric"><strong data-count="150">0</strong><div>Workflows deployed</div></div>
+        <div class="metric"><strong data-count="2800">0</strong><div>Hours saved monthly</div></div>
+        <div class="metric"><strong data-count="42">0</strong><div>Systems integrated</div></div>
+      </div>
+    </div>
+  </section>
 
-    <script src="js/main.js"></script>
-    <script src="js/animations.js"></script>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "HJ Ai Automation Agency",
-        "url": "https://hamzajadoon.cloud",
-        "logo": "https://hamzajadoon.cloud/assets/images/logo-hj.svg",
-        "description": "Education-first AI automation. Free blog, tutorials, and resources on n8n and GenAI.",
-        "email": "hamzajadoon71@gmail.com"
-    }
-    </script>
+  <section class="section">
+    <div class="container">
+      <div class="section-title"><h2>What Our Clients Say</h2></div>
+      <div class="testimonials">
+        <div class="card"><strong>Sarah M.</strong><div class="muted">COO, Fintech</div><p>HJ Automations eliminated our manual pipeline. The ROI was immediate.</p><div class="star"></div></div>
+        <div class="card"><strong>James R.</strong><div class="muted">Head of Ops, Ecom</div><p>We automated order sync across 6 tools in weeks.</p><div class="star"></div></div>
+        <div class="card"><strong>Ali Z.</strong><div class="muted">CEO, SaaS</div><p>The GenAI agents cut support time in half.</p><div class="star"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title"><h2>Powered by Industry-Leading Tools</h2></div>
+      <div class="card-grid">
+        <div class="card">n8n</div><div class="card">OpenAI</div><div class="card">Make</div><div class="card">Zapier</div><div class="card">Airtable</div><div class="card">Slack</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title"><h2>Why HJ Automations</h2></div>
+      <div class="card-grid">
+        <div class="card">ROI-First Approach</div>
+        <div class="card">Premium Product Quality</div>
+        <div class="card">Expert GenAI Integration</div>
+        <div class="card">Scalable Systems</div>
+        <div class="card">Ongoing Support</div>
+        <div class="card">Fast Implementation</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-advanced">
+        <h2>Ready to Scale Your Business with Automation?</h2>
+        <p class="muted">Premium systems designed to automate, optimize, and transform your operations.</p>
+        <div class="hero-cta">
+          <a class="btn" href="contact.html">Book Your Free Strategy Call</a>
+          <a class="btn btn-ghost" href="resources.html">Download Free Resources</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-title"><h2>Frequently Asked Questions</h2></div>
+      <div class="card-grid">
+        <div class="faq-item"><button>How fast can you deploy <span>+</span></button><p>Most starter workflows launch in 10-14 days.</p></div>
+        <div class="faq-item"><button>Do you support teams post-launch <span>+</span></button><p>Yes, monitoring + continuous improvements are included.</p></div>
+        <div class="faq-item"><button>Can you integrate existing tools <span>+</span></button><p>Yes, we connect CRMs, databases, and internal systems.</p></div>
+        <div class="faq-item"><button>Is GenAI optional <span>+</span></button><p>Yes, we can build classic automation or AI-powered workflows.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div> <span data-year></span> HJ Automations. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="mailto:hamzajadoon71@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/hamza-jadoon-6645a7259/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href="https://www.facebook.com/profile.php?id=61587080711554" target="_blank" rel="noreferrer">Facebook</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="lightbox"><img alt="Preview" /></div>
+
+  <div class="chatbot-widget">
+    <button class="chatbot-button" data-chat-toggle>AI Assistant  Hamza Jadoon</button>
+    <div class="chatbot-panel">
+      <div class="chatbot-header">
+        <span>Hamza Jadoon  AI Assistant</span>
+        <button class="btn btn-ghost" data-chat-close type="button">Close</button>
+      </div>
+      <div class="chatbot-body" data-chat-body></div>
+      <form class="chatbot-input" data-chat-form>
+        <input type="text" data-chat-input placeholder="Ask about services, demos, or contact" />
+        <button class="btn" type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
+
