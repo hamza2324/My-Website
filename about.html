@@ -1,93 +1,61 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About - HJ Automations</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="index,follow" />
-  <meta property="og:title" content="HJ Automations" />
-  <meta property="og:type" content="website" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-
-  <meta name="description" content="About HJ Automations." />
+  <meta name="description" content="Learn why HJ Automations publishes AI and automation insights with a learning-in-public approach.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a class="logo" href="index.html">
-        <span class="logo-mark">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="hjg" x1="0" y1="0" x2="28" y2="28" gradientUnits="userSpaceOnUse">
-                <stop stop-color="#ff4d5a" />
-                <stop offset="0.5" stop-color="#ff6b6b" />
-                <stop offset="1" stop-color="#ff9a8b" />
-              </linearGradient>
-            </defs>
-            <rect x="1.5" y="1.5" width="25" height="25" rx="8" stroke="url(#hjg)" stroke-width="2" />
-            <path d="M8 19V9H10.6V12.8H16.2V9H18.8V19H16.2V14.9H10.6V19H8Z" fill="url(#hjg)" />
-          </svg>
-        </span>
-        <span class="logo-text">HJ Automations</span>
-      </a>
-      <button class="nav-toggle" data-nav-toggle aria-label="Open menu"><span></span><span></span><span></span></button>
-      <div class="nav-links">
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">HJ Automations</a>
+      <button class="menu-toggle" aria-label="Toggle menu">Menu</button>
+      <nav class="site-nav">
         <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a class="active" href="about.html">About</a>
         <a href="services.html">Services</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="about.html">About</a>
-        <a href="blog/index.html">Blog</a>
         <a href="contact.html">Contact</a>
-      </div>
-      <a class="btn" href="contact.html">Book Strategy Call</a>
+      </nav>
     </div>
-  </nav>
-
-  <section class="hero">
-    <div class="container hero-grid">
-      <div class="hero-copy">
-        <h1>Builder-first automation partner</h1>
-        <p>Hamza Jadoon  computer engineering student focused on GenAI, automation, and web development.</p>
-      </div>
-      <div class="hero-card"><div class="roi-panel"><h3>Focus Areas</h3><div class="roi-output"><strong>GenAI  n8n  Web</strong><span class="muted">Systems that scale revenue.</span></div></div></div>
-    </div>
-  </section>
-  <section class="section"><div class="container"><div class="card-grid">
-        <div class="card"><h3>Mission</h3><p>Create automation systems that feel like products.</p></div>
-        <div class="card"><h3>Execution</h3><p>Rapid delivery with a premium UX mindset.</p></div>
-        <div class="card"><h3>Results</h3><p>Every workflow maps to measurable ROI.</p></div>
-      </div></div></section>
-  <footer class="footer">
-    <div class="container">
-      <div> <span data-year></span> HJ Automations. All rights reserved.</div>
-      <div class="footer-links">
-        <a href="mailto:hamzajadoon71@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/in/hamza-jadoon-6645a7259/" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href="https://www.facebook.com/profile.php?id=61587080711554" target="_blank" rel="noreferrer">Facebook</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
+  </header>
+  <main class="section">
+    <div class="container content-page">
+      <h1>About HJ Automations</h1>
+      <div class="about-layout">
+        <div class="profile-photo" aria-label="Professional photo placeholder"></div>
+        <div>
+          <p>I built this platform to share practical AI and automation workflows that beginners and small teams can apply without heavy engineering overhead.</p>
+          <p>My approach is learning in public: I test tools, document wins and failures, and turn those lessons into straightforward guides.</p>
+          <h2>What You Can <span class="accent-text">Expect</span></h2>
+          <ul>
+            <li>Clear tutorials for AI and LLM workflows</li>
+            <li>Honest tool reviews with practical tradeoffs</li>
+            <li>Case studies for real business automation use cases</li>
+          </ul>
+          <h2><span class="accent-text">Expertise</span> Areas</h2>
+          <p>Prompt engineering, no-code/low-code automation, AI productivity systems, and content workflows for growing digital businesses.</p>
+          <p>Contact: <a href="mailto:hamzajadoon71@gmail.com">hamzajadoon71@gmail.com</a></p>
+        </div>
       </div>
     </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <section><h3>About</h3><p>Trusted AI and automation tutorials for real-world business outcomes.</p></section>
+      <section><h3>Quick Links</h3><a href="index.html">Home</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></section>
+      <section><h3>Categories</h3><a href="blog.html?category=AI%20Tools">AI Tools</a><a href="blog.html?category=LLM%20Guides">LLM Guides</a></section>
+      <section><h3>Newsletter</h3><form class="newsletter-form" data-form="newsletter"><input type="email" name="email" placeholder="Email address" required><button class="btn btn-primary" type="submit">Join</button></form></section>
+    </div>
+    <div class="container footer-bottom"><p>&copy; <span data-year></span> HJ Automations - AI & Automation Insights</p><nav><a href="privacy-policy.html">Privacy</a><a href="terms-of-service.html">Terms</a><a href="disclaimer.html">Disclaimer</a><a href="cookie-policy.html">Cookies</a><a href="https://www.facebook.com/profile.php?id=61588027225877" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.linkedin.com/company/111718821" target="_blank" rel="noopener noreferrer">LinkedIn</a></nav></div>
   </footer>
-
-  <div class="chatbot-widget">
-    <button class="chatbot-button" data-chat-toggle>AI Assistant  Hamza Jadoon</button>
-    <div class="chatbot-panel">
-      <div class="chatbot-header">
-        <span>Hamza Jadoon  AI Assistant</span>
-        <button class="btn btn-ghost" data-chat-close type="button">Close</button>
-      </div>
-      <div class="chatbot-body" data-chat-body></div>
-      <form class="chatbot-input" data-chat-form>
-        <input type="text" data-chat-input placeholder="Ask about services, demos, or contact" />
-        <button class="btn" type="submit">Send</button>
-      </form>
-    </div>
-  </div>
-
-  <script src="assets/js/main.js" defer></script>
+  <div id="cookie-banner" class="cookie-banner" hidden><p>This site uses cookies for analytics, personalization, and advertising compliance.</p><button class="btn btn-primary" id="accept-cookies">Accept</button></div>
+  <script src="assets/js/posts.js" defer></script>
+  <script src="assets/js/script.js" defer></script>
 </body>
 </html>
