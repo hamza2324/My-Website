@@ -8,6 +8,9 @@ on:
       - "scripts/build-posts.mjs"
       - ".github/workflows/auto-build-blogs.yml"
 
+permissions:
+  contents: write
+
 jobs:
   build-posts:
     if: github.actor != 'github-actions[bot]'
@@ -34,5 +37,6 @@ jobs:
             echo "No changes to commit"
           else
             git commit -m "chore: auto-generate posts and sitemap"
+            git pull --rebase origin main
             git push
           fi
