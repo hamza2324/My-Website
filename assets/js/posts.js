@@ -1,6 +1,23 @@
 const POSTS = [
   {
     "id": 1,
+    "title": "How AI Is Transforming Business Operations in 2026",
+    "slug": "ai-transforming-business-operations-2026",
+    "category": "Industry News",
+    "excerpt": "AI is reshaping business operations through automation, better decisions, and emerging autonomous agentic tools.",
+    "date": "2026-02-13",
+    "readTime": "7 min read",
+    "tags": [
+      "AI",
+      "Business Operations",
+      "Automation",
+      "Agentic AI"
+    ],
+    "image": "https://picsum.photos/seed/ai-business-ops-2026/1200/630",
+    "url": "posts/ai-transforming-business-operations-2026.html"
+  },
+  {
+    "id": 2,
     "title": "How to Automate Weekly Reporting with AI",
     "slug": "automate-weekly-reporting-with-ai",
     "category": "Automation Tutorials",
@@ -16,7 +33,7 @@ const POSTS = [
     "url": "posts/automate-weekly-reporting-with-ai.html"
   },
   {
-    "id": 2,
+    "id": 3,
     "title": "Best Free AI Tools for Research and Summaries",
     "slug": "best-free-ai-tools-research-summaries",
     "category": "AI Tools",
@@ -30,7 +47,7 @@ const POSTS = [
     "url": "posts/best-free-ai-tools-research-summaries.html"
   },
   {
-    "id": 3,
+    "id": 4,
     "title": "Top Prompt Templates for Sales Outreach",
     "slug": "prompt-templates-sales-outreach",
     "category": "LLM Guides",
@@ -45,7 +62,7 @@ const POSTS = [
     "url": "posts/prompt-templates-sales-outreach.html"
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "Case Study: Automating Client Onboarding End-to-End",
     "slug": "case-study-client-onboarding-automation",
     "category": "Case Studies",
@@ -59,7 +76,7 @@ const POSTS = [
     "url": "posts/case-study-client-onboarding-automation.html"
   },
   {
-    "id": 5,
+    "id": 6,
     "title": "What Is New in LLMs This Month",
     "slug": "latest-llm-updates-monthly",
     "category": "Industry News",
@@ -73,7 +90,7 @@ const POSTS = [
     "url": "posts/latest-llm-updates-monthly.html"
   },
   {
-    "id": 6,
+    "id": 7,
     "title": "Zapier vs Make in 2026: Which One Should You Choose?",
     "slug": "zapier-vs-make-2026",
     "category": "Automation Tutorials",
@@ -88,7 +105,7 @@ const POSTS = [
     "url": "posts/zapier-vs-make-2026.html"
   },
   {
-    "id": 7,
+    "id": 8,
     "title": "Build an LLM-Powered FAQ Assistant in 1 Hour",
     "slug": "build-llm-faq-assistant",
     "category": "LLM Guides",
@@ -103,7 +120,7 @@ const POSTS = [
     "url": "posts/build-llm-faq-assistant.html"
   },
   {
-    "id": 8,
+    "id": 9,
     "title": "Best AI Tools for Small Business Operations",
     "slug": "best-ai-tools-small-business-ops",
     "category": "AI Tools",
@@ -117,7 +134,7 @@ const POSTS = [
     "url": "posts/best-ai-tools-small-business-ops.html"
   },
   {
-    "id": 9,
+    "id": 10,
     "title": "I Automated My Content Pipeline for 30 Days: Results",
     "slug": "automated-content-pipeline-results",
     "category": "Case Studies",
@@ -132,7 +149,7 @@ const POSTS = [
     "url": "posts/automated-content-pipeline-results.html"
   },
   {
-    "id": 10,
+    "id": 11,
     "title": "AI Industry Weekly: Top Updates You Should Not Miss",
     "slug": "ai-industry-weekly-updates",
     "category": "Industry News",
@@ -146,7 +163,7 @@ const POSTS = [
     "url": "posts/ai-industry-weekly-updates.html"
   },
   {
-    "id": 11,
+    "id": 12,
     "title": "No-Code Automation with Make: A Step-by-Step Guide",
     "slug": "make-no-code-automation-guide",
     "category": "Automation Tutorials",
@@ -161,7 +178,7 @@ const POSTS = [
     "url": "posts/make-no-code-automation-guide.html"
   },
   {
-    "id": 12,
+    "id": 13,
     "title": "Prompt Engineering Tips for Business Teams",
     "slug": "prompt-engineering-business-teams",
     "category": "LLM Guides",
@@ -175,7 +192,7 @@ const POSTS = [
     "url": "posts/prompt-engineering-business-teams.html"
   },
   {
-    "id": 13,
+    "id": 14,
     "title": "15 Free AI Tools That Save 10+ Hours Per Week",
     "slug": "free-ai-tools-productivity",
     "category": "AI Tools",
@@ -190,7 +207,7 @@ const POSTS = [
     "url": "posts/free-ai-tools-productivity.html"
   },
   {
-    "id": 14,
+    "id": 15,
     "title": "How to Automate Email Workflows with ChatGPT and Zapier",
     "slug": "automate-email-chatgpt-zapier",
     "category": "Automation Tutorials",
@@ -205,7 +222,7 @@ const POSTS = [
     "url": "posts/automate-email-chatgpt-zapier.html"
   },
   {
-    "id": 15,
+    "id": 16,
     "title": "ChatGPT vs Claude vs Gemini: Best Assistant by Use Case",
     "slug": "chatgpt-vs-claude-vs-gemini",
     "category": "LLM Guides",
@@ -221,7 +238,7 @@ const POSTS = [
     "url": "posts/chatgpt-vs-claude-vs-gemini.html"
   },
   {
-    "id": 16,
+    "id": 17,
     "title": "The Complete Guide to AI Automation for Beginners in 2026",
     "slug": "ai-automation-guide-2026",
     "category": "Automation Tutorials",
