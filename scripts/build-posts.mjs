@@ -25,55 +25,94 @@ const STATIC_PAGES = [
 const DEFAULT_AUTHOR = "Hamza Jadoon";
 const DEFAULT_SITE_NAME = "HJ Automations";
 
-const IMAGE_PACKS = {
-  ai: {
-    hero: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80",
-    alt: "Futuristic AI circuitry and automation network",
-    inline: [
-      {
-        url: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1200&q=80",
-        alt: "Digital dashboard with AI analytics",
-        caption: "AI workflows move faster when reporting and execution are connected."
-      },
-      {
-        url: "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?w=1200&q=80",
-        alt: "Human and robot collaboration concept",
-        caption: "The strongest systems combine AI execution with human oversight."
-      }
-    ]
-  },
-  automation: {
-    hero: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&q=80",
-    alt: "Automation control panels and digital workflows",
-    inline: [
-      {
-        url: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&q=80",
-        alt: "Code editor and workflow scripting interface",
-        caption: "Reliable automation comes from repeatable process design, not one-off hacks."
-      },
-      {
-        url: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&q=80",
-        alt: "Team reviewing analytics dashboard",
-        caption: "Weekly review loops are where automation ROI becomes visible."
-      }
-    ]
-  },
-  llm: {
-    hero: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&q=80",
-    alt: "Abstract AI neural network visualization",
-    inline: [
-      {
-        url: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1200&q=80",
-        alt: "Modern workspace with AI data on screen",
-        caption: "LLM output quality improves when context and constraints are explicit."
-      },
-      {
-        url: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
-        alt: "Business intelligence graph screens",
-        caption: "Track outcomes, not just generation volume, when evaluating LLM systems."
-      }
-    ]
-  }
+function pexels(id, width = 1600) {
+  return `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${width}`;
+}
+
+const IMAGE_POOLS = {
+  ai: [
+    {
+      hero: { url: pexels(8386434), alt: "Neon AI circuitry and digital system map" },
+      inline: [
+        { url: pexels(3861969), alt: "Code and analytics view on monitor", caption: "Modern AI execution depends on clean data flow and observability." },
+        { url: pexels(6801648), alt: "Futuristic dashboard with visual signals", caption: "Operational visibility turns AI experiments into repeatable systems." }
+      ]
+    },
+    {
+      hero: { url: pexels(8728380), alt: "Abstract machine intelligence network pattern" },
+      inline: [
+        { url: pexels(8386422), alt: "Digital control center with live metrics", caption: "AI outcomes improve when teams track quality and cycle time continuously." },
+        { url: pexels(17489157), alt: "High-tech abstract blue network background", caption: "Workflow speed compounds when every process handoff is streamlined." }
+      ]
+    },
+    {
+      hero: { url: pexels(7567538), alt: "Autonomous technology concept in dark workspace" },
+      inline: [
+        { url: pexels(3861458), alt: "Developer workspace with multi-screen setup", caption: "Execution quality comes from strong prompts, context, and guardrails." },
+        { url: pexels(17483868), alt: "AI system visualization with layered data", caption: "The best teams treat AI as part of operations, not as isolated tooling." }
+      ]
+    }
+  ],
+  automation: [
+    {
+      hero: { url: pexels(5380664), alt: "Automation pipeline running across connected apps" },
+      inline: [
+        { url: pexels(546819), alt: "Hands on keyboard in software workflow", caption: "Reliable automation starts with clear process design." },
+        { url: pexels(577585), alt: "Team tracking KPIs on laptop dashboard", caption: "Weekly reporting systems should be measurable and easy to maintain." }
+      ]
+    },
+    {
+      hero: { url: pexels(4145190), alt: "Operations dashboard and automated alerts" },
+      inline: [
+        { url: pexels(325229), alt: "Developer reviewing workflow steps", caption: "Simple pipelines outperform complex flows when reliability matters." },
+        { url: pexels(1181675), alt: "Spreadsheet metrics and planning notes", caption: "Structured reporting helps teams make faster decisions." }
+      ]
+    },
+    {
+      hero: { url: pexels(2582937), alt: "Digital operations workspace with layered metrics" },
+      inline: [
+        { url: pexels(577210), alt: "Laptop view with analytics and process tools", caption: "Good automations reduce repetitive work without losing control." },
+        { url: pexels(935949), alt: "Task management and reporting workflow on desk", caption: "A lightweight review loop keeps automations aligned with outcomes." }
+      ]
+    },
+    {
+      hero: { url: pexels(3861969), alt: "Automation code pipeline and deployment dashboard" },
+      inline: [
+        { url: pexels(373543), alt: "Analytics report and planning sheet", caption: "Tracking changes weekly helps automation systems stay reliable." },
+        { url: pexels(6801648), alt: "Data network graph for operations monitoring", caption: "Operational telemetry is key for improving workflow performance." }
+      ]
+    },
+    {
+      hero: { url: pexels(8728380), alt: "Futuristic operations layer with AI-assisted controls" },
+      inline: [
+        { url: pexels(1181675), alt: "KPI spreadsheet and forecasting workspace", caption: "Reporting automation should surface decisions, not just summaries." },
+        { url: pexels(325229), alt: "Developer reviewing integration logic", caption: "Strong process boundaries reduce failure risk in automated flows." }
+      ]
+    }
+  ],
+  llm: [
+    {
+      hero: { url: pexels(7988079), alt: "Language model concept in dark abstract interface" },
+      inline: [
+        { url: pexels(8386435), alt: "Developer testing prompts in terminal environment", caption: "Prompt quality improves when tasks are constrained and explicit." },
+        { url: pexels(8297478), alt: "Digital assistant interface and context panels", caption: "LLM reliability depends on feedback loops and evaluation rules." }
+      ]
+    },
+    {
+      hero: { url: pexels(270404), alt: "AI-generated text workflow and interface blocks" },
+      inline: [
+        { url: pexels(373543), alt: "Data and text analysis view on laptop", caption: "Clear context windows reduce hallucinations and output drift." },
+        { url: pexels(5380650), alt: "Abstract neural network and data points", caption: "Model performance is strongest when measured against business KPIs." }
+      ]
+    },
+    {
+      hero: { url: pexels(3862132), alt: "Large model operations dashboard in dark mode" },
+      inline: [
+        { url: pexels(7988079), alt: "AI interface with layered prompt interactions", caption: "Reusable prompt patterns make LLM workflows easier to scale." },
+        { url: pexels(6801648), alt: "Technical analytics board with network graph", caption: "Instrumentation is essential for long-term LLM quality." }
+      ]
+    }
+  ]
 };
 
 function slugify(value) {
@@ -293,20 +332,38 @@ function buildKeywords(post) {
   return [...new Set(base.filter(Boolean))].join(", ");
 }
 
-function imagePackForPost(post) {
+function hashString(value) {
+  let hash = 0;
+  const input = String(value || "");
+  for (let i = 0; i < input.length; i += 1) {
+    hash = ((hash << 5) - hash) + input.charCodeAt(i);
+    hash |= 0;
+  }
+  return Math.abs(hash);
+}
+
+function imagePoolKeyForPost(post) {
   const text = `${post.title} ${post.category} ${(post.tags || []).join(" ")}`.toLowerCase();
-  if (text.includes("automation") || text.includes("workflow") || text.includes("report")) return IMAGE_PACKS.automation;
-  if (text.includes("llm") || text.includes("prompt") || text.includes("model")) return IMAGE_PACKS.llm;
-  return IMAGE_PACKS.ai;
+  if (text.includes("automation") || text.includes("workflow") || text.includes("report")) return "automation";
+  if (text.includes("llm") || text.includes("prompt") || text.includes("model")) return "llm";
+  return "ai";
+}
+
+function imagePoolForPost(post) {
+  return IMAGE_POOLS[imagePoolKeyForPost(post)];
 }
 
 function getPostImages(post) {
-  const pack = imagePackForPost(post);
-  const isUnsplash = /images\.unsplash\.com\/photo-/i.test(post.image || "");
+  const pool = imagePoolForPost(post);
+  const variantIndex = Number.isInteger(post.imageVariantIndex)
+    ? post.imageVariantIndex
+    : (hashString(post.slug || post.title) % pool.length);
+  const variant = pool[variantIndex % pool.length];
+  const isStockImage = /images\.pexels\.com\/photos\/|images\.unsplash\.com\/photo-/i.test(post.image || "");
   return {
-    hero: isUnsplash ? post.image : pack.hero,
-    heroAlt: post.imageAlt || pack.alt,
-    inline: pack.inline
+    hero: isStockImage ? post.image : variant.hero.url,
+    heroAlt: post.imageAlt || variant.hero.alt,
+    inline: variant.inline
   };
 }
 
@@ -358,13 +415,20 @@ function readMarkdownPosts() {
     .filter((file) => file.endsWith(".md"))
     .sort();
 
-  return files
+  const sorted = files
     .map((file) => {
       const raw = fs.readFileSync(path.join(SOURCE_MD_DIR, file), "utf8");
       return postMetaFromMarkdown(file, raw);
     })
-    .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .map((post, index) => ({ ...post, id: index + 1 }));
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+  const groupCounts = { ai: 0, automation: 0, llm: 0 };
+  return sorted.map((post, index) => {
+    const imagePoolKey = imagePoolKeyForPost(post);
+    const imageVariantIndex = groupCounts[imagePoolKey] % IMAGE_POOLS[imagePoolKey].length;
+    groupCounts[imagePoolKey] += 1;
+    return { ...post, id: index + 1, imagePoolKey, imageVariantIndex };
+  });
 }
 
 function buildFaq(post) {
@@ -886,7 +950,7 @@ function updateProgress() {
 document.addEventListener('scroll', updateProgress, { passive: true });
 updateProgress();
 
-const words = article.innerText.trim().split(/\s+/).filter(Boolean).length;
+const words = article.innerText.trim().split(/\\s+/).filter(Boolean).length;
 const readMins = Math.max(1, Math.ceil(words / 220));
 document.getElementById('read-time').textContent = readMins + ' min read';
 
@@ -918,7 +982,10 @@ function writePostPages(posts) {
 }
 
 function writeDataFiles(posts) {
-  const metadata = posts.map(({ contentHtml, ...rest }) => rest);
+  const metadata = posts.map(({ contentHtml, imagePoolKey, imageVariantIndex, ...rest }) => {
+    const selected = getPostImages({ ...rest, imagePoolKey, imageVariantIndex });
+    return { ...rest, image: selected.hero };
+  });
 
   fs.mkdirSync(path.dirname(OUTPUT_POSTS_JSON), { recursive: true });
   fs.mkdirSync(path.dirname(OUTPUT_ASSETS_JSON), { recursive: true });
