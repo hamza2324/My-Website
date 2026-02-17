@@ -1,0 +1,10 @@
+title: HJ Automations - AI & Automation Insights
+description: Practical AI and automation tutorials for real-world business outcomes
+url: "https://hamzajadoon.cloud"
+author: Hamza Jadoon
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+permalink: /:title/

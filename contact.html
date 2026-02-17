@@ -1,61 +1,101 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
-<head
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8887007438569081"
-     crossorigin="anonymous"></script>
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact - HJ Automations</title>
-  <meta name="description" content="Contact HJ Automations for questions, collaborations, and feedback about AI and automation content.">
+  <title>Contact | HJ Automations</title>
+  <meta name="description" content="Contact Hamza Jadoon for AI automation collaborations, consulting requests, and creator partnerships through HJ Automations.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <head
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8887007438569081"
-     crossorigin="anonymous"></script>
+  <header class="site-header" id="site-header">
     <div class="container nav-wrap">
-      <a class="brand" href="index.html">HJ Automations</a>
-      <button class="menu-toggle" aria-label="Toggle menu">Menu</button>
-      <nav class="site-nav">
-        <a href="index.html">Home</a>
-        <a href="blog.html">Blog</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a class="active" href="contact.html">Contact</a>
-      </nav>
+      <a class="brand" href="index.html" aria-label="HJ Automations home">
+        <span class="brand-mark">HJ</span>
+        <span class="brand-text">Automations</span>
+      </a>
+      <div class="nav-right">
+        <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a href="blog.html">Blog</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a class="active" href="contact.html">Contact</a>
+        </nav>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      </div>
     </div>
   </header>
+
   <main class="section">
-    <div class="container content-page">
-      <h1>Contact</h1>
-      <p class="lead">Response time: usually within 24-48 hours.</p>
-      <form class="contact-form" data-form="contact" action="https://formspree.io/f/mvzbzloa" method="POST">
-        <label>Name<input type="text" name="name" required></label>
-        <label>Email<input type="email" name="email" required></label>
-        <label>Message<textarea name="message" rows="6" required></textarea></label>
-        <input type="text" name="company_website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <input type="hidden" name="_subject" value="New Contact Message - HJ Automations">
-        <button class="btn btn-primary" type="submit">Send Message</button>
-        <p id="contact-status" class="form-status" role="status" aria-live="polite"></p>
+    <div class="contact-shell">
+      <h1 class="section-title" style="margin-top:0; text-align:center;">Contact</h1>
+      <p class="muted" style="text-align:center; margin-top:-6px;">Typical response time is within 24-48 hours.</p>
+      <form class="contact-card" action="https://formspree.io/f/mvzbzloa" method="POST">
+        <div class="form-group">
+          <label class="form-label" for="name">Name</label>
+          <input id="name" name="name" type="text" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input id="email" name="email" type="email" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">Project details</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit">Send Message</button>
+        </div>
       </form>
-      <p>Email: <a href="mailto:hamzajadoon71@gmail.com">hamzajadoon71@gmail.com</a></p>
-      <p>Social: <a href="https://www.facebook.com/profile.php?id=61588027225877" target="_blank" rel="noopener noreferrer">Facebook</a> | <a href="https://www.linkedin.com/company/111718821" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
     </div>
   </main>
+
   <footer class="site-footer">
     <div class="container footer-grid">
-      <section><h3>About</h3><p>Trusted AI and automation tutorials for real-world business outcomes.</p></section>
-      <section><h3>Quick Links</h3><a href="index.html">Home</a><a href="blog.html">Blog</a><a href="about.html">About</a></section>
-      <section><h3>Categories</h3><a href="blog.html?category=AI%20Tools">AI Tools</a><a href="blog.html?category=LLM%20Guides">LLM Guides</a></section>
-      <section><h3>Newsletter</h3><form class="newsletter-form" data-form="newsletter"><input type="email" name="email" placeholder="Email address" required><button class="btn btn-primary" type="submit">Join</button></form></section>
+      <section>
+        <h3 class="footer-title">HJ Automations</h3>
+        <p class="muted" style="margin:0;">Practical notes on AI systems, LLM execution, and workflow automation.</p>
+      </section>
+      <section>
+        <h3 class="footer-title">Quick Links</h3>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="index.html">Home</a>
+          <a href="blog.html">Blog</a>
+          <a href="about.html">About</a>
+        </nav>
+      </section>
+      <section>
+        <h3 class="footer-title">Social</h3>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/company/111718821" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=61588027225877" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="mailto:hamzajadoon71@gmail.com">Email</a>
+        </div>
+      </section>
     </div>
-    <div class="container footer-bottom"><p>&copy; <span data-year></span> HJ Automations - AI & Automation Insights</p><nav><a href="privacy-policy.html">Privacy</a><a href="terms-of-service.html">Terms</a><a href="disclaimer.html">Disclaimer</a><a href="cookie-policy.html">Cookies</a><a href="https://www.facebook.com/profile.php?id=61588027225877" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.linkedin.com/company/111718821" target="_blank" rel="noopener noreferrer">LinkedIn</a></nav></div>
+    <div class="container footer-bottom">&copy; <span id="year"></span> HJ Automations. All rights reserved.</div>
   </footer>
-  <div id="cookie-banner" class="cookie-banner" hidden><p>This site uses cookies for analytics, personalization, and advertising compliance.</p><button class="btn btn-primary" id="accept-cookies">Accept</button></div>
-  <script src="assets/js/posts.js" defer></script>
-  <script src="assets/js/script.js" defer></script>
+
+  <script>
+    const header = document.getElementById("site-header");
+    const nav = document.getElementById("site-nav");
+    const menuToggle = document.getElementById("menu-toggle");
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    menuToggle.addEventListener("click", () => {
+      const open = nav.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(open));
+    });
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 8) header.classList.add("is-scrolled");
+      else header.classList.remove("is-scrolled");
+    });
+  </script>
 </body>
 </html>

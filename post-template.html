@@ -1,0 +1,233 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Post Template | HJ Automations</title>
+  <meta name="description" content="Premium dark blog post template for HJ Automations with sticky table of contents, social share rail, and affiliate-ready content blocks.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html" aria-label="HJ Automations home">
+        <span class="brand-mark">HJ</span>
+        <span class="brand-text">Automations</span>
+      </a>
+      <div class="nav-right">
+        <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+          <a href="index.html">Home</a>
+          <a class="active" href="blog.html">Blog</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding:48px 0 84px;">
+    <div class="post-shell">
+      <aside class="toc-panel">
+        <nav class="toc" aria-label="Table of contents">
+          <p class="toc-title">Table of Contents</p>
+          <ul class="toc-list" id="toc-list"></ul>
+        </nav>
+      </aside>
+
+      <article class="post-main">
+        <nav class="crumbs" aria-label="Breadcrumb">Home / Blog / Post Title</nav>
+
+        <header class="post-header reveal">
+          <span class="badge">Automation</span>
+          <h1>How to Build Reliable Weekly Reporting Automations with n8n and LLMs</h1>
+          <div class="author-row">
+            <span class="avatar-circle" style="width:36px;height:36px;font-size:0.78rem;">HJ</span>
+            <span>Hamza Jadoon</span>
+            <span>&middot;</span>
+            <time datetime="2026-02-17">Feb 17, 2026</time>
+            <span>&middot;</span>
+            <span>8 min read</span>
+          </div>
+          <div class="share-row-mobile" id="share-row-mobile">
+            <button type="button" data-share="x" aria-label="Share on X">X</button>
+            <button type="button" data-share="linkedin" aria-label="Share on LinkedIn">in</button>
+            <button type="button" data-share="copy" aria-label="Copy link">&#128279;</button>
+          </div>
+          <p class="disclaimer">Some links in this post are affiliate links. I earn a small commission at no extra cost to you.</p>
+          <div class="post-hero-media" role="img" aria-label="Post hero placeholder">16:9 hero visual placeholder</div>
+        </header>
+
+        <div class="article-body" id="article-body">
+          <p>Automation becomes valuable when it is boringly reliable. If your reporting workflow fails once each week, trust drops quickly and teams return to manual work.</p>
+
+          <h2>Start with a fixed reporting outcome</h2>
+          <p>Define one repeatable output first, such as Monday KPI summaries. Keep the scope narrow to reduce failure points and make debugging faster.</p>
+
+          <h2>Design your workflow as modular steps</h2>
+          <p>Split the system into collection, enrichment, and delivery blocks. This way, each block can be tested independently and reused later.</p>
+          <blockquote>Workflow quality improves when each node has one clear responsibility.</blockquote>
+
+          <h2>Add LLM guardrails before production</h2>
+          <p>Use constrained prompts and strict formats so generated summaries stay predictable. For example, enforce JSON output and validate with a parser in n8n using <code>IF</code> and <code>Code</code> nodes.</p>
+
+          <div class="affiliate-box">
+            <h3>Recommended Tool: n8n Cloud</h3>
+            <p class="muted" style="margin:0 0 12px;">Best for composing multi-step AI workflows while keeping full control over branching logic.</p>
+            <a class="btn btn-primary" href="#" aria-label="Try n8n free">Try Free &#8594;</a>
+          </div>
+
+          <h2>Track reliability and iterate weekly</h2>
+          <p>Track delivery success rate, edit time saved, and stakeholder responses. Reliable metrics turn a one-off automation into an operating system.</p>
+
+          <h2>Build a simple fallback protocol</h2>
+          <p>When upstream sources fail, send a fallback summary that labels missing data and requests manual review. This keeps communication cadence intact.</p>
+        </div>
+
+        <section class="reveal" style="margin-top:42px;">
+          <p class="section-kicker">Related Posts</p>
+          <h2 class="section-title" style="margin-bottom:14px;">Keep Reading</h2>
+          <div class="related-grid" id="related-posts"></div>
+        </section>
+
+        <section class="newsletter newsletter-end reveal">
+          <h2 class="section-title" style="margin-top:0;">Weekly AI workflows, straight to your inbox</h2>
+          <p class="muted" style="margin:0;">No fluff. Just practical automation ideas, prompts, and tools.</p>
+          <form class="newsletter-form" action="https://formspree.io/f/mvzbzloa" method="POST">
+            <input class="input" type="email" name="email" placeholder="you@example.com" required aria-label="Email address">
+            <button class="btn btn-primary" type="submit">Subscribe</button>
+          </form>
+        </section>
+      </article>
+    </div>
+
+    <aside class="share-rail" id="share-rail" aria-label="Share article">
+      <button type="button" data-share="x" aria-label="Share on X">X</button>
+      <button type="button" data-share="linkedin" aria-label="Share on LinkedIn">in</button>
+      <button type="button" data-share="copy" aria-label="Copy link">&#128279;</button>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <section>
+        <h3 class="footer-title">HJ Automations</h3>
+        <p class="muted" style="margin:0;">Practical notes on AI systems, LLM execution, and workflow automation.</p>
+      </section>
+      <section>
+        <h3 class="footer-title">Quick Links</h3>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="index.html">Home</a>
+          <a href="blog.html">Blog</a>
+          <a href="about.html">About</a>
+        </nav>
+      </section>
+      <section>
+        <h3 class="footer-title">Social</h3>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/company/111718821" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=61588027225877" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="mailto:hamzajadoon71@gmail.com">Email</a>
+        </div>
+      </section>
+    </div>
+    <div class="container footer-bottom">&copy; <span id="year"></span> HJ Automations. All rights reserved.</div>
+  </footer>
+
+  <script>
+    const header = document.getElementById("site-header");
+    const nav = document.getElementById("site-nav");
+    const menuToggle = document.getElementById("menu-toggle");
+    const tocList = document.getElementById("toc-list");
+    const relatedPosts = document.getElementById("related-posts");
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    menuToggle.addEventListener("click", () => {
+      const open = nav.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(open));
+    });
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 8) header.classList.add("is-scrolled");
+      else header.classList.remove("is-scrolled");
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+
+    const headings = [...document.querySelectorAll("#article-body h2")];
+    const tocAnchors = [];
+
+    headings.forEach((heading, index) => {
+      const id = heading.id || `section-${index + 1}`;
+      heading.id = id;
+      const item = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = `#${id}`;
+      link.textContent = heading.textContent;
+      item.appendChild(link);
+      tocList.appendChild(item);
+      tocAnchors.push(link);
+    });
+
+    const tocObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        tocAnchors.forEach((link) => link.classList.remove("active"));
+        const active = tocAnchors.find((link) => link.getAttribute("href") === `#${entry.target.id}`);
+        if (active) active.classList.add("active");
+      });
+    }, { rootMargin: "-20% 0px -65% 0px", threshold: 0.1 });
+
+    headings.forEach((heading) => tocObserver.observe(heading));
+
+    function shareArticle(type) {
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.querySelector("h1").textContent);
+      if (type === "x") window.open(`https://twitter.com/intent/tweet?url=${url}&text=${title}`, "_blank", "noopener");
+      if (type === "linkedin") window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, "_blank", "noopener");
+      if (type === "copy") navigator.clipboard.writeText(window.location.href);
+    }
+
+    document.querySelectorAll("[data-share]").forEach((button) => {
+      button.addEventListener("click", () => shareArticle(button.dataset.share));
+    });
+
+    const formatDate = (date) => new Date(date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    const postHref = (post) => post.url || `posts/${post.slug}.html`;
+
+    fetch("posts/posts.json", { cache: "no-store" })
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to load posts/posts.json");
+        return res.json();
+      })
+      .then((posts) => {
+        const items = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 3);
+        relatedPosts.innerHTML = items.map((post) => `
+          <article class="card">
+            <span class="badge">${post.category}</span>
+            <h3 class="post-card-title"><a href="${postHref(post)}">${post.title}</a></h3>
+            <p class="post-card-excerpt">${post.excerpt}</p>
+            <div class="post-card-meta">
+              <span>${formatDate(post.date)} · ${post.readTime}</span>
+              <a class="accent-link" href="${postHref(post)}">Read &#8594;</a>
+            </div>
+          </article>
+        `).join("");
+      })
+      .catch(() => {
+        relatedPosts.innerHTML = "<p class='muted'>Unable to load related posts.</p>";
+      });
+  </script>
+</body>
+</html>
+

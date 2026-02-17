@@ -1,157 +1,91 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8887007438569081"
-     crossorigin="anonymous"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HJ Automations - AI & Automation Insights</title>
-  <meta name="description" content="Actionable AI, automation, and LLM guides for beginners and small businesses. Learn practical workflows and tools that save time.">
-  <meta name="theme-color" content="#1a365d">
-  <meta property="og:title" content="HJ Automations - AI & Automation Insights">
-  <meta property="og:description" content="Practical AI and automation tutorials, reviews, and case studies.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://hamzajadoon.cloud/">
-  <meta property="og:image" content="https://hamzajadoon.cloud/assets/img/og-default.jpg">
-  <meta name="twitter:card" content="summary_large_image">
+  <title>HJ Automations</title>
+  <meta name="description" content="Hamza Jadoon shares practical AI guides, automation workflows, and n8n experiments for creators and operators.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Open+Sans:wght@400;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "HJ Automations - AI & Automation Insights",
-    "url": "https://hamzajadoon.cloud",
-    "logo": "https://hamzajadoon.cloud/assets/img/logo.png",
-    "sameAs": [
-      "https://www.facebook.com/profile.php?id=61588027225877",
-      "https://www.linkedin.com/company/111718821"
-    ]
-  }
-  </script>
-  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header" id="site-header">
     <div class="container nav-wrap">
-      <a class="brand" href="index.html">HJ Automations</a>
-      <button class="menu-toggle" aria-label="Toggle menu">Menu</button>
-      <nav class="site-nav">
-        <a class="active" href="index.html">Home</a>
-        <a href="blog.html">Blog</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+      <a class="brand" href="index.html" aria-label="HJ Automations home">
+        <span class="brand-mark">HJ</span>
+        <span class="brand-text">Automations</span>
+      </a>
+      <div class="nav-right">
+        <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+          <a class="active" href="index.html">Home</a>
+          <a href="blog.html">Blog</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+      </div>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="hero-wave-cluster" aria-hidden="true">
-        <span class="wave wave-a"></span>
-        <span class="wave wave-b"></span>
-        <span class="wave wave-c"></span>
-        <span class="wave wave-d"></span>
+    <section class="hero reveal">
+      <div class="container hero-inner">
+        <p class="hero-badge">&#10022; AI &amp; Automation Creator</p>
+        <h1>I help you understand AI, build <span class="accent-gradient-text">automations</span>, and ship smarter workflows.</h1>
+        <p>Practical experiments, LLM guides, and n8n workflows - written by a student, tested in real projects.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="blog.html">Read the Blog</a>
+          <a class="btn btn-ghost" href="about.html">About Me</a>
+        </div>
+        <ul class="hero-stats" aria-label="Site highlights">
+          <li>20+ Articles</li>
+          <li>AI &amp; Automation</li>
+          <li>Est. 2025</li>
+        </ul>
       </div>
-      <div class="container hero-grid">
-        <div>
-          <p class="eyebrow">AI, GenAI, LLMs, Automation</p>
-          <h1 class="hero-title">HJ Automations - <span class="accent-text">GenAI + n8n systems</span> that scale revenue</h1>
-          <p class="lead">High-performance automation and AI workflows that eliminate manual ops, improve speed, and create measurable ROI. Built like a premium product.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="contact.html">Start a Project</a>
-            <a class="btn btn-outline" href="blog.html">Get Free Templates</a>
+    </section>
+
+    <section class="reveal" id="featured">
+      <div class="container">
+        <p class="section-kicker">Latest Writing</p>
+        <h2 class="section-title">Fresh from the blog</h2>
+        <div class="post-grid" id="featured-posts" aria-live="polite"></div>
+        <p style="margin-top:16px;"><a class="accent-link" href="blog.html">View all posts &#8594;</a></p>
+      </div>
+    </section>
+
+    <section class="reveal" id="about-strip">
+      <div class="container">
+        <div class="about-strip">
+          <div class="about-profile">
+            <div class="avatar-circle" aria-hidden="true">HJ</div>
+            <div>
+              <h2 style="margin:0 0 6px;font-size:1.2rem;font-weight:700;">Hamza Jadoon</h2>
+              <p class="muted" style="margin:0;max-width:42ch;">Student creator focused on AI, LLMs, and no-fluff automation systems that work in real operations.</p>
+            </div>
           </div>
-          <div class="hero-tags">
-            <span class="chip chip-static">Automation Studio</span>
-            <span class="chip chip-static">GenAI Agents</span>
-            <span class="chip chip-static">ROI-First Delivery</span>
+          <div class="about-stats" aria-label="Brand stats">
+            <div class="about-stat"><p class="about-stat-value" id="about-articles">20+</p><p class="muted" style="margin:0;">Articles</p></div>
+            <div class="about-stat"><p class="about-stat-value">2025</p><p class="muted" style="margin:0;">Started</p></div>
+            <div class="about-stat"><p class="about-stat-value">AI + Automation</p><p class="muted" style="margin:0;">Niche</p></div>
           </div>
         </div>
-        <aside class="hero-card">
-          <h2>ROI Calculator</h2>
-          <p>Click to calculate monthly savings.</p>
-          <form id="roi-form" class="roi-form">
-            <label>
-              Manual hours per week
-              <input type="number" name="hours" value="12" min="1" required>
-            </label>
-            <label>
-              Hourly cost ($)
-              <input type="number" name="cost" value="40" min="1" required>
-            </label>
-            <label>
-              Weeks per month
-              <input type="number" name="weeks" value="4" min="1" required>
-            </label>
-            <button class="btn btn-primary" type="submit">Calculate Savings</button>
+      </div>
+    </section>
+
+    <section class="reveal">
+      <div class="container">
+        <div class="newsletter">
+          <h2 class="section-title" style="margin-top:0;">Weekly AI workflows, straight to your inbox</h2>
+          <p class="muted" style="margin:0;">No fluff. Just practical automation ideas, prompts, and tools.</p>
+          <form class="newsletter-form" action="https://formspree.io/f/mvzbzloa" method="POST">
+            <input class="input" type="email" name="email" placeholder="you@example.com" required aria-label="Email address">
+            <button class="btn btn-primary" type="submit">Subscribe</button>
           </form>
-          <div class="roi-result">
-            <p>Estimated savings:</p>
-            <strong id="roi-output">$1,920</strong>
-          </div>
-          <div class="roi-bars" aria-hidden="true">
-            <span></span><span></span><span></span><span></span>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2><span class="accent-text">Featured</span> & Latest Posts</h2>
-          <a href="blog.html">View all posts</a>
         </div>
-        <div id="home-post-grid" class="post-grid"></div>
-      </div>
-    </section>
-
-    <section class="section section-alt">
-      <div class="container">
-        <h2>Explore <span class="accent-text">Categories</span></h2>
-        <div class="category-grid">
-          <a class="category-card" href="blog.html?category=AI%20Tools">AI Tools</a>
-          <a class="category-card" href="blog.html?category=LLM%20Guides">LLM Guides</a>
-          <a class="category-card" href="blog.html?category=Automation%20Tutorials">Automation Tutorials</a>
-          <a class="category-card" href="blog.html?category=Case%20Studies">Case Studies</a>
-          <a class="category-card" href="blog.html?category=Industry%20News">Industry News</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container newsletter-card">
-        <div>
-          <h2>Get Weekly <span class="accent-text">AI Workflow</span> Ideas</h2>
-          <p>One practical email per week with prompts, automation templates, and updates.</p>
-        </div>
-        <form class="newsletter-form" data-form="newsletter">
-          <input type="email" name="email" placeholder="you@example.com" required>
-          <button class="btn btn-primary" type="submit">Subscribe</button>
-        </form>
-      </div>
-    </section>
-
-    <section class="section section-alt">
-      <div class="container social-section">
-        <h2>Follow <span class="accent-text">HJ Automations</span></h2>
-        <p class="lead">Join our official pages for automation tips, case studies, and updates.</p>
-        <div class="social-links-grid">
-          <a class="social-link-card" href="https://www.facebook.com/profile.php?id=61588027225877" target="_blank" rel="noopener noreferrer">Facebook Page</a>
-          <a class="social-link-card" href="https://www.linkedin.com/company/111718821" target="_blank" rel="noopener noreferrer">LinkedIn Page</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-alt">
-      <div class="container about-preview">
-        <h2>About <span class="accent-text">HJ Automations</span></h2>
-        <p>I publish practical AI and automation content with a learning-in-public approach. The goal is simple: clear, tested workflows you can apply fast.</p>
-        <a class="btn btn-outline" href="about.html">Read Full Story</a>
       </div>
     </section>
   </main>
@@ -159,50 +93,82 @@
   <footer class="site-footer">
     <div class="container footer-grid">
       <section>
-        <h3>About</h3>
-        <p>Trusted AI and automation tutorials for real-world business outcomes.</p>
+        <h3 class="footer-title">HJ Automations</h3>
+        <p class="muted" style="margin:0;">Practical notes on AI systems, LLM execution, and workflow automation for creators and operators.</p>
       </section>
       <section>
-        <h3>Quick Links</h3>
-        <a href="index.html">Home</a>
-        <a href="blog.html">Blog</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
+        <h3 class="footer-title">Quick Links</h3>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="index.html">Home</a>
+          <a href="blog.html">Blog</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
       </section>
       <section>
-        <h3>Categories</h3>
-        <a href="blog.html?category=AI%20Tools">AI Tools</a>
-        <a href="blog.html?category=LLM%20Guides">LLM Guides</a>
-        <a href="blog.html?category=Automation%20Tutorials">Automation Tutorials</a>
-      </section>
-      <section>
-        <h3>Newsletter</h3>
-        <p>Practical AI tips, once a week.</p>
-        <form class="newsletter-form" data-form="newsletter">
-          <input type="email" name="email" placeholder="Email address" required>
-          <button class="btn btn-primary" type="submit">Join</button>
-        </form>
+        <h3 class="footer-title">Social</h3>
+        <div class="footer-links">
+          <a href="https://www.linkedin.com/company/111718821" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.facebook.com/profile.php?id=61588027225877" target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href="mailto:hamzajadoon71@gmail.com">Email</a>
+        </div>
       </section>
     </div>
-    <div class="container footer-bottom">
-      <p>&copy; <span data-year></span> HJ Automations - AI & Automation Insights</p>
-      <nav>
-        <a href="privacy-policy.html">Privacy</a>
-        <a href="terms-of-service.html">Terms</a>
-        <a href="disclaimer.html">Disclaimer</a>
-        <a href="cookie-policy.html">Cookies</a>
-        <a href="https://www.facebook.com/profile.php?id=61588027225877" target="_blank" rel="noopener noreferrer">Facebook</a>
-        <a href="https://www.linkedin.com/company/111718821" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      </nav>
-    </div>
+    <div class="container footer-bottom">&copy; <span id="year"></span> HJ Automations. All rights reserved.</div>
   </footer>
 
-  <div id="cookie-banner" class="cookie-banner" hidden>
-    <p>This site uses cookies for analytics, personalization, and advertising compliance.</p>
-    <button class="btn btn-primary" id="accept-cookies">Accept</button>
-  </div>
+  <script>
+    const header = document.getElementById("site-header");
+    const nav = document.getElementById("site-nav");
+    const menuToggle = document.getElementById("menu-toggle");
+    const featuredHost = document.getElementById("featured-posts");
+    const aboutArticles = document.getElementById("about-articles");
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-  <script src="assets/js/posts.js" defer></script>
-  <script src="assets/js/script.js" defer></script>
+    menuToggle.addEventListener("click", () => {
+      const open = nav.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(open));
+    });
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 8) header.classList.add("is-scrolled");
+      else header.classList.remove("is-scrolled");
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+
+    const formatDate = (date) => new Date(date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    const postHref = (post) => post.url || `posts/${post.slug}.html`;
+
+    fetch("posts/posts.json", { cache: "no-store" })
+      .then((res) => {
+        if (!res.ok) throw new Error("Failed to load posts/posts.json");
+        return res.json();
+      })
+      .then((posts) => {
+        const sorted = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date));
+        aboutArticles.textContent = `${sorted.length}+`;
+        featuredHost.innerHTML = sorted.slice(0, 3).map((post) => `
+          <article class="card">
+            <span class="badge">${post.category}</span>
+            <h3 class="post-card-title"><a href="${postHref(post)}">${post.title}</a></h3>
+            <p class="post-card-excerpt">${post.excerpt}</p>
+            <div class="post-card-meta">
+              <span>${formatDate(post.date)} · ${post.readTime}</span>
+              <a class="accent-link" href="${postHref(post)}">Read &#8594;</a>
+            </div>
+          </article>
+        `).join("");
+      })
+      .catch(() => {
+        featuredHost.innerHTML = "<p class='muted'>Unable to load posts right now.</p>";
+      });
+  </script>
 </body>
 </html>
+

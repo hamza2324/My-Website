@@ -1,0 +1,38 @@
+[
+  {
+    "title": "AI Agents Replacing Traditional Workflows",
+    "slug": "ai-agents-replacing-traditional-workflows-are-you-ready",
+    "date": "2026-02-13",
+    "category": "AI Tools",
+    "excerpt": "How AI agents are transforming business operations and replacing manual workflows.",
+    "readTime": "5 min read",
+    "url": "posts/ai-agents-replacing-traditional-workflows-are-you-ready.html"
+  },
+  {
+    "title": "AI ROI 2026 Why Most AI Investments Fail",
+    "slug": "ai-roi-2026-why-most-ai-investments-fail",
+    "date": "2026-02-15",
+    "category": "Case Studies",
+    "excerpt": "Most AI projects stall after pilot. Here is what separates scalable implementations from expensive experiments.",
+    "readTime": "8 min read",
+    "url": "posts/ai-roi-2026-why-most-ai-investments-fail.html"
+  },
+  {
+    "title": "AI Transforming Business Operations 2026",
+    "slug": "ai-transforming-business-operations-2026",
+    "date": "2026-02-13",
+    "category": "LLM Guides",
+    "excerpt": "A practical look at where AI is changing operations, and what workflows are actually delivering value.",
+    "readTime": "7 min read",
+    "url": "posts/ai-transforming-business-operations-2026.html"
+  },
+  {
+    "title": "Automate Weekly Reporting With AI",
+    "slug": "automate-weekly-reporting-with-ai",
+    "date": "2026-02-11",
+    "category": "Automation",
+    "excerpt": "Build a weekly reporting pipeline with n8n and AI summaries to save manual reporting time.",
+    "readTime": "6 min read",
+    "url": "posts/automate-weekly-reporting-with-ai.html"
+  }
+]
