@@ -9,6 +9,7 @@ const OUTPUT_ASSETS_JSON = path.join(ROOT, "assets/data/posts.json");
 const OUTPUT_JS = path.join(ROOT, "assets/js/posts.js");
 const OUTPUT_POSTS_DIR = path.join(ROOT, "posts");
 const OUTPUT_SITEMAP = path.join(ROOT, "sitemap.xml");
+const OVERWRITE_EXISTING_POST_PAGES = false;
 
 const STATIC_PAGES = [
   "",
@@ -359,9 +360,9 @@ function getPostImages(post) {
     ? post.imageVariantIndex
     : (hashString(post.slug || post.title) % pool.length);
   const variant = pool[variantIndex % pool.length];
-  const isStockImage = /images\.pexels\.com\/photos\/|images\.unsplash\.com\/photo-/i.test(post.image || "");
+  const hasCustomImage = /^(https?:\/\/|\/|\.\.\/|\.\/)/i.test((post.image || "").trim());
   return {
-    hero: isStockImage ? post.image : variant.hero.url,
+    hero: hasCustomImage ? post.image : variant.hero.url,
     heroAlt: post.imageAlt || variant.hero.alt,
     inline: variant.inline
   };
@@ -392,6 +393,7 @@ function postMetaFromMarkdown(fileName, raw) {
   const excerpt = meta.excerpt || inferExcerpt(body) || "Practical notes and implementation strategies from HJ Automations.";
   const readTime = meta.readTime || "8 min read";
   const image = meta.image || "";
+  const imageAlt = meta.imageAlt || meta.image_alt || "";
   const contentHtml = markdownToHtml(body);
 
   return {
@@ -403,6 +405,7 @@ function postMetaFromMarkdown(fileName, raw) {
     excerpt,
     readTime,
     image,
+    imageAlt,
     url: `posts/${slug}.html`,
     contentHtml
   };
@@ -436,9 +439,20 @@ function buildFaq(post) {
   return `<section class="faq" id="faq">\n  <h2>FAQ</h2>\n  <div class="faq-item">\n    <button class="faq-question" type="button">How should I start implementing this ${escapeHtml(topic)} approach?</button>\n    <div class="faq-answer"><p>Start with one measurable workflow, define guardrails, and track outcomes weekly before scaling.</p></div>\n  </div>\n  <div class="faq-item">\n    <button class="faq-question" type="button">What metric should I track first?</button>\n    <div class="faq-answer"><p>Track cycle time or error rate first. Both usually reveal value faster than vanity metrics.</p></div>\n  </div>\n  <div class="faq-item">\n    <button class="faq-question" type="button">How long until results are visible?</button>\n    <div class="faq-answer"><p>Most teams see meaningful direction in 2 to 6 weeks if the workflow is scoped tightly and reviewed each week.</p></div>\n  </div>\n</section>`;
 }
 
+function buildHookSection(post) {
+  const primaryTag = post.tags[0] || post.category;
+  const secondaryTag = post.tags[1] || "Workflow Automation";
+  return `<section class="hook-panel reveal-on-scroll">\n  <p class="hook-kicker">Quick Start Blueprint</p>\n  <h2>Use this guide to ship practical wins</h2>\n  <ul>\n    <li>Identify one high-impact ${escapeHtml(primaryTag.toLowerCase())} bottleneck this week.</li>\n    <li>Deploy one testable improvement with clear KPI tracking in your ${escapeHtml(secondaryTag.toLowerCase())} workflow.</li>\n    <li>Use the FAQ and CTA below to turn insights into an execution plan.</li>\n  </ul>\n  <div class=\"hook-links\">\n    <a href=\"#faq\">Jump to FAQ</a>\n    <a href=\"#work-with-me\">Go to CTA</a>\n  </div>\n</section>`;
+}
+
 function renderPostHtml(post) {
   const images = getPostImages(post);
   const articleHtml = injectImageCards(post.contentHtml, images.inline);
+  const hasInlineFaq = /<h2>\s*FAQ\b/i.test(articleHtml);
+  const articleHtmlWithFaqAnchor = hasInlineFaq
+    ? articleHtml.replace(/<h2>(\s*FAQ[^<]*)<\/h2>/i, "<h2 id=\"faq\">$1</h2>")
+    : articleHtml;
+  const faqSection = hasInlineFaq ? "" : buildFaq(post);
   const description = post.excerpt.slice(0, 160);
   const pageTitle = `${post.title} | ${DEFAULT_SITE_NAME}`;
   const canonical = `${DOMAIN}/posts/${post.slug}.html`;
@@ -518,16 +532,21 @@ ${post.tags.map((tag) => `<meta property="article:tag" content="${escapeHtml(tag
 <script type="application/ld+json">${JSON.stringify(breadcrumbSchema)}</script>
 <style>
 :root {
-  --bg: #0a0f1e;
-  --bg-soft: #0e1529;
-  --surface: #111b33;
-  --surface-2: #162340;
-  --text: #f7faff;
-  --text-soft: #b8c3d9;
-  --accent: #00c2ff;
-  --accent-2: #4f8ef7;
-  --border: #223154;
-  --code: #0a1429;
+  --bg: #fcfcfc;
+  --bg-soft: #f5f7fa;
+  --surface: #f5f7fa;
+  --surface-2: #ffffff;
+  --text: #111827;
+  --text-body: #374151;
+  --text-soft: #64748b;
+  --text-muted: #94a3b8;
+  --accent: #6366f1;
+  --accent-2: #8b5cf6;
+  --accent-hover: #8b5cf6;
+  --border: #e2e8f0;
+  --code: #f5f7fa;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(99, 102, 241, 0.1);
   --max: 720px;
 }
 * { box-sizing: border-box; }
@@ -535,8 +554,8 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
-  color: var(--text);
-  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-soft) 100%);
+  color: var(--text-body);
+  background: var(--bg);
 }
 a { color: inherit; text-decoration: none; transition: all .2s ease; }
 img { max-width: 100%; display: block; }
@@ -554,8 +573,9 @@ img { max-width: 100%; display: block; }
   top: 0;
   z-index: 100;
   backdrop-filter: blur(12px);
-  background: rgba(10, 15, 30, .82);
+  background: rgba(255, 255, 255, .8);
   border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .06);
 }
 .nav-wrap {
   width: min(1180px, 92%);
@@ -589,7 +609,7 @@ img { max-width: 100%; display: block; }
   border: 1px solid var(--border);
   border-radius: 20px;
   overflow: hidden;
-  background: #0c1730;
+  background: var(--surface);
 }
 .hero img {
   width: 100%;
@@ -600,7 +620,7 @@ img { max-width: 100%; display: block; }
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(10,15,30,.2), rgba(10,15,30,.86) 60%, rgba(10,15,30,.96));
+  background: linear-gradient(180deg, rgba(17, 24, 39, .16), rgba(17, 24, 39, .62) 60%, rgba(17, 24, 39, .76));
 }
 .hero-content {
   position: absolute;
@@ -613,9 +633,9 @@ img { max-width: 100%; display: block; }
 .badge {
   display: inline-flex;
   align-items: center;
-  border: 1px solid rgba(0,194,255,.45);
+  border: 1px solid var(--accent);
   color: var(--accent);
-  background: rgba(0,194,255,.08);
+  background: #ffffff;
   border-radius: 999px;
   padding: 5px 11px;
   font-size: .75rem;
@@ -627,15 +647,16 @@ img { max-width: 100%; display: block; }
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: clamp(1.65rem, 3.5vw, 2.8rem);
   line-height: 1.15;
+  color: #ffffff;
 }
 .meta {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  color: var(--text-soft);
+  color: #e2e8f0;
   font-size: .9rem;
 }
-.meta .dot::before { content: "•"; margin-right: 10px; color: var(--accent); }
+.meta .dot::before { content: "\\2022"; margin-right: 10px; color: var(--accent); }
 .content-layout {
   margin-top: 30px;
   display: grid;
@@ -648,7 +669,7 @@ img { max-width: 100%; display: block; }
   top: 84px;
   border: 1px solid var(--border);
   border-radius: 14px;
-  background: rgba(17, 27, 51, .88);
+  background: #ffffff;
   padding: 14px;
 }
 .toc h2 {
@@ -672,17 +693,65 @@ img { max-width: 100%; display: block; }
   max-width: var(--max);
   margin: 0 auto;
 }
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .45s ease, transform .45s ease;
+}
+.reveal-on-scroll.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+.hook-panel {
+  margin: 0 0 26px;
+  padding: 16px;
+  border: 1px solid rgba(99, 102, 241, .3);
+  border-radius: 14px;
+  background: linear-gradient(140deg, rgba(99, 102, 241, .08), #ffffff);
+}
+.hook-kicker {
+  margin: 0 0 6px;
+  font-size: .78rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--accent-hover);
+  font-weight: 700;
+}
+.hook-panel h2 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+.hook-panel ul {
+  margin: 0;
+  padding-left: 18px;
+}
+.hook-panel li {
+  color: var(--text-soft);
+  margin-bottom: 4px;
+}
+.hook-links {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.hook-links a {
+  color: var(--accent-hover);
+  font-size: .85rem;
+  text-decoration: underline;
+}
 .article p,
 .article li {
-  color: var(--text-soft);
+  color: var(--text-body);
   line-height: 1.88;
   font-size: 1.04rem;
 }
-.article a { color: #8fd7ff; text-decoration: underline; text-decoration-color: rgba(143,215,255,.5); }
+.article a { color: var(--accent); text-decoration: underline; text-decoration-color: rgba(99, 102, 241, .4); }
 .article h2,
 .article h3 {
   font-family: "Plus Jakarta Sans", sans-serif;
-  color: var(--accent);
+  color: var(--text);
 }
 .article h2 {
   margin-top: 38px;
@@ -697,17 +766,17 @@ img { max-width: 100%; display: block; }
 .article blockquote {
   margin: 20px 0;
   border-left: 4px solid var(--accent);
-  background: rgba(0, 194, 255, .07);
+  background: var(--surface);
   padding: 12px 14px;
   border-radius: 10px;
-  color: var(--text);
+  color: var(--text-body);
 }
 .article code {
   background: var(--code);
   border: 1px solid var(--border);
   border-radius: 7px;
   padding: 2px 7px;
-  color: #d6efff;
+  color: var(--text);
 }
 .article pre {
   background: var(--code);
@@ -729,7 +798,7 @@ img { max-width: 100%; display: block; }
   border: 1px solid var(--border);
   border-radius: 14px;
   overflow: hidden;
-  background: var(--surface);
+  background: #ffffff;
 }
 .image-card img {
   width: 100%;
@@ -746,7 +815,7 @@ img { max-width: 100%; display: block; }
   border: 1px solid var(--border);
   border-radius: 14px;
   overflow: hidden;
-  background: var(--surface);
+  background: #ffffff;
 }
 .faq h2 {
   margin: 0;
@@ -766,6 +835,12 @@ img { max-width: 100%; display: block; }
   font-weight: 600;
   cursor: pointer;
 }
+.faq-question::after {
+  content: "+";
+  float: right;
+  color: var(--accent);
+}
+.faq-item.open .faq-question::after { content: "-"; }
 .faq-answer {
   display: none;
   padding: 0 14px 14px;
@@ -797,11 +872,15 @@ img { max-width: 100%; display: block; }
   padding: 11px 14px;
   font-weight: 700;
 }
+.cta-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(99, 102, 241, .24);
+}
 .author {
   margin-top: 28px;
   border: 1px solid var(--border);
   border-radius: 14px;
-  background: var(--surface);
+  background: #ffffff;
   padding: 16px;
   display: flex;
   gap: 12px;
@@ -881,11 +960,13 @@ img { max-width: 100%; display: block; }
     </aside>
 
     <article class="article" id="article-content">
-${articleHtml}
+${buildHookSection(post)}
 
-${buildFaq(post)}
+${articleHtmlWithFaqAnchor}
 
-      <section class="cta">
+${faqSection}
+
+      <section class="cta reveal-on-scroll" id="work-with-me">
         <h2>Ready to build smarter AI workflows?</h2>
         <p>Book a workflow consultation and get a practical execution roadmap.</p>
         <ul>
@@ -896,7 +977,7 @@ ${buildFaq(post)}
         <a class="cta-btn" href="mailto:hamzajadoon71@gmail.com?subject=Workflow%20Consultation">Work With Me</a>
       </section>
 
-      <section class="author">
+      <section class="author reveal-on-scroll">
         <div class="author-avatar" aria-hidden="true">HJ</div>
         <div>
           <strong>${DEFAULT_AUTHOR}</strong>
@@ -941,6 +1022,16 @@ const observer = new IntersectionObserver((entries) => {
 }, { rootMargin: '-30% 0px -60% 0px', threshold: 0.1 });
 headings.forEach((heading) => observer.observe(heading));
 
+const revealItems = [...document.querySelectorAll('.reveal-on-scroll')];
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('in-view');
+    revealObserver.unobserve(entry.target);
+  });
+}, { rootMargin: '0px 0px -12% 0px', threshold: 0.12 });
+revealItems.forEach((item) => revealObserver.observe(item));
+
 function updateProgress() {
   const doc = document.documentElement;
   const scrolled = doc.scrollTop;
@@ -976,8 +1067,10 @@ document.querySelectorAll('.faq-question').forEach((btn) => {
 function writePostPages(posts) {
   fs.mkdirSync(OUTPUT_POSTS_DIR, { recursive: true });
   for (const post of posts) {
+    const outputPath = path.join(OUTPUT_POSTS_DIR, `${post.slug}.html`);
+    if (!OVERWRITE_EXISTING_POST_PAGES && fs.existsSync(outputPath)) continue;
     const html = renderPostHtml(post);
-    fs.writeFileSync(path.join(OUTPUT_POSTS_DIR, `${post.slug}.html`), html, "utf8");
+    fs.writeFileSync(outputPath, html, "utf8");
   }
 }
 

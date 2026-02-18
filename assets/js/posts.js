@@ -1,5 +1,26 @@
 const POSTS = [
   {
+    "title": "Multi-Agent AI Systems for Business Automation (2026 Guide)",
+    "slug": "multi-agent-ai-systems-the-future-of-business-automation",
+    "date": "2026-02-18",
+    "category": "AI Tools",
+    "tags": [
+      "Multi-Agent AI",
+      "AI Agents",
+      "Business Automation",
+      "Agentic AI",
+      "AI Workflows",
+      "Enterprise AI",
+      "AI Orchestration"
+    ],
+    "excerpt": "Learn how multi-agent AI systems automate complex business workflows faster and more accurately, with a practical 6-step implementation roadmap for 2026.",
+    "readTime": "12 min read",
+    "image": "https://picsum.photos/seed/multi-agent-ai-2026/1200/630",
+    "imageAlt": "Multi-agent AI orchestration dashboard for business automation teams",
+    "url": "posts/multi-agent-ai-systems-the-future-of-business-automation.html",
+    "id": 1
+  },
+  {
     "title": "AI ROI in 2026: Why Only 1 in 50 AI Investments Deliver Real Value",
     "slug": "ai-roi-2026-why-most-ai-investments-fail",
     "date": "2026-02-15",
@@ -13,9 +34,10 @@ const POSTS = [
     ],
     "excerpt": "Most AI projects never move past pilots. Here is why AI ROI fails, what top performers do differently, and how to scale from proof-of-concept to business transformation.",
     "readTime": "10 min read",
-    "image": "https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "image": "https://picsum.photos/seed/ai-roi-2026-failure-gap/1200/630",
+    "imageAlt": "",
     "url": "posts/ai-roi-2026-why-most-ai-investments-fail.html",
-    "id": 1
+    "id": 2
   },
   {
     "title": "AI Agents Are Replacing Traditional Workflows - Are You Ready for the Shift?",
@@ -31,9 +53,10 @@ const POSTS = [
     ],
     "excerpt": "AI agents are replacing traditional workflows across operations, sales, and support. Learn what this shift means, how to prepare, and how to turn it into growth.",
     "readTime": "10 min read",
-    "image": "https://images.pexels.com/photos/4145190/pexels-photo-4145190.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "image": "https://picsum.photos/seed/ai-agents-workflows-shift/1200/630",
+    "imageAlt": "",
     "url": "posts/ai-agents-replacing-traditional-workflows-are-you-ready.html",
-    "id": 2
+    "id": 3
   },
   {
     "title": "How AI Is Transforming Business Operations in 2026",
@@ -48,9 +71,10 @@ const POSTS = [
     ],
     "excerpt": "AI is reshaping business operations through automation, better decisions, and emerging autonomous agentic tools.",
     "readTime": "7 min read",
-    "image": "https://images.pexels.com/photos/2582937/pexels-photo-2582937.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "image": "https://picsum.photos/seed/ai-business-ops-2026/1200/630",
+    "imageAlt": "",
     "url": "posts/ai-transforming-business-operations-2026.html",
-    "id": 3
+    "id": 4
   },
   {
     "title": "How to Automate Weekly Reporting with AI",
@@ -64,8 +88,9 @@ const POSTS = [
     ],
     "excerpt": "Build a lightweight AI workflow to prepare weekly KPI summaries in minutes.",
     "readTime": "9 min read",
-    "image": "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "image": "https://picsum.photos/seed/weekly-reporting/1200/630",
+    "imageAlt": "",
     "url": "posts/automate-weekly-reporting-with-ai.html",
-    "id": 4
+    "id": 5
   }
 ];

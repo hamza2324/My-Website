@@ -1,15 +1,37 @@
 ﻿:root {
-  --bg: #0a0a0f;
-  --surface: #13131f;
-  --accent: #818cf8;
-  --accent-soft: #c084fc;
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --text-body: #e2e8f0;
-  --border: #1e1e2e;
-  --accent-border: rgba(129, 140, 248, 0.4);
-  --accent-glow: rgba(129, 140, 248, 0.24);
-  --accent-gradient: linear-gradient(135deg, #818cf8, #c084fc);
+  --color-base: #fcfcfc;
+  --color-surface: #f5f7fa;
+  --color-accent: #6366f1;
+  --color-text-primary: #111827;
+  --color-text-body: #374151;
+  --color-text-secondary: #64748b;
+  --color-text-muted: #94a3b8;
+  --color-border: #e2e8f0;
+  --color-border-hover: rgba(99, 102, 241, 0.3);
+  --color-card: #ffffff;
+  --color-input: #ffffff;
+  --color-success: #10b981;
+  --color-warning-bg: #fef3c7;
+  --color-warning-border: #f59e0b;
+  --gradient-accent: linear-gradient(135deg, #6366f1, #8b5cf6);
+  --gradient-hero-glow: radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.08) 0%, transparent 60%);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 12px rgba(99, 102, 241, 0.1);
+  --shadow-lg: 0 10px 24px rgba(0, 0, 0, 0.08);
+  --bg: var(--color-base);
+  --surface: var(--color-surface);
+  --card: var(--color-card);
+  --accent: var(--color-accent);
+  --accent-soft: #8b5cf6;
+  --accent-hover: #8b5cf6;
+  --text-primary: var(--color-text-primary);
+  --text-secondary: var(--color-text-secondary);
+  --text-muted: var(--color-text-muted);
+  --text-body: var(--color-text-body);
+  --border: var(--color-border);
+  --accent-border: var(--color-border-hover);
+  --accent-glow: rgba(99, 102, 241, 0.16);
+  --accent-gradient: var(--gradient-accent);
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
@@ -27,9 +49,15 @@ body {
   margin: 0;
   font-family: "Inter", sans-serif;
   font-weight: 400;
-  color: var(--text-primary);
+  color: var(--text-body);
   background: var(--bg);
   line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--text-primary);
 }
 
 a,
@@ -49,7 +77,7 @@ a {
 }
 
 a:hover {
-  color: var(--text-primary);
+  color: var(--accent);
 }
 
 img {
@@ -58,7 +86,7 @@ img {
 }
 
 ::selection {
-  background: rgba(129, 140, 248, 0.35);
+  background: rgba(99, 102, 241, 0.2);
   color: var(--text-primary);
 }
 
@@ -108,13 +136,14 @@ img {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--surface);
+  background: #ffffff;
   border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .site-header.is-scrolled {
   backdrop-filter: blur(12px);
-  background: rgba(19, 19, 31, 0.92);
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .nav-wrap {
@@ -183,7 +212,7 @@ img {
   height: 36px;
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  background: var(--surface);
+  background: #ffffff;
   color: var(--text-secondary);
   display: inline-grid;
   place-items: center;
@@ -205,8 +234,8 @@ img {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 50% 0%, rgba(129, 140, 248, 0.15) 0%, transparent 70%),
-    radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.1) 1px, transparent 0);
+    var(--gradient-hero-glow),
+    radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.18) 1px, transparent 0);
   background-size: auto, 18px 18px;
 }
 
@@ -219,8 +248,8 @@ img {
   align-items: center;
   gap: 8px;
   border: 1px solid var(--accent-border);
-  background: rgba(129, 140, 248, 0.08);
-  color: var(--text-primary);
+  background: #ffffff;
+  color: var(--accent);
   border-radius: 999px;
   font-size: 0.78rem;
   font-weight: 500;
@@ -272,24 +301,26 @@ img {
 }
 
 .btn-primary {
-  color: var(--text-primary);
+  color: #ffffff;
   background: var(--accent-gradient);
 }
 
 .btn-primary:hover {
-  filter: brightness(1.08);
-  box-shadow: 0 10px 26px var(--accent-glow);
+  filter: brightness(1.02);
+  transform: scale(1.01);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-ghost {
-  border-color: var(--accent);
+  border-color: var(--border);
   color: var(--accent);
-  background: transparent;
+  background: #ffffff;
 }
 
 .btn-ghost:hover {
-  border-color: var(--text-primary);
-  color: var(--text-primary);
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: var(--shadow-sm);
 }
 
 .hero-stats {
@@ -357,15 +388,16 @@ main section {
 }
 
 .card {
-  background: var(--surface);
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 18px;
+  box-shadow: var(--shadow-sm);
 }
 
 .card:hover {
   border-color: var(--accent-border);
-  box-shadow: 0 14px 34px rgba(10, 10, 15, 0.45);
+  box-shadow: var(--shadow-md);
 }
 
 .badge {
@@ -373,9 +405,9 @@ main section {
   align-items: center;
   padding: 5px 10px;
   border-radius: 999px;
-  background: rgba(129, 140, 248, 0.14);
-  color: var(--accent);
-  border: 1px solid var(--accent-border);
+  background: var(--accent);
+  color: #ffffff;
+  border: 1px solid transparent;
   font-size: 0.74rem;
   font-weight: 500;
 }
@@ -404,7 +436,7 @@ main section {
   justify-content: space-between;
   gap: 8px;
   font-size: 0.85rem;
-  color: var(--text-secondary);
+  color: var(--text-muted);
 }
 
 .accent-link {
@@ -417,7 +449,7 @@ main section {
 }
 
 .about-strip {
-  background: var(--surface);
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 18px;
@@ -466,6 +498,7 @@ main section {
   border-radius: var(--radius-lg);
   padding: 22px;
   text-align: center;
+  box-shadow: var(--shadow-sm);
 }
 
 .newsletter-form {
@@ -477,7 +510,7 @@ main section {
 .input {
   width: 100%;
   border: 1px solid var(--border);
-  background: var(--surface);
+  background: var(--color-input);
   color: var(--text-primary);
   border-radius: var(--radius-sm);
   padding: 11px 12px;
@@ -487,7 +520,11 @@ main section {
 .input:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.15);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.input::placeholder {
+  color: var(--text-muted);
 }
 
 .site-footer {
@@ -566,7 +603,7 @@ main section {
 .filter-pill {
   border: 1px solid var(--border);
   border-radius: 999px;
-  background: var(--surface);
+  background: #ffffff;
   color: var(--text-secondary);
   font-size: 0.82rem;
   font-weight: 500;
@@ -576,8 +613,8 @@ main section {
 
 .filter-pill.active {
   border-color: var(--accent);
-  background: rgba(129, 140, 248, 0.18);
-  color: var(--text-primary);
+  background: var(--accent-gradient);
+  color: #ffffff;
 }
 
 .blog-list {
@@ -597,7 +634,7 @@ main section {
 
 .blog-row:hover {
   border-left-color: var(--accent);
-  background: rgba(129, 140, 248, 0.07);
+  background: rgba(99, 102, 241, 0.06);
 }
 
 .blog-row h2 {
@@ -637,10 +674,11 @@ main section {
 }
 
 .contact-card {
-  background: var(--surface);
+  background: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 20px;
+  box-shadow: var(--shadow-sm);
 }
 
 .form-group {
@@ -659,7 +697,7 @@ main section {
 .contact-card textarea {
   width: 100%;
   border: 1px solid var(--border);
-  background: var(--surface);
+  background: var(--color-input);
   color: var(--text-primary);
   border-radius: var(--radius-sm);
   padding: 11px 12px;
@@ -670,7 +708,7 @@ main section {
 .contact-card textarea:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.15);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
 
 .contact-card textarea {
@@ -722,11 +760,11 @@ main section {
 
 .disclaimer {
   margin-top: 16px;
-  border-left: 3px solid var(--accent);
-  background: var(--surface);
+  border-left: 3px solid var(--color-warning-border);
+  background: var(--color-warning-bg);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   padding: 10px 12px;
-  color: var(--text-secondary);
+  color: #92400e;
   font-size: 0.88rem;
   font-style: italic;
 }
@@ -737,7 +775,7 @@ main section {
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
   background:
-    radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.12) 1px, transparent 0),
+    radial-gradient(circle at 1px 1px, rgba(148, 163, 184, 0.18) 1px, transparent 0),
     var(--surface);
   background-size: 16px 16px;
   display: grid;
@@ -755,7 +793,7 @@ main section {
 .share-row-mobile button,
 .share-rail button {
   border: 1px solid var(--border);
-  background: var(--surface);
+  background: #ffffff;
   color: var(--text-secondary);
   border-radius: var(--radius-sm);
   width: 36px;
@@ -829,8 +867,9 @@ main section {
 
 .affiliate-box {
   margin: 28px 0;
-  border: 1px solid var(--accent-border);
-  background: rgba(129, 140, 248, 0.08);
+  border: 1px solid var(--color-warning-border);
+  border-left: 3px solid var(--color-warning-border);
+  background: var(--color-warning-bg);
   border-radius: var(--radius-md);
   padding: 16px;
 }
@@ -849,7 +888,7 @@ main section {
   position: sticky;
   top: 104px;
   width: 240px;
-  background: var(--surface);
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 14px;
@@ -874,10 +913,13 @@ main section {
   color: var(--text-secondary);
   font-size: 0.85rem;
   line-height: 1.35;
+  border-left: 2px solid transparent;
+  padding-left: 8px;
 }
 
 .toc-list a.active {
   color: var(--accent);
+  border-left-color: var(--accent);
 }
 
 .share-rail {
@@ -939,7 +981,7 @@ main section {
     padding: 12px;
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    background: var(--surface);
+    background: #ffffff;
   }
 
   .site-nav.open {

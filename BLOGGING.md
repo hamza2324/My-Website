@@ -26,7 +26,10 @@ Write in markdown.
 - Blog list data updates in `assets/data/posts.json`
 - Fallback list data updates in `assets/js/posts.js`
 - `sitemap.xml` updates with the new post URL
-- If slug matches an existing post, that post is updated/overridden.
+- If slug matches an existing post, it is only overwritten when `OVERWRITE_EXISTING_POST_PAGES = true`.
+- Existing generated `posts/*.html` files are preserved by default.
+- New posts use the premium template with a quick-start hook panel, FAQ accordion, CTA section, and scroll-reveal motion.
+- To regenerate existing posts too, set `OVERWRITE_EXISTING_POST_PAGES = true` in `scripts/build-posts.mjs`.
 
 ## Edit an existing post
 1. Create or edit `content/posts/the-same-slug.md`.
