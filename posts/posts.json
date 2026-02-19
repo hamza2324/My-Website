@@ -1,5 +1,31 @@
 [
   {
+    "title": "Google vs Apple: The $30 Billion AI Smart Glasses Battle is ON (And Your Business Needs to Pay Attention)",
+    "slug": "google-vs-apple-30-billion-ai-smart-glasses-battle",
+    "date": "2026-02-19",
+    "category": "Industry News",
+    "tags": [
+      "AI",
+      "Smart Glasses",
+      "Apple",
+      "Google",
+      "Future of Work",
+      "Wearable Tech",
+      "AR",
+      "Business Automation",
+      "Small Business",
+      "Logistics",
+      "Productivity",
+      "Digital Transformation"
+    ],
+    "excerpt": "Apple and Google are racing to launch AI smart glasses, and small businesses that move early can unlock hands-free productivity across field service, logistics, and sales.",
+    "readTime": "11 min read",
+    "image": "https://picsum.photos/seed/google-vs-apple-smart-glasses/1200/630",
+    "imageAlt": "AI smart glasses for field operations and logistics teams",
+    "url": "posts/google-vs-apple-30-billion-ai-smart-glasses-battle.html",
+    "id": 1
+  },
+  {
     "title": "Multi-Agent AI Systems for Business Automation (2026 Guide)",
     "slug": "multi-agent-ai-systems-the-future-of-business-automation",
     "date": "2026-02-18",
@@ -18,7 +44,7 @@
     "image": "https://picsum.photos/seed/multi-agent-ai-2026/1200/630",
     "imageAlt": "Multi-agent AI orchestration dashboard for business automation teams",
     "url": "posts/multi-agent-ai-systems-the-future-of-business-automation.html",
-    "id": 1
+    "id": 2
   },
   {
     "title": "AI ROI in 2026: Why Only 1 in 50 AI Investments Deliver Real Value",
@@ -37,7 +63,7 @@
     "image": "https://picsum.photos/seed/ai-roi-2026-failure-gap/1200/630",
     "imageAlt": "",
     "url": "posts/ai-roi-2026-why-most-ai-investments-fail.html",
-    "id": 2
+    "id": 3
   },
   {
     "title": "AI Agents Are Replacing Traditional Workflows - Are You Ready for the Shift?",
@@ -56,7 +82,7 @@
     "image": "https://picsum.photos/seed/ai-agents-workflows-shift/1200/630",
     "imageAlt": "",
     "url": "posts/ai-agents-replacing-traditional-workflows-are-you-ready.html",
-    "id": 3
+    "id": 4
   },
   {
     "title": "How AI Is Transforming Business Operations in 2026",
@@ -74,7 +100,7 @@
     "image": "https://picsum.photos/seed/ai-business-ops-2026/1200/630",
     "imageAlt": "",
     "url": "posts/ai-transforming-business-operations-2026.html",
-    "id": 4
+    "id": 5
   },
   {
     "title": "How to Automate Weekly Reporting with AI",
@@ -91,6 +117,6 @@
     "image": "https://picsum.photos/seed/weekly-reporting/1200/630",
     "imageAlt": "",
     "url": "posts/automate-weekly-reporting-with-ai.html",
-    "id": 5
+    "id": 6
   }
 ]
