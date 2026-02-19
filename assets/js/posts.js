@@ -1,5 +1,18 @@
 const POSTS = [
   {
+    "title": "EU AI Act 2026: The August Compliance Deadline That Could Cost Your Business EUR35 Million",
+    "slug": "eu-ai-act-2026-the-august-compliance-deadline-that-could-cost-your-business-eur35-million",
+    "date": "2026-02-19",
+    "category": "AI Tools",
+    "tags": [],
+    "excerpt": "---\ntitle: \"EU AI Act 2026: August Deadline, Fines, and Compliance Guide\"\ndate: 2026-02-19\nslug: eu-ai-act-2026-august-deadline-compliance-guide\ncategory: AI Regulation",
+    "readTime": "8 min read",
+    "image": "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "imageAlt": "",
+    "url": "posts/eu-ai-act-2026-the-august-compliance-deadline-that-could-cost-your-business-eur35-million.html",
+    "id": 1
+  },
+  {
     "title": "Google vs Apple: The $30 Billion AI Smart Glasses Battle is ON (And Your Business Needs to Pay Attention)",
     "slug": "google-vs-apple-30-billion-ai-smart-glasses-battle",
     "date": "2026-02-19",
@@ -23,7 +36,7 @@ const POSTS = [
     "image": "https://picsum.photos/seed/google-vs-apple-smart-glasses/1200/630",
     "imageAlt": "AI smart glasses for field operations and logistics teams",
     "url": "posts/google-vs-apple-30-billion-ai-smart-glasses-battle.html",
-    "id": 1
+    "id": 2
   },
   {
     "title": "Multi-Agent AI Systems for Business Automation (2026 Guide)",
@@ -44,7 +57,7 @@ const POSTS = [
     "image": "https://picsum.photos/seed/multi-agent-ai-2026/1200/630",
     "imageAlt": "Multi-agent AI orchestration dashboard for business automation teams",
     "url": "posts/multi-agent-ai-systems-the-future-of-business-automation.html",
-    "id": 2
+    "id": 3
   },
   {
     "title": "AI ROI in 2026: Why Only 1 in 50 AI Investments Deliver Real Value",
@@ -63,7 +76,7 @@ const POSTS = [
     "image": "https://picsum.photos/seed/ai-roi-2026-failure-gap/1200/630",
     "imageAlt": "",
     "url": "posts/ai-roi-2026-why-most-ai-investments-fail.html",
-    "id": 3
+    "id": 4
   },
   {
     "title": "AI Agents Are Replacing Traditional Workflows - Are You Ready for the Shift?",
@@ -82,7 +95,7 @@ const POSTS = [
     "image": "https://picsum.photos/seed/ai-agents-workflows-shift/1200/630",
     "imageAlt": "",
     "url": "posts/ai-agents-replacing-traditional-workflows-are-you-ready.html",
-    "id": 4
+    "id": 5
   },
   {
     "title": "How AI Is Transforming Business Operations in 2026",
@@ -100,7 +113,7 @@ const POSTS = [
     "image": "https://picsum.photos/seed/ai-business-ops-2026/1200/630",
     "imageAlt": "",
     "url": "posts/ai-transforming-business-operations-2026.html",
-    "id": 5
+    "id": 6
   },
   {
     "title": "How to Automate Weekly Reporting with AI",
@@ -117,6 +130,6 @@ const POSTS = [
     "image": "https://picsum.photos/seed/weekly-reporting/1200/630",
     "imageAlt": "",
     "url": "posts/automate-weekly-reporting-with-ai.html",
-    "id": 6
+    "id": 7
   }
 ];
