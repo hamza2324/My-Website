@@ -1,0 +1,666 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The AI Money Machine | Hamza Jadoon</title>
+  <meta name="description" content="The AI Money Machine by Hamza Jadoon. Learn how to make $3,000-$10,000/month using free AI tools. Beginner-friendly 37-page ebook for $23." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-1: #070b14;
+      --bg-2: #0b1220;
+      --panel: #111a2b;
+      --panel-2: #0e1626;
+      --gold: #FFB800;
+      --cyan: #00D4FF;
+      --text: #e8eefc;
+      --muted: #9bb0d0;
+      --border: rgba(255, 184, 0, 0.24);
+      --glow-gold: 0 0 0.8rem rgba(255, 184, 0, 0.45), 0 0 2rem rgba(255, 184, 0, 0.2);
+      --glow-cyan: 0 0 0.8rem rgba(0, 212, 255, 0.45), 0 0 2rem rgba(0, 212, 255, 0.2);
+      --radius: 18px;
+      --container: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Rajdhani", sans-serif;
+      background:
+        radial-gradient(circle at 90% 10%, rgba(0, 212, 255, 0.12), transparent 34%),
+        radial-gradient(circle at 10% 20%, rgba(255, 184, 0, 0.1), transparent 30%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2));
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: min(var(--container), 92%);
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 76px 0;
+      position: relative;
+    }
+
+    h1, h2, h3 {
+      margin: 0 0 14px;
+      font-family: "Bebas Neue", sans-serif;
+      letter-spacing: 1px;
+      line-height: 1.05;
+      font-weight: 400;
+    }
+
+    h1 { font-size: clamp(3rem, 8vw, 6.5rem); }
+    h2 { font-size: clamp(2rem, 5vw, 3.4rem); }
+    h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
+
+    p { margin: 0 0 16px; color: #d8e3fa; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: "Bebas Neue", sans-serif;
+      letter-spacing: 1.1px;
+      font-size: 1rem;
+      color: #131313;
+      background: var(--gold);
+      border-radius: 999px;
+      padding: 8px 14px;
+      box-shadow: var(--glow-gold);
+      margin-bottom: 18px;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      isolation: isolate;
+      padding-top: 54px;
+      padding-bottom: 54px;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+    }
+
+    .hero::before {
+      background-image:
+        linear-gradient(rgba(0, 212, 255, 0.13) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 184, 0, 0.12) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: radial-gradient(circle at center, black 28%, transparent 85%);
+      animation: gridShift 18s linear infinite;
+      opacity: 0.85;
+    }
+
+    .hero::after {
+      z-index: -1;
+      background:
+        radial-gradient(circle at 20% 25%, rgba(255, 184, 0, 0.2), transparent 24%),
+        radial-gradient(circle at 80% 30%, rgba(0, 212, 255, 0.18), transparent 26%),
+        radial-gradient(circle at 40% 70%, rgba(0, 212, 255, 0.12), transparent 25%);
+      animation: drift 14s ease-in-out infinite alternate;
+    }
+
+    .hero-sub {
+      font-size: clamp(1.05rem, 2.4vw, 1.55rem);
+      color: #c9d9f5;
+      max-width: 760px;
+      margin-bottom: 24px;
+    }
+
+    .hero .cta-wrap {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .instant-note {
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 28px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 1.08rem;
+      font-weight: 700;
+      font-family: "Rajdhani", sans-serif;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.25s ease, filter 0.25s ease;
+      will-change: transform;
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 3px;
+    }
+
+    .btn-primary {
+      color: #111;
+      background: linear-gradient(120deg, #ffc949, var(--gold));
+      box-shadow: var(--glow-gold);
+      animation: pulseGold 2.7s ease-in-out infinite;
+    }
+
+    .btn-primary:hover { transform: translateY(-2px) scale(1.02); filter: brightness(1.05); }
+
+    .btn-secondary {
+      color: #001a21;
+      background: linear-gradient(120deg, #6de7ff, var(--cyan));
+      box-shadow: var(--glow-cyan);
+      animation: pulseCyan 3s ease-in-out infinite;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-title p {
+      margin-inline: auto;
+      max-width: 720px;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .cards-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .cards-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .card {
+      background: linear-gradient(170deg, rgba(17, 26, 43, 0.95), rgba(14, 22, 38, 0.92));
+      border: 1px solid rgba(0, 212, 255, 0.16);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.25);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(255, 184, 0, 0.4);
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.36), var(--glow-gold);
+    }
+
+    .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 12px;
+      background: rgba(0, 212, 255, 0.12);
+      border: 1px solid rgba(0, 212, 255, 0.35);
+      color: var(--cyan);
+      font-size: 1.3rem;
+    }
+
+    .for-list {
+      max-width: 860px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, rgba(15, 24, 39, 0.95), rgba(10, 16, 29, 0.96));
+      border: 1px solid rgba(255, 184, 0, 0.25);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--glow-gold);
+    }
+
+    .for-list ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .for-list li {
+      font-size: 1.13rem;
+      color: #e5efff;
+      padding-left: 4px;
+    }
+
+    .author-box {
+      max-width: 900px;
+      margin: 0 auto;
+      background: linear-gradient(170deg, rgba(17, 26, 43, 0.95), rgba(14, 22, 38, 0.92));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #191919;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 3rem;
+      background: radial-gradient(circle at 30% 20%, #ffd66d, var(--gold));
+      box-shadow: var(--glow-gold);
+      border: 2px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .stars { color: var(--gold); margin-bottom: 8px; letter-spacing: 1px; }
+
+    .pricing-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .price-card {
+      text-align: center;
+      background: linear-gradient(180deg, rgba(16, 24, 40, 0.97), rgba(10, 17, 30, 0.98));
+      border-radius: 24px;
+      border: 1px solid rgba(255, 184, 0, 0.35);
+      padding: 34px 24px;
+      box-shadow: var(--glow-gold), 0 20px 45px rgba(0, 0, 0, 0.35);
+    }
+
+    .price {
+      font-family: "Bebas Neue", sans-serif;
+      color: var(--gold);
+      font-size: clamp(4rem, 10vw, 6rem);
+      line-height: 1;
+      margin-bottom: 4px;
+      text-shadow: 0 0 20px rgba(255, 184, 0, 0.3);
+    }
+
+    .old-price {
+      color: #99adc8;
+      text-decoration: line-through;
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .includes {
+      text-align: left;
+      max-width: 500px;
+      margin: 0 auto 22px;
+      display: grid;
+      gap: 8px;
+      color: #e8f0ff;
+    }
+
+    .secure-note {
+      margin-top: 12px;
+      color: var(--muted);
+    }
+
+    .faq {
+      max-width: 880px;
+      margin: 0 auto;
+      display: grid;
+      gap: 12px;
+    }
+
+    details {
+      background: linear-gradient(165deg, rgba(17, 26, 43, 0.95), rgba(14, 22, 38, 0.92));
+      border: 1px solid rgba(0, 212, 255, 0.18);
+      border-radius: 14px;
+      padding: 14px 16px;
+      transition: border-color 0.2s ease;
+    }
+
+    details[open] { border-color: rgba(255, 184, 0, 0.35); }
+
+    summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: #f0f6ff;
+      list-style: none;
+      position: relative;
+      padding-right: 22px;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: "+";
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    details[open] summary::after { content: "-"; }
+
+    footer {
+      border-top: 1px solid rgba(255, 184, 0, 0.2);
+      padding: 28px 0 88px;
+      text-align: center;
+      color: #aac1e6;
+    }
+
+    footer a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      background: rgba(2, 6, 13, 0.78);
+      backdrop-filter: blur(6px);
+      z-index: 120;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      padding: 20px;
+    }
+
+    .modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      width: min(700px, 100%);
+      background: linear-gradient(175deg, rgba(14, 23, 39, 0.98), rgba(8, 14, 25, 0.98));
+      border: 1px solid rgba(255, 184, 0, 0.33);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: var(--glow-gold), 0 20px 50px rgba(0, 0, 0, 0.45);
+      transform: translateY(12px) scale(0.98);
+      transition: transform 0.25s ease;
+    }
+
+    .modal.active .modal-box {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-box p { color: #d0def8; }
+
+    .modal-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .btn-close {
+      background: transparent;
+      color: #c6d8f7;
+      border: 1px solid rgba(0, 212, 255, 0.4);
+    }
+
+    .floating-buy {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 16px;
+      width: min(92%, 420px);
+      z-index: 80;
+      display: none;
+    }
+
+    @keyframes pulseGold {
+      0%, 100% { box-shadow: var(--glow-gold); }
+      50% { box-shadow: 0 0 1rem rgba(255, 184, 0, 0.58), 0 0 2.7rem rgba(255, 184, 0, 0.3); }
+    }
+
+    @keyframes pulseCyan {
+      0%, 100% { box-shadow: var(--glow-cyan); }
+      50% { box-shadow: 0 0 1rem rgba(0, 212, 255, 0.58), 0 0 2.6rem rgba(0, 212, 255, 0.3); }
+    }
+
+    @keyframes drift {
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(-14px) scale(1.04); }
+    }
+
+    @keyframes gridShift {
+      0% { background-position: 0 0, 0 0; }
+      100% { background-position: 34px 34px, -34px 34px; }
+    }
+
+    @media (max-width: 960px) {
+      .cards-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 760px) {
+      section { padding: 62px 0; }
+      .cards-3, .cards-2 { grid-template-columns: 1fr; }
+      .author-box { grid-template-columns: 1fr; text-align: center; }
+      .avatar { margin-inline: auto; }
+      footer { padding-bottom: 96px; }
+      .floating-buy { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero" id="top">
+      <div class="container">
+        <span class="badge">BESTSELLER</span>
+        <h1>The AI Money Machine</h1>
+        <p class="hero-sub">How to Make $3,000-$10,000/Month Using Free AI Tools - Starting Today</p>
+        <div class="cta-wrap">
+          <button class="btn btn-primary buy-trigger" type="button">BUY NOW - $23</button>
+          <span class="instant-note">📧 Instant delivery to your email inbox</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="inside">
+      <div class="container">
+        <div class="section-title">
+          <h2>What's Inside This Ebook</h2>
+        </div>
+        <div class="grid cards-3">
+          <article class="card"><div class="icon">🧰</div><h3>7 Best AI Tools</h3><p>Most are free, practical, and beginner-friendly so you can start without extra cost.</p></article>
+          <article class="card"><div class="icon">💸</div><h3>10 Proven Income Streams</h3><p>Clear business models you can launch using AI for services, content, and automation.</p></article>
+          <article class="card"><div class="icon">🗺️</div><h3>3-Phase Roadmap</h3><p>A step-by-step path from $0 to $5,000/month with actionable milestones.</p></article>
+          <article class="card"><div class="icon">🤖</div><h3>5 ChatGPT Money Prompts</h3><p>Copy-paste prompts designed to help you generate real client-ready outputs fast.</p></article>
+          <article class="card"><div class="icon">📅</div><h3>30-Day Action Plan</h3><p>A daily execution routine so you never wonder what to do next.</p></article>
+          <article class="card"><div class="icon">🏆</div><h3>Real Success Stories</h3><p>Examples from real people who used simple AI workflows to start earning online.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="for-you">
+      <div class="container">
+        <div class="section-title">
+          <h2>This Ebook Is For You If...</h2>
+        </div>
+        <div class="for-list">
+          <ul>
+            <li>✅ You want to make money online with zero experience</li>
+            <li>✅ You're a student, parent, or full-time worker</li>
+            <li>✅ You've tried other methods that didn't work</li>
+            <li>✅ You want to use AI but don't know how to profit from it</li>
+            <li>✅ You need an extra $1,000-$5,000/month</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="author">
+      <div class="container">
+        <div class="section-title">
+          <h2>About The Author</h2>
+        </div>
+        <div class="author-box">
+          <div class="avatar" aria-hidden="true">HJ</div>
+          <div>
+            <h3>Hamza Jadoon</h3>
+            <p>Hamza Jadoon is a digital entrepreneur and author specializing in AI-powered income strategies. Through his books and online content, he helps beginners worldwide build real income using free AI tools - with zero technical skills required.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <div class="container">
+        <div class="section-title">
+          <h2>What Readers Say</h2>
+        </div>
+        <div class="grid cards-3">
+          <article class="card">
+            <h3>Sofia R. - Philippines</h3>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>"I made my first $380 online in month one following this guide. Hamza explains everything so clearly. Best $23 I ever spent."</p>
+          </article>
+          <article class="card">
+            <h3>James K. - United Kingdom</h3>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>"As someone with zero tech skills, this book was exactly what I needed. Clear, actionable, no fluff. Highly recommended."</p>
+          </article>
+          <article class="card">
+            <h3>Priya M. - Canada</h3>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>"The 30-day challenge alone is worth 10x the price. I now manage 4 social media clients using AI tools from this book."</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container pricing-wrap">
+        <div class="price-card">
+          <h2>Get Instant Access</h2>
+          <div class="price">$23</div>
+          <span class="old-price">$47</span>
+          <div class="includes">
+            <div>✅ Full 37-Page PDF Ebook</div>
+            <div>✅ 5 Power ChatGPT Prompts</div>
+            <div>✅ 30-Day AI Challenge Checklist</div>
+            <div>✅ Daily 1-Hour Income Routine</div>
+            <div>✅ Instant Email Delivery</div>
+          </div>
+          <button class="btn btn-primary buy-trigger" type="button">BUY NOW - $23</button>
+          <p class="secure-note">🔒 Secure Purchase • 📧 Instant Delivery</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-title">
+          <h2>FAQ</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>How will I receive the ebook?</summary>
+            <p>After payment is confirmed, Hamza will email you the PDF directly within 24 hours.</p>
+          </details>
+          <details>
+            <summary>Do I need any technical skills?</summary>
+            <p>Zero. This book is written for complete beginners. If you can type a sentence, you can use these AI tools.</p>
+          </details>
+          <details>
+            <summary>What format is the ebook?</summary>
+            <p>High-quality PDF that works on any phone, tablet, or computer.</p>
+          </details>
+          <details>
+            <summary>Is there a refund policy?</summary>
+            <p>Yes. If you're not satisfied within 7 days, email Hamza and he will issue a full refund. No questions asked.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Hamza Jadoon — All Rights Reserved</p>
+      <p><a href="https://www.hamzajadoon.cloud" target="_blank" rel="noopener noreferrer">www.hamzajadoon.cloud</a></p>
+      <p><a id="footer-email" href="mailto:[ADD YOUR EMAIL HERE]">[ADD YOUR EMAIL HERE]</a></p>
+    </div>
+  </footer>
+
+  <button class="btn btn-secondary floating-buy buy-trigger" type="button">Buy Now - $23</button>
+
+  <div class="modal" id="purchaseModal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle" aria-modal="true">
+    <div class="modal-box">
+      <h2 id="modalTitle">Complete Your Purchase</h2>
+      <p>
+        To purchase The AI Money Machine for $23, simply send an email to <strong id="sellerEmailText">[ADD YOUR EMAIL HERE]</strong>
+        with the subject line <strong>AI Money Machine Purchase</strong> and Hamza will send you the ebook and payment instructions within 24 hours.
+      </p>
+      <div class="modal-actions">
+        <a id="mailtoButton" class="btn btn-primary" href="#">📧 Send Purchase Email</a>
+        <button class="btn btn-close" id="closeModal" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const SELLER_EMAIL = "[ADD YOUR EMAIL HERE]";
+      const subject = "AI Money Machine Purchase — $23";
+      const body = "Hi Hamza, I would like to purchase The AI Money Machine ebook for $23. Please send me payment instructions. Thank you.";
+
+      const modal = document.getElementById("purchaseModal");
+      const mailtoButton = document.getElementById("mailtoButton");
+      const sellerEmailText = document.getElementById("sellerEmailText");
+      const footerEmail = document.getElementById("footer-email");
+
+      sellerEmailText.textContent = SELLER_EMAIL;
+      footerEmail.textContent = SELLER_EMAIL;
+      footerEmail.href = "mailto:" + SELLER_EMAIL;
+
+      const mailtoHref = "mailto:" + SELLER_EMAIL
+        + "?subject=" + encodeURIComponent(subject)
+        + "&body=" + encodeURIComponent(body);
+
+      mailtoButton.href = mailtoHref;
+
+      function openModal() {
+        modal.classList.add("active");
+        modal.setAttribute("aria-hidden", "false");
+      }
+
+      function closeModal() {
+        modal.classList.remove("active");
+        modal.setAttribute("aria-hidden", "true");
+      }
+
+      document.querySelectorAll(".buy-trigger").forEach(function (btn) {
+        btn.addEventListener("click", openModal);
+      });
+
+      document.getElementById("closeModal").addEventListener("click", closeModal);
+
+      modal.addEventListener("click", function (event) {
+        if (event.target === modal) closeModal();
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") closeModal();
+      });
+    })();
+  </script>
+</body>
+</html>
