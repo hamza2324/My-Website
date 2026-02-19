@@ -51,7 +51,7 @@
     position: relative;
     z-index: 1;
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1.1fr 0.9fr;
     gap: 1.3rem;
     align-items: stretch;
   }
@@ -108,6 +108,45 @@
     display: grid;
     gap: 1rem;
     align-content: start;
+  }
+
+  .cover-showcase {
+    position: relative;
+    padding: 1rem;
+    overflow: hidden;
+  }
+
+  .cover-showcase::before {
+    content: "";
+    position: absolute;
+    inset: -20% -10% auto -10%;
+    height: 60%;
+    background: radial-gradient(circle at center, rgba(239, 68, 68, 0.28), transparent 65%);
+    pointer-events: none;
+  }
+
+  .cover-frame {
+    position: relative;
+    width: min(430px, 100%);
+    margin: 0 auto;
+    border-radius: 20px;
+    padding: 0.7rem;
+    background: linear-gradient(145deg, rgba(239, 68, 68, 0.38), rgba(26, 31, 41, 0.8));
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45), 0 18px 36px rgba(239, 68, 68, 0.28);
+  }
+
+  .cover-frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .cover-caption {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
   }
 
   .ebook-price {
@@ -330,11 +369,13 @@
         </div>
       </div>
       <aside class="glass-card ebook-preview" data-reveal>
-        <p class="kicker">Quick Snapshot</p>
-        <h2 style="font-size:1.7rem;">Launch Your AI Income System</h2>
-        <p>Simple, proven, and practical playbook to build online income using free tools and daily execution.</p>
-        <div class="ebook-price">$23 <span class="old">$47</span></div>
-        <button class="btn btn-secondary buy-trigger" type="button">Get Access</button>
+        <p class="kicker">Ebook Cover</p>
+        <div class="cover-showcase">
+          <div class="cover-frame">
+            <img src="assets/images/ai-money-machine-cover.png" alt="The AI Money Machine ebook cover by Hamza Jadoon" loading="eager">
+          </div>
+        </div>
+        <p class="cover-caption">Premium digital edition • 37 pages • Instant access</p>
       </aside>
     </div>
   </section>
