@@ -501,6 +501,7 @@
     <p style="margin-top:0.7rem;">To purchase The AI Money Machine for $23, simply send an email to <strong id="purchase-email-text">hamzajadoon71@gmail.com</strong> with the subject line <strong>AI Money Machine Purchase</strong> and Hamza will send you the ebook and payment instructions within 24 hours.</p>
     <div class="purchase-actions">
       <a id="purchase-mailto" class="btn btn-primary" href="#">📧 Send Purchase Email</a>
+      <a id="purchase-gmail" class="btn btn-secondary" href="#" target="_blank" rel="noopener noreferrer">Open in Gmail</a>
       <button id="purchase-close" class="btn btn-secondary" type="button">Close</button>
     </div>
   </div>
@@ -515,14 +516,17 @@
     var modal = document.getElementById("purchase-modal");
     var closeBtn = document.getElementById("purchase-close");
     var mailtoBtn = document.getElementById("purchase-mailto");
+    var gmailBtn = document.getElementById("purchase-gmail");
     var emailText = document.getElementById("purchase-email-text");
     var footerEmailLink = document.getElementById("footer-email-link");
 
     var href = "mailto:" + SELLER_EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    var gmailHref = "https://mail.google.com/mail/?view=cm&fs=1&to=" + encodeURIComponent(SELLER_EMAIL) + "&su=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
     emailText.textContent = SELLER_EMAIL;
     footerEmailLink.textContent = SELLER_EMAIL;
     footerEmailLink.href = "mailto:" + SELLER_EMAIL;
     mailtoBtn.href = href;
+    gmailBtn.href = gmailHref;
 
     function openModal() {
       modal.classList.add("is-open");
