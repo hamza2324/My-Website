@@ -2,7 +2,7 @@ const POSTS = [
   {
     "title": "EU AI Act 2026: The August Compliance Deadline That Could Cost Your Business EUR35 Million",
     "slug": "eu-ai-act-2026-the-august-compliance-deadline-that-could-cost-your-business-eur35-million",
-    "date": "2026-02-19",
+    "date": "2026-02-20",
     "category": "AI Tools",
     "tags": [],
     "excerpt": "---\ntitle: \"EU AI Act 2026: August Deadline, Fines, and Compliance Guide\"\ndate: 2026-02-19\nslug: eu-ai-act-2026-august-deadline-compliance-guide\ncategory: AI Regulation",
@@ -11,6 +11,30 @@ const POSTS = [
     "imageAlt": "",
     "url": "posts/eu-ai-act-2026-the-august-compliance-deadline-that-could-cost-your-business-eur35-million.html",
     "id": 1
+  },
+  {
+    "title": "Google Is Dying: How AI Just Replaced Search - And Most People Don't Know It Yet",
+    "slug": "google-is-dying-ai-replaced-search-2026",
+    "date": "2026-02-20",
+    "category": "Digital Marketing",
+    "tags": [
+      "SEO",
+      "GEO",
+      "AI Search",
+      "ChatGPT",
+      "Google AI Overviews",
+      "Perplexity",
+      "Digital Marketing 2026",
+      "Generative Engine Optimization",
+      "Future of Search",
+      "AI Marketing"
+    ],
+    "excerpt": "Discover how AI search engines like ChatGPT, Perplexity, and Google AI Overviews are replacing traditional Google search. Learn what GEO means for your website, SEO strategy, and online visibility in 2026.",
+    "readTime": "12 min read",
+    "image": "/assets/images/google-vs-ai-search-2026-featured.svg",
+    "imageAlt": "AI chat-based search replacing traditional search engine behavior",
+    "url": "posts/google-is-dying-ai-replaced-search-2026.html",
+    "id": 2
   },
   {
     "title": "Google vs Apple: The $30 Billion AI Smart Glasses Battle is ON (And Your Business Needs to Pay Attention)",
@@ -36,7 +60,7 @@ const POSTS = [
     "image": "https://picsum.photos/seed/google-vs-apple-smart-glasses/1200/630",
     "imageAlt": "AI smart glasses for field operations and logistics teams",
     "url": "posts/google-vs-apple-30-billion-ai-smart-glasses-battle.html",
-    "id": 2
+    "id": 3
   },
   {
     "title": "Multi-Agent AI Systems for Business Automation (2026 Guide)",
@@ -57,7 +81,7 @@ const POSTS = [
     "image": "https://picsum.photos/seed/multi-agent-ai-2026/1200/630",
     "imageAlt": "Multi-agent AI orchestration dashboard for business automation teams",
     "url": "posts/multi-agent-ai-systems-the-future-of-business-automation.html",
-    "id": 3
+    "id": 4
   },
   {
     "title": "AI ROI in 2026: Why Only 1 in 50 AI Investments Deliver Real Value",
@@ -76,7 +100,7 @@ const POSTS = [
     "image": "https://picsum.photos/seed/ai-roi-2026-failure-gap/1200/630",
     "imageAlt": "",
     "url": "posts/ai-roi-2026-why-most-ai-investments-fail.html",
-    "id": 4
+    "id": 5
   },
   {
     "title": "AI Agents Are Replacing Traditional Workflows - Are You Ready for the Shift?",
@@ -95,7 +119,7 @@ const POSTS = [
     "image": "https://picsum.photos/seed/ai-agents-workflows-shift/1200/630",
     "imageAlt": "",
     "url": "posts/ai-agents-replacing-traditional-workflows-are-you-ready.html",
-    "id": 5
+    "id": 6
   },
   {
     "title": "How AI Is Transforming Business Operations in 2026",
@@ -113,7 +137,7 @@ const POSTS = [
     "image": "https://picsum.photos/seed/ai-business-ops-2026/1200/630",
     "imageAlt": "",
     "url": "posts/ai-transforming-business-operations-2026.html",
-    "id": 6
+    "id": 7
   },
   {
     "title": "How to Automate Weekly Reporting with AI",
@@ -130,6 +154,6 @@ const POSTS = [
     "image": "https://picsum.photos/seed/weekly-reporting/1200/630",
     "imageAlt": "",
     "url": "posts/automate-weekly-reporting-with-ai.html",
-    "id": 7
+    "id": 8
   }
 ];

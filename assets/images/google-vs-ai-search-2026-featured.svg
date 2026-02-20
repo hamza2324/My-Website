@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Old Google vs AI Chat Interface</title>
+  <desc id="desc">Split screen illustration comparing classic search results with an AI chat response panel.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#22c55e"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <rect x="50" y="70" width="520" height="490" rx="20" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="90" y="125" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#111827">Old Google Search</text>
+  <rect x="90" y="155" width="430" height="36" rx="8" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <rect x="90" y="220" width="390" height="12" rx="6" fill="#1d4ed8" opacity="0.85"/>
+  <rect x="90" y="244" width="440" height="8" rx="4" fill="#64748b" opacity="0.6"/>
+  <rect x="90" y="262" width="410" height="8" rx="4" fill="#64748b" opacity="0.45"/>
+  <rect x="90" y="302" width="360" height="12" rx="6" fill="#1d4ed8" opacity="0.85"/>
+  <rect x="90" y="326" width="430" height="8" rx="4" fill="#64748b" opacity="0.6"/>
+  <rect x="90" y="344" width="385" height="8" rx="4" fill="#64748b" opacity="0.45"/>
+  <rect x="90" y="384" width="410" height="12" rx="6" fill="#1d4ed8" opacity="0.85"/>
+  <rect x="90" y="408" width="450" height="8" rx="4" fill="#64748b" opacity="0.6"/>
+  <rect x="90" y="426" width="360" height="8" rx="4" fill="#64748b" opacity="0.45"/>
+
+  <rect x="630" y="70" width="520" height="490" rx="20" fill="#0f172a"/>
+  <text x="670" y="125" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#e2e8f0">AI Chat Interface</text>
+  <rect x="670" y="160" width="440" height="300" rx="14" fill="#111827" stroke="#334155"/>
+  <rect x="695" y="190" width="380" height="16" rx="8" fill="#22d3ee" opacity="0.85"/>
+  <rect x="695" y="220" width="390" height="10" rx="5" fill="#cbd5e1" opacity="0.7"/>
+  <rect x="695" y="240" width="360" height="10" rx="5" fill="#cbd5e1" opacity="0.7"/>
+  <rect x="695" y="270" width="400" height="10" rx="5" fill="#cbd5e1" opacity="0.7"/>
+  <rect x="695" y="290" width="340" height="10" rx="5" fill="#cbd5e1" opacity="0.7"/>
+  <rect x="695" y="330" width="210" height="34" rx="17" fill="#0ea5e9"/>
+  <text x="745" y="352" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#ffffff">Answer Ready</text>
+
+  <line x1="600" y1="90" x2="600" y2="540" stroke="url(#accent)" stroke-width="6" stroke-linecap="round"/>
+
+  <text x="600" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="800" fill="#0f172a">Search Has Shifted to AI Answers</text>
+</svg>
