@@ -1424,6 +1424,45 @@ img {
   }
 }
 
+.geo-plan-grid {
+  margin-top: 1.4rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.geo-step {
+  padding: 1.1rem;
+}
+
+.geo-step h3 {
+  font-size: 1.05rem;
+}
+
+.geo-step p {
+  margin-top: 0.55rem;
+  color: var(--text-secondary);
+}
+
+.faq-stack {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1.2rem;
+}
+
+.faq-entry {
+  padding: 1rem 1.1rem;
+}
+
+.faq-entry h3 {
+  font-size: 1rem;
+}
+
+.faq-entry p {
+  margin-top: 0.45rem;
+  color: var(--text-secondary);
+}
+
 @media (max-width: 1200px) {
   .post-grid-shell {
     grid-template-columns: minmax(0, 860px);
@@ -1496,6 +1535,7 @@ img {
   .blog-grid,
   .stats-grid,
   .affiliate-grid,
+  .geo-plan-grid,
   .blog-preview-grid,
   .related-grid,
   .capability-grid,
