@@ -174,6 +174,8 @@ function sanitizeHref(rawUrl) {
 
 function renderInline(text) {
   let out = escapeHtml(text);
+  out = out.replace(/\*\*([^*]+)\*\*/g, (_, strong) => `<strong>${strong}</strong>`);
+  out = out.replace(/\*([^*]+)\*/g, (_, em) => `<em>${em}</em>`);
   out = out.replace(/`([^`]+)`/g, (_, code) => `<code>${code}</code>`);
   out = out.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, url) => {
     const href = sanitizeHref(url);
@@ -181,6 +183,28 @@ function renderInline(text) {
     return `<a href="${escapeHtml(href)}"${external ? " target=\"_blank\" rel=\"noopener noreferrer\"" : ""}>${label}</a>`;
   });
   return out;
+}
+
+function headingParts(rawText) {
+  const text = String(rawText || "").trim();
+  const match = text.match(/^(.*?)\s*\{#([a-zA-Z0-9_-]+)\}\s*$/);
+  if (!match) return { text, id: "" };
+  return { text: match[1].trim(), id: match[2].trim() };
+}
+
+function isTableSeparatorLine(line) {
+  if (!line) return false;
+  const trimmed = line.trim();
+  if (!trimmed.startsWith("|") || !trimmed.endsWith("|")) return false;
+  return /^(\|\s*:?-{3,}:?\s*)+\|$/.test(trimmed);
+}
+
+function parseTableCells(line) {
+  return line
+    .trim()
+    .slice(1, -1)
+    .split("|")
+    .map((cell) => cell.trim());
 }
 
 function markdownToHtml(markdown) {
@@ -203,7 +227,8 @@ function markdownToHtml(markdown) {
     }
   };
 
-  for (const rawLine of lines) {
+  for (let i = 0; i < lines.length; i += 1) {
+    const rawLine = lines[i];
     const line = rawLine.trimEnd();
 
     if (line.startsWith("```")) {
@@ -237,13 +262,15 @@ function markdownToHtml(markdown) {
 
     if (/^###\s+/.test(line)) {
       closeLists();
-      out.push(`<h3>${renderInline(line.replace(/^###\s+/, ""))}</h3>`);
+      const heading = headingParts(line.replace(/^###\s+/, ""));
+      out.push(`<h3${heading.id ? ` id="${escapeHtml(heading.id)}"` : ""}>${renderInline(heading.text)}</h3>`);
       continue;
     }
 
     if (/^##\s+/.test(line)) {
       closeLists();
-      out.push(`<h2>${renderInline(line.replace(/^##\s+/, ""))}</h2>`);
+      const heading = headingParts(line.replace(/^##\s+/, ""));
+      out.push(`<h2${heading.id ? ` id="${escapeHtml(heading.id)}"` : ""}>${renderInline(heading.text)}</h2>`);
       continue;
     }
 
@@ -252,9 +279,32 @@ function markdownToHtml(markdown) {
       if (!skippedTitle) {
         skippedTitle = true;
       } else {
-        out.push(`<h2>${renderInline(line.replace(/^#\s+/, ""))}</h2>`);
+        const heading = headingParts(line.replace(/^#\s+/, ""));
+        out.push(`<h2${heading.id ? ` id="${escapeHtml(heading.id)}"` : ""}>${renderInline(heading.text)}</h2>`);
       }
       continue;
+    }
+
+    if (/^\|.*\|$/.test(line.trim())) {
+      const next = lines[i + 1] ? lines[i + 1].trim() : "";
+      if (isTableSeparatorLine(next)) {
+        closeLists();
+        const headerCells = parseTableCells(line);
+        const rows = [];
+        let rowIndex = i + 2;
+        while (rowIndex < lines.length) {
+          const rowLine = (lines[rowIndex] || "").trim();
+          if (!/^\|.*\|$/.test(rowLine)) break;
+          rows.push(parseTableCells(rowLine));
+          rowIndex += 1;
+        }
+
+        const thead = `<thead><tr>${headerCells.map((cell) => `<th>${renderInline(cell)}</th>`).join("")}</tr></thead>`;
+        const tbody = `<tbody>${rows.map((row) => `<tr>${row.map((cell) => `<td>${renderInline(cell)}</td>`).join("")}</tr>`).join("")}</tbody>`;
+        out.push(`<table>${thead}${tbody}</table>`);
+        i = rowIndex - 1;
+        continue;
+      }
     }
 
     if (/^>\s+/.test(line)) {
@@ -792,6 +842,30 @@ img { max-width: 100%; display: block; }
   border: 0;
   border-top: 1px solid var(--border);
   margin: 30px 0;
+}
+.article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+.article th,
+.article td {
+  border: 1px solid var(--border);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+  font-size: .96rem;
+  line-height: 1.65;
+}
+.article th {
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 700;
 }
 .image-card {
   margin: 24px 0;
