@@ -408,14 +408,13 @@
     const closeButtons = Array.from(popup.querySelectorAll("[data-popup-close]"));
     const form = popup.querySelector("form");
     let shown = false;
-
-    const markSeen = () => {};
+    let timerElapsed = false;
+    let hasScrolled = false;
 
     const closePopup = () => {
       popup.classList.remove("open");
       popup.setAttribute("aria-hidden", "true");
       document.body.classList.remove("popup-open");
-      markSeen();
     };
 
     const openPopup = () => {
@@ -426,7 +425,24 @@
       document.body.classList.add("popup-open");
     };
 
-    const timer = window.setTimeout(openPopup, 10000);
+    const tryOpen = () => {
+      if (timerElapsed && hasScrolled) openPopup();
+    };
+
+    const timer = window.setTimeout(() => {
+      timerElapsed = true;
+      tryOpen();
+    }, 10000);
+
+    const onScroll = () => {
+      if (hasScrolled) return;
+      if (window.scrollY < 80) return;
+      hasScrolled = true;
+      tryOpen();
+      window.removeEventListener("scroll", onScroll);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
 
     closeButtons.forEach((btn) => btn.addEventListener("click", closePopup));
     window.addEventListener("keydown", (event) => {
@@ -435,7 +451,6 @@
 
     if (form) {
       form.addEventListener("submit", () => {
-        markSeen();
         window.clearTimeout(timer);
       });
     }
