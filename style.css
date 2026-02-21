@@ -548,13 +548,50 @@ img {
 .affiliate-grid {
   margin-top: 2rem;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
+}
+
+.affiliate-quick-picks {
+  margin-top: 1.2rem;
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.quick-pick {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.9rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(239, 68, 68, 0.48);
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.18), rgba(26, 31, 41, 0.88));
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.quick-pick:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-accent);
+  border-color: rgba(239, 68, 68, 0.8);
+}
+
+.quick-pick-label {
+  color: #fecaca;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 800;
 }
 
 .affiliate-card {
   padding: 1.5rem;
   border-color: rgba(239, 68, 68, 0.28);
+}
+
+.affiliate-card-featured {
+  border-color: rgba(239, 68, 68, 0.65);
+  box-shadow: 0 14px 30px rgba(239, 68, 68, 0.18);
+  background: linear-gradient(160deg, rgba(239, 68, 68, 0.12), rgba(26, 31, 41, 0.88));
 }
 
 .affiliate-head {
@@ -603,6 +640,12 @@ img {
   margin-top: 1rem;
   color: var(--text-muted);
   font-size: 0.85rem;
+}
+
+.btn-affiliate-strong {
+  width: 100%;
+  margin-top: 0.6rem;
+  font-size: 0.96rem;
 }
 
 .blog-preview-grid,
@@ -1481,6 +1524,7 @@ img {
 
   .stats-grid,
   .affiliate-grid,
+  .affiliate-quick-picks,
   .blog-preview-grid,
   .related-grid,
   .capability-grid,
@@ -1535,6 +1579,7 @@ img {
   .blog-grid,
   .stats-grid,
   .affiliate-grid,
+  .affiliate-quick-picks,
   .geo-plan-grid,
   .blog-preview-grid,
   .related-grid,
