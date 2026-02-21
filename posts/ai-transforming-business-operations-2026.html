@@ -857,15 +857,15 @@ document.querySelectorAll('form[data-lead-form]').forEach((form) => {
       if (status) status.textContent = message;
       form.hidden = true;
       if (downloadWrap) downloadWrap.hidden = false;
-      localStorage.setItem('hj_starter_kit_completed', '1');
       const modal = form.closest('#starter-kit-popup');
-      if (modal) {
-        modal.classList.remove('open');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-      }
       if (downloadLink) {
         downloadLink.addEventListener('click', () => {
+          localStorage.setItem('hj_starter_kit_completed', '1');
+          if (modal) {
+            modal.classList.remove('open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+          }
           window.setTimeout(() => {
             form.reset();
             form.hidden = false;
@@ -875,6 +875,7 @@ document.querySelectorAll('form[data-lead-form]').forEach((form) => {
           }, 500);
         }, { once: true });
       } else if (submitButton) {
+        localStorage.setItem('hj_starter_kit_completed', '1');
         submitButton.disabled = false;
       }
     };

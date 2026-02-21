@@ -492,16 +492,16 @@
           if (status) status.textContent = message;
           if (downloadWrap) downloadWrap.hidden = false;
           form.hidden = true;
-          localStorage.setItem("hj_starter_kit_completed", "1");
-          document.body.classList.remove("popup-open");
           const popup = form.closest("#starter-kit-popup");
-          if (popup) {
-            popup.classList.remove("open");
-            popup.setAttribute("aria-hidden", "true");
-          }
 
           if (downloadLink) {
             const resetAfterDownload = () => {
+              localStorage.setItem("hj_starter_kit_completed", "1");
+              if (popup) {
+                popup.classList.remove("open");
+                popup.setAttribute("aria-hidden", "true");
+              }
+              document.body.classList.remove("popup-open");
               window.setTimeout(() => {
                 form.reset();
                 form.hidden = false;
@@ -512,6 +512,7 @@
             };
             downloadLink.addEventListener("click", resetAfterDownload, { once: true });
           } else if (submitButton) {
+            localStorage.setItem("hj_starter_kit_completed", "1");
             submitButton.disabled = false;
           }
         };
