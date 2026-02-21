@@ -404,7 +404,20 @@
     if (!body.classList.contains("page-home")) return;
     const popup = document.getElementById("starter-kit-popup");
     if (!popup) return;
-    if (localStorage.getItem("hj_starter_kit_completed") === "1") return;
+    const completedKey = "hj_starter_kit_completed_at";
+    const legacyCompletedKey = "hj_starter_kit_completed";
+    const completionTtlMs = 30 * 24 * 60 * 60 * 1000;
+    const isCompletedRecently = () => {
+      const legacy = localStorage.getItem(legacyCompletedKey);
+      if (legacy === "1") {
+        localStorage.removeItem(legacyCompletedKey);
+      }
+      const raw = localStorage.getItem(completedKey);
+      const completedAt = Number(raw || 0);
+      if (!completedAt) return false;
+      return Date.now() - completedAt < completionTtlMs;
+    };
+    if (isCompletedRecently()) return;
 
     const closeButtons = Array.from(popup.querySelectorAll("[data-popup-close]"));
     const form = popup.querySelector("form");
@@ -472,6 +485,7 @@
 
   function initLeadGatedDownloads() {
     const newsletterEndpoint = "https://formspree.io/f/mvzbzloa";
+    const completedKey = "hj_starter_kit_completed_at";
     const forms = Array.from(document.querySelectorAll("form[data-lead-form]"));
     if (!forms.length) return;
 
@@ -496,7 +510,7 @@
 
           if (downloadLink) {
             const resetAfterDownload = () => {
-              localStorage.setItem("hj_starter_kit_completed", "1");
+              localStorage.setItem(completedKey, String(Date.now()));
               if (popup) {
                 popup.classList.remove("open");
                 popup.setAttribute("aria-hidden", "true");
@@ -512,7 +526,7 @@
             };
             downloadLink.addEventListener("click", resetAfterDownload, { once: true });
           } else if (submitButton) {
-            localStorage.setItem("hj_starter_kit_completed", "1");
+            localStorage.setItem(completedKey, String(Date.now()));
             submitButton.disabled = false;
           }
         };

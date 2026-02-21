@@ -1025,6 +1025,17 @@ document.querySelectorAll('.article a[href*="try.elevenlabs.io"]').forEach((link
 });
 
 const newsletterEndpoint = 'https://formspree.io/f/mvzbzloa';
+const completedKey = 'hj_starter_kit_completed_at';
+const legacyCompletedKey = 'hj_starter_kit_completed';
+const completionTtlMs = 30 * 24 * 60 * 60 * 1000;
+const isCompletedRecently = () => {
+  const legacy = localStorage.getItem(legacyCompletedKey);
+  if (legacy === '1') localStorage.removeItem(legacyCompletedKey);
+  const raw = localStorage.getItem(completedKey);
+  const completedAt = Number(raw || 0);
+  if (!completedAt) return false;
+  return Date.now() - completedAt < completionTtlMs;
+};
 document.querySelectorAll('form[data-lead-form]').forEach((form) => {
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -1044,7 +1055,7 @@ document.querySelectorAll('form[data-lead-form]').forEach((form) => {
       const modal = form.closest('#starter-kit-popup');
       if (downloadLink) {
         downloadLink.addEventListener('click', () => {
-          localStorage.setItem('hj_starter_kit_completed', '1');
+          localStorage.setItem(completedKey, String(Date.now()));
           if (modal) {
             modal.classList.remove('open');
             modal.setAttribute('aria-hidden', 'true');
@@ -1059,7 +1070,7 @@ document.querySelectorAll('form[data-lead-form]').forEach((form) => {
           }, 500);
         }, { once: true });
       } else if (submitButton) {
-        localStorage.setItem('hj_starter_kit_completed', '1');
+        localStorage.setItem(completedKey, String(Date.now()));
         submitButton.disabled = false;
       }
     };
@@ -1092,7 +1103,7 @@ document.querySelectorAll('form[data-lead-form]').forEach((form) => {
 });
 
 const popup = document.getElementById('starter-kit-popup');
-if (popup && localStorage.getItem('hj_starter_kit_completed') !== '1') {
+if (popup && !isCompletedRecently()) {
   const closers = [...popup.querySelectorAll('[data-popup-close]')];
   let shown = false;
   let timerElapsed = false;
