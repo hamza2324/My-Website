@@ -406,17 +406,36 @@
     if (!popup) return;
 
     const storageKey = "hj_starter_kit_popup_seen";
-    if (localStorage.getItem(storageKey) === "1") return;
+    const popupCooldownMs = 24 * 60 * 60 * 1000;
+    const legacyValue = localStorage.getItem(storageKey);
+    if (legacyValue === "1") {
+      localStorage.removeItem(storageKey);
+    }
+
+    try {
+      const rawState = localStorage.getItem(storageKey);
+      if (rawState) {
+        const parsed = JSON.parse(rawState);
+        const seenAt = Number(parsed.seenAt || 0);
+        if (seenAt > 0 && Date.now() - seenAt < popupCooldownMs) return;
+      }
+    } catch (_error) {
+      localStorage.removeItem(storageKey);
+    }
 
     const closeButtons = Array.from(popup.querySelectorAll("[data-popup-close]"));
     const form = popup.querySelector("form");
     let shown = false;
 
+    const markSeen = () => {
+      localStorage.setItem(storageKey, JSON.stringify({ seenAt: Date.now() }));
+    };
+
     const closePopup = () => {
       popup.classList.remove("open");
       popup.setAttribute("aria-hidden", "true");
       document.body.classList.remove("popup-open");
-      localStorage.setItem(storageKey, "1");
+      markSeen();
     };
 
     const openPopup = () => {
@@ -425,10 +444,9 @@
       popup.classList.add("open");
       popup.setAttribute("aria-hidden", "false");
       document.body.classList.add("popup-open");
-      localStorage.setItem(storageKey, "1");
     };
 
-    const timer = window.setTimeout(openPopup, 30000);
+    const timer = window.setTimeout(openPopup, 10000);
 
     closeButtons.forEach((btn) => btn.addEventListener("click", closePopup));
     window.addEventListener("keydown", (event) => {
@@ -437,10 +455,31 @@
 
     if (form) {
       form.addEventListener("submit", () => {
-        localStorage.setItem(storageKey, "1");
+        markSeen();
         window.clearTimeout(timer);
       });
     }
+
+  }
+
+  function initBrevoEmbedResets() {
+    const resetButtons = Array.from(document.querySelectorAll("[data-brevo-reset]"));
+    if (!resetButtons.length) return;
+
+    resetButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const scope = button.closest(".lead-brevo, .brevo-embed, .starter-kit-content") || document;
+        const iframe = scope.querySelector("iframe[data-brevo-embed]");
+        if (!iframe) return;
+
+        const originalSrc = iframe.getAttribute("src") || "";
+        if (!originalSrc) return;
+        iframe.setAttribute("src", "about:blank");
+        window.setTimeout(() => {
+          iframe.setAttribute("src", originalSrc);
+        }, 60);
+      });
+    });
   }
 
   const needsPosts = Boolean(featuredHost || blogList || relatedHost || totalGuidesNode);
@@ -463,6 +502,7 @@
 
   initPostTemplate();
   initHomeLeadPopup();
+  initBrevoEmbedResets();
 
   if (body.classList.contains("page-blog") && postCountNode && !blogList) {
     postCountNode.textContent = "20+ Articles";

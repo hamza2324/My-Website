@@ -25,18 +25,25 @@
     "id": 1
   },
   {
-    "title": "EU AI Act 2026: The August Compliance Deadline That Could Cost Your Business EUR35 Million",
-    "slug": "eu-ai-act-2026-the-august-compliance-deadline-that-could-cost-your-business-eur35-million",
+    "title": "AI Reducing Manual Work - A Practical Guide to Working Smarter in 2026",
+    "slug": "ai-reducing-manual-work-guide-2026",
     "date": "2026-02-21",
     "category": "AI Tools",
-    "tags": [],
-    "excerpt": "---\ntitle: \"EU AI Act 2026: August Deadline, Fines, and Compliance Guide\"\ndate: 2026-02-19\nslug: eu-ai-act-2026-august-deadline-compliance-guide\ncategory: AI Regulation",
-    "readTime": "8 min read",
-    "image": "https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    "imageAlt": "",
+    "tags": [
+      "AI Reducing Manual Work",
+      "AI Productivity",
+      "Workflow Automation",
+      "AI for Employees",
+      "Business Automation",
+      "Future of Work 2026"
+    ],
+    "excerpt": "Learn how AI reduces manual work, which tasks are most at risk, and how to build a simple weekly plan that saves time without reducing your value.",
+    "readTime": "11 min read",
+    "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&q=80",
+    "imageAlt": "Professional workspace representing AI-assisted productivity and reduced manual workload",
     "affiliateLink": "",
     "priority": 0,
-    "url": "posts/eu-ai-act-2026-the-august-compliance-deadline-that-could-cost-your-business-eur35-million.html",
+    "url": "posts/ai-reducing-manual-work-guide-2026.html",
     "id": 2
   },
   {
@@ -62,25 +69,18 @@
     "id": 3
   },
   {
-    "title": "AI Reducing Manual Work - A Practical Guide to Working Smarter in 2026",
-    "slug": "ai-reducing-manual-work-guide-2026",
+    "title": "EU AI Act 2026: The August Compliance Deadline That Could Cost Your Business EUR35 Million",
+    "slug": "eu-ai-act-2026-the-august-compliance-deadline-that-could-cost-your-business-eur35-million",
     "date": "2026-02-21",
     "category": "AI Tools",
-    "tags": [
-      "AI Reducing Manual Work",
-      "AI Productivity",
-      "Workflow Automation",
-      "AI for Employees",
-      "Business Automation",
-      "Future of Work 2026"
-    ],
-    "excerpt": "Learn how AI reduces manual work, which tasks are most at risk, and how to build a simple weekly plan that saves time without reducing your value.",
-    "readTime": "11 min read",
-    "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&q=80",
-    "imageAlt": "Professional workspace representing AI-assisted productivity and reduced manual workload",
+    "tags": [],
+    "excerpt": "---\ntitle: \"EU AI Act 2026: August Deadline, Fines, and Compliance Guide\"\ndate: 2026-02-19\nslug: eu-ai-act-2026-august-deadline-compliance-guide\ncategory: AI Regulation",
+    "readTime": "8 min read",
+    "image": "https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "imageAlt": "",
     "affiliateLink": "",
     "priority": 0,
-    "url": "posts/ai-reducing-manual-work-guide-2026.html",
+    "url": "posts/eu-ai-act-2026-the-august-compliance-deadline-that-could-cost-your-business-eur35-million.html",
     "id": 4
   },
   {
@@ -182,26 +182,6 @@
     "id": 8
   },
   {
-    "title": "How AI Is Transforming Business Operations in 2026",
-    "slug": "ai-transforming-business-operations-2026",
-    "date": "2026-02-13",
-    "category": "Industry News",
-    "tags": [
-      "AI",
-      "Business Operations",
-      "Automation",
-      "Agentic AI"
-    ],
-    "excerpt": "AI is reshaping business operations through automation, better decisions, and emerging autonomous agentic tools.",
-    "readTime": "7 min read",
-    "image": "https://picsum.photos/seed/ai-business-ops-2026/1200/630",
-    "imageAlt": "",
-    "affiliateLink": "",
-    "priority": 0,
-    "url": "posts/ai-transforming-business-operations-2026.html",
-    "id": 9
-  },
-  {
     "title": "AI Agents Are Replacing Traditional Workflows - Are You Ready for the Shift?",
     "slug": "ai-agents-replacing-traditional-workflows-are-you-ready",
     "date": "2026-02-13",
@@ -220,6 +200,26 @@
     "affiliateLink": "",
     "priority": 0,
     "url": "posts/ai-agents-replacing-traditional-workflows-are-you-ready.html",
+    "id": 9
+  },
+  {
+    "title": "How AI Is Transforming Business Operations in 2026",
+    "slug": "ai-transforming-business-operations-2026",
+    "date": "2026-02-13",
+    "category": "Industry News",
+    "tags": [
+      "AI",
+      "Business Operations",
+      "Automation",
+      "Agentic AI"
+    ],
+    "excerpt": "AI is reshaping business operations through automation, better decisions, and emerging autonomous agentic tools.",
+    "readTime": "7 min read",
+    "image": "https://picsum.photos/seed/ai-business-ops-2026/1200/630",
+    "imageAlt": "",
+    "affiliateLink": "",
+    "priority": 0,
+    "url": "posts/ai-transforming-business-operations-2026.html",
     "id": 10
   },
   {

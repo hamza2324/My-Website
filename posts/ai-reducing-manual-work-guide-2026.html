@@ -718,12 +718,14 @@ img { max-width: 100%; display: block; }
           <iframe
             width="540"
             height="380"
+            data-brevo-embed
             src="https://26663e63.sibforms.com/serve/MUIFAIAq3_TNpH815gpegtVFQL-YNK5Pw1LKjHSh0XiUaKQ9iO8TEictAqoSpKgN7E3M8Qm5f1WiV8Uw9IzgRBMGNWBQaSn4Y-5z9jAoRSZSOLebEsGqUMgL9SeBJYKOfjWz9lNXnNwuilOAm4yu7X4U4gwRM3NnBAmZKV2EaeFPU0qv-iUy2jikgbcfKJqQ-GhJVHzlNkHCws7GJA=="
             frameborder="0"
             scrolling="no"
             allowfullscreen
             style="display:block;margin-left:auto;margin-right:auto;max-width:100%;"
           ></iframe>
+          <button class="cta-btn" type="button" data-brevo-reset style="margin-top:0.9rem;">Reset form</button>
         </div>
         <p style="margin-top:8px; color: var(--text-soft); font-size:.88rem;">No spam. Unsubscribe anytime.</p>
       </section>
@@ -807,6 +809,21 @@ document.querySelectorAll('.article a[href*="try.elevenlabs.io"]').forEach((link
   link.classList.add('affiliate-btn');
   link.setAttribute('target', '_blank');
   link.setAttribute('rel', 'noopener noreferrer sponsored');
+});
+
+document.querySelectorAll('[data-brevo-reset]').forEach((button) => {
+  button.addEventListener('click', () => {
+    const scope = button.closest('.lead-brevo, .brevo-embed, .starter-kit-content') || document;
+    const iframe = scope.querySelector('iframe[data-brevo-embed]');
+    if (!iframe) return;
+
+    const originalSrc = iframe.getAttribute('src') || '';
+    if (!originalSrc) return;
+    iframe.setAttribute('src', 'about:blank');
+    window.setTimeout(() => {
+      iframe.setAttribute('src', originalSrc);
+    }, 60);
+  });
 });
 </script>
 </body>
