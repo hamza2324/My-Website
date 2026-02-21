@@ -409,7 +409,7 @@
     const form = popup.querySelector("form");
     let shown = false;
     let timerElapsed = false;
-    let hasScrolled = false;
+    let hasScrolled = window.scrollY >= 10;
 
     const closePopup = () => {
       popup.classList.remove("open");
@@ -436,13 +436,25 @@
 
     const onScroll = () => {
       if (hasScrolled) return;
-      if (window.scrollY < 80) return;
+      if (window.scrollY < 10) return;
       hasScrolled = true;
       tryOpen();
       window.removeEventListener("scroll", onScroll);
     };
 
     window.addEventListener("scroll", onScroll, { passive: true });
+    // Mobile devices may not emit a meaningful scroll quickly; treat early user interaction as intent.
+    const onInteract = () => {
+      if (hasScrolled) return;
+      hasScrolled = true;
+      tryOpen();
+      window.removeEventListener("wheel", onInteract);
+      window.removeEventListener("touchstart", onInteract);
+      window.removeEventListener("keydown", onInteract);
+    };
+    window.addEventListener("wheel", onInteract, { passive: true });
+    window.addEventListener("touchstart", onInteract, { passive: true });
+    window.addEventListener("keydown", onInteract);
 
     closeButtons.forEach((btn) => btn.addEventListener("click", closePopup));
     window.addEventListener("keydown", (event) => {
