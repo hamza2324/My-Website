@@ -504,6 +504,21 @@ img { max-width: 100%; display: block; }
   min-height: 420px;
   display: block;
 }
+.lead-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 14px;
+}
+.lead-form input {
+  flex: 1 1 260px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+.lead-download {
+  padding: 0 14px 14px;
+}
 .starter-kit-popup {
   position: fixed;
   inset: 0;
@@ -881,19 +896,19 @@ img { max-width: 100%; display: block; }
       <section class="lead-magnet reveal-on-scroll" aria-label="Free download">
         <p class="kicker">FREE DOWNLOAD</p>
         <h2>"The AI Starter Kit: 7 Tools to Start Earning With AI This Week"</h2>
-        <p class="lead-subtle">Sign up and get the PDF link instantly in your email inbox.</p>
-        <p class="lead-subtle">The PDF is sent only after successful signup.</p>
+        <p class="lead-subtle">Sign up and unlock the PDF download instantly on this screen.</p>
+        <p class="lead-subtle">After subscribe, click the download button that appears below.</p>
         <div class="lead-brevo">
-          <iframe
-            width="540"
-            height="380"
-            data-brevo-embed
-            src="https://26663e63.sibforms.com/serve/MUIFAIAq3_TNpH815gpegtVFQL-YNK5Pw1LKjHSh0XiUaKQ9iO8TEictAqoSpKgN7E3M8Qm5f1WiV8Uw9IzgRBMGNWBQaSn4Y-5z9jAoRSZSOLebEsGqUMgL9SeBJYKOfjWz9lNXnNwuilOAm4yu7X4U4gwRM3NnBAmZKV2EaeFPU0qv-iUy2jikgbcfKJqQ-GhJVHzlNkHCws7GJA=="
-            frameborder="0"
-            scrolling="no"
-            allowfullscreen
-            style="display:block;margin-left:auto;margin-right:auto;max-width:100%;"
-          ></iframe>
+          <div data-lead-capture>
+            <form class="lead-form" data-lead-form>
+              <input type="email" name="email" placeholder="Email address" aria-label="Email address" required>
+              <button class="cta-btn" type="submit">Subscribe</button>
+            </form>
+            <p class="lead-subtle" data-lead-status></p>
+            <div class="lead-download" data-lead-download hidden>
+              <a class="cta-btn" href="/downloads/ai-starter-kit.pdf" download data-download-link>Download PDF</a>
+            </div>
+          </div>
         </div>
         <p style="margin-top:8px; color: var(--text-soft); font-size:.88rem;">No spam. Unsubscribe anytime.</p>
       </section>
@@ -908,20 +923,20 @@ img { max-width: 100%; display: block; }
     <div class="starter-kit-copy">
       <p class="kicker">FREE DOWNLOAD</p>
       <h2 id="starter-kit-title">The AI Starter Kit: 7 Tools to Start Earning With AI This Week</h2>
-      <p>Sign up and get the PDF link instantly in your email inbox.</p>
-      <p class="lead-subtle">The PDF is sent only after successful signup.</p>
+      <p>Sign up and unlock the PDF download instantly on this screen.</p>
+      <p class="lead-subtle">After subscribe, click the download button that appears below.</p>
     </div>
     <div class="lead-brevo">
-      <iframe
-        width="540"
-        height="380"
-        data-brevo-embed
-        src="https://26663e63.sibforms.com/serve/MUIFAIAq3_TNpH815gpegtVFQL-YNK5Pw1LKjHSh0XiUaKQ9iO8TEictAqoSpKgN7E3M8Qm5f1WiV8Uw9IzgRBMGNWBQaSn4Y-5z9jAoRSZSOLebEsGqUMgL9SeBJYKOfjWz9lNXnNwuilOAm4yu7X4U4gwRM3NnBAmZKV2EaeFPU0qv-iUy2jikgbcfKJqQ-GhJVHzlNkHCws7GJA=="
-        frameborder="0"
-        scrolling="no"
-        allowfullscreen
-        style="display:block;margin-left:auto;margin-right:auto;max-width:100%;"
-      ></iframe>
+      <div data-lead-capture>
+        <form class="lead-form" data-lead-form>
+          <input type="email" name="email" placeholder="Email address" aria-label="Email address" required>
+          <button class="cta-btn" type="submit">Subscribe</button>
+        </form>
+        <p class="lead-subtle" data-lead-status></p>
+        <div class="lead-download" data-lead-download hidden>
+          <a class="cta-btn" href="/downloads/ai-starter-kit.pdf" download data-download-link>Download PDF</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -1004,13 +1019,49 @@ document.querySelectorAll('.article a[href*="try.elevenlabs.io"]').forEach((link
   link.setAttribute('rel', 'noopener noreferrer sponsored');
 });
 
-const brevoIframes = [...document.querySelectorAll('iframe[data-brevo-embed]')];
-const stamp = String(Date.now());
-brevoIframes.forEach((iframe) => {
-  const src = iframe.getAttribute('src') || '';
-  if (!src) return;
-  const joiner = src.includes('?') ? '&' : '?';
-  iframe.setAttribute('src', src + joiner + 'v=' + stamp);
+const newsletterEndpoint = 'https://formspree.io/f/mvzbzloa';
+document.querySelectorAll('form[data-lead-form]').forEach((form) => {
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const email = form.querySelector('input[name="email"]');
+    const submitButton = form.querySelector('button[type="submit"]');
+    const status = form.parentElement?.querySelector('[data-lead-status]');
+    const downloadWrap = form.parentElement?.querySelector('[data-lead-download]');
+    const downloadLink = form.parentElement?.querySelector('[data-download-link]');
+    if (!email || !email.value.trim()) return;
+    if (submitButton) submitButton.disabled = true;
+    if (status) status.textContent = 'Submitting...';
+    try {
+      const formData = new FormData(form);
+      formData.append('_subject', 'New Starter Kit Subscription - HJ Automations');
+      formData.append('source_page', window.location.pathname || '/');
+      const response = await fetch(newsletterEndpoint, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' }
+      });
+      if (!response.ok) throw new Error('Lead form failed');
+      if (status) status.textContent = 'Success. Click below to download.';
+      form.hidden = true;
+      if (downloadWrap) downloadWrap.hidden = false;
+      if (downloadLink) {
+        downloadLink.addEventListener('click', () => {
+          window.setTimeout(() => {
+            form.reset();
+            form.hidden = false;
+            if (downloadWrap) downloadWrap.hidden = true;
+            if (status) status.textContent = '';
+            if (submitButton) submitButton.disabled = false;
+          }, 600);
+        }, { once: true });
+      } else if (submitButton) {
+        submitButton.disabled = false;
+      }
+    } catch (_) {
+      if (status) status.textContent = 'Subscription failed. Please try again.';
+      if (submitButton) submitButton.disabled = false;
+    }
+  });
 });
 
 const popup = document.getElementById('starter-kit-popup');

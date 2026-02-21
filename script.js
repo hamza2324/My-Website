@@ -469,16 +469,58 @@
 
   }
 
-  function initBrevoEmbeds() {
-    const iframes = Array.from(document.querySelectorAll("iframe[data-brevo-embed]"));
-    if (!iframes.length) return;
+  function initLeadGatedDownloads() {
+    const newsletterEndpoint = "https://formspree.io/f/mvzbzloa";
+    const forms = Array.from(document.querySelectorAll("form[data-lead-form]"));
+    if (!forms.length) return;
 
-    const stamp = String(Date.now());
-    iframes.forEach((iframe) => {
-      const src = iframe.getAttribute("src") || "";
-      if (!src) return;
-      const joiner = src.includes("?") ? "&" : "?";
-      iframe.setAttribute("src", `${src}${joiner}v=${stamp}`);
+    forms.forEach((form) => {
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        const email = form.querySelector('input[name="email"]');
+        const submitButton = form.querySelector('button[type="submit"]');
+        const status = form.parentElement?.querySelector("[data-lead-status]");
+        const downloadWrap = form.parentElement?.querySelector("[data-lead-download]");
+        const downloadLink = form.parentElement?.querySelector("[data-download-link]");
+
+        if (!email || !email.value.trim()) return;
+        if (submitButton) submitButton.disabled = true;
+        if (status) status.textContent = "Submitting...";
+
+        try {
+          const formData = new FormData(form);
+          formData.append("_subject", "New Starter Kit Subscription - HJ Automations");
+          formData.append("source_page", window.location.pathname || "/");
+          const response = await fetch(newsletterEndpoint, {
+            method: "POST",
+            body: formData,
+            headers: { Accept: "application/json" },
+          });
+          if (!response.ok) throw new Error("Lead form failed");
+
+          if (status) status.textContent = "Success. Click below to download.";
+          if (downloadWrap) downloadWrap.hidden = false;
+          form.hidden = true;
+
+          if (downloadLink) {
+            const resetAfterDownload = () => {
+              window.setTimeout(() => {
+                form.reset();
+                form.hidden = false;
+                if (downloadWrap) downloadWrap.hidden = true;
+                if (status) status.textContent = "";
+                if (submitButton) submitButton.disabled = false;
+              }, 600);
+            };
+            downloadLink.addEventListener("click", resetAfterDownload, { once: true });
+          } else if (submitButton) {
+            submitButton.disabled = false;
+          }
+        } catch (_error) {
+          if (status) status.textContent = "Subscription failed. Please try again.";
+          if (submitButton) submitButton.disabled = false;
+        }
+      });
     });
   }
 
@@ -501,8 +543,8 @@
   }
 
   initPostTemplate();
+  initLeadGatedDownloads();
   initHomeLeadPopup();
-  initBrevoEmbeds();
 
   if (body.classList.contains("page-blog") && postCountNode && !blogList) {
     postCountNode.textContent = "20+ Articles";
