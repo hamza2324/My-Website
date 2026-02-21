@@ -477,17 +477,30 @@ img { max-width: 100%; display: block; }
   font-size: 1.25rem;
   color: var(--text);
 }
-.lead-magnet-form {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 8px;
+.lead-subtle {
+  margin: 0 0 8px;
+  color: var(--text-soft);
+  font-size: .92rem;
 }
-.lead-magnet-form input {
-  width: 100%;
-  border: 1px solid var(--border);
+.lead-subtle a {
+  color: #b91c1c;
+  font-weight: 600;
+}
+.lead-brevo {
+  margin-top: 8px;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 10px;
-  padding: 10px 12px;
-  font: inherit;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #ffffff;
+}
+.lead-brevo iframe {
+  width: 100%;
+  max-width: 100%;
+  min-height: 420px;
+  display: block;
 }
 .footer {
   width: min(1180px, 92%);
@@ -512,7 +525,7 @@ img { max-width: 100%; display: block; }
   .meta { font-size: .83rem; }
   .article p,
   .article li { font-size: .98rem; }
-  .lead-magnet-form { grid-template-columns: 1fr; }
+  .lead-brevo iframe { min-height: 440px; }
 }
 </style>
 </head>
@@ -712,10 +725,19 @@ img { max-width: 100%; display: block; }
       <section class="lead-magnet reveal-on-scroll" aria-label="Free download">
         <p class="kicker">FREE DOWNLOAD</p>
         <h2>"The AI Starter Kit: 7 Tools to Start Earning With AI This Week"</h2>
-        <form class="lead-magnet-form" action="https://formspree.io/f/mvzbzloa" method="POST">
-          <input type="email" name="email" placeholder="Enter your email" aria-label="Enter your email" required>
-          <button class="cta-btn" type="submit">Get Free Access -&gt;</button>
-        </form>
+        <p class="lead-subtle">Sign up and get the PDF link instantly in your email inbox.</p>
+        <p class="lead-subtle">Already subscribed? <a href="/downloads/ai-starter-kit.pdf" target="_blank" rel="noopener noreferrer">Download the PDF here</a>.</p>
+        <div class="lead-brevo">
+          <iframe
+            width="540"
+            height="380"
+            src="https://26663e63.sibforms.com/serve/MUIFAIAq3_TNpH815gpegtVFQL-YNK5Pw1LKjHSh0XiUaKQ9iO8TEictAqoSpKgN7E3M8Qm5f1WiV8Uw9IzgRBMGNWBQaSn4Y-5z9jAoRSZSOLebEsGqUMgL9SeBJYKOfjWz9lNXnNwuilOAm4yu7X4U4gwRM3NnBAmZKV2EaeFPU0qv-iUy2jikgbcfKJqQ-GhJVHzlNkHCws7GJA=="
+            frameborder="0"
+            scrolling="no"
+            allowfullscreen
+            style="display:block;margin-left:auto;margin-right:auto;max-width:100%;"
+          ></iframe>
+        </div>
         <p style="margin-top:8px; color: var(--text-soft); font-size:.88rem;">No spam. Unsubscribe anytime.</p>
       </section>
     </article>

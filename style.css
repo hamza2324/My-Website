@@ -841,8 +841,10 @@ body.popup-open {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: min(560px, 92%);
-  padding: 1.35rem;
+  width: min(980px, 94%);
+  max-height: 88vh;
+  overflow: auto;
+  padding: 1.1rem;
   border-color: rgba(239, 68, 68, 0.62);
   background: linear-gradient(155deg, rgba(239, 68, 68, 0.2), rgba(26, 31, 41, 0.96));
 }
@@ -870,12 +872,39 @@ body.popup-open {
 }
 
 .starter-kit-modal h2 {
-  font-size: clamp(1.35rem, 3vw, 1.85rem);
-  margin-bottom: 0.9rem;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin-bottom: 0.7rem;
+}
+
+.starter-kit-content {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.starter-kit-copy {
+  padding: 0.8rem 0.45rem 0.6rem;
+}
+
+.starter-kit-sub {
+  color: #dbeafe;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+.starter-kit-subtle {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 0.7rem;
+}
+.starter-kit-subtle a {
+  color: #fca5a5;
+  text-decoration: underline;
 }
 
 .brevo-embed {
-  margin-top: 0.8rem;
+  margin-top: 0;
   border-radius: 0.9rem;
   overflow: hidden;
   border: 1px solid rgba(156, 163, 175, 0.3);
@@ -885,7 +914,7 @@ body.popup-open {
 .brevo-embed iframe {
   width: 100%;
   max-width: 100%;
-  min-height: 305px;
+  min-height: 420px;
 }
 
 .cta-split {
@@ -1711,8 +1740,16 @@ body.popup-open {
     text-align: left;
   }
 
+  .starter-kit-content {
+    grid-template-columns: 1fr;
+  }
+
+  .starter-kit-modal {
+    width: min(680px, 94%);
+  }
+
   .brevo-embed iframe {
-    min-height: 340px;
+    min-height: 440px;
   }
 }
 

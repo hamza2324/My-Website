@@ -1047,8 +1047,20 @@ img { max-width: 100%; display: block; }
   font-size: 1.25rem;
   color: var(--text);
 }
+.lead-subtle {
+  margin: 0 0 8px;
+  color: var(--text-soft);
+  font-size: .92rem;
+}
+.lead-subtle a {
+  color: #b91c1c;
+  font-weight: 600;
+}
 .lead-brevo {
   margin-top: 8px;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid var(--border);
@@ -1057,7 +1069,7 @@ img { max-width: 100%; display: block; }
 .lead-brevo iframe {
   width: 100%;
   max-width: 100%;
-  min-height: 305px;
+  min-height: 420px;
   display: block;
 }
 .footer {
@@ -1083,7 +1095,7 @@ img { max-width: 100%; display: block; }
   .meta { font-size: .83rem; }
   .article p,
   .article li { font-size: .98rem; }
-  .lead-brevo iframe { min-height: 340px; }
+  .lead-brevo iframe { min-height: 440px; }
 }
 </style>
 </head>
@@ -1151,13 +1163,15 @@ ${faqSection}
       <section class="lead-magnet reveal-on-scroll" aria-label="Free download">
         <p class="kicker">FREE DOWNLOAD</p>
         <h2>"The AI Starter Kit: 7 Tools to Start Earning With AI This Week"</h2>
+        <p class="lead-subtle">Sign up and get the PDF link instantly in your email inbox.</p>
+        <p class="lead-subtle">Already subscribed? <a href="/downloads/ai-starter-kit.pdf" target="_blank" rel="noopener noreferrer">Download the PDF here</a>.</p>
         <div class="lead-brevo">
           <iframe
             width="540"
-            height="305"
+            height="380"
             src="https://26663e63.sibforms.com/serve/MUIFAIAq3_TNpH815gpegtVFQL-YNK5Pw1LKjHSh0XiUaKQ9iO8TEictAqoSpKgN7E3M8Qm5f1WiV8Uw9IzgRBMGNWBQaSn4Y-5z9jAoRSZSOLebEsGqUMgL9SeBJYKOfjWz9lNXnNwuilOAm4yu7X4U4gwRM3NnBAmZKV2EaeFPU0qv-iUy2jikgbcfKJqQ-GhJVHzlNkHCws7GJA=="
             frameborder="0"
-            scrolling="auto"
+            scrolling="no"
             allowfullscreen
             style="display:block;margin-left:auto;margin-right:auto;max-width:100%;"
           ></iframe>
