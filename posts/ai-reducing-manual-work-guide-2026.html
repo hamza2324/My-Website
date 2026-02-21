@@ -435,6 +435,11 @@ img { max-width: 100%; display: block; }
   transform: translateY(-1px);
   box-shadow: 0 10px 22px rgba(99, 102, 241, .24);
 }
+.lead-form .cta-btn,
+.lead-download .cta-btn {
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
 .author {
   margin-top: 28px;
   border: 1px solid var(--border);
@@ -904,19 +909,18 @@ document.querySelectorAll('form[data-lead-form]').forEach((form) => {
     if (!email || !email.value.trim()) return;
     if (submitButton) submitButton.disabled = true;
     if (status) status.textContent = 'Submitting...';
-    try {
-      const formData = new FormData(form);
-      formData.append('_subject', 'New Starter Kit Subscription - HJ Automations');
-      formData.append('source_page', window.location.pathname || '/');
-      const response = await fetch(newsletterEndpoint, {
-        method: 'POST',
-        body: formData,
-        headers: { Accept: 'application/json' }
-      });
-      if (!response.ok) throw new Error('Lead form failed');
-      if (status) status.textContent = 'Success. Click below to download.';
+
+    const unlockDownload = (message) => {
+      if (status) status.textContent = message;
       form.hidden = true;
       if (downloadWrap) downloadWrap.hidden = false;
+      localStorage.setItem('hj_starter_kit_completed', '1');
+      const modal = form.closest('#starter-kit-popup');
+      if (modal) {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
       if (downloadLink) {
         downloadLink.addEventListener('click', () => {
           window.setTimeout(() => {
@@ -925,11 +929,33 @@ document.querySelectorAll('form[data-lead-form]').forEach((form) => {
             if (downloadWrap) downloadWrap.hidden = true;
             if (status) status.textContent = '';
             if (submitButton) submitButton.disabled = false;
-          }, 600);
+          }, 500);
         }, { once: true });
       } else if (submitButton) {
         submitButton.disabled = false;
       }
+    };
+
+    try {
+      const formData = new FormData(form);
+      formData.append('_subject', 'New Starter Kit Subscription - HJ Automations');
+      formData.append('source_page', window.location.pathname || '/');
+      const fetchPromise = fetch(newsletterEndpoint, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' }
+      });
+      const timed = await Promise.race([
+        fetchPromise,
+        new Promise((resolve) => window.setTimeout(() => resolve('timeout'), 1200))
+      ]);
+      if (timed === 'timeout') {
+        unlockDownload('Success. Click below to download.');
+        fetchPromise.catch(() => {});
+        return;
+      }
+      if (!timed.ok) throw new Error('Lead form failed');
+      unlockDownload('Success. Click below to download.');
     } catch (_) {
       if (status) status.textContent = 'Subscription failed. Please try again.';
       if (submitButton) submitButton.disabled = false;
@@ -938,7 +964,7 @@ document.querySelectorAll('form[data-lead-form]').forEach((form) => {
 });
 
 const popup = document.getElementById('starter-kit-popup');
-if (popup) {
+if (popup && localStorage.getItem('hj_starter_kit_completed') !== '1') {
   const closers = [...popup.querySelectorAll('[data-popup-close]')];
   let shown = false;
   let timerElapsed = false;

@@ -404,6 +404,7 @@
     if (!body.classList.contains("page-home")) return;
     const popup = document.getElementById("starter-kit-popup");
     if (!popup) return;
+    if (localStorage.getItem("hj_starter_kit_completed") === "1") return;
 
     const closeButtons = Array.from(popup.querySelectorAll("[data-popup-close]"));
     const form = popup.querySelector("form");
@@ -487,20 +488,17 @@
         if (submitButton) submitButton.disabled = true;
         if (status) status.textContent = "Submitting...";
 
-        try {
-          const formData = new FormData(form);
-          formData.append("_subject", "New Starter Kit Subscription - HJ Automations");
-          formData.append("source_page", window.location.pathname || "/");
-          const response = await fetch(newsletterEndpoint, {
-            method: "POST",
-            body: formData,
-            headers: { Accept: "application/json" },
-          });
-          if (!response.ok) throw new Error("Lead form failed");
-
-          if (status) status.textContent = "Success. Click below to download.";
+        const unlockDownload = (message) => {
+          if (status) status.textContent = message;
           if (downloadWrap) downloadWrap.hidden = false;
           form.hidden = true;
+          localStorage.setItem("hj_starter_kit_completed", "1");
+          document.body.classList.remove("popup-open");
+          const popup = form.closest("#starter-kit-popup");
+          if (popup) {
+            popup.classList.remove("open");
+            popup.setAttribute("aria-hidden", "true");
+          }
 
           if (downloadLink) {
             const resetAfterDownload = () => {
@@ -510,12 +508,34 @@
                 if (downloadWrap) downloadWrap.hidden = true;
                 if (status) status.textContent = "";
                 if (submitButton) submitButton.disabled = false;
-              }, 600);
+              }, 500);
             };
             downloadLink.addEventListener("click", resetAfterDownload, { once: true });
           } else if (submitButton) {
             submitButton.disabled = false;
           }
+        };
+
+        try {
+          const formData = new FormData(form);
+          formData.append("_subject", "New Starter Kit Subscription - HJ Automations");
+          formData.append("source_page", window.location.pathname || "/");
+          const fetchPromise = fetch(newsletterEndpoint, {
+            method: "POST",
+            body: formData,
+            headers: { Accept: "application/json" }
+          });
+          const timed = await Promise.race([
+            fetchPromise,
+            new Promise((resolve) => window.setTimeout(() => resolve("timeout"), 1200)),
+          ]);
+          if (timed === "timeout") {
+            unlockDownload("Success. Click below to download.");
+            fetchPromise.catch(() => {});
+            return;
+          }
+          if (!timed.ok) throw new Error("Lead form failed");
+          unlockDownload("Success. Click below to download.");
         } catch (_error) {
           if (status) status.textContent = "Subscription failed. Please try again.";
           if (submitButton) submitButton.disabled = false;
