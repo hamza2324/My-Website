@@ -405,31 +405,11 @@
     const popup = document.getElementById("starter-kit-popup");
     if (!popup) return;
 
-    const storageKey = "hj_starter_kit_popup_seen";
-    const popupCooldownMs = 24 * 60 * 60 * 1000;
-    const legacyValue = localStorage.getItem(storageKey);
-    if (legacyValue === "1") {
-      localStorage.removeItem(storageKey);
-    }
-
-    try {
-      const rawState = localStorage.getItem(storageKey);
-      if (rawState) {
-        const parsed = JSON.parse(rawState);
-        const seenAt = Number(parsed.seenAt || 0);
-        if (seenAt > 0 && Date.now() - seenAt < popupCooldownMs) return;
-      }
-    } catch (_error) {
-      localStorage.removeItem(storageKey);
-    }
-
     const closeButtons = Array.from(popup.querySelectorAll("[data-popup-close]"));
     const form = popup.querySelector("form");
     let shown = false;
 
-    const markSeen = () => {
-      localStorage.setItem(storageKey, JSON.stringify({ seenAt: Date.now() }));
-    };
+    const markSeen = () => {};
 
     const closePopup = () => {
       popup.classList.remove("open");
