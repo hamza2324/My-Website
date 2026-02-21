@@ -1,36 +1,27 @@
 const POSTS = [
   {
-    "title": "EU AI Act 2026: The August Compliance Deadline That Could Cost Your Business EUR35 Million",
-    "slug": "eu-ai-act-2026-the-august-compliance-deadline-that-could-cost-your-business-eur35-million",
+    "title": "ElevenLabs Review 2026 - Best AI Voice Generator for Creators and Businesses?",
+    "slug": "elevenlabs-review-2026-ai-voice-tool",
     "date": "2026-02-21",
-    "category": "AI Tools",
-    "tags": [],
-    "excerpt": "---\ntitle: \"EU AI Act 2026: August Deadline, Fines, and Compliance Guide\"\ndate: 2026-02-19\nslug: eu-ai-act-2026-august-deadline-compliance-guide\ncategory: AI Regulation",
-    "readTime": "8 min read",
-    "image": "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    "imageAlt": "",
-    "url": "posts/eu-ai-act-2026-the-august-compliance-deadline-that-could-cost-your-business-eur35-million.html",
-    "id": 1
-  },
-  {
-    "title": "AI Automation Explained - What It Is, How It Works, and How to Use It in 2026",
-    "slug": "ai-automation-explained-guide-2026",
-    "date": "2026-02-21",
-    "category": "AI Tools",
+    "category": "AI Tools Reviews",
     "tags": [
-      "AI Automation",
-      "Artificial Intelligence",
-      "AI for Beginners",
-      "AI Workflows",
-      "Business Automation",
-      "AI Tools 2026"
+      "ElevenLabs Review 2026",
+      "Best AI Voice Generator",
+      "ElevenLabs Pricing",
+      "AI Text to Speech 2026",
+      "ElevenLabs Free Plan",
+      "Make Money with ElevenLabs",
+      "AI Voiceover Tool",
+      "Faceless YouTube AI Voice",
+      "ElevenLabs vs Alternatives"
     ],
-    "excerpt": "A practical, beginner-friendly guide to AI automation, the four types of AI, real use cases, and a simple action plan to turn AI into measurable results.",
-    "readTime": "10 min read",
-    "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&q=80",
-    "imageAlt": "AI automation concept with a humanoid robot and digital workflow background",
-    "url": "posts/ai-automation-explained-guide-2026.html",
-    "id": 2
+    "excerpt": "Honest ElevenLabs review for 2026 covering pricing, free plan limits, voice quality, and how creators use AI text to speech to grow revenue.",
+    "readTime": "8 min read",
+    "image": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=1200&q=80",
+    "imageAlt": "Creator workstation with microphone and editing setup for AI voiceover production",
+    "affiliateLink": "https://try.elevenlabs.io/0ysh4og3ii1x",
+    "url": "posts/elevenlabs-review-2026-ai-voice-tool.html",
+    "id": 1
   },
   {
     "title": "AI Reducing Manual Work - A Practical Guide to Working Smarter in 2026",
@@ -49,8 +40,44 @@ const POSTS = [
     "readTime": "11 min read",
     "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&q=80",
     "imageAlt": "Professional workspace representing AI-assisted productivity and reduced manual workload",
+    "affiliateLink": "",
     "url": "posts/ai-reducing-manual-work-guide-2026.html",
+    "id": 2
+  },
+  {
+    "title": "AI Automation Explained - What It Is, How It Works, and How to Use It in 2026",
+    "slug": "ai-automation-explained-guide-2026",
+    "date": "2026-02-21",
+    "category": "AI Tools",
+    "tags": [
+      "AI Automation",
+      "Artificial Intelligence",
+      "AI for Beginners",
+      "AI Workflows",
+      "Business Automation",
+      "AI Tools 2026"
+    ],
+    "excerpt": "A practical, beginner-friendly guide to AI automation, the four types of AI, real use cases, and a simple action plan to turn AI into measurable results.",
+    "readTime": "10 min read",
+    "image": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&q=80",
+    "imageAlt": "AI automation concept with a humanoid robot and digital workflow background",
+    "affiliateLink": "",
+    "url": "posts/ai-automation-explained-guide-2026.html",
     "id": 3
+  },
+  {
+    "title": "EU AI Act 2026: The August Compliance Deadline That Could Cost Your Business EUR35 Million",
+    "slug": "eu-ai-act-2026-the-august-compliance-deadline-that-could-cost-your-business-eur35-million",
+    "date": "2026-02-21",
+    "category": "AI Tools",
+    "tags": [],
+    "excerpt": "---\ntitle: \"EU AI Act 2026: August Deadline, Fines, and Compliance Guide\"\ndate: 2026-02-19\nslug: eu-ai-act-2026-august-deadline-compliance-guide\ncategory: AI Regulation",
+    "readTime": "8 min read",
+    "image": "https://images.pexels.com/photos/8728380/pexels-photo-8728380.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    "imageAlt": "",
+    "affiliateLink": "",
+    "url": "posts/eu-ai-act-2026-the-august-compliance-deadline-that-could-cost-your-business-eur35-million.html",
+    "id": 4
   },
   {
     "title": "Google Is Dying: How AI Just Replaced Search - And Most People Don't Know It Yet",
@@ -73,8 +100,9 @@ const POSTS = [
     "readTime": "12 min read",
     "image": "/assets/images/google-vs-ai-search-2026-featured.svg",
     "imageAlt": "AI chat-based search replacing traditional search engine behavior",
+    "affiliateLink": "",
     "url": "posts/google-is-dying-ai-replaced-search-2026.html",
-    "id": 4
+    "id": 5
   },
   {
     "title": "Google vs Apple: The $30 Billion AI Smart Glasses Battle is ON (And Your Business Needs to Pay Attention)",
@@ -99,8 +127,9 @@ const POSTS = [
     "readTime": "11 min read",
     "image": "https://picsum.photos/seed/google-vs-apple-smart-glasses/1200/630",
     "imageAlt": "AI smart glasses for field operations and logistics teams",
+    "affiliateLink": "",
     "url": "posts/google-vs-apple-30-billion-ai-smart-glasses-battle.html",
-    "id": 5
+    "id": 6
   },
   {
     "title": "Multi-Agent AI Systems for Business Automation (2026 Guide)",
@@ -120,8 +149,9 @@ const POSTS = [
     "readTime": "12 min read",
     "image": "https://picsum.photos/seed/multi-agent-ai-2026/1200/630",
     "imageAlt": "Multi-agent AI orchestration dashboard for business automation teams",
+    "affiliateLink": "",
     "url": "posts/multi-agent-ai-systems-the-future-of-business-automation.html",
-    "id": 6
+    "id": 7
   },
   {
     "title": "AI ROI in 2026: Why Only 1 in 50 AI Investments Deliver Real Value",
@@ -139,8 +169,9 @@ const POSTS = [
     "readTime": "10 min read",
     "image": "https://picsum.photos/seed/ai-roi-2026-failure-gap/1200/630",
     "imageAlt": "",
+    "affiliateLink": "",
     "url": "posts/ai-roi-2026-why-most-ai-investments-fail.html",
-    "id": 7
+    "id": 8
   },
   {
     "title": "AI Agents Are Replacing Traditional Workflows - Are You Ready for the Shift?",
@@ -158,8 +189,9 @@ const POSTS = [
     "readTime": "10 min read",
     "image": "https://picsum.photos/seed/ai-agents-workflows-shift/1200/630",
     "imageAlt": "",
+    "affiliateLink": "",
     "url": "posts/ai-agents-replacing-traditional-workflows-are-you-ready.html",
-    "id": 8
+    "id": 9
   },
   {
     "title": "How AI Is Transforming Business Operations in 2026",
@@ -176,8 +208,9 @@ const POSTS = [
     "readTime": "7 min read",
     "image": "https://picsum.photos/seed/ai-business-ops-2026/1200/630",
     "imageAlt": "",
+    "affiliateLink": "",
     "url": "posts/ai-transforming-business-operations-2026.html",
-    "id": 9
+    "id": 10
   },
   {
     "title": "How to Automate Weekly Reporting with AI",
@@ -193,7 +226,8 @@ const POSTS = [
     "readTime": "9 min read",
     "image": "https://picsum.photos/seed/weekly-reporting/1200/630",
     "imageAlt": "",
+    "affiliateLink": "",
     "url": "posts/automate-weekly-reporting-with-ai.html",
-    "id": 10
+    "id": 11
   }
 ];

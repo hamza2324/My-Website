@@ -177,6 +177,11 @@ function renderInline(text) {
   out = out.replace(/\*\*([^*]+)\*\*/g, (_, strong) => `<strong>${strong}</strong>`);
   out = out.replace(/\*([^*]+)\*/g, (_, em) => `<em>${em}</em>`);
   out = out.replace(/`([^`]+)`/g, (_, code) => `<code>${code}</code>`);
+  out = out.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_, alt, url) => {
+    const src = sanitizeHref(url);
+    if (!/^(https?:\/\/|\/|\.\.\/|\.\/)/i.test(src)) return "";
+    return `<img class="inline-promo" src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" loading="lazy">`;
+  });
   out = out.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, url) => {
     const href = sanitizeHref(url);
     const external = /^https?:\/\//i.test(href);
@@ -444,6 +449,7 @@ function postMetaFromMarkdown(fileName, raw) {
   const readTime = meta.readTime || "8 min read";
   const image = meta.image || "";
   const imageAlt = meta.imageAlt || meta.image_alt || "";
+  const affiliateLink = meta.affiliateLink || meta.affiliate_link || "";
   const contentHtml = markdownToHtml(body);
 
   return {
@@ -456,6 +462,7 @@ function postMetaFromMarkdown(fileName, raw) {
     readTime,
     image,
     imageAlt,
+    affiliateLink,
     url: `posts/${slug}.html`,
     contentHtml
   };
@@ -470,10 +477,17 @@ function readMarkdownPosts() {
 
   const sorted = files
     .map((file) => {
-      const raw = fs.readFileSync(path.join(SOURCE_MD_DIR, file), "utf8");
-      return postMetaFromMarkdown(file, raw);
+      const fullPath = path.join(SOURCE_MD_DIR, file);
+      const raw = fs.readFileSync(fullPath, "utf8");
+      const post = postMetaFromMarkdown(file, raw);
+      const mtimeMs = fs.statSync(fullPath).mtimeMs;
+      return { ...post, mtimeMs };
     })
-    .sort((a, b) => new Date(b.date) - new Date(a.date));
+    .sort((a, b) => {
+      const dateDelta = new Date(b.date) - new Date(a.date);
+      if (dateDelta !== 0) return dateDelta;
+      return b.mtimeMs - a.mtimeMs;
+    });
 
   const groupCounts = { ai: 0, automation: 0, llm: 0 };
   return sorted.map((post, index) => {
@@ -508,6 +522,14 @@ function renderPostHtml(post) {
   const canonical = `${DOMAIN}/posts/${post.slug}.html`;
   const keywords = buildKeywords(post);
   const displayDate = formatDisplayDate(post.date);
+  const ctaHref = post.affiliateLink ? sanitizeHref(post.affiliateLink) : "mailto:hamzajadoon71@gmail.com?subject=Workflow%20Consultation";
+  const ctaLabel = post.affiliateLink ? "Try ElevenLabs Free" : "Work With Me";
+  const ctaRel = post.affiliateLink ? "noopener noreferrer sponsored" : "";
+  const ctaTarget = post.affiliateLink ? "_blank" : "";
+  const ctaHeading = post.affiliateLink ? "Ready to launch with ElevenLabs?" : "Ready to build smarter AI workflows?";
+  const ctaBody = post.affiliateLink
+    ? "Start with the free plan and test real AI voice workflows in minutes."
+    : "Book a workflow consultation and get a practical execution roadmap.";
   const schema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -798,6 +820,29 @@ img { max-width: 100%; display: block; }
   font-size: 1.04rem;
 }
 .article a { color: var(--accent); text-decoration: underline; text-decoration-color: rgba(99, 102, 241, .4); }
+.article a.affiliate-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 0 10px;
+  padding: 11px 16px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ef4444, #f97316);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 8px 18px rgba(239, 68, 68, .25);
+}
+.article a.affiliate-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 11px 24px rgba(239, 68, 68, .35);
+}
+.article .inline-promo {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  margin: 8px 0 6px;
+}
 .article h2,
 .article h3 {
   font-family: "Plus Jakarta Sans", sans-serif;
@@ -1041,14 +1086,14 @@ ${articleHtmlWithFaqAnchor}
 ${faqSection}
 
       <section class="cta reveal-on-scroll" id="work-with-me">
-        <h2>Ready to build smarter AI workflows?</h2>
-        <p>Book a workflow consultation and get a practical execution roadmap.</p>
+        <h2>${escapeHtml(ctaHeading)}</h2>
+        <p>${escapeHtml(ctaBody)}</p>
         <ul>
           <li>Identify the highest ROI automation path</li>
           <li>Define guardrails and rollout milestones</li>
           <li>Deploy with measurable outcomes</li>
         </ul>
-        <a class="cta-btn" href="mailto:hamzajadoon71@gmail.com?subject=Workflow%20Consultation">Work With Me</a>
+        <a class="cta-btn" href="${escapeHtml(ctaHref)}"${ctaTarget ? ` target="${ctaTarget}"` : ""}${ctaRel ? ` rel="${ctaRel}"` : ""}>${escapeHtml(ctaLabel)}</a>
       </section>
 
       <section class="author reveal-on-scroll">
@@ -1133,6 +1178,12 @@ document.querySelectorAll('.faq-question').forEach((btn) => {
     item.classList.toggle('open');
   });
 });
+
+document.querySelectorAll('.article a[href*="try.elevenlabs.io"]').forEach((link) => {
+  link.classList.add('affiliate-btn');
+  link.setAttribute('target', '_blank');
+  link.setAttribute('rel', 'noopener noreferrer sponsored');
+});
 </script>
 </body>
 </html>`;
@@ -1149,7 +1200,7 @@ function writePostPages(posts) {
 }
 
 function writeDataFiles(posts) {
-  const metadata = posts.map(({ contentHtml, imagePoolKey, imageVariantIndex, ...rest }) => {
+  const metadata = posts.map(({ contentHtml, imagePoolKey, imageVariantIndex, mtimeMs, ...rest }) => {
     const selected = getPostImages({ ...rest, imagePoolKey, imageVariantIndex });
     return { ...rest, image: selected.hero };
   });
