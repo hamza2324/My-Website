@@ -260,6 +260,29 @@ img { max-width: 100%; display: block; }
   font-size: 1.04rem;
 }
 .article a { color: var(--accent); text-decoration: underline; text-decoration-color: rgba(99, 102, 241, .4); }
+.article a.affiliate-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 0 10px;
+  padding: 11px 16px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ef4444, #f97316);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 8px 18px rgba(239, 68, 68, .25);
+}
+.article a.affiliate-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 11px 24px rgba(239, 68, 68, .35);
+}
+.article .inline-promo {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  margin: 8px 0 6px;
+}
 .article h2,
 .article h3 {
   font-family: "Plus Jakarta Sans", sans-serif;
@@ -434,6 +457,39 @@ img { max-width: 100%; display: block; }
   font-weight: 800;
 }
 .author p { margin: 3px 0 0; font-size: .93rem; }
+.lead-magnet {
+  margin-top: 28px;
+  border-radius: 16px;
+  border: 1px solid rgba(239, 68, 68, .45);
+  background: linear-gradient(145deg, rgba(239, 68, 68, .14), #ffffff 45%);
+  padding: 16px;
+}
+.lead-magnet .kicker {
+  margin: 0 0 6px;
+  display: inline-block;
+  color: #b91c1c;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.lead-magnet h2 {
+  margin: 0 0 10px;
+  font-size: 1.25rem;
+  color: var(--text);
+}
+.lead-magnet-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+.lead-magnet-form input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font: inherit;
+}
 .footer {
   width: min(1180px, 92%);
   margin: 44px auto 20px;
@@ -457,6 +513,7 @@ img { max-width: 100%; display: block; }
   .meta { font-size: .83rem; }
   .article p,
   .article li { font-size: .98rem; }
+  .lead-magnet-form { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -527,8 +584,8 @@ img { max-width: 100%; display: block; }
 </ul>
 <h2>The 4 types of AI you should know</h2>
 <figure class="image-card">
-  <img src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="Hands on keyboard in software workflow" loading="lazy">
-  <figcaption>Reliable automation starts with clear process design.</figcaption>
+  <img src="https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="Developer reviewing workflow steps" loading="lazy">
+  <figcaption>Simple pipelines outperform complex flows when reliability matters.</figcaption>
 </figure>
 <h3>1. Reactive AI</h3>
 <p>Reactive AI responds to current input only. It does not store memory from previous interactions.</p>
@@ -559,8 +616,8 @@ img { max-width: 100%; display: block; }
 <p>AI can speed up creation of templates, guides, checklists, and playbooks, then you package and distribute them through your site or product pages.</p>
 <h2>What AI automation cannot replace</h2>
 <figure class="image-card">
-  <img src="https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="Team tracking KPIs on laptop dashboard" loading="lazy">
-  <figcaption>Weekly reporting systems should be measurable and easy to maintain.</figcaption>
+  <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="Spreadsheet metrics and planning notes" loading="lazy">
+  <figcaption>Structured reporting helps teams make faster decisions.</figcaption>
 </figure>
 <p>Even in 2026, there are clear limits:</p>
 <ul>
@@ -618,6 +675,16 @@ img { max-width: 100%; display: block; }
           <strong>Hamza Jadoon</strong>
           <p>Student creator and operator writing practical playbooks on AI, LLMs, and automation systems.</p>
         </div>
+      </section>
+
+      <section class="lead-magnet reveal-on-scroll" aria-label="Free download">
+        <p class="kicker">FREE DOWNLOAD</p>
+        <h2>"The AI Starter Kit: 7 Tools to Start Earning With AI This Week"</h2>
+        <form class="lead-magnet-form" action="https://formspree.io/f/mvzbzloa" method="POST">
+          <input type="email" name="email" placeholder="Enter your email" aria-label="Enter your email" required>
+          <button class="cta-btn" type="submit">Get Free Access -&gt;</button>
+        </form>
+        <p style="margin-top:8px; color: var(--text-soft); font-size:.88rem;">No spam. Unsubscribe anytime.</p>
       </section>
     </article>
   </div>
@@ -693,6 +760,12 @@ document.querySelectorAll('.faq-question').forEach((btn) => {
     const item = btn.closest('.faq-item');
     item.classList.toggle('open');
   });
+});
+
+document.querySelectorAll('.article a[href*="try.elevenlabs.io"]').forEach((link) => {
+  link.classList.add('affiliate-btn');
+  link.setAttribute('target', '_blank');
+  link.setAttribute('rel', 'noopener noreferrer sponsored');
 });
 </script>
 </body>

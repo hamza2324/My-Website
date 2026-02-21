@@ -174,7 +174,13 @@
   async function ensurePosts() {
     if (cachedPosts) return cachedPosts;
     cachedPosts = await fetchPosts();
-    cachedPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    cachedPosts.sort((a, b) => {
+      const dateDelta = new Date(b.date) - new Date(a.date);
+      if (dateDelta !== 0) return dateDelta;
+      const priorityDelta = Number(b.priority || 0) - Number(a.priority || 0);
+      if (priorityDelta !== 0) return priorityDelta;
+      return Number(a.id || 0) - Number(b.id || 0);
+    });
     return cachedPosts;
   }
 
@@ -394,6 +400,49 @@
     });
   }
 
+  function initHomeLeadPopup() {
+    if (!body.classList.contains("page-home")) return;
+    const popup = document.getElementById("starter-kit-popup");
+    if (!popup) return;
+
+    const storageKey = "hj_starter_kit_popup_seen";
+    if (localStorage.getItem(storageKey) === "1") return;
+
+    const closeButtons = Array.from(popup.querySelectorAll("[data-popup-close]"));
+    const form = popup.querySelector("form");
+    let shown = false;
+
+    const closePopup = () => {
+      popup.classList.remove("open");
+      popup.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("popup-open");
+      localStorage.setItem(storageKey, "1");
+    };
+
+    const openPopup = () => {
+      if (shown) return;
+      shown = true;
+      popup.classList.add("open");
+      popup.setAttribute("aria-hidden", "false");
+      document.body.classList.add("popup-open");
+      localStorage.setItem(storageKey, "1");
+    };
+
+    const timer = window.setTimeout(openPopup, 30000);
+
+    closeButtons.forEach((btn) => btn.addEventListener("click", closePopup));
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && popup.classList.contains("open")) closePopup();
+    });
+
+    if (form) {
+      form.addEventListener("submit", () => {
+        localStorage.setItem(storageKey, "1");
+        window.clearTimeout(timer);
+      });
+    }
+  }
+
   const needsPosts = Boolean(featuredHost || blogList || relatedHost || totalGuidesNode);
 
   if (needsPosts) {
@@ -413,6 +462,7 @@
   }
 
   initPostTemplate();
+  initHomeLeadPopup();
 
   if (body.classList.contains("page-blog") && postCountNode && !blogList) {
     postCountNode.textContent = "20+ Articles";

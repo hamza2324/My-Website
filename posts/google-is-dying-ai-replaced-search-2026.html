@@ -264,6 +264,29 @@ img { max-width: 100%; display: block; }
   font-size: 1.04rem;
 }
 .article a { color: var(--accent); text-decoration: underline; text-decoration-color: rgba(99, 102, 241, .4); }
+.article a.affiliate-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 0 10px;
+  padding: 11px 16px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ef4444, #f97316);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 8px 18px rgba(239, 68, 68, .25);
+}
+.article a.affiliate-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 11px 24px rgba(239, 68, 68, .35);
+}
+.article .inline-promo {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  margin: 8px 0 6px;
+}
 .article h2,
 .article h3 {
   font-family: "Plus Jakarta Sans", sans-serif;
@@ -438,6 +461,39 @@ img { max-width: 100%; display: block; }
   font-weight: 800;
 }
 .author p { margin: 3px 0 0; font-size: .93rem; }
+.lead-magnet {
+  margin-top: 28px;
+  border-radius: 16px;
+  border: 1px solid rgba(239, 68, 68, .45);
+  background: linear-gradient(145deg, rgba(239, 68, 68, .14), #ffffff 45%);
+  padding: 16px;
+}
+.lead-magnet .kicker {
+  margin: 0 0 6px;
+  display: inline-block;
+  color: #b91c1c;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.lead-magnet h2 {
+  margin: 0 0 10px;
+  font-size: 1.25rem;
+  color: var(--text);
+}
+.lead-magnet-form {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+}
+.lead-magnet-form input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font: inherit;
+}
 .footer {
   width: min(1180px, 92%);
   margin: 44px auto 20px;
@@ -461,6 +517,7 @@ img { max-width: 100%; display: block; }
   .meta { font-size: .83rem; }
   .article p,
   .article li { font-size: .98rem; }
+  .lead-magnet-form { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -693,8 +750,8 @@ img { max-width: 100%; display: block; }
 <hr>
 <h2>Final Word: The Window is Open — But Not Forever</h2>
 <figure class="image-card">
-  <img src="https://images.pexels.com/photos/8386422/pexels-photo-8386422.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="Digital control center with live metrics" loading="lazy">
-  <figcaption>AI outcomes improve when teams track quality and cycle time continuously.</figcaption>
+  <img src="https://images.pexels.com/photos/3861458/pexels-photo-3861458.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="Developer workspace with multi-screen setup" loading="lazy">
+  <figcaption>Execution quality comes from strong prompts, context, and guardrails.</figcaption>
 </figure>
 <p>The brands, businesses, and creators who understand this shift right now are in a uniquely powerful position. The majority of the market is still operating as if it&#39;s 2022. They are pouring budgets into traditional SEO alone, creating content for blue links that fewer and fewer people click, and watching their traffic quietly erode without knowing why.</p>
 <p>You now know why. More importantly, you know what to do.</p>
@@ -911,6 +968,16 @@ img { max-width: 100%; display: block; }
           <p>Student creator and operator writing practical playbooks on AI, LLMs, and automation systems.</p>
         </div>
       </section>
+
+      <section class="lead-magnet reveal-on-scroll" aria-label="Free download">
+        <p class="kicker">FREE DOWNLOAD</p>
+        <h2>"The AI Starter Kit: 7 Tools to Start Earning With AI This Week"</h2>
+        <form class="lead-magnet-form" action="https://formspree.io/f/mvzbzloa" method="POST">
+          <input type="email" name="email" placeholder="Enter your email" aria-label="Enter your email" required>
+          <button class="cta-btn" type="submit">Get Free Access -&gt;</button>
+        </form>
+        <p style="margin-top:8px; color: var(--text-soft); font-size:.88rem;">No spam. Unsubscribe anytime.</p>
+      </section>
     </article>
   </div>
 </main>
@@ -985,6 +1052,12 @@ document.querySelectorAll('.faq-question').forEach((btn) => {
     const item = btn.closest('.faq-item');
     item.classList.toggle('open');
   });
+});
+
+document.querySelectorAll('.article a[href*="try.elevenlabs.io"]').forEach((link) => {
+  link.classList.add('affiliate-btn');
+  link.setAttribute('target', '_blank');
+  link.setAttribute('rel', 'noopener noreferrer sponsored');
 });
 </script>
 </body>

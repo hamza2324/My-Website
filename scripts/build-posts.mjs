@@ -164,6 +164,11 @@ function parseTags(value) {
     .filter(Boolean);
 }
 
+function parseNumber(value, fallback = 0) {
+  const n = Number(value);
+  return Number.isFinite(n) ? n : fallback;
+}
+
 function sanitizeHref(rawUrl) {
   const value = String(rawUrl || "").trim();
   if (!value) return "#";
@@ -450,6 +455,7 @@ function postMetaFromMarkdown(fileName, raw) {
   const image = meta.image || "";
   const imageAlt = meta.imageAlt || meta.image_alt || "";
   const affiliateLink = meta.affiliateLink || meta.affiliate_link || "";
+  const priority = parseNumber(meta.priority, 0);
   const contentHtml = markdownToHtml(body);
 
   return {
@@ -463,6 +469,7 @@ function postMetaFromMarkdown(fileName, raw) {
     image,
     imageAlt,
     affiliateLink,
+    priority,
     url: `posts/${slug}.html`,
     contentHtml
   };
@@ -486,6 +493,8 @@ function readMarkdownPosts() {
     .sort((a, b) => {
       const dateDelta = new Date(b.date) - new Date(a.date);
       if (dateDelta !== 0) return dateDelta;
+      const priorityDelta = (b.priority || 0) - (a.priority || 0);
+      if (priorityDelta !== 0) return priorityDelta;
       return b.mtimeMs - a.mtimeMs;
     });
 
@@ -1017,6 +1026,40 @@ img { max-width: 100%; display: block; }
   font-weight: 800;
 }
 .author p { margin: 3px 0 0; font-size: .93rem; }
+.lead-magnet {
+  margin-top: 28px;
+  border-radius: 16px;
+  border: 1px solid rgba(239, 68, 68, .45);
+  background: linear-gradient(145deg, rgba(239, 68, 68, .14), #ffffff 45%);
+  padding: 16px;
+}
+.lead-magnet .kicker {
+  margin: 0 0 6px;
+  display: inline-block;
+  color: #b91c1c;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.lead-magnet h2 {
+  margin: 0 0 10px;
+  font-size: 1.25rem;
+  color: var(--text);
+}
+.lead-brevo {
+  margin-top: 8px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #ffffff;
+}
+.lead-brevo iframe {
+  width: 100%;
+  max-width: 100%;
+  min-height: 305px;
+  display: block;
+}
 .footer {
   width: min(1180px, 92%);
   margin: 44px auto 20px;
@@ -1040,6 +1083,7 @@ img { max-width: 100%; display: block; }
   .meta { font-size: .83rem; }
   .article p,
   .article li { font-size: .98rem; }
+  .lead-brevo iframe { min-height: 340px; }
 }
 </style>
 </head>
@@ -1102,6 +1146,23 @@ ${faqSection}
           <strong>${DEFAULT_AUTHOR}</strong>
           <p>Student creator and operator writing practical playbooks on AI, LLMs, and automation systems.</p>
         </div>
+      </section>
+
+      <section class="lead-magnet reveal-on-scroll" aria-label="Free download">
+        <p class="kicker">FREE DOWNLOAD</p>
+        <h2>"The AI Starter Kit: 7 Tools to Start Earning With AI This Week"</h2>
+        <div class="lead-brevo">
+          <iframe
+            width="540"
+            height="305"
+            src="https://26663e63.sibforms.com/serve/MUIFAIAq3_TNpH815gpegtVFQL-YNK5Pw1LKjHSh0XiUaKQ9iO8TEictAqoSpKgN7E3M8Qm5f1WiV8Uw9IzgRBMGNWBQaSn4Y-5z9jAoRSZSOLebEsGqUMgL9SeBJYKOfjWz9lNXnNwuilOAm4yu7X4U4gwRM3NnBAmZKV2EaeFPU0qv-iUy2jikgbcfKJqQ-GhJVHzlNkHCws7GJA=="
+            frameborder="0"
+            scrolling="auto"
+            allowfullscreen
+            style="display:block;margin-left:auto;margin-right:auto;max-width:100%;"
+          ></iframe>
+        </div>
+        <p style="margin-top:8px; color: var(--text-soft); font-size:.88rem;">No spam. Unsubscribe anytime.</p>
       </section>
     </article>
   </div>
@@ -1193,7 +1254,12 @@ function writePostPages(posts) {
   fs.mkdirSync(OUTPUT_POSTS_DIR, { recursive: true });
   for (const post of posts) {
     const outputPath = path.join(OUTPUT_POSTS_DIR, `${post.slug}.html`);
-    if (!OVERWRITE_EXISTING_POST_PAGES && fs.existsSync(outputPath)) continue;
+    if (!OVERWRITE_EXISTING_POST_PAGES && fs.existsSync(outputPath)) {
+      const existing = fs.readFileSync(outputPath, "utf8");
+      const hasConflictMarkers = /^(<<<<<<<|=======|>>>>>>>)/m.test(existing);
+      const outputMtimeMs = fs.statSync(outputPath).mtimeMs;
+      if (!hasConflictMarkers && outputMtimeMs >= (post.mtimeMs || 0)) continue;
+    }
     const html = renderPostHtml(post);
     fs.writeFileSync(outputPath, html, "utf8");
   }

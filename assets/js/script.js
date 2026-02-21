@@ -247,7 +247,13 @@ document.addEventListener("DOMContentLoaded", async () => {
   setupCookieBanner();
   setupForms();
   setupRoiCalculator();
-  const posts = (await loadPosts()).sort((a, b) => new Date(b.date) - new Date(a.date));
+  const posts = (await loadPosts()).sort((a, b) => {
+    const dateDelta = new Date(b.date) - new Date(a.date);
+    if (dateDelta !== 0) return dateDelta;
+    const priorityDelta = Number(b.priority || 0) - Number(a.priority || 0);
+    if (priorityDelta !== 0) return priorityDelta;
+    return Number(a.id || 0) - Number(b.id || 0);
+  });
   initHomePage(posts);
   initBlogPage(posts);
 });
