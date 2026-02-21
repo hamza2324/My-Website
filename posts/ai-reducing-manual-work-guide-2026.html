@@ -503,6 +503,48 @@ img { max-width: 100%; display: block; }
   min-height: 420px;
   display: block;
 }
+.starter-kit-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+}
+.starter-kit-popup.open { display: block; }
+.starter-kit-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 20, 25, 0.62);
+}
+.starter-kit-modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(860px, 94%);
+  max-height: 88vh;
+  overflow: auto;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+}
+.starter-kit-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+.starter-kit-copy h2 {
+  margin: 0 0 8px;
+}
+.starter-kit-copy p {
+  margin: 0 0 10px;
+}
 .footer {
   width: min(1180px, 92%);
   margin: 44px auto 20px;
@@ -605,8 +647,8 @@ img { max-width: 100%; display: block; }
 <p>These are the exact workflows AI handles best.</p>
 <h2>Where AI is already reducing manual tasks</h2>
 <figure class="image-card">
-  <img src="https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="Developer reviewing workflow steps" loading="lazy">
-  <figcaption>Simple pipelines outperform complex flows when reliability matters.</figcaption>
+  <img src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="Hands on keyboard in software workflow" loading="lazy">
+  <figcaption>Reliable automation starts with clear process design.</figcaption>
 </figure>
 <h3>Admin and operations</h3>
 <p>AI now handles calendar optimization, email triage, document classification, and recurring report generation.</p>
@@ -643,8 +685,8 @@ img { max-width: 100%; display: block; }
 <p>When repetitive execution is automated, teams spend less time jumping between tools and more time on decisions.</p>
 <h2>Quick tool mapping by use case</h2>
 <figure class="image-card">
-  <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="Spreadsheet metrics and planning notes" loading="lazy">
-  <figcaption>Structured reporting helps teams make faster decisions.</figcaption>
+  <img src="https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="Team tracking KPIs on laptop dashboard" loading="lazy">
+  <figcaption>Weekly reporting systems should be measurable and easy to maintain.</figcaption>
 </figure>
 <table><thead><tr><th>Use case</th><th>Typical tool type</th><th>Setup complexity</th></tr></thead><tbody><tr><td>Email drafting and summaries</td><td>AI assistant</td><td>Easy</td></tr><tr><td>Meeting notes and action items</td><td>Transcription + AI summarizer</td><td>Easy</td></tr><tr><td>Social/content planning</td><td>AI writing + scheduling stack</td><td>Easy to moderate</td></tr><tr><td>Lead routing and CRM updates</td><td>Workflow automation platform</td><td>Moderate</td></tr><tr><td>Recurring KPI reporting</td><td>Automation + AI summary</td><td>Moderate</td></tr><tr><td>Multi-step operations workflows</td><td>n8n/Make with logic branches</td><td>Advanced</td></tr></tbody></table>
 <h2>How AI is reducing jobs and creating new roles</h2>
@@ -725,13 +767,37 @@ img { max-width: 100%; display: block; }
             allowfullscreen
             style="display:block;margin-left:auto;margin-right:auto;max-width:100%;"
           ></iframe>
-          <button class="cta-btn" type="button" data-brevo-reset style="margin-top:0.9rem;">Reset form</button>
         </div>
         <p style="margin-top:8px; color: var(--text-soft); font-size:.88rem;">No spam. Unsubscribe anytime.</p>
       </section>
     </article>
   </div>
 </main>
+
+<div class="starter-kit-popup" id="starter-kit-popup" aria-hidden="true">
+  <div class="starter-kit-overlay" data-popup-close></div>
+  <div class="starter-kit-modal" role="dialog" aria-modal="true" aria-labelledby="starter-kit-title">
+    <button class="starter-kit-close" type="button" aria-label="Close popup" data-popup-close>&times;</button>
+    <div class="starter-kit-copy">
+      <p class="kicker">FREE DOWNLOAD</p>
+      <h2 id="starter-kit-title">The AI Starter Kit: 7 Tools to Start Earning With AI This Week</h2>
+      <p>Sign up and get the PDF link instantly in your email inbox.</p>
+      <p class="lead-subtle">The PDF is sent only after successful signup.</p>
+    </div>
+    <div class="lead-brevo">
+      <iframe
+        width="540"
+        height="380"
+        data-brevo-embed
+        src="https://26663e63.sibforms.com/serve/MUIFAIAq3_TNpH815gpegtVFQL-YNK5Pw1LKjHSh0XiUaKQ9iO8TEictAqoSpKgN7E3M8Qm5f1WiV8Uw9IzgRBMGNWBQaSn4Y-5z9jAoRSZSOLebEsGqUMgL9SeBJYKOfjWz9lNXnNwuilOAm4yu7X4U4gwRM3NnBAmZKV2EaeFPU0qv-iUy2jikgbcfKJqQ-GhJVHzlNkHCws7GJA=="
+        frameborder="0"
+        scrolling="no"
+        allowfullscreen
+        style="display:block;margin-left:auto;margin-right:auto;max-width:100%;"
+      ></iframe>
+    </div>
+  </div>
+</div>
 
 <footer class="footer">
   <span>&copy; <span id="year"></span> HJ Automations</span>
@@ -811,20 +877,56 @@ document.querySelectorAll('.article a[href*="try.elevenlabs.io"]').forEach((link
   link.setAttribute('rel', 'noopener noreferrer sponsored');
 });
 
-document.querySelectorAll('[data-brevo-reset]').forEach((button) => {
-  button.addEventListener('click', () => {
-    const scope = button.closest('.lead-brevo, .brevo-embed, .starter-kit-content') || document;
-    const iframe = scope.querySelector('iframe[data-brevo-embed]');
-    if (!iframe) return;
-
-    const originalSrc = iframe.getAttribute('src') || '';
-    if (!originalSrc) return;
-    iframe.setAttribute('src', 'about:blank');
-    window.setTimeout(() => {
-      iframe.setAttribute('src', originalSrc);
-    }, 60);
-  });
+const brevoIframes = [...document.querySelectorAll('iframe[data-brevo-embed]')];
+const stamp = String(Date.now());
+brevoIframes.forEach((iframe) => {
+  const src = iframe.getAttribute('src') || '';
+  if (!src) return;
+  const joiner = src.includes('?') ? '&' : '?';
+  iframe.setAttribute('src', src + joiner + 'v=' + stamp);
 });
+
+const popup = document.getElementById('starter-kit-popup');
+if (popup) {
+  const closers = [...popup.querySelectorAll('[data-popup-close]')];
+  let shown = false;
+  let timerElapsed = false;
+  let hasIntent = window.scrollY >= 10;
+  const tryOpen = () => {
+    if (shown) return;
+    if (!timerElapsed || !hasIntent) return;
+    shown = true;
+    popup.classList.add('open');
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+  window.setTimeout(() => {
+    timerElapsed = true;
+    tryOpen();
+  }, 10000);
+  const onIntent = () => {
+    if (hasIntent) return;
+    hasIntent = true;
+    tryOpen();
+    window.removeEventListener('scroll', onIntent);
+    window.removeEventListener('wheel', onIntent);
+    window.removeEventListener('touchstart', onIntent);
+    window.removeEventListener('keydown', onIntent);
+  };
+  window.addEventListener('scroll', onIntent, { passive: true });
+  window.addEventListener('wheel', onIntent, { passive: true });
+  window.addEventListener('touchstart', onIntent, { passive: true });
+  window.addEventListener('keydown', onIntent);
+  const closePopup = () => {
+    popup.classList.remove('open');
+    popup.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+  closers.forEach((node) => node.addEventListener('click', closePopup));
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && popup.classList.contains('open')) closePopup();
+  });
+}
 </script>
 </body>
 </html>

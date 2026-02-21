@@ -469,23 +469,16 @@
 
   }
 
-  function initBrevoEmbedResets() {
-    const resetButtons = Array.from(document.querySelectorAll("[data-brevo-reset]"));
-    if (!resetButtons.length) return;
+  function initBrevoEmbeds() {
+    const iframes = Array.from(document.querySelectorAll("iframe[data-brevo-embed]"));
+    if (!iframes.length) return;
 
-    resetButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const scope = button.closest(".lead-brevo, .brevo-embed, .starter-kit-content") || document;
-        const iframe = scope.querySelector("iframe[data-brevo-embed]");
-        if (!iframe) return;
-
-        const originalSrc = iframe.getAttribute("src") || "";
-        if (!originalSrc) return;
-        iframe.setAttribute("src", "about:blank");
-        window.setTimeout(() => {
-          iframe.setAttribute("src", originalSrc);
-        }, 60);
-      });
+    const stamp = String(Date.now());
+    iframes.forEach((iframe) => {
+      const src = iframe.getAttribute("src") || "";
+      if (!src) return;
+      const joiner = src.includes("?") ? "&" : "?";
+      iframe.setAttribute("src", `${src}${joiner}v=${stamp}`);
     });
   }
 
@@ -509,7 +502,7 @@
 
   initPostTemplate();
   initHomeLeadPopup();
-  initBrevoEmbedResets();
+  initBrevoEmbeds();
 
   if (body.classList.contains("page-blog") && postCountNode && !blogList) {
     postCountNode.textContent = "20+ Articles";
