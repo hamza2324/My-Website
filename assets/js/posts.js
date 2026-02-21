@@ -182,26 +182,6 @@ const POSTS = [
     "id": 8
   },
   {
-    "title": "How AI Is Transforming Business Operations in 2026",
-    "slug": "ai-transforming-business-operations-2026",
-    "date": "2026-02-13",
-    "category": "Industry News",
-    "tags": [
-      "AI",
-      "Business Operations",
-      "Automation",
-      "Agentic AI"
-    ],
-    "excerpt": "AI is reshaping business operations through automation, better decisions, and emerging autonomous agentic tools.",
-    "readTime": "7 min read",
-    "image": "https://picsum.photos/seed/ai-business-ops-2026/1200/630",
-    "imageAlt": "",
-    "affiliateLink": "",
-    "priority": 0,
-    "url": "posts/ai-transforming-business-operations-2026.html",
-    "id": 9
-  },
-  {
     "title": "AI Agents Are Replacing Traditional Workflows - Are You Ready for the Shift?",
     "slug": "ai-agents-replacing-traditional-workflows-are-you-ready",
     "date": "2026-02-13",
@@ -220,6 +200,26 @@ const POSTS = [
     "affiliateLink": "",
     "priority": 0,
     "url": "posts/ai-agents-replacing-traditional-workflows-are-you-ready.html",
+    "id": 9
+  },
+  {
+    "title": "How AI Is Transforming Business Operations in 2026",
+    "slug": "ai-transforming-business-operations-2026",
+    "date": "2026-02-13",
+    "category": "Industry News",
+    "tags": [
+      "AI",
+      "Business Operations",
+      "Automation",
+      "Agentic AI"
+    ],
+    "excerpt": "AI is reshaping business operations through automation, better decisions, and emerging autonomous agentic tools.",
+    "readTime": "7 min read",
+    "image": "https://picsum.photos/seed/ai-business-ops-2026/1200/630",
+    "imageAlt": "",
+    "affiliateLink": "",
+    "priority": 0,
+    "url": "posts/ai-transforming-business-operations-2026.html",
     "id": 10
   },
   {
