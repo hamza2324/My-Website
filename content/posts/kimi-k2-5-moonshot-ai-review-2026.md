@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Kimi K2.5 Review: Moonshot AI's Agent Swarm Is Challenging GPT-5 Class Models"
 date: 2026-02-22
 slug: kimi-k2-5-moonshot-ai-review-2026

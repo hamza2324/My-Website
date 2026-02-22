@@ -135,8 +135,9 @@ function escapeHtml(input) {
 }
 
 function parseFrontmatter(raw) {
-  const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
-  if (!match) return { meta: {}, body: raw };
+  const input = String(raw || "").replace(/^\uFEFF/, "");
+  const match = input.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
+  if (!match) return { meta: {}, body: input };
   const meta = {};
   for (const line of match[1].split(/\r?\n/)) {
     const idx = line.indexOf(":");
@@ -147,6 +148,66 @@ function parseFrontmatter(raw) {
     meta[key] = value;
   }
   return { meta, body: match[2] };
+}
+
+function extractFaqSection(markdownBody) {
+  const lines = String(markdownBody || "").replace(/\r/g, "").split("\n");
+  const faqStart = lines.findIndex((line) => /^##\s+FAQ\b/i.test(line.trim()));
+  if (faqStart < 0) {
+    return { body: markdownBody, faqTitle: "", faqItems: [] };
+  }
+
+  let faqEnd = lines.length;
+  for (let i = faqStart + 1; i < lines.length; i += 1) {
+    if (/^##\s+/.test(lines[i].trim())) {
+      faqEnd = i;
+      break;
+    }
+  }
+
+  const heading = lines[faqStart].trim().replace(/^##\s+/, "").trim();
+  const faqLines = lines.slice(faqStart + 1, faqEnd);
+  const items = [];
+  let currentQ = "";
+  let currentAnswer = [];
+
+  const flushItem = () => {
+    const answer = currentAnswer.join(" ").replace(/\s+/g, " ").trim();
+    if (currentQ && answer) items.push({ question: currentQ, answer });
+    currentQ = "";
+    currentAnswer = [];
+  };
+
+  for (const rawLine of faqLines) {
+    const line = rawLine.trim();
+    if (!line) continue;
+
+    const h3Match = line.match(/^###\s+(.+)$/);
+    if (h3Match) {
+      flushItem();
+      currentQ = h3Match[1].trim();
+      continue;
+    }
+
+    if (!currentQ) {
+      const boldQ = line.match(/^\*\*(.+?)\*\*\s*$/);
+      if (boldQ) {
+        flushItem();
+        currentQ = boldQ[1].trim();
+      }
+      continue;
+    }
+
+    if (/^[-*]\s+/.test(line)) {
+      currentAnswer.push(line.replace(/^[-*]\s+/, ""));
+    } else {
+      currentAnswer.push(line);
+    }
+  }
+  flushItem();
+
+  const body = [...lines.slice(0, faqStart), ...lines.slice(faqEnd)].join("\n").trim();
+  return { body, faqTitle: heading || "FAQ", faqItems: items };
 }
 
 function parseTags(value) {
@@ -444,19 +505,21 @@ function injectImageCards(contentHtml, images) {
 
 function postMetaFromMarkdown(fileName, raw) {
   const { meta, body } = parseFrontmatter(raw);
-  const firstTitleMatch = body.match(/^#\s+(.+)$/m);
+  const faqData = extractFaqSection(body);
+  const cleanBody = faqData.body;
+  const firstTitleMatch = cleanBody.match(/^#\s+(.+)$/m);
   const title = meta.title || (firstTitleMatch ? firstTitleMatch[1].trim() : fileName.replace(/\.md$/, ""));
   const slug = meta.slug || slugify(title) || slugify(fileName.replace(/\.md$/, ""));
   const date = normalizeDate(meta.date || new Date().toISOString().slice(0, 10));
   const category = meta.category || "AI Tools";
   const tags = parseTags(meta.tags || "");
-  const excerpt = meta.excerpt || inferExcerpt(body) || "Practical notes and implementation strategies from HJ Automations.";
+  const excerpt = meta.excerpt || inferExcerpt(cleanBody) || "Practical notes and implementation strategies from HJ Automations.";
   const readTime = meta.readTime || "8 min read";
   const image = meta.image || "";
   const imageAlt = meta.imageAlt || meta.image_alt || "";
   const affiliateLink = meta.affiliateLink || meta.affiliate_link || "";
   const priority = parseNumber(meta.priority, 0);
-  const contentHtml = markdownToHtml(body);
+  const contentHtml = markdownToHtml(cleanBody);
 
   return {
     title,
@@ -470,6 +533,8 @@ function postMetaFromMarkdown(fileName, raw) {
     imageAlt,
     affiliateLink,
     priority,
+    faqTitle: faqData.faqTitle,
+    faqItems: faqData.faqItems,
     url: `posts/${slug}.html`,
     contentHtml
   };
@@ -508,6 +573,14 @@ function readMarkdownPosts() {
 }
 
 function buildFaq(post) {
+  if (Array.isArray(post.faqItems) && post.faqItems.length > 0) {
+    const title = post.faqTitle || "FAQ";
+    const itemsHtml = post.faqItems
+      .map((item) => `  <div class="faq-item">\n    <button class="faq-question" type="button">${renderInline(item.question)}</button>\n    <div class="faq-answer"><p>${renderInline(item.answer)}</p></div>\n  </div>`)
+      .join("\n");
+    return `<section class="faq" id="faq">\n  <h2>${renderInline(title)}</h2>\n${itemsHtml}\n</section>`;
+  }
+
   const topic = post.category.toLowerCase().includes("automation") ? "automation" : "AI workflow";
   return `<section class="faq" id="faq">\n  <h2>FAQ</h2>\n  <div class="faq-item">\n    <button class="faq-question" type="button">How should I start implementing this ${escapeHtml(topic)} approach?</button>\n    <div class="faq-answer"><p>Start with one measurable workflow, define guardrails, and track outcomes weekly before scaling.</p></div>\n  </div>\n  <div class="faq-item">\n    <button class="faq-question" type="button">What metric should I track first?</button>\n    <div class="faq-answer"><p>Track cycle time or error rate first. Both usually reveal value faster than vanity metrics.</p></div>\n  </div>\n  <div class="faq-item">\n    <button class="faq-question" type="button">How long until results are visible?</button>\n    <div class="faq-answer"><p>Most teams see meaningful direction in 2 to 6 weeks if the workflow is scoped tightly and reviewed each week.</p></div>\n  </div>\n</section>`;
 }
