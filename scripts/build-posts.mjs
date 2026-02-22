@@ -531,8 +531,8 @@ function renderPostHtml(post) {
   const canonical = `${DOMAIN}/posts/${post.slug}.html`;
   const keywords = buildKeywords(post);
   const displayDate = formatDisplayDate(post.date);
-  const ctaHref = post.affiliateLink ? sanitizeHref(post.affiliateLink) : "mailto:hamzajadoon71@gmail.com?subject=Workflow%20Consultation";
-  const ctaLabel = post.affiliateLink ? "Try ElevenLabs Free" : "Work With Me";
+  const ctaHref = post.affiliateLink ? sanitizeHref(post.affiliateLink) : "../contact.html";
+  const ctaLabel = post.affiliateLink ? "Try ElevenLabs Free" : "Go to Contact Form";
   const ctaRel = post.affiliateLink ? "noopener noreferrer sponsored" : "";
   const ctaTarget = post.affiliateLink ? "_blank" : "";
   const ctaHeading = post.affiliateLink ? "Ready to launch with ElevenLabs?" : "Ready to build smarter AI workflows?";
@@ -999,6 +999,8 @@ img { max-width: 100%; display: block; }
   border-radius: 10px;
   padding: 11px 14px;
   font-weight: 700;
+  text-decoration: none !important;
+  color: #ffffff !important;
 }
 .cta-btn:hover {
   transform: translateY(-1px);
