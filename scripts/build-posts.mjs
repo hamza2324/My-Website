@@ -482,10 +482,11 @@ function getPostImages(post) {
     : (hashString(post.slug || post.title) % pool.length);
   const variant = pool[variantIndex % pool.length];
   const hasCustomImage = /^(https?:\/\/|\/|\.\.\/|\.\/)/i.test((post.image || "").trim());
+  const hasCustomInline = Array.isArray(post.customInlineImages) && post.customInlineImages.length > 0;
   return {
     hero: hasCustomImage ? post.image : variant.hero.url,
     heroAlt: post.imageAlt || variant.hero.alt,
-    inline: variant.inline
+    inline: hasCustomInline ? post.customInlineImages : variant.inline
   };
 }
 
@@ -517,9 +518,28 @@ function postMetaFromMarkdown(fileName, raw) {
   const readTime = meta.readTime || "8 min read";
   const image = meta.image || "";
   const imageAlt = meta.imageAlt || meta.image_alt || "";
+  const inlineImage1 = meta.inlineImage1 || meta.inline_image_1 || "";
+  const inlineImage1Alt = meta.inlineImage1Alt || meta.inline_image_1_alt || "";
+  const inlineImage1Caption = meta.inlineImage1Caption || meta.inline_image_1_caption || "";
+  const inlineImage2 = meta.inlineImage2 || meta.inline_image_2 || "";
+  const inlineImage2Alt = meta.inlineImage2Alt || meta.inline_image_2_alt || "";
+  const inlineImage2Caption = meta.inlineImage2Caption || meta.inline_image_2_caption || "";
   const affiliateLink = meta.affiliateLink || meta.affiliate_link || "";
   const priority = parseNumber(meta.priority, 0);
   const contentHtml = markdownToHtml(cleanBody);
+  const customInlineImages = [inlineImage1, inlineImage2]
+    .map((url, index) => {
+      const trimmed = String(url || "").trim();
+      if (!trimmed) return null;
+      const alt = index === 0 ? inlineImage1Alt : inlineImage2Alt;
+      const caption = index === 0 ? inlineImage1Caption : inlineImage2Caption;
+      return {
+        url: trimmed,
+        alt: String(alt || "").trim() || `Inline image ${index + 1}`,
+        caption: String(caption || "").trim() || ""
+      };
+    })
+    .filter(Boolean);
 
   return {
     title,
@@ -531,6 +551,7 @@ function postMetaFromMarkdown(fileName, raw) {
     readTime,
     image,
     imageAlt,
+    customInlineImages,
     affiliateLink,
     priority,
     faqTitle: faqData.faqTitle,
