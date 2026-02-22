@@ -181,6 +181,7 @@ function extractFaqSection(markdownBody) {
   for (const rawLine of faqLines) {
     const line = rawLine.trim();
     if (!line) continue;
+    if (/^---+$/.test(line)) continue;
 
     const h3Match = line.match(/^###\s+(.+)$/);
     if (h3Match) {
