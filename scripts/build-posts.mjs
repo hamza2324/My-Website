@@ -14,6 +14,7 @@ const OVERWRITE_EXISTING_POST_PAGES = true;
 const STATIC_PAGES = [
   "",
   "blog.html",
+  "ai-money-machine.html",
   "about.html",
   "contact.html",
   "services.html",
@@ -21,6 +22,50 @@ const STATIC_PAGES = [
   "terms-of-service.html",
   "disclaimer.html",
   "cookie-policy.html"
+];
+
+const LEGACY_POST_SLUGS = [
+  "eu-ai-act-2026-the-august-compliance-deadline-that-could-cost-your-business-eur35-million",
+  "seo-blog-ai-money-2026"
+];
+
+const LEGACY_POST_DATA = [
+  {
+    title: "EU AI Act 2026: The August Compliance Deadline That Could Cost Your Business EUR35 Million",
+    slug: "eu-ai-act-2026-the-august-compliance-deadline-that-could-cost-your-business-eur35-million",
+    date: "2026-02-22",
+    category: "AI Regulation",
+    tags: ["EU AI Act", "AI compliance", "AI regulation"],
+    excerpt: "What the August 2026 EU AI Act compliance deadline means for businesses, penalties, and practical preparation steps.",
+    readTime: "11 min read",
+    image: "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    imageAlt: "AI regulation and compliance concept",
+    customInlineImages: [],
+    affiliateLink: "",
+    priority: 0,
+    faqTitle: "",
+    faqItems: [],
+    url: "posts/eu-ai-act-2026-the-august-compliance-deadline-that-could-cost-your-business-eur35-million.html",
+    id: 15
+  },
+  {
+    title: "Best AI Tools to Make Money Online in 2026: 10 AI Side Hustles (+ Free Ebook)",
+    slug: "seo-blog-ai-money-2026",
+    date: "2026-02-20",
+    category: "AI Tools",
+    tags: ["AI tools", "AI side hustle", "make money online"],
+    excerpt: "A practical guide to the best AI tools, side hustle models, and passive income opportunities in 2026.",
+    readTime: "10 min read",
+    image: "https://hamzajadoon.cloud/assets/images/ai-money-machine-cover.png",
+    imageAlt: "Best AI tools and side hustles in 2026",
+    customInlineImages: [],
+    affiliateLink: "",
+    priority: 0,
+    faqTitle: "",
+    faqItems: [],
+    url: "posts/seo-blog-ai-money-2026.html",
+    id: 16
+  }
 ];
 
 const DEFAULT_AUTHOR = "Hamza Jadoon";
@@ -1589,14 +1634,27 @@ function writeDataFiles(posts) {
     const selected = getPostImages({ ...rest, imagePoolKey, imageVariantIndex });
     return { ...rest, image: selected.hero };
   });
+  const metadataWithLegacy = [...metadata];
+  const slugs = new Set(metadataWithLegacy.map((post) => post.slug));
+  for (const legacyPost of LEGACY_POST_DATA) {
+    if (!slugs.has(legacyPost.slug)) {
+      metadataWithLegacy.push(legacyPost);
+      slugs.add(legacyPost.slug);
+    }
+  }
+  metadataWithLegacy.sort((a, b) => {
+    const dateDelta = new Date(b.date) - new Date(a.date);
+    if (dateDelta !== 0) return dateDelta;
+    return Number(a.id || 0) - Number(b.id || 0);
+  });
 
   fs.mkdirSync(path.dirname(OUTPUT_POSTS_JSON), { recursive: true });
   fs.mkdirSync(path.dirname(OUTPUT_ASSETS_JSON), { recursive: true });
   fs.mkdirSync(path.dirname(OUTPUT_JS), { recursive: true });
 
-  fs.writeFileSync(OUTPUT_POSTS_JSON, JSON.stringify(metadata, null, 2), "utf8");
-  fs.writeFileSync(OUTPUT_ASSETS_JSON, JSON.stringify(metadata, null, 2), "utf8");
-  fs.writeFileSync(OUTPUT_JS, `const POSTS = ${JSON.stringify(metadata, null, 2)};\n`, "utf8");
+  fs.writeFileSync(OUTPUT_POSTS_JSON, JSON.stringify(metadataWithLegacy, null, 2), "utf8");
+  fs.writeFileSync(OUTPUT_ASSETS_JSON, JSON.stringify(metadataWithLegacy, null, 2), "utf8");
+  fs.writeFileSync(OUTPUT_JS, `const POSTS = ${JSON.stringify(metadataWithLegacy, null, 2)};\n`, "utf8");
 }
 
 function writeSitemap(posts) {
@@ -1610,8 +1668,19 @@ function writeSitemap(posts) {
   const postEntries = posts.map((post) =>
     `  <url><loc>${DOMAIN}/posts/${post.slug}.html</loc><lastmod>${post.date}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>`
   );
+  const postSlugSet = new Set(posts.map((post) => post.slug));
+  const legacyPostEntries = LEGACY_POST_SLUGS
+    .filter((slug) => !postSlugSet.has(slug))
+    .map((slug) => {
+      const outputPath = path.join(OUTPUT_POSTS_DIR, `${slug}.html`);
+      if (!fs.existsSync(outputPath)) return "";
+      const stat = fs.statSync(outputPath);
+      const lastmod = new Date(stat.mtimeMs).toISOString().slice(0, 10);
+      return `  <url><loc>${DOMAIN}/posts/${slug}.html</loc><lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>`;
+    })
+    .filter(Boolean);
 
-  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...staticEntries, ...postEntries].join("\n")}\n</urlset>\n`;
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...staticEntries, ...postEntries, ...legacyPostEntries].join("\n")}\n</urlset>\n`;
   fs.writeFileSync(OUTPUT_SITEMAP, xml, "utf8");
 }
 
