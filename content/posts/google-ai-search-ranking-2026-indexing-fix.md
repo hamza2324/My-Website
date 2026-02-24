@@ -6,14 +6,14 @@ category: SEO & Digital Growth
 excerpt: "Your site is live but not ranking? This 2026 guide shows the exact SEO + GEO + LLM optimization framework to fix indexing, improve visibility, and win qualified traffic."
 readTime: 12 min read
 tags: [Google AI Search Ranking 2026, Website Not Indexing, SEO 2026, GEO Optimization, LLM Optimization, Technical SEO, AI Overviews, Entity SEO]
-image: https://images.unsplash.com/photo-1556155092-8707de31f9c4?auto=format&fit=crop&w=1200&q=80
-imageAlt: Marketer reviewing SEO and ranking dashboard on laptop in a modern office
-inlineImage1: https://images.unsplash.com/photo-1613553507747-5f8d62ad5904?auto=format&fit=crop&w=1200&q=80
-inlineImage1Alt: Person analyzing map-based local visibility data on a screen
-inlineImage1Caption: GEO optimization improves local and regional discoverability signals
-inlineImage2: https://images.unsplash.com/photo-1673178244782-6a7e70f7f86e?auto=format&fit=crop&w=1200&q=80
-inlineImage2Alt: AI search interface that reflects LLM-style answer and retrieval behavior
-inlineImage2Caption: LLM optimization helps your content get cited in AI-generated answers
+image: https://images.pexels.com/photos/7109243/pexels-photo-7109243.jpeg?auto=compress&cs=tinysrgb&w=1200
+imageAlt: SEO specialist reviewing ranking analytics and search performance metrics on a desktop dashboard
+inlineImage1: https://images.pexels.com/photos/33812843/pexels-photo-33812843.jpeg?auto=compress&cs=tinysrgb&w=1200
+inlineImage1Alt: Map-based digital strategy view representing geographic SEO targeting and local visibility optimization
+inlineImage1Caption: GEO optimization aligns your content with city, region, and service-area search intent
+inlineImage2: https://images.pexels.com/photos/31738798/pexels-photo-31738798.jpeg?auto=compress&cs=tinysrgb&w=1200
+inlineImage2Alt: AI-driven search and retrieval workflow illustrating LLM answer extraction from structured content
+inlineImage2Caption: LLM optimization increases the chance of being cited in AI-generated answers
 ---
 
 # Google AI Search Ranking 2026: Why New Websites Are Not Indexing (Exact Recovery Plan)
