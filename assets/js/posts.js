@@ -1,5 +1,64 @@
 const POSTS = [
   {
+    "title": "Google AI Search Ranking 2026: Why New Websites Are Not Indexing (Exact Recovery Plan)",
+    "slug": "google-ai-search-ranking-2026-indexing-fix",
+    "date": "2026-02-24",
+    "category": "SEO & Digital Growth",
+    "tags": [
+      "Google AI Search Ranking 2026",
+      "Website Not Indexing",
+      "SEO 2026",
+      "GEO Optimization",
+      "LLM Optimization",
+      "Technical SEO",
+      "AI Overviews",
+      "Entity SEO"
+    ],
+    "excerpt": "Your site is live but not ranking? This 2026 guide shows the exact SEO + GEO + LLM optimization framework to fix indexing, improve visibility, and win qualified traffic.",
+    "readTime": "12 min read",
+    "image": "https://images.unsplash.com/photo-1556155092-8707de31f9c4?auto=format&fit=crop&w=1200&q=80",
+    "imageAlt": "Marketer reviewing SEO and ranking dashboard on laptop in a modern office",
+    "customInlineImages": [
+      {
+        "url": "https://images.unsplash.com/photo-1613553507747-5f8d62ad5904?auto=format&fit=crop&w=1200&q=80",
+        "alt": "Person analyzing map-based local visibility data on a screen",
+        "caption": "GEO optimization improves local and regional discoverability signals"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1673178244782-6a7e70f7f86e?auto=format&fit=crop&w=1200&q=80",
+        "alt": "AI search interface that reflects LLM-style answer and retrieval behavior",
+        "caption": "LLM optimization helps your content get cited in AI-generated answers"
+      }
+    ],
+    "affiliateLink": "",
+    "priority": 0,
+    "faqTitle": "FAQ",
+    "faqItems": [
+      {
+        "question": "Why is my website indexed but not ranking?",
+        "answer": "Because indexing confirms discovery, not authority. You still need stronger relevance, trust, and structure."
+      },
+      {
+        "question": "Does AI-written content rank in 2026?",
+        "answer": "Yes, when it is accurate, specific, experience-backed, and better than existing results."
+      },
+      {
+        "question": "Is GEO optimization only for local businesses?",
+        "answer": "No. Any business targeting regions, countries, or service territories benefits from clear geographic relevance."
+      },
+      {
+        "question": "What is LLM optimization in practical terms?",
+        "answer": "Writing in answer-first, entity-clear, citation-backed blocks so AI systems can quote your page with confidence."
+      },
+      {
+        "question": "How long does recovery take?",
+        "answer": "For new domains, early movement can appear in 2 to 6 weeks, depending on crawl frequency and competition."
+      }
+    ],
+    "url": "posts/google-ai-search-ranking-2026-indexing-fix.html",
+    "id": 1
+  },
+  {
     "title": "AI Tool Overload in 2026: Why You're Losing 3+ Hours a Day (And the 30-Minute Fix)",
     "slug": "ai-tool-overload-fix-2026",
     "date": "2026-02-23",
@@ -51,7 +110,7 @@ const POSTS = [
       }
     ],
     "url": "posts/ai-tool-overload-fix-2026.html",
-    "id": 1
+    "id": 2
   },
   {
     "title": "Seedance 2.0 Explained: ByteDance's AI Video Tool That Scared Hollywood (And How to Use It)",
@@ -110,7 +169,7 @@ const POSTS = [
       }
     ],
     "url": "posts/seedance-2-0-bytedance-ai-video-generator-explained-2026.html",
-    "id": 2
+    "id": 3
   },
   {
     "title": "Kimi K2.5 Review: Moonshot AI's Agent Swarm Is Challenging GPT-5 Class Models",
@@ -166,7 +225,7 @@ const POSTS = [
       }
     ],
     "url": "posts/kimi-k2-5-moonshot-ai-review-2026.html",
-    "id": 3
+    "id": 4
   },
   {
     "title": "How to Create a Free AI Chatbot for Business in 2026 (No Coding)",
@@ -210,7 +269,7 @@ const POSTS = [
       }
     ],
     "url": "posts/how-to-create-free-ai-chatbot-for-business-2026.html",
-    "id": 4
+    "id": 5
   },
   {
     "title": "EU AI Act 2026: The August Compliance Deadline That Could Cost Your Business EUR35 Million",
@@ -281,7 +340,7 @@ const POSTS = [
       }
     ],
     "url": "posts/elevenlabs-review-2026-ai-voice-tool.html",
-    "id": 5
+    "id": 6
   },
   {
     "title": "AI Reducing Manual Work - A Practical Guide to Working Smarter in 2026",
@@ -323,7 +382,7 @@ const POSTS = [
       }
     ],
     "url": "posts/ai-reducing-manual-work-guide-2026.html",
-    "id": 6
+    "id": 7
   },
   {
     "title": "AI Automation Explained - What It Is, How It Works, and How to Use It in 2026",
@@ -365,7 +424,7 @@ const POSTS = [
       }
     ],
     "url": "posts/ai-automation-explained-guide-2026.html",
-    "id": 7
+    "id": 8
   },
   {
     "title": "Google Is Dying: How AI Just Replaced Search - And Most People Don't Know It Yet",
@@ -394,7 +453,7 @@ const POSTS = [
     "faqTitle": "",
     "faqItems": [],
     "url": "posts/google-is-dying-ai-replaced-search-2026.html",
-    "id": 8
+    "id": 9
   },
   {
     "title": "Best AI Tools to Make Money Online in 2026: 10 AI Side Hustles (+ Free Ebook)",
@@ -469,7 +528,7 @@ const POSTS = [
       }
     ],
     "url": "posts/eu-ai-act-2026-august-deadline-compliance-guide.html",
-    "id": 9
+    "id": 10
   },
   {
     "title": "Google vs Apple: The $30 Billion AI Smart Glasses Battle is ON (And Your Business Needs to Pay Attention)",
@@ -500,7 +559,7 @@ const POSTS = [
     "faqTitle": "",
     "faqItems": [],
     "url": "posts/google-vs-apple-30-billion-ai-smart-glasses-battle.html",
-    "id": 10
+    "id": 11
   },
   {
     "title": "Multi-Agent AI Systems for Business Automation (2026 Guide)",
@@ -551,7 +610,7 @@ const POSTS = [
       }
     ],
     "url": "posts/multi-agent-ai-systems-the-future-of-business-automation.html",
-    "id": 11
+    "id": 12
   },
   {
     "title": "AI ROI in 2026: Why Only 1 in 50 AI Investments Deliver Real Value",
@@ -575,7 +634,7 @@ const POSTS = [
     "faqTitle": "",
     "faqItems": [],
     "url": "posts/ai-roi-2026-why-most-ai-investments-fail.html",
-    "id": 12
+    "id": 13
   },
   {
     "title": "AI Agents Are Replacing Traditional Workflows - Are You Ready for the Shift?",
@@ -616,7 +675,7 @@ const POSTS = [
       }
     ],
     "url": "posts/ai-agents-replacing-traditional-workflows-are-you-ready.html",
-    "id": 13
+    "id": 14
   },
   {
     "title": "How AI Is Transforming Business Operations in 2026",
@@ -639,7 +698,7 @@ const POSTS = [
     "faqTitle": "",
     "faqItems": [],
     "url": "posts/ai-transforming-business-operations-2026.html",
-    "id": 14
+    "id": 15
   },
   {
     "title": "How to Automate Weekly Reporting with AI",
@@ -661,6 +720,6 @@ const POSTS = [
     "faqTitle": "",
     "faqItems": [],
     "url": "posts/automate-weekly-reporting-with-ai.html",
-    "id": 15
+    "id": 16
   }
 ];
