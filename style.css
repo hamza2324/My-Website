@@ -814,95 +814,6 @@ img {
   font-size: 0.82rem;
 }
 
-body.popup-open {
-  overflow: hidden;
-}
-
-.starter-kit-popup {
-  position: fixed;
-  inset: 0;
-  z-index: 160;
-  display: none;
-}
-
-.starter-kit-popup.open {
-  display: block;
-}
-
-.starter-kit-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(15, 20, 25, 0.72);
-  backdrop-filter: blur(4px);
-}
-
-.starter-kit-modal {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: min(980px, 94%);
-  max-height: 88vh;
-  overflow: auto;
-  padding: 1.1rem;
-  border-color: rgba(239, 68, 68, 0.62);
-  background: linear-gradient(155deg, rgba(239, 68, 68, 0.2), rgba(26, 31, 41, 0.96));
-}
-
-.starter-kit-close {
-  position: absolute;
-  right: 0.65rem;
-  top: 0.65rem;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  border: 1px solid rgba(156, 163, 175, 0.4);
-  background: rgba(26, 31, 41, 0.75);
-  color: var(--text-primary);
-  cursor: pointer;
-}
-
-.starter-kit-kicker {
-  margin: 0 0 0.45rem;
-  color: #fecaca;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.starter-kit-modal h2 {
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  margin-bottom: 0.7rem;
-}
-
-.starter-kit-content {
-  display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 1rem;
-  align-items: stretch;
-}
-
-.starter-kit-copy {
-  padding: 0.8rem 0.45rem 0.6rem;
-}
-
-.starter-kit-sub {
-  color: #dbeafe;
-  font-size: 0.98rem;
-  line-height: 1.6;
-  margin-bottom: 0.8rem;
-}
-.starter-kit-subtle {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  margin-bottom: 0.7rem;
-}
-.starter-kit-subtle a {
-  color: #fca5a5;
-  text-decoration: underline;
-}
-
 .brevo-embed {
   margin-top: 0;
   border-radius: 0.9rem;
@@ -1738,14 +1649,6 @@ body.popup-open {
   .article-affiliate-callout {
     grid-template-columns: 1fr;
     text-align: left;
-  }
-
-  .starter-kit-content {
-    grid-template-columns: 1fr;
-  }
-
-  .starter-kit-modal {
-    width: min(680px, 94%);
   }
 
   .brevo-embed iframe {

@@ -400,89 +400,6 @@
     });
   }
 
-  function initHomeLeadPopup() {
-    if (!body.classList.contains("page-home")) return;
-    const popup = document.getElementById("starter-kit-popup");
-    if (!popup) return;
-    const completedKey = "hj_starter_kit_completed_at";
-    const legacyCompletedKey = "hj_starter_kit_completed";
-    const completionTtlMs = 30 * 24 * 60 * 60 * 1000;
-    const isCompletedRecently = () => {
-      const legacy = localStorage.getItem(legacyCompletedKey);
-      if (legacy === "1") {
-        localStorage.removeItem(legacyCompletedKey);
-      }
-      const raw = localStorage.getItem(completedKey);
-      const completedAt = Number(raw || 0);
-      if (!completedAt) return false;
-      return Date.now() - completedAt < completionTtlMs;
-    };
-    if (isCompletedRecently()) return;
-
-    const closeButtons = Array.from(popup.querySelectorAll("[data-popup-close]"));
-    const form = popup.querySelector("form");
-    let shown = false;
-    let timerElapsed = false;
-    let hasScrolled = window.scrollY >= 10;
-
-    const closePopup = () => {
-      popup.classList.remove("open");
-      popup.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("popup-open");
-    };
-
-    const openPopup = () => {
-      if (shown) return;
-      shown = true;
-      popup.classList.add("open");
-      popup.setAttribute("aria-hidden", "false");
-      document.body.classList.add("popup-open");
-    };
-
-    const tryOpen = () => {
-      if (timerElapsed && hasScrolled) openPopup();
-    };
-
-    const timer = window.setTimeout(() => {
-      timerElapsed = true;
-      tryOpen();
-    }, 10000);
-
-    const onScroll = () => {
-      if (hasScrolled) return;
-      if (window.scrollY < 10) return;
-      hasScrolled = true;
-      tryOpen();
-      window.removeEventListener("scroll", onScroll);
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-    // Mobile devices may not emit a meaningful scroll quickly; treat early user interaction as intent.
-    const onInteract = () => {
-      if (hasScrolled) return;
-      hasScrolled = true;
-      tryOpen();
-      window.removeEventListener("wheel", onInteract);
-      window.removeEventListener("touchstart", onInteract);
-      window.removeEventListener("keydown", onInteract);
-    };
-    window.addEventListener("wheel", onInteract, { passive: true });
-    window.addEventListener("touchstart", onInteract, { passive: true });
-    window.addEventListener("keydown", onInteract);
-
-    closeButtons.forEach((btn) => btn.addEventListener("click", closePopup));
-    window.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && popup.classList.contains("open")) closePopup();
-    });
-
-    if (form) {
-      form.addEventListener("submit", () => {
-        window.clearTimeout(timer);
-      });
-    }
-
-  }
-
   function initLeadGatedDownloads() {
     const newsletterEndpoint = "https://formspree.io/f/mvzbzloa";
     const completedKey = "hj_starter_kit_completed_at";
@@ -506,16 +423,10 @@
           if (status) status.textContent = message;
           if (downloadWrap) downloadWrap.hidden = false;
           form.hidden = true;
-          const popup = form.closest("#starter-kit-popup");
 
           if (downloadLink) {
             const resetAfterDownload = () => {
               localStorage.setItem(completedKey, String(Date.now()));
-              if (popup) {
-                popup.classList.remove("open");
-                popup.setAttribute("aria-hidden", "true");
-              }
-              document.body.classList.remove("popup-open");
               window.setTimeout(() => {
                 form.reset();
                 form.hidden = false;
@@ -579,7 +490,6 @@
 
   initPostTemplate();
   initLeadGatedDownloads();
-  initHomeLeadPopup();
 
   if (body.classList.contains("page-blog") && postCountNode && !blogList) {
     postCountNode.textContent = "20+ Articles";

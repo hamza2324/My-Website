@@ -11,9 +11,12 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <title>AI ROI in 2026: Why Only 1 in 50 AI Investments Deliver Real Value | HJ Automations</title>
 <meta name="description" content="Most AI projects never move past pilots. Here is why AI ROI fails, what top performers do differently, and how to scale from proof-of-concept to business transf">
-<meta name="keywords" content="AI ROI, AI Strategy, Digital Transformation, Workflow Automation, Business Operations, Industry News, AI automation, n8n workflows, LLM guides, Hamza Jadoon, HJ Automations">
 <meta name="author" content="Hamza Jadoon">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://hamzajadoon.cloud/posts/ai-roi-2026-why-most-ai-investments-fail.html">
@@ -524,48 +527,6 @@ img { max-width: 100%; display: block; }
 .lead-download {
   padding: 0 14px 14px;
 }
-.starter-kit-popup {
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  display: none;
-}
-.starter-kit-popup.open { display: block; }
-.starter-kit-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(15, 20, 25, 0.62);
-}
-.starter-kit-modal {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: min(860px, 94%);
-  max-height: 88vh;
-  overflow: auto;
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 14px;
-}
-.starter-kit-close {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 32px;
-  height: 32px;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  background: #fff;
-  cursor: pointer;
-}
-.starter-kit-copy h2 {
-  margin: 0 0 8px;
-}
-.starter-kit-copy p {
-  margin: 0 0 10px;
-}
 .footer {
   width: min(1180px, 92%);
   margin: 44px auto 20px;
@@ -837,31 +798,6 @@ img { max-width: 100%; display: block; }
   </div>
 </main>
 
-<div class="starter-kit-popup" id="starter-kit-popup" aria-hidden="true">
-  <div class="starter-kit-overlay" data-popup-close></div>
-  <div class="starter-kit-modal" role="dialog" aria-modal="true" aria-labelledby="starter-kit-title">
-    <button class="starter-kit-close" type="button" aria-label="Close popup" data-popup-close>&times;</button>
-    <div class="starter-kit-copy">
-      <p class="kicker">FREE DOWNLOAD</p>
-      <h2 id="starter-kit-title">The AI Starter Kit: 7 Tools to Start Earning With AI This Week</h2>
-      <p>Sign up and unlock the PDF download instantly on this screen.</p>
-      <p class="lead-subtle">After subscribe, click the download button that appears below.</p>
-    </div>
-    <div class="lead-brevo">
-      <div data-lead-capture>
-        <form class="lead-form" data-lead-form>
-          <input type="email" name="email" placeholder="Email address" aria-label="Email address" required>
-          <button class="cta-btn" type="submit">Subscribe</button>
-        </form>
-        <p class="lead-subtle" data-lead-status></p>
-        <div class="lead-download" data-lead-download hidden>
-          <a class="cta-btn" href="/downloads/ai-starter-kit.pdf" download data-download-link>Download PDF</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <footer class="footer">
   <span>&copy; <span id="year"></span> HJ Automations</span>
   <span><a href="../blog.html">Back to blog</a></span>
@@ -874,7 +810,7 @@ const tocList = document.getElementById('toc-list');
 const year = document.getElementById('year');
 year.textContent = new Date().getFullYear();
 
-const headings = [...article.querySelectorAll('h2')];
+const headings = [...article.querySelectorAll('h2')].filter((heading) => !heading.closest('.faq, .cta, .lead-magnet'));
 const tocLinks = headings.map((heading, index) => {
   if (!heading.id) heading.id = 'section-' + (index + 1);
   const li = document.createElement('li');
@@ -968,15 +904,9 @@ document.querySelectorAll('form[data-lead-form]').forEach((form) => {
       if (status) status.textContent = message;
       form.hidden = true;
       if (downloadWrap) downloadWrap.hidden = false;
-      const modal = form.closest('#starter-kit-popup');
       if (downloadLink) {
         downloadLink.addEventListener('click', () => {
           localStorage.setItem(completedKey, String(Date.now()));
-          if (modal) {
-            modal.classList.remove('open');
-            modal.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-          }
           window.setTimeout(() => {
             form.reset();
             form.hidden = false;
@@ -1018,47 +948,7 @@ document.querySelectorAll('form[data-lead-form]').forEach((form) => {
   });
 });
 
-const popup = document.getElementById('starter-kit-popup');
-if (popup && !isCompletedRecently()) {
-  const closers = [...popup.querySelectorAll('[data-popup-close]')];
-  let shown = false;
-  let timerElapsed = false;
-  let hasIntent = window.scrollY >= 10;
-  const tryOpen = () => {
-    if (shown) return;
-    if (!timerElapsed || !hasIntent) return;
-    shown = true;
-    popup.classList.add('open');
-    popup.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  };
-  window.setTimeout(() => {
-    timerElapsed = true;
-    tryOpen();
-  }, 10000);
-  const onIntent = () => {
-    if (hasIntent) return;
-    hasIntent = true;
-    tryOpen();
-    window.removeEventListener('scroll', onIntent);
-    window.removeEventListener('wheel', onIntent);
-    window.removeEventListener('touchstart', onIntent);
-    window.removeEventListener('keydown', onIntent);
-  };
-  window.addEventListener('scroll', onIntent, { passive: true });
-  window.addEventListener('wheel', onIntent, { passive: true });
-  window.addEventListener('touchstart', onIntent, { passive: true });
-  window.addEventListener('keydown', onIntent);
-  const closePopup = () => {
-    popup.classList.remove('open');
-    popup.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  };
-  closers.forEach((node) => node.addEventListener('click', closePopup));
-  window.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && popup.classList.contains('open')) closePopup();
-  });
-}
 </script>
+  <script src="../assets/js/cookie-consent.js" defer></script>
 </body>
 </html>
