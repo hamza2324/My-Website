@@ -11,12 +11,9 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <title>AI Reducing Manual Work - A Practical Guide to Working Smarter in 2026 | HJ Automations</title>
 <meta name="description" content="Learn how AI reduces manual work, which tasks are most at risk, and how to build a simple weekly plan that saves time without reducing your value.">
+<meta name="keywords" content="AI Reducing Manual Work, AI Productivity, Workflow Automation, AI for Employees, Business Automation, Future of Work 2026, AI Tools, AI automation, n8n workflows, LLM guides, Hamza Jadoon, HJ Automations">
 <meta name="author" content="Hamza Jadoon">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://hamzajadoon.cloud/posts/ai-reducing-manual-work-guide-2026.html">
@@ -528,6 +525,48 @@ img { max-width: 100%; display: block; }
 .lead-download {
   padding: 0 14px 14px;
 }
+.starter-kit-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+}
+.starter-kit-popup.open { display: block; }
+.starter-kit-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 20, 25, 0.62);
+}
+.starter-kit-modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(860px, 94%);
+  max-height: 88vh;
+  overflow: auto;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+}
+.starter-kit-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+.starter-kit-copy h2 {
+  margin: 0 0 8px;
+}
+.starter-kit-copy p {
+  margin: 0 0 10px;
+}
 .footer {
   width: min(1180px, 92%);
   margin: 44px auto 20px;
@@ -572,7 +611,7 @@ img { max-width: 100%; display: block; }
 
 <main class="wrap">
   <section class="hero" aria-label="Article hero">
-    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&amp;q=80" alt="Professional workspace representing AI-assisted productivity and reduced manual workload" loading="eager">
+    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&amp;q=80" alt="Professional workspace representing AI-assisted productivity and reduced manual workload" loading="eager" width="1200" height="630">
     <div class="hero-content">
       <span class="badge">AI Tools</span>
       <h1>AI Reducing Manual Work - A Practical Guide to Working Smarter in 2026</h1>
@@ -630,8 +669,8 @@ img { max-width: 100%; display: block; }
 <p>These are the exact workflows AI handles best.</p>
 <h2>Where AI is already reducing manual tasks</h2>
 <figure class="image-card">
-  <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="KPI spreadsheet and forecasting workspace" loading="lazy">
-  <figcaption>Reporting automation should surface decisions, not just summaries.</figcaption>
+  <img src="https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="Developer reviewing workflow steps" loading="lazy" width="1200" height="675">
+  <figcaption>Simple pipelines outperform complex flows when reliability matters.</figcaption>
 </figure>
 <h3>Admin and operations</h3>
 <p>AI now handles calendar optimization, email triage, document classification, and recurring report generation.</p>
@@ -668,8 +707,8 @@ img { max-width: 100%; display: block; }
 <p>When repetitive execution is automated, teams spend less time jumping between tools and more time on decisions.</p>
 <h2>Quick tool mapping by use case</h2>
 <figure class="image-card">
-  <img src="https://images.pexels.com/photos/325229/pexels-photo-325229.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="Developer reviewing integration logic" loading="lazy">
-  <figcaption>Strong process boundaries reduce failure risk in automated flows.</figcaption>
+  <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="Spreadsheet metrics and planning notes" loading="lazy" width="1200" height="675">
+  <figcaption>Structured reporting helps teams make faster decisions.</figcaption>
 </figure>
 <table><thead><tr><th>Use case</th><th>Typical tool type</th><th>Setup complexity</th></tr></thead><tbody><tr><td>Email drafting and summaries</td><td>AI assistant</td><td>Easy</td></tr><tr><td>Meeting notes and action items</td><td>Transcription + AI summarizer</td><td>Easy</td></tr><tr><td>Social/content planning</td><td>AI writing + scheduling stack</td><td>Easy to moderate</td></tr><tr><td>Lead routing and CRM updates</td><td>Workflow automation platform</td><td>Moderate</td></tr><tr><td>Recurring KPI reporting</td><td>Automation + AI summary</td><td>Moderate</td></tr><tr><td>Multi-step operations workflows</td><td>n8n/Make with logic branches</td><td>Advanced</td></tr></tbody></table>
 <h2>How AI is reducing jobs and creating new roles</h2>
@@ -766,6 +805,31 @@ img { max-width: 100%; display: block; }
   </div>
 </main>
 
+<div class="starter-kit-popup" id="starter-kit-popup" aria-hidden="true">
+  <div class="starter-kit-overlay" data-popup-close></div>
+  <div class="starter-kit-modal" role="dialog" aria-modal="true" aria-labelledby="starter-kit-title">
+    <button class="starter-kit-close" type="button" aria-label="Close popup" data-popup-close>&times;</button>
+    <div class="starter-kit-copy">
+      <p class="kicker">FREE DOWNLOAD</p>
+      <h2 id="starter-kit-title">The AI Starter Kit: 7 Tools to Start Earning With AI This Week</h2>
+      <p>Sign up and unlock the PDF download instantly on this screen.</p>
+      <p class="lead-subtle">After subscribe, click the download button that appears below.</p>
+    </div>
+    <div class="lead-brevo">
+      <div data-lead-capture>
+        <form class="lead-form" data-lead-form>
+          <input type="email" name="email" placeholder="Email address" aria-label="Email address" required>
+          <button class="cta-btn" type="submit">Subscribe</button>
+        </form>
+        <p class="lead-subtle" data-lead-status></p>
+        <div class="lead-download" data-lead-download hidden>
+          <a class="cta-btn" href="/downloads/ai-starter-kit.pdf" download data-download-link>Download PDF</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer class="footer">
   <span>&copy; <span id="year"></span> HJ Automations</span>
   <span><a href="../blog.html">Back to blog</a></span>
@@ -778,7 +842,7 @@ const tocList = document.getElementById('toc-list');
 const year = document.getElementById('year');
 year.textContent = new Date().getFullYear();
 
-const headings = [...article.querySelectorAll('h2')].filter((heading) => !heading.closest('.faq, .cta, .lead-magnet'));
+const headings = [...article.querySelectorAll('h2')];
 const tocLinks = headings.map((heading, index) => {
   if (!heading.id) heading.id = 'section-' + (index + 1);
   const li = document.createElement('li');
@@ -872,9 +936,15 @@ document.querySelectorAll('form[data-lead-form]').forEach((form) => {
       if (status) status.textContent = message;
       form.hidden = true;
       if (downloadWrap) downloadWrap.hidden = false;
+      const modal = form.closest('#starter-kit-popup');
       if (downloadLink) {
         downloadLink.addEventListener('click', () => {
           localStorage.setItem(completedKey, String(Date.now()));
+          if (modal) {
+            modal.classList.remove('open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+          }
           window.setTimeout(() => {
             form.reset();
             form.hidden = false;
@@ -916,7 +986,47 @@ document.querySelectorAll('form[data-lead-form]').forEach((form) => {
   });
 });
 
+const popup = document.getElementById('starter-kit-popup');
+if (popup && !isCompletedRecently()) {
+  const closers = [...popup.querySelectorAll('[data-popup-close]')];
+  let shown = false;
+  let timerElapsed = false;
+  let hasIntent = window.scrollY >= 10;
+  const tryOpen = () => {
+    if (shown) return;
+    if (!timerElapsed || !hasIntent) return;
+    shown = true;
+    popup.classList.add('open');
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+  window.setTimeout(() => {
+    timerElapsed = true;
+    tryOpen();
+  }, 10000);
+  const onIntent = () => {
+    if (hasIntent) return;
+    hasIntent = true;
+    tryOpen();
+    window.removeEventListener('scroll', onIntent);
+    window.removeEventListener('wheel', onIntent);
+    window.removeEventListener('touchstart', onIntent);
+    window.removeEventListener('keydown', onIntent);
+  };
+  window.addEventListener('scroll', onIntent, { passive: true });
+  window.addEventListener('wheel', onIntent, { passive: true });
+  window.addEventListener('touchstart', onIntent, { passive: true });
+  window.addEventListener('keydown', onIntent);
+  const closePopup = () => {
+    popup.classList.remove('open');
+    popup.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+  closers.forEach((node) => node.addEventListener('click', closePopup));
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && popup.classList.contains('open')) closePopup();
+  });
+}
 </script>
-  <script src="../assets/js/cookie-consent.js" defer></script>
 </body>
 </html>

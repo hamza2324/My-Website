@@ -11,12 +11,9 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <title>EU AI Act 2026: August Deadline, Fines, and Compliance Guide | HJ Automations</title>
 <meta name="description" content="EU AI Act enforcement accelerates Feb 2026. High-risk AI systems face Aug deadline with EUR35M fines. Complete compliance guide for European businesses.">
+<meta name="keywords" content="EU AI Act, AI Regulation, European AI Law, AI Compliance, High-Risk AI, GDPR, Business Compliance, Technology Law, Digital Regulation Europe, AI automation, n8n workflows, LLM guides, Hamza Jadoon, HJ Automations">
 <meta name="author" content="Hamza Jadoon">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://hamzajadoon.cloud/posts/eu-ai-act-2026-august-deadline-compliance-guide.html">
@@ -531,6 +528,48 @@ img { max-width: 100%; display: block; }
 .lead-download {
   padding: 0 14px 14px;
 }
+.starter-kit-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+}
+.starter-kit-popup.open { display: block; }
+.starter-kit-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 20, 25, 0.62);
+}
+.starter-kit-modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(860px, 94%);
+  max-height: 88vh;
+  overflow: auto;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+}
+.starter-kit-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+.starter-kit-copy h2 {
+  margin: 0 0 8px;
+}
+.starter-kit-copy p {
+  margin: 0 0 10px;
+}
 .footer {
   width: min(1180px, 92%);
   margin: 44px auto 20px;
@@ -575,7 +614,7 @@ img { max-width: 100%; display: block; }
 
 <main class="wrap">
   <section class="hero" aria-label="Article hero">
-    <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="European Union flags in front of EU institutions, symbolizing AI regulation and compliance" loading="eager">
+    <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="European Union flags in front of EU institutions, symbolizing AI regulation and compliance" loading="eager" width="1200" height="630">
     <div class="hero-content">
       <span class="badge">AI Regulation</span>
       <h1>EU AI Act 2026: August Deadline, Fines, and Compliance Guide</h1>
@@ -631,8 +670,8 @@ img { max-width: 100%; display: block; }
 </ol>
 <h2>What is the EU AI Act?</h2>
 <figure class="image-card">
-  <img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="Code and analytics view on monitor" loading="lazy">
-  <figcaption>Modern AI execution depends on clean data flow and observability.</figcaption>
+  <img src="https://images.pexels.com/photos/3861458/pexels-photo-3861458.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="Developer workspace with multi-screen setup" loading="lazy" width="1200" height="675">
+  <figcaption>Execution quality comes from strong prompts, context, and guardrails.</figcaption>
 </figure>
 <p>The <strong>EU AI Act</strong> is the world&#39;s first broad, binding legal framework for AI. It became law in 2024 and uses a risk-based model. Instead of treating all AI the same, it assigns obligations based on potential harm.</p>
 <h3>The risk model in plain language</h3>
@@ -699,8 +738,8 @@ img { max-width: 100%; display: block; }
 <p>Most companies discover risk through function, not model type. A generic model can become high risk when embedded in a high-impact workflow. This means governance should focus on the end use case, not just the model architecture.</p>
 <h2>Penalties and enforcement: what is at stake</h2>
 <figure class="image-card">
-  <img src="https://images.pexels.com/photos/6801648/pexels-photo-6801648.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="Futuristic dashboard with visual signals" loading="lazy">
-  <figcaption>Operational visibility turns AI experiments into repeatable systems.</figcaption>
+  <img src="https://images.pexels.com/photos/17483868/pexels-photo-17483868.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="AI system visualization with layered data" loading="lazy" width="1200" height="675">
+  <figcaption>The best teams treat AI as part of operations, not as isolated tooling.</figcaption>
 </figure>
 <p>The law includes tiered penalties, and upper bands are substantial.</p>
 <h3>EU AI Act penalties and fines (headline structure)</h3>
@@ -1051,6 +1090,31 @@ img { max-width: 100%; display: block; }
   </div>
 </main>
 
+<div class="starter-kit-popup" id="starter-kit-popup" aria-hidden="true">
+  <div class="starter-kit-overlay" data-popup-close></div>
+  <div class="starter-kit-modal" role="dialog" aria-modal="true" aria-labelledby="starter-kit-title">
+    <button class="starter-kit-close" type="button" aria-label="Close popup" data-popup-close>&times;</button>
+    <div class="starter-kit-copy">
+      <p class="kicker">FREE DOWNLOAD</p>
+      <h2 id="starter-kit-title">The AI Starter Kit: 7 Tools to Start Earning With AI This Week</h2>
+      <p>Sign up and unlock the PDF download instantly on this screen.</p>
+      <p class="lead-subtle">After subscribe, click the download button that appears below.</p>
+    </div>
+    <div class="lead-brevo">
+      <div data-lead-capture>
+        <form class="lead-form" data-lead-form>
+          <input type="email" name="email" placeholder="Email address" aria-label="Email address" required>
+          <button class="cta-btn" type="submit">Subscribe</button>
+        </form>
+        <p class="lead-subtle" data-lead-status></p>
+        <div class="lead-download" data-lead-download hidden>
+          <a class="cta-btn" href="/downloads/ai-starter-kit.pdf" download data-download-link>Download PDF</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer class="footer">
   <span>&copy; <span id="year"></span> HJ Automations</span>
   <span><a href="../blog.html">Back to blog</a></span>
@@ -1063,7 +1127,7 @@ const tocList = document.getElementById('toc-list');
 const year = document.getElementById('year');
 year.textContent = new Date().getFullYear();
 
-const headings = [...article.querySelectorAll('h2')].filter((heading) => !heading.closest('.faq, .cta, .lead-magnet'));
+const headings = [...article.querySelectorAll('h2')];
 const tocLinks = headings.map((heading, index) => {
   if (!heading.id) heading.id = 'section-' + (index + 1);
   const li = document.createElement('li');
@@ -1157,9 +1221,15 @@ document.querySelectorAll('form[data-lead-form]').forEach((form) => {
       if (status) status.textContent = message;
       form.hidden = true;
       if (downloadWrap) downloadWrap.hidden = false;
+      const modal = form.closest('#starter-kit-popup');
       if (downloadLink) {
         downloadLink.addEventListener('click', () => {
           localStorage.setItem(completedKey, String(Date.now()));
+          if (modal) {
+            modal.classList.remove('open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+          }
           window.setTimeout(() => {
             form.reset();
             form.hidden = false;
@@ -1201,7 +1271,47 @@ document.querySelectorAll('form[data-lead-form]').forEach((form) => {
   });
 });
 
+const popup = document.getElementById('starter-kit-popup');
+if (popup && !isCompletedRecently()) {
+  const closers = [...popup.querySelectorAll('[data-popup-close]')];
+  let shown = false;
+  let timerElapsed = false;
+  let hasIntent = window.scrollY >= 10;
+  const tryOpen = () => {
+    if (shown) return;
+    if (!timerElapsed || !hasIntent) return;
+    shown = true;
+    popup.classList.add('open');
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+  window.setTimeout(() => {
+    timerElapsed = true;
+    tryOpen();
+  }, 10000);
+  const onIntent = () => {
+    if (hasIntent) return;
+    hasIntent = true;
+    tryOpen();
+    window.removeEventListener('scroll', onIntent);
+    window.removeEventListener('wheel', onIntent);
+    window.removeEventListener('touchstart', onIntent);
+    window.removeEventListener('keydown', onIntent);
+  };
+  window.addEventListener('scroll', onIntent, { passive: true });
+  window.addEventListener('wheel', onIntent, { passive: true });
+  window.addEventListener('touchstart', onIntent, { passive: true });
+  window.addEventListener('keydown', onIntent);
+  const closePopup = () => {
+    popup.classList.remove('open');
+    popup.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+  closers.forEach((node) => node.addEventListener('click', closePopup));
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && popup.classList.contains('open')) closePopup();
+  });
+}
 </script>
-  <script src="../assets/js/cookie-consent.js" defer></script>
 </body>
 </html>

@@ -11,12 +11,9 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <title>Kimi K2.5 Review: Moonshot AI&#39;s Agent Swarm Is Challenging GPT-5 Class Models | HJ Automations</title>
 <meta name="description" content="Kimi K2.5 by Moonshot AI brings 100-agent parallel execution, strong benchmark performance, and low API pricing, making it a serious option for business automat">
+<meta name="keywords" content="Kimi K2.5, Moonshot AI, Agent Swarm, AI Agents, AI Model Review, GPT-5 Alternatives, AI Automation, Multimodal AI, Open Source AI, AI Tools, AI automation, n8n workflows, LLM guides, Hamza Jadoon, HJ Automations">
 <meta name="author" content="Hamza Jadoon">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://hamzajadoon.cloud/posts/kimi-k2-5-moonshot-ai-review-2026.html">
@@ -531,6 +528,48 @@ img { max-width: 100%; display: block; }
 .lead-download {
   padding: 0 14px 14px;
 }
+.starter-kit-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+}
+.starter-kit-popup.open { display: block; }
+.starter-kit-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 20, 25, 0.62);
+}
+.starter-kit-modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(860px, 94%);
+  max-height: 88vh;
+  overflow: auto;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+}
+.starter-kit-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+.starter-kit-copy h2 {
+  margin: 0 0 8px;
+}
+.starter-kit-copy p {
+  margin: 0 0 10px;
+}
 .footer {
   width: min(1180px, 92%);
   margin: 44px auto 20px;
@@ -575,7 +614,7 @@ img { max-width: 100%; display: block; }
 
 <main class="wrap">
   <section class="hero" aria-label="Article hero">
-    <img src="https://images.pexels.com/photos/17489163/pexels-photo-17489163.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Futuristic AI assistant interface representing Kimi K2.5 agent workflows" loading="eager">
+    <img src="https://images.pexels.com/photos/17489163/pexels-photo-17489163.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="Futuristic AI assistant interface representing Kimi K2.5 agent workflows" loading="eager" width="1200" height="630">
     <div class="hero-content">
       <span class="badge">AI Tools</span>
       <h1>Kimi K2.5 Review: Moonshot AI&#39;s Agent Swarm Is Challenging GPT-5 Class Models</h1>
@@ -625,7 +664,7 @@ img { max-width: 100%; display: block; }
 <table><thead><tr><th>Stat</th><th>Value</th></tr></thead><tbody><tr><td>Total Parameters</td><td>1 Trillion (MoE)</td></tr><tr><td>Active Parameters per Request</td><td>~32B</td></tr><tr><td>Max Parallel Sub-Agents</td><td>100</td></tr><tr><td>Official Release</td><td>January 27, 2026</td></tr><tr><td>Access</td><td>kimi.com + API + self-hosting</td></tr></tbody></table>
 <h2>How Agent Swarm works</h2>
 <figure class="image-card">
-  <img src="https://images.pexels.com/photos/30530405/pexels-photo-30530405.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="AI network visualization representing multi-agent coordination and orchestration" loading="lazy">
+  <img src="https://images.pexels.com/photos/30530405/pexels-photo-30530405.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="AI network visualization representing multi-agent coordination and orchestration" loading="lazy" width="1200" height="675">
   <figcaption>Parallel AI agent collaboration and task decomposition</figcaption>
 </figure>
 <p>Most AI workflows are still sequential: prompt, process, output.</p>
@@ -659,7 +698,7 @@ img { max-width: 100%; display: block; }
 </ul>
 <h2>Kimi K2.5 pricing</h2>
 <figure class="image-card">
-  <img src="https://images.pexels.com/photos/36040448/pexels-photo-36040448.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="AI analytics display representing model benchmarking and performance comparison" loading="lazy">
+  <img src="https://images.pexels.com/photos/36040448/pexels-photo-36040448.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1200" alt="AI analytics display representing model benchmarking and performance comparison" loading="lazy" width="1200" height="675">
   <figcaption>Benchmark-driven evaluation for model selection decisions</figcaption>
 </figure>
 <table><thead><tr><th>Model</th><th>Input (per 1M tokens)</th><th>Output (per 1M tokens)</th></tr></thead><tbody><tr><td>Kimi K2.5</td><td>$0.60</td><td>$3.00</td></tr><tr><td>Kimi K2.5 (cache hit)</td><td>$0.10</td><td>$3.00</td></tr><tr><td>GPT-5.2 (reported)</td><td>~$5.00</td><td>~$15.00</td></tr><tr><td>Claude Opus 4.5</td><td>$5.00</td><td>$25.00</td></tr></tbody></table>
@@ -750,6 +789,31 @@ img { max-width: 100%; display: block; }
   </div>
 </main>
 
+<div class="starter-kit-popup" id="starter-kit-popup" aria-hidden="true">
+  <div class="starter-kit-overlay" data-popup-close></div>
+  <div class="starter-kit-modal" role="dialog" aria-modal="true" aria-labelledby="starter-kit-title">
+    <button class="starter-kit-close" type="button" aria-label="Close popup" data-popup-close>&times;</button>
+    <div class="starter-kit-copy">
+      <p class="kicker">FREE DOWNLOAD</p>
+      <h2 id="starter-kit-title">The AI Starter Kit: 7 Tools to Start Earning With AI This Week</h2>
+      <p>Sign up and unlock the PDF download instantly on this screen.</p>
+      <p class="lead-subtle">After subscribe, click the download button that appears below.</p>
+    </div>
+    <div class="lead-brevo">
+      <div data-lead-capture>
+        <form class="lead-form" data-lead-form>
+          <input type="email" name="email" placeholder="Email address" aria-label="Email address" required>
+          <button class="cta-btn" type="submit">Subscribe</button>
+        </form>
+        <p class="lead-subtle" data-lead-status></p>
+        <div class="lead-download" data-lead-download hidden>
+          <a class="cta-btn" href="/downloads/ai-starter-kit.pdf" download data-download-link>Download PDF</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer class="footer">
   <span>&copy; <span id="year"></span> HJ Automations</span>
   <span><a href="../blog.html">Back to blog</a></span>
@@ -762,7 +826,7 @@ const tocList = document.getElementById('toc-list');
 const year = document.getElementById('year');
 year.textContent = new Date().getFullYear();
 
-const headings = [...article.querySelectorAll('h2')].filter((heading) => !heading.closest('.faq, .cta, .lead-magnet'));
+const headings = [...article.querySelectorAll('h2')];
 const tocLinks = headings.map((heading, index) => {
   if (!heading.id) heading.id = 'section-' + (index + 1);
   const li = document.createElement('li');
@@ -856,9 +920,15 @@ document.querySelectorAll('form[data-lead-form]').forEach((form) => {
       if (status) status.textContent = message;
       form.hidden = true;
       if (downloadWrap) downloadWrap.hidden = false;
+      const modal = form.closest('#starter-kit-popup');
       if (downloadLink) {
         downloadLink.addEventListener('click', () => {
           localStorage.setItem(completedKey, String(Date.now()));
+          if (modal) {
+            modal.classList.remove('open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+          }
           window.setTimeout(() => {
             form.reset();
             form.hidden = false;
@@ -900,7 +970,47 @@ document.querySelectorAll('form[data-lead-form]').forEach((form) => {
   });
 });
 
+const popup = document.getElementById('starter-kit-popup');
+if (popup && !isCompletedRecently()) {
+  const closers = [...popup.querySelectorAll('[data-popup-close]')];
+  let shown = false;
+  let timerElapsed = false;
+  let hasIntent = window.scrollY >= 10;
+  const tryOpen = () => {
+    if (shown) return;
+    if (!timerElapsed || !hasIntent) return;
+    shown = true;
+    popup.classList.add('open');
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+  window.setTimeout(() => {
+    timerElapsed = true;
+    tryOpen();
+  }, 10000);
+  const onIntent = () => {
+    if (hasIntent) return;
+    hasIntent = true;
+    tryOpen();
+    window.removeEventListener('scroll', onIntent);
+    window.removeEventListener('wheel', onIntent);
+    window.removeEventListener('touchstart', onIntent);
+    window.removeEventListener('keydown', onIntent);
+  };
+  window.addEventListener('scroll', onIntent, { passive: true });
+  window.addEventListener('wheel', onIntent, { passive: true });
+  window.addEventListener('touchstart', onIntent, { passive: true });
+  window.addEventListener('keydown', onIntent);
+  const closePopup = () => {
+    popup.classList.remove('open');
+    popup.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+  closers.forEach((node) => node.addEventListener('click', closePopup));
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && popup.classList.contains('open')) closePopup();
+  });
+}
 </script>
-  <script src="../assets/js/cookie-consent.js" defer></script>
 </body>
 </html>

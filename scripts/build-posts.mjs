@@ -292,7 +292,7 @@ function renderInline(text) {
   out = out.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (_, alt, url) => {
     const src = sanitizeHref(url);
     if (!/^(https?:\/\/|\/|\.\.\/|\.\/)/i.test(src)) return "";
-    return `<img class="inline-promo" src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" loading="lazy">`;
+    return `<img class="inline-promo" src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" loading="lazy" width="1200" height="675">`;
   });
   out = out.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, url) => {
     const href = sanitizeHref(url);
@@ -537,7 +537,7 @@ function getPostImages(post) {
 }
 
 function figureBlock(image) {
-  return `<figure class="image-card">\n  <img src="${escapeHtml(image.url)}" alt="${escapeHtml(image.alt)}" loading="lazy">\n  <figcaption>${escapeHtml(image.caption)}</figcaption>\n</figure>`;
+  return `<figure class="image-card">\n  <img src="${escapeHtml(image.url)}" alt="${escapeHtml(image.alt)}" loading="lazy" width="1200" height="675">\n  <figcaption>${escapeHtml(image.caption)}</figcaption>\n</figure>`;
 }
 
 function injectImageCards(contentHtml, images) {
@@ -1320,7 +1320,7 @@ img { max-width: 100%; display: block; }
 
 <main class="wrap">
   <section class="hero" aria-label="Article hero">
-    <img src="${escapeHtml(images.hero)}" alt="${escapeHtml(images.heroAlt)}" loading="eager">
+    <img src="${escapeHtml(images.hero)}" alt="${escapeHtml(images.heroAlt)}" loading="eager" width="1200" height="630">
     <div class="hero-content">
       <span class="badge">${escapeHtml(post.category)}</span>
       <h1>${escapeHtml(post.title)}</h1>
@@ -1658,11 +1658,12 @@ function writeDataFiles(posts) {
 }
 
 function writeSitemap(posts) {
+  const staticLastmod = new Date().toISOString().slice(0, 10);
   const staticEntries = STATIC_PAGES.map((page) => {
     const loc = page ? `${DOMAIN}/${page}` : `${DOMAIN}/`;
     const changefreq = page.includes("policy") || page.includes("terms") || page.includes("disclaimer") ? "yearly" : "weekly";
     const priority = page === "" ? "1.0" : page === "blog.html" ? "0.9" : "0.6";
-    return `  <url><loc>${loc}</loc><changefreq>${changefreq}</changefreq><priority>${priority}</priority></url>`;
+    return `  <url><loc>${loc}</loc><lastmod>${staticLastmod}</lastmod><changefreq>${changefreq}</changefreq><priority>${priority}</priority></url>`;
   });
 
   const postEntries = posts.map((post) =>

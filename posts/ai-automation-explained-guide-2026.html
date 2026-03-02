@@ -11,12 +11,9 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <title>AI Automation Explained - What It Is, How It Works, and How to Use It in 2026 | HJ Automations</title>
 <meta name="description" content="A practical, beginner-friendly guide to AI automation, the four types of AI, real use cases, and a simple action plan to turn AI into measurable results.">
+<meta name="keywords" content="AI Automation, Artificial Intelligence, AI for Beginners, AI Workflows, Business Automation, AI Tools 2026, AI Tools, AI automation, n8n workflows, LLM guides, Hamza Jadoon, HJ Automations">
 <meta name="author" content="Hamza Jadoon">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://hamzajadoon.cloud/posts/ai-automation-explained-guide-2026.html">
@@ -528,6 +525,48 @@ img { max-width: 100%; display: block; }
 .lead-download {
   padding: 0 14px 14px;
 }
+.starter-kit-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+}
+.starter-kit-popup.open { display: block; }
+.starter-kit-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 20, 25, 0.62);
+}
+.starter-kit-modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(860px, 94%);
+  max-height: 88vh;
+  overflow: auto;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+}
+.starter-kit-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+}
+.starter-kit-copy h2 {
+  margin: 0 0 8px;
+}
+.starter-kit-copy p {
+  margin: 0 0 10px;
+}
 .footer {
   width: min(1180px, 92%);
   margin: 44px auto 20px;
@@ -572,7 +611,7 @@ img { max-width: 100%; display: block; }
 
 <main class="wrap">
   <section class="hero" aria-label="Article hero">
-    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&amp;q=80" alt="AI automation concept with a humanoid robot and digital workflow background" loading="eager">
+    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1200&amp;q=80" alt="AI automation concept with a humanoid robot and digital workflow background" loading="eager" width="1200" height="630">
     <div class="hero-content">
       <span class="badge">AI Tools</span>
       <h1>AI Automation Explained - What It Is, How It Works, and How to Use It in 2026</h1>
@@ -622,8 +661,8 @@ img { max-width: 100%; display: block; }
 </ul>
 <h2>The 4 types of AI you should know</h2>
 <figure class="image-card">
-  <img src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="Hands on keyboard in software workflow" loading="lazy">
-  <figcaption>Reliable automation starts with clear process design.</figcaption>
+  <img src="https://images.pexels.com/photos/577210/pexels-photo-577210.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="Laptop view with analytics and process tools" loading="lazy" width="1200" height="675">
+  <figcaption>Good automations reduce repetitive work without losing control.</figcaption>
 </figure>
 <h3>1. Reactive AI</h3>
 <p>Reactive AI responds to current input only. It does not store memory from previous interactions.</p>
@@ -654,8 +693,8 @@ img { max-width: 100%; display: block; }
 <p>AI can speed up creation of templates, guides, checklists, and playbooks, then you package and distribute them through your site or product pages.</p>
 <h2>What AI automation cannot replace</h2>
 <figure class="image-card">
-  <img src="https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="Team tracking KPIs on laptop dashboard" loading="lazy">
-  <figcaption>Weekly reporting systems should be measurable and easy to maintain.</figcaption>
+  <img src="https://images.pexels.com/photos/935949/pexels-photo-935949.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1600" alt="Task management and reporting workflow on desk" loading="lazy" width="1200" height="675">
+  <figcaption>A lightweight review loop keeps automations aligned with outcomes.</figcaption>
 </figure>
 <p>Even in 2026, there are clear limits:</p>
 <ul>
@@ -747,6 +786,31 @@ img { max-width: 100%; display: block; }
   </div>
 </main>
 
+<div class="starter-kit-popup" id="starter-kit-popup" aria-hidden="true">
+  <div class="starter-kit-overlay" data-popup-close></div>
+  <div class="starter-kit-modal" role="dialog" aria-modal="true" aria-labelledby="starter-kit-title">
+    <button class="starter-kit-close" type="button" aria-label="Close popup" data-popup-close>&times;</button>
+    <div class="starter-kit-copy">
+      <p class="kicker">FREE DOWNLOAD</p>
+      <h2 id="starter-kit-title">The AI Starter Kit: 7 Tools to Start Earning With AI This Week</h2>
+      <p>Sign up and unlock the PDF download instantly on this screen.</p>
+      <p class="lead-subtle">After subscribe, click the download button that appears below.</p>
+    </div>
+    <div class="lead-brevo">
+      <div data-lead-capture>
+        <form class="lead-form" data-lead-form>
+          <input type="email" name="email" placeholder="Email address" aria-label="Email address" required>
+          <button class="cta-btn" type="submit">Subscribe</button>
+        </form>
+        <p class="lead-subtle" data-lead-status></p>
+        <div class="lead-download" data-lead-download hidden>
+          <a class="cta-btn" href="/downloads/ai-starter-kit.pdf" download data-download-link>Download PDF</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer class="footer">
   <span>&copy; <span id="year"></span> HJ Automations</span>
   <span><a href="../blog.html">Back to blog</a></span>
@@ -759,7 +823,7 @@ const tocList = document.getElementById('toc-list');
 const year = document.getElementById('year');
 year.textContent = new Date().getFullYear();
 
-const headings = [...article.querySelectorAll('h2')].filter((heading) => !heading.closest('.faq, .cta, .lead-magnet'));
+const headings = [...article.querySelectorAll('h2')];
 const tocLinks = headings.map((heading, index) => {
   if (!heading.id) heading.id = 'section-' + (index + 1);
   const li = document.createElement('li');
@@ -853,9 +917,15 @@ document.querySelectorAll('form[data-lead-form]').forEach((form) => {
       if (status) status.textContent = message;
       form.hidden = true;
       if (downloadWrap) downloadWrap.hidden = false;
+      const modal = form.closest('#starter-kit-popup');
       if (downloadLink) {
         downloadLink.addEventListener('click', () => {
           localStorage.setItem(completedKey, String(Date.now()));
+          if (modal) {
+            modal.classList.remove('open');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+          }
           window.setTimeout(() => {
             form.reset();
             form.hidden = false;
@@ -897,7 +967,47 @@ document.querySelectorAll('form[data-lead-form]').forEach((form) => {
   });
 });
 
+const popup = document.getElementById('starter-kit-popup');
+if (popup && !isCompletedRecently()) {
+  const closers = [...popup.querySelectorAll('[data-popup-close]')];
+  let shown = false;
+  let timerElapsed = false;
+  let hasIntent = window.scrollY >= 10;
+  const tryOpen = () => {
+    if (shown) return;
+    if (!timerElapsed || !hasIntent) return;
+    shown = true;
+    popup.classList.add('open');
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+  window.setTimeout(() => {
+    timerElapsed = true;
+    tryOpen();
+  }, 10000);
+  const onIntent = () => {
+    if (hasIntent) return;
+    hasIntent = true;
+    tryOpen();
+    window.removeEventListener('scroll', onIntent);
+    window.removeEventListener('wheel', onIntent);
+    window.removeEventListener('touchstart', onIntent);
+    window.removeEventListener('keydown', onIntent);
+  };
+  window.addEventListener('scroll', onIntent, { passive: true });
+  window.addEventListener('wheel', onIntent, { passive: true });
+  window.addEventListener('touchstart', onIntent, { passive: true });
+  window.addEventListener('keydown', onIntent);
+  const closePopup = () => {
+    popup.classList.remove('open');
+    popup.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+  closers.forEach((node) => node.addEventListener('click', closePopup));
+  window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && popup.classList.contains('open')) closePopup();
+  });
+}
 </script>
-  <script src="../assets/js/cookie-consent.js" defer></script>
 </body>
 </html>
