@@ -31,88 +31,615 @@
 <meta name="twitter:image" content="https://hamzajadoon.cloud/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/style.css">
 <script src="/script.js" defer></script>
 <style>
-  .page-tools::after {
-    background:
-      radial-gradient(circle at 15% 10%, rgba(239, 68, 68, 0.12), transparent 40%),
-      radial-gradient(circle at 90% 0%, rgba(220, 38, 38, 0.08), transparent 35%),
-      linear-gradient(180deg, #0f1419, #111827 70%, #0f1419);
+  :root {
+    --accent: #ff3d3d;
+    --accent-glow: rgba(255, 61, 61, 0.4);
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #12121a;
+    --bg-card: rgba(18, 18, 26, 0.8);
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0b0;
+    --text-muted: #6a6a7a;
+    --border: rgba(255, 255, 255, 0.08);
+    --radius: 16px;
+    --radius-sm: 12px;
   }
-  .tools-grid,
-  .links-grid {
-    display: grid;
-    gap: 1.1rem;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-  .tool-card,
-  .link-card,
-  .simulator-card,
-  .faq-entry {
-    padding: 1.25rem;
-  }
-  .tool-icon {
-    width: 2.7rem;
-    height: 2.7rem;
-    border-radius: 0.85rem;
-    display: grid;
-    place-items: center;
-    font-weight: 800;
+
+  body.page-tools {
+    background: var(--bg-primary);
     color: var(--text-primary);
-    border: 1px solid rgba(239, 68, 68, 0.5);
-    background: rgba(239, 68, 68, 0.12);
-    margin-bottom: 0.85rem;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
   }
-  .tool-card p { margin: 0.65rem 0 1.15rem; }
-  .simulator-stack {
-    display: grid;
-    gap: 1rem;
+
+  /* Ambient Background */
+  .ambient-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
   }
-  .simulator-card summary {
-    list-style: none;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
+
+  .ambient-bg::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+      radial-gradient(circle at 20% 30%, rgba(255, 61, 61, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(255, 61, 61, 0.1) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(138, 43, 226, 0.05) 0%, transparent 60%);
+    animation: ambientMove 20s ease-in-out infinite;
+  }
+
+  @keyframes ambientMove {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(2%, 2%) rotate(120deg); }
+    66% { transform: translate(-2%, 1%) rotate(240deg); }
+  }
+
+  /* Grid Pattern Overlay */
+  .grid-pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Typography */
+  .font-display {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  /* Header */
+  .site-header {
+    backdrop-filter: blur(20px);
+    background: rgba(10, 10, 15, 0.8);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 120px 0 80px;
+    position: relative;
+  }
+
+  .hero-badge {
+    display: inline-flex;
     align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255, 61, 61, 0.1);
+    border: 1px solid rgba(255, 61, 61, 0.3);
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 24px;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255, 61, 61, 0.4); }
+    50% { box-shadow: 0 0 0 10px rgba(255, 61, 61, 0); }
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #fff 0%, #a0a0b0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-bottom: 40px;
+    line-height: 1.7;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 48px;
+    margin-top: 48px;
+    padding-top: 48px;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .stat-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
     color: var(--text-primary);
-    font-family: "Sora", "Manrope", sans-serif;
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Tools Grid - Premium Cards */
+  .tools-showcase {
+    padding: 80px 0;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .section-eyebrow {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 16px;
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Premium Tool Card */
+  .tool-card-premium {
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+  }
+
+  .tool-card-premium::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 61, 61, 0.1) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .tool-card-premium:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 61, 61, 0.3);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.4),
+      0 0 60px rgba(255, 61, 61, 0.1);
+  }
+
+  .tool-card-premium:hover::before {
+    opacity: 1;
+  }
+
+  .tool-thumbnail {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  }
+
+  .tool-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .tool-card-premium:hover .tool-thumbnail img {
+    transform: scale(1.05);
+  }
+
+  .tool-thumbnail-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10, 10, 15, 0.9) 0%, transparent 60%);
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+  }
+
+  .tool-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(34, 197, 94, 0.15);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #22c55e;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .tool-status.coming-soon {
+    background: rgba(234, 179, 8, 0.15);
+    border-color: rgba(234, 179, 8, 0.3);
+    color: #eab308;
+  }
+
+  .tool-status::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: currentColor;
+    border-radius: 50%;
+    animation: statusPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes statusPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .tool-content {
+    padding: 24px;
+    position: relative;
+  }
+
+  .tool-icon-wrapper {
+    position: absolute;
+    top: -28px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .tool-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+  }
+
+  .tool-description {
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .tool-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  .tool-tags {
+    display: flex;
+    gap: 8px;
+  }
+
+  .tool-tag {
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 500;
+  }
+
+  .tool-action {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.875rem;
+    transition: gap 0.3s ease;
+  }
+
+  .tool-card-premium:hover .tool-action {
+    gap: 12px;
+  }
+
+  .tool-action svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+  }
+
+  .tool-card-premium:hover .tool-action svg {
+    transform: translateX(4px);
+  }
+
+  /* Active Tool Highlight */
+  .tool-card-premium.active {
+    border-color: rgba(34, 197, 94, 0.5);
+    box-shadow: 0 0 40px rgba(34, 197, 94, 0.1);
+  }
+
+  .tool-card-premium.active::after {
+    content: 'LIVE';
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    padding: 6px 12px;
+    background: rgba(34, 197, 94, 0.9);
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 800;
+    border-radius: 6px;
+    letter-spacing: 0.05em;
+  }
+
+  /* Featured Section */
+  .featured-tool {
+    padding: 80px 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 61, 61, 0.03) 50%, transparent 100%);
+  }
+
+  .featured-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .featured-visual {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+  }
+
+  .featured-visual img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    padding: 8px 16px;
+    background: var(--accent);
+    color: white;
+    font-weight: 700;
+    font-size: 0.875rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .featured-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .featured-content p {
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  .feature-list {
+    list-style: none;
+    margin-bottom: 32px;
+  }
+
+  .feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: var(--text-secondary);
+  }
+
+  .feature-list li::before {
+    content: '→';
+    color: var(--accent);
     font-weight: 700;
   }
-  .simulator-card summary::-webkit-details-marker { display: none; }
-  .simulator-body { margin-top: 1rem; display: grid; gap: 0.9rem; }
-  .tool-input,
-  .tool-output {
-    width: 100%;
-    border-radius: var(--radius-sm);
+
+  /* CTA Section */
+  .cta-section {
+    padding: 120px 0;
+    text-align: center;
+    position: relative;
+  }
+
+  .cta-card {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 64px 48px;
+    background: linear-gradient(135deg, rgba(255, 61, 61, 0.1) 0%, rgba(138, 43, 226, 0.05) 100%);
+    border: 1px solid rgba(255, 61, 61, 0.2);
+    border-radius: var(--radius);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 61, 61, 0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+  }
+
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-title {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+
+  .btn-premium {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background: var(--accent);
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(255, 61, 61, 0.3);
+  }
+
+  .btn-premium:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(255, 61, 61, 0.4);
+  }
+
+  .btn-secondary-premium {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background: transparent;
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all 0.3s ease;
     border: 1px solid var(--border);
-    background: rgba(26, 31, 41, 0.9);
-    color: var(--text-secondary);
-    padding: 0.85rem;
-    font: inherit;
+    margin-left: 16px;
   }
-  .tool-input { min-height: 120px; resize: vertical; }
-  .upload-zone {
-    border: 1px dashed rgba(239, 68, 68, 0.5);
-    border-radius: var(--radius-sm);
-    padding: 1rem;
+
+  .btn-secondary-premium:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
   }
-  .tool-output { min-height: 96px; }
-  .tool-loader {
-    width: 1rem;
-    height: 1rem;
-    border: 2px solid rgba(239, 68, 68, 0.3);
-    border-top-color: var(--accent);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
+
+  /* Responsive */
+  @media (max-width: 968px) {
+    .tools-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .featured-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .hero-stats {
+      flex-direction: column;
+      gap: 24px;
+    }
+    
+    .btn-secondary-premium {
+      margin-left: 0;
+      margin-top: 16px;
+    }
+  }
+
+  /* Utility Classes */
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Reveal Animation */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  [data-reveal].revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Remove old simulator styles */
+  .simulator-stack,
+  .simulator-card {
     display: none;
   }
-  .tool-loader.active { display: inline-block; }
-  .sim-actions { display: flex; align-items: center; gap: 0.7rem; }
-  .disclaimer-mini { font-size: 0.85rem; color: var(--text-muted); }
-  .faq-stack { display: grid; gap: 0.9rem; }
-  @keyframes spin { to { transform: rotate(360deg); } }
 </style>
 <script type="application/ld+json">
 {
@@ -191,6 +718,9 @@
 </script>
 </head>
 <body class="page-tools">
+  <div class="ambient-bg"></div>
+  <div class="grid-pattern"></div>
+
 <header class="site-header" id="site-header">
   <div class="container nav-wrap">
     <a class="brand" href="/" aria-label="HJ Automations home">
@@ -216,152 +746,315 @@
 </header>
 
 <main>
-  <section class="page-hero section">
+  <!-- Hero Section -->
+  <section class="hero-section">
     <div class="container">
-      <p class="kicker" data-reveal>Free AI Tools</p>
-      <h1 class="section-title" data-reveal>Free AI Tools for Students, Developers &amp; Creators</h1>
-      <p class="section-subtitle" data-reveal>Use powerful AI tools instantly. No login required. Built for global students and practical teams, including learners across Pakistan.</p>
-      <div class="hero-actions" data-reveal style="margin-top:1.15rem;">
-        <a class="btn btn-primary" href="#tool-grid">Try AI Tools</a>
-        <a class="btn btn-glass" href="/resources">Explore Resources</a>
+      <div class="hero-badge" data-reveal>
+        <span>⚡</span>
+        <span>No Login Required</span>
+      </div>
+      <h1 class="hero-title font-display" data-reveal>
+        Free AI Tools for Students, Developers & Creators
+      </h1>
+      <p class="hero-subtitle" data-reveal>
+        Powerful AI utilities designed for productivity. Built for students in Pakistan and global learners who need instant, no-frills solutions.
+      </p>
+      <div class="hero-actions" data-reveal>
+        <a href="#tools-grid" class="btn-premium">
+          Explore Tools
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+          </svg>
+        </a>
+        <a href="/resources" class="btn-secondary-premium">View Resources</a>
+      </div>
+      
+      <div class="hero-stats" data-reveal>
+        <div class="stat-item">
+          <span class="stat-value">6</span>
+          <span class="stat-label">AI Tools</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">100%</span>
+          <span class="stat-label">Free Forever</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">0</span>
+          <span class="stat-label">Login Required</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="tool-grid">
-    <div class="container">
-      <p class="kicker" data-reveal>Tool Hub</p>
-      <h2 class="section-title" data-reveal>Featured Free AI Tools</h2>
-      <div class="tools-grid">
-        <article class="glass-card tool-card hover-lift" data-reveal>
-          <div class="tool-icon" aria-hidden="true">TXT</div>
-          <h3>AI Text Summarizer</h3>
-          <p>Turn long articles into concise key points for fast revision and content planning.</p>
-          <a class="btn btn-secondary" href="https://ai-text-summarizer-for-web--hamzajadoon71.replit.app/" target="_blank" rel="noopener noreferrer">Use Tool</a>
-        </article>
-        <article class="glass-card tool-card hover-lift" data-reveal>
-          <div class="tool-icon" aria-hidden="true">YT</div>
-          <h3>YouTube Video Summarizer</h3>
-          <p>Extract highlights from long videos so students can revise faster and smarter.</p>
-          <a class="btn btn-secondary" href="#sim-youtube">Use Tool</a>
-        </article>
-        <article class="glass-card tool-card hover-lift" data-reveal>
-          <div class="tool-icon" aria-hidden="true">PDF</div>
-          <h3>PDF to Word Converter</h3>
-          <p>Convert PDFs into editable text files for assignments, editing, and reformatting.</p>
-          <a class="btn btn-secondary" href="#sim-pdf">Use Tool</a>
-        </article>
-        <article class="glass-card tool-card hover-lift" data-reveal>
-          <div class="tool-icon" aria-hidden="true">CV</div>
-          <h3>Resume Bullet Generator</h3>
-          <p>Create sharp achievement bullets tailored for internships and entry-level roles.</p>
-          <a class="btn btn-secondary" href="#sim-text">Use Tool</a>
-        </article>
-        <article class="glass-card tool-card hover-lift" data-reveal>
-          <div class="tool-icon" aria-hidden="true">GH</div>
-          <h3>GitHub README Generator</h3>
-          <p>Build clean, portfolio-ready README drafts for projects and open-source repos.</p>
-          <a class="btn btn-secondary" href="#sim-text">Use Tool</a>
-        </article>
-        <article class="glass-card tool-card hover-lift" data-reveal>
-          <div class="tool-icon" aria-hidden="true">PR</div>
-          <h3>AI Prompt Generator</h3>
-          <p>Generate structured prompts for writing, coding, design, and research tasks.</p>
-          <a class="btn btn-secondary" href="#sim-text">Use Tool</a>
-        </article>
+  <!-- Featured Active Tool -->
+  <section class="featured-tool">
+    <div class="featured-container">
+      <div class="featured-grid" data-reveal>
+        <div class="featured-visual">
+          <div class="featured-badge">Now Live</div>
+          <img src="/assets/img/og-default.jpg" alt="AI Text Summarizer Interface" loading="lazy">
+        </div>
+        <div class="featured-content">
+          <div class="section-eyebrow">Featured Tool</div>
+          <h2 class="font-display">AI Text Summarizer</h2>
+          <p>Transform lengthy articles, research papers, and documents into concise, actionable summaries. Perfect for students who need to review content quickly and efficiently.</p>
+          <ul class="feature-list">
+            <li>Instant summarization of any text</li>
+            <li>Preserves key information and context</li>
+            <li>Perfect for research and study sessions</li>
+            <li>100% free, no registration needed</li>
+          </ul>
+          <a href="https://ai-text-summarizer-for-web--hamzajadoon71.replit.app/" target="_blank" rel="noopener noreferrer" class="btn-premium">
+            Launch Tool
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+            </svg>
+          </a>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <p class="kicker" data-reveal>Tool Simulators</p>
-      <h2 class="section-title" data-reveal>Interactive Tool Detail Blocks</h2>
-      <p class="section-subtitle" data-reveal>These UI simulators demonstrate how each free AI tool works before backend integration.</p>
-      <div class="simulator-stack" style="margin-top:1.2rem;">
-        <details class="glass-card simulator-card" id="sim-text" data-reveal open>
-          <summary><span>AI Text Summarizer</span><span aria-hidden="true">+</span></summary>
-          <div class="simulator-body">
-            <textarea class="tool-input" aria-label="Paste text for summarization" placeholder="Paste your text here..."></textarea>
-            <div class="sim-actions">
-              <a class="btn btn-primary" href="https://ai-text-summarizer-for-web--hamzajadoon71.replit.app/" target="_blank" rel="noopener noreferrer">Open Live AI Text Summarizer</a>
-            </div>
-            <div class="tool-output" aria-live="polite">Live summarizer is available on Replit. Click the button above to use it.</div>
-            <p class="disclaimer-mini">This tool is now live and hosted externally.</p>
-          </div>
-        </details>
-
-        <details class="glass-card simulator-card" id="sim-youtube" data-reveal>
-          <summary><span>YouTube Video Summarizer</span><span aria-hidden="true">+</span></summary>
-          <div class="simulator-body">
-            <textarea class="tool-input" aria-label="Paste YouTube URL" placeholder="Paste YouTube URL or transcript..."></textarea>
-            <div class="sim-actions">
-              <button class="btn btn-primary js-dummy-run" type="button" data-output="Sample video summary: Introduction, core ideas, practical steps, and final takeaway with timestamps.">Summarize Video</button>
-              <span class="tool-loader" aria-hidden="true"></span>
-            </div>
-            <div class="tool-output" aria-live="polite">Output preview will appear here.</div>
-            <p class="disclaimer-mini">Demo only: this interface does not fetch video data yet.</p>
-          </div>
-        </details>
-
-        <details class="glass-card simulator-card" id="sim-pdf" data-reveal>
-          <summary><span>PDF to Word Converter</span><span aria-hidden="true">+</span></summary>
-          <div class="simulator-body">
-            <label class="upload-zone" for="pdf-upload">Upload area: Select a PDF file (UI placeholder)
-              <input id="pdf-upload" type="file" accept=".pdf" style="display:block;margin-top:0.6rem;">
-            </label>
-            <div class="sim-actions">
-              <button class="btn btn-primary js-dummy-run" type="button" data-output="Conversion complete (sample). Your editable .docx download link will appear here after backend integration.">Convert PDF</button>
-              <span class="tool-loader" aria-hidden="true"></span>
-            </div>
-            <div class="tool-output" aria-live="polite">Converted output preview will appear here.</div>
-            <p class="disclaimer-mini">Demo only: no file processing is active in this version.</p>
-          </div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <p class="kicker" data-reveal>Internal Links</p>
-      <h2 class="section-title" data-reveal>Guides To Use These Tools Better</h2>
-      <div class="links-grid">
-        <article class="glass-card link-card" data-reveal>
-          <h3><a href="/posts/how-to-create-free-ai-chatbot-for-business-2026.html">How to Create a Free AI Chatbot for Business in 2026</a></h3>
-          <p style="margin-top:0.6rem;">Step-by-step guide for launching a no-cost chatbot workflow.</p>
-        </article>
-        <article class="glass-card link-card" data-reveal>
-          <h3><a href="/posts/ai-tool-overload-fix-2026.html">AI Tool Overload Fix (2026)</a></h3>
-          <p style="margin-top:0.6rem;">Framework for picking only tools that actually improve outcomes.</p>
-        </article>
-        <article class="glass-card link-card" data-reveal>
-          <h3><a href="/posts/ai-automation-explained-guide-2026.html">AI Automation Explained Guide</a></h3>
-          <p style="margin-top:0.6rem;">Understand core automation patterns for students and founders.</p>
-        </article>
-      </div>
-      <p style="margin-top:1rem;" data-reveal>
-        Also explore <a href="/resources"><strong>Free AI Resources &amp; Templates</strong></a> and <a href="/recommended-tools"><strong>Recommended Tools</strong></a>.
+  <!-- Tools Grid -->
+  <section class="tools-showcase" id="tools-grid">
+    <div class="section-header">
+      <div class="section-eyebrow" data-reveal>Tool Hub</div>
+      <h2 class="section-title font-display" data-reveal>All AI Tools</h2>
+      <p class="section-subtitle" data-reveal style="color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+        Browse our collection of free AI utilities. Click any tool to launch it instantly.
       </p>
     </div>
+
+    <div class="tools-grid">
+      <!-- Active Tool -->
+      <a href="https://ai-text-summarizer-for-web--hamzajadoon71.replit.app/" target="_blank" rel="noopener noreferrer" class="tool-card-premium active" data-reveal>
+        <div class="tool-thumbnail">
+          <img src="/assets/img/og-default.jpg" alt="AI Text Summarizer" loading="lazy">
+          <div class="tool-thumbnail-overlay">
+            <span class="tool-status">Active</span>
+          </div>
+        </div>
+        <div class="tool-content">
+          <div class="tool-icon-wrapper">📝</div>
+          <h3 class="tool-name">AI Text Summarizer</h3>
+          <p class="tool-description">Turn long articles into concise key points for fast revision and content planning. Live and ready to use.</p>
+          <div class="tool-meta">
+            <div class="tool-tags">
+              <span class="tool-tag">NLP</span>
+              <span class="tool-tag">Study</span>
+            </div>
+            <div class="tool-action">
+              Launch
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Coming Soon Tools -->
+      <div class="tool-card-premium" data-reveal onclick="showComingSoon('YouTube Video Summarizer')">
+        <div class="tool-thumbnail">
+          <img src="/assets/img/og-default.jpg" alt="YouTube Video Summarizer" loading="lazy">
+          <div class="tool-thumbnail-overlay">
+            <span class="tool-status coming-soon">Coming Soon</span>
+          </div>
+        </div>
+        <div class="tool-content">
+          <div class="tool-icon-wrapper">🎥</div>
+          <h3 class="tool-name">YouTube Video Summarizer</h3>
+          <p class="tool-description">Extract highlights from long videos so students can revise faster and smarter. Get key points without watching hours of content.</p>
+          <div class="tool-meta">
+            <div class="tool-tags">
+              <span class="tool-tag">Video</span>
+              <span class="tool-tag">Education</span>
+            </div>
+            <div class="tool-action">
+              Preview
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-card-premium" data-reveal onclick="showComingSoon('PDF to Word Converter')">
+        <div class="tool-thumbnail">
+          <img src="/assets/img/og-default.jpg" alt="PDF to Word Converter" loading="lazy">
+          <div class="tool-thumbnail-overlay">
+            <span class="tool-status coming-soon">Coming Soon</span>
+          </div>
+        </div>
+        <div class="tool-content">
+          <div class="tool-icon-wrapper">📄</div>
+          <h3 class="tool-name">PDF to Word Converter</h3>
+          <p class="tool-description">Convert PDFs into editable text files for assignments, editing, and reformatting. Maintain formatting while making documents editable.</p>
+          <div class="tool-meta">
+            <div class="tool-tags">
+              <span class="tool-tag">PDF</span>
+              <span class="tool-tag">Productivity</span>
+            </div>
+            <div class="tool-action">
+              Preview
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-card-premium" data-reveal onclick="showComingSoon('Resume Bullet Generator')">
+        <div class="tool-thumbnail">
+          <img src="/assets/img/og-default.jpg" alt="Resume Bullet Generator" loading="lazy">
+          <div class="tool-thumbnail-overlay">
+            <span class="tool-status coming-soon">Coming Soon</span>
+          </div>
+        </div>
+        <div class="tool-content">
+          <div class="tool-icon-wrapper">💼</div>
+          <h3 class="tool-name">Resume Bullet Generator</h3>
+          <p class="tool-description">Create sharp achievement bullets tailored for internships and entry-level roles. Transform boring job descriptions into compelling achievements.</p>
+          <div class="tool-meta">
+            <div class="tool-tags">
+              <span class="tool-tag">Career</span>
+              <span class="tool-tag">CV</span>
+            </div>
+            <div class="tool-action">
+              Preview
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-card-premium" data-reveal onclick="showComingSoon('GitHub README Generator')">
+        <div class="tool-thumbnail">
+          <img src="/assets/img/og-default.jpg" alt="GitHub README Generator" loading="lazy">
+          <div class="tool-thumbnail-overlay">
+            <span class="tool-status coming-soon">Coming Soon</span>
+          </div>
+        </div>
+        <div class="tool-content">
+          <div class="tool-icon-wrapper">⚡</div>
+          <h3 class="tool-name">GitHub README Generator</h3>
+          <p class="tool-description">Build clean, portfolio-ready README drafts for projects and open-source repos. Impress recruiters with professional documentation.</p>
+          <div class="tool-meta">
+            <div class="tool-tags">
+              <span class="tool-tag">Dev</span>
+              <span class="tool-tag">GitHub</span>
+            </div>
+            <div class="tool-action">
+              Preview
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tool-card-premium" data-reveal onclick="showComingSoon('AI Prompt Generator')">
+        <div class="tool-thumbnail">
+          <img src="/assets/img/og-default.jpg" alt="AI Prompt Generator" loading="lazy">
+          <div class="tool-thumbnail-overlay">
+            <span class="tool-status coming-soon">Coming Soon</span>
+          </div>
+        </div>
+        <div class="tool-content">
+          <div class="tool-icon-wrapper">🎯</div>
+          <h3 class="tool-name">AI Prompt Generator</h3>
+          <p class="tool-description">Generate structured prompts for writing, coding, design, and research tasks. Get better AI outputs with expertly crafted prompts.</p>
+          <div class="tool-meta">
+            <div class="tool-tags">
+              <span class="tool-tag">AI</span>
+              <span class="tool-tag">Writing</span>
+            </div>
+            <div class="tool-action">
+              Preview
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section class="section">
+  <!-- CTA Section -->
+  <section class="cta-section">
     <div class="container">
-      <p class="kicker" data-reveal>FAQ</p>
-      <h2 class="section-title" data-reveal>Free AI Tools FAQ</h2>
-      <div class="faq-stack">
-        <article class="glass-card faq-entry" data-reveal>
-          <h3>What are the best free AI tools for students?</h3>
-          <p>Start with a text summarizer, prompt generator, and PDF utility to save study time and improve assignments.</p>
+      <div class="cta-card" data-reveal>
+        <div class="cta-content">
+          <h2 class="cta-title font-display">Want Early Access?</h2>
+          <p style="color: var(--text-secondary); margin-bottom: 32px; font-size: 1.125rem;">
+            Join our newsletter to get notified when new tools launch and receive exclusive AI automation resources.
+          </p>
+          <form class="newsletter-form" action="https://formspree.io/f/mvzbzloa" method="POST" style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+            <input type="email" name="email" placeholder="Enter your email" required style="padding: 16px 24px; border-radius: 100px; border: 1px solid var(--border); background: rgba(0,0,0,0.3); color: white; min-width: 280px; font-size: 1rem;">
+            <button type="submit" class="btn-premium">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guides Section -->
+  <section class="section" style="padding: 80px 0; border-top: 1px solid var(--border);">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 48px;">
+        <div class="section-eyebrow" data-reveal>Learn More</div>
+        <h2 class="section-title font-display" data-reveal>Guides & Resources</h2>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+        <article class="glass-card link-card" data-reveal style="padding: 32px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card); transition: all 0.3s ease;">
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; margin-bottom: 12px;">
+            <a href="/posts/how-to-create-free-ai-chatbot-for-business-2026.html" style="color: var(--text-primary); text-decoration: none;">How to Create a Free AI Chatbot for Business in 2026</a>
+          </h3>
+          <p style="color: var(--text-secondary); line-height: 1.6;">Step-by-step guide for launching a no-cost chatbot workflow.</p>
         </article>
-        <article class="glass-card faq-entry" data-reveal>
-          <h3>Can these tools help students in Pakistan?</h3>
-          <p>Yes. They are designed for university workflows in Pakistan and built for global students with lightweight, fast-loading pages.</p>
+        
+        <article class="glass-card link-card" data-reveal style="padding: 32px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card); transition: all 0.3s ease;">
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; margin-bottom: 12px;">
+            <a href="/posts/ai-tool-overload-fix-2026.html" style="color: var(--text-primary); text-decoration: none;">AI Tool Overload Fix (2026)</a>
+          </h3>
+          <p style="color: var(--text-secondary); line-height: 1.6;">Framework for picking only tools that actually improve outcomes.</p>
         </article>
-        <article class="glass-card faq-entry" data-reveal>
-          <h3>Are these online AI summarizer tools free?</h3>
-          <p>The current hub is fully free to explore. Functional backend connections can be added in later updates.</p>
+        
+        <article class="glass-card link-card" data-reveal style="padding: 32px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card); transition: all 0.3s ease;">
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; margin-bottom: 12px;">
+            <a href="/posts/ai-automation-explained-guide-2026.html" style="color: var(--text-primary); text-decoration: none;">AI Automation Explained Guide</a>
+          </h3>
+          <p style="color: var(--text-secondary); line-height: 1.6;">Understand core automation patterns for students and founders.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq" style="padding: 80px 0; border-top: 1px solid var(--border);">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 40px;">
+        <div class="section-eyebrow" data-reveal>FAQ</div>
+        <h2 class="section-title font-display" data-reveal>Free AI Tools FAQ</h2>
+      </div>
+      <div style="display: grid; gap: 16px; max-width: 980px; margin: 0 auto;">
+        <article class="glass-card" data-reveal style="padding: 24px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card);">
+          <h3 style="font-family: 'Space Grotesk', sans-serif; margin-bottom: 10px;">Are these free AI tools available for students in Pakistan?</h3>
+          <p style="color: var(--text-secondary);">Yes. This page is built for students in Pakistan and global learners who need fast, no-login tools.</p>
+        </article>
+        <article class="glass-card" data-reveal style="padding: 24px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card);">
+          <h3 style="font-family: 'Space Grotesk', sans-serif; margin-bottom: 10px;">Do I need an account to use these tools?</h3>
+          <p style="color: var(--text-secondary);">No account is required for the tools listed here. The AI Text Summarizer is live and opens directly in a new tab.</p>
+        </article>
+        <article class="glass-card" data-reveal style="padding: 24px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card);">
+          <h3 style="font-family: 'Space Grotesk', sans-serif; margin-bottom: 10px;">What can I use these tools for?</h3>
+          <p style="color: var(--text-secondary);">You can summarize text, generate prompts, improve resumes, and speed up daily student and developer workflows.</p>
         </article>
       </div>
     </div>
@@ -414,25 +1107,76 @@
     </nav>
   </div>
 </footer>
+
 <script>
-  (function () {
-    var buttons = document.querySelectorAll('.js-dummy-run');
-    buttons.forEach(function (button) {
-      button.addEventListener('click', function () {
-        var card = button.closest('.simulator-body');
-        if (!card) return;
-        var loader = card.querySelector('.tool-loader');
-        var output = card.querySelector('.tool-output');
-        if (!output || !loader) return;
-        loader.classList.add('active');
-        output.textContent = 'Generating result...';
-        window.setTimeout(function () {
-          loader.classList.remove('active');
-          output.textContent = button.getAttribute('data-output') || 'Sample output complete.';
-        }, 850);
-      });
+  // Scroll Reveal Animation
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+      }
     });
-  })();
+  }, observerOptions);
+
+  document.querySelectorAll('[data-reveal]').forEach(el => observer.observe(el));
+
+  // Coming Soon Notification
+  function showComingSoon(toolName) {
+    // Create notification
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      color: var(--text-primary);
+      font-family: 'Inter', sans-serif;
+      z-index: 10000;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      transform: translateX(400px);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      max-width: 320px;
+    `;
+    notification.innerHTML = `
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+        <span style="font-size: 1.5rem;">🚀</span>
+        <strong style="font-family: 'Space Grotesk', sans-serif;">${toolName}</strong>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 0.9375rem; margin: 0;">This tool is coming soon. Subscribe to get notified when it launches!</p>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Animate in
+    setTimeout(() => {
+      notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    // Remove after 4 seconds
+    setTimeout(() => {
+      notification.style.transform = 'translateX(400px)';
+      setTimeout(() => notification.remove(), 400);
+    }, 4000);
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
 </script>
 <script src="/assets/js/cookie-consent.js" defer></script>
 </body>
