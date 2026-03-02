@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-K7RZ77Q0G7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);} 
+  gtag('js', new Date());
+  gtag('config', 'G-K7RZ77Q0G7');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<title>Free AI Tools for Students, Developers & Creators | HJ Automations</title>
+<meta name="title" content="Free AI Tools for Students, Developers & Creators | HJ Automations">
+<meta name="description" content="Use free AI tools for students, developers, and creators. Built for Pakistan and global students with instant no-login utilities and practical AI workflows.">
+<meta name="robots" content="index, follow">
+<meta name="language" content="English">
+<meta name="author" content="Hamza Jadoon">
+<link rel="canonical" href="https://hamzajadoon.cloud/tools">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hamzajadoon.cloud/tools">
+<meta property="og:title" content="Free AI Tools for Students, Developers & Creators">
+<meta property="og:description" content="Free AI tools hub with summarizers, generators, and student productivity utilities.">
+<meta property="og:image" content="https://hamzajadoon.cloud/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free AI Tools for Students, Developers & Creators">
+<meta name="twitter:description" content="Online AI summarizer, free PDF tools online, and practical tools for students in Pakistan and worldwide.">
+<meta name="twitter:image" content="https://hamzajadoon.cloud/og-image.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+<script src="/script.js" defer></script>
+<style>
+  .page-tools::after {
+    background:
+      radial-gradient(circle at 15% 10%, rgba(239, 68, 68, 0.12), transparent 40%),
+      radial-gradient(circle at 90% 0%, rgba(220, 38, 38, 0.08), transparent 35%),
+      linear-gradient(180deg, #0f1419, #111827 70%, #0f1419);
+  }
+  .tools-grid,
+  .links-grid {
+    display: grid;
+    gap: 1.1rem;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  }
+  .tool-card,
+  .link-card,
+  .simulator-card,
+  .faq-entry {
+    padding: 1.25rem;
+  }
+  .tool-icon {
+    width: 2.7rem;
+    height: 2.7rem;
+    border-radius: 0.85rem;
+    display: grid;
+    place-items: center;
+    font-weight: 800;
+    color: var(--text-primary);
+    border: 1px solid rgba(239, 68, 68, 0.5);
+    background: rgba(239, 68, 68, 0.12);
+    margin-bottom: 0.85rem;
+  }
+  .tool-card p { margin: 0.65rem 0 1.15rem; }
+  .simulator-stack {
+    display: grid;
+    gap: 1rem;
+  }
+  .simulator-card summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-primary);
+    font-family: "Sora", "Manrope", sans-serif;
+    font-weight: 700;
+  }
+  .simulator-card summary::-webkit-details-marker { display: none; }
+  .simulator-body { margin-top: 1rem; display: grid; gap: 0.9rem; }
+  .tool-input,
+  .tool-output {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: rgba(26, 31, 41, 0.9);
+    color: var(--text-secondary);
+    padding: 0.85rem;
+    font: inherit;
+  }
+  .tool-input { min-height: 120px; resize: vertical; }
+  .upload-zone {
+    border: 1px dashed rgba(239, 68, 68, 0.5);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+  }
+  .tool-output { min-height: 96px; }
+  .tool-loader {
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid rgba(239, 68, 68, 0.3);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    display: none;
+  }
+  .tool-loader.active { display: inline-block; }
+  .sim-actions { display: flex; align-items: center; gap: 0.7rem; }
+  .disclaimer-mini { font-size: 0.85rem; color: var(--text-muted); }
+  .faq-stack { display: grid; gap: 0.9rem; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://hamzajadoon.cloud/tools#webpage",
+      "url": "https://hamzajadoon.cloud/tools",
+      "name": "Free AI Tools for Students, Developers & Creators",
+      "description": "Free AI tools for students, creators, and developers with no login flow.",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "HJ Free AI Tools Hub",
+      "applicationCategory": "ProductivityApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "areaServed": ["PK", "Worldwide"],
+      "url": "https://hamzajadoon.cloud/tools"
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://hamzajadoon.cloud/tools#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Are these free AI tools available for students in Pakistan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, this page is built for students in Pakistan and global learners who need fast, no-login AI tools."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need an account to test these tools?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No account is required for this demo interface. Tool actions are currently sample UI only."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What can I use these tools for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can summarize content, generate prompts, improve resumes, and speed up student and developer workflows."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://hamzajadoon.cloud/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tools",
+          "item": "https://hamzajadoon.cloud/tools"
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body class="page-tools">
+<header class="site-header" id="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="/" aria-label="HJ Automations home">
+      <span class="brand-mark">HJ</span>
+      <span class="brand-text">Automations</span>
+    </a>
+    <div class="nav-right">
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+        <a href="/">Home</a>
+        <a href="/blog.html">Blog</a>
+        <a class="active" href="/tools">Tools</a>
+        <a href="/resources">Resources</a>
+        <a href="/recommended-tools">Recommended</a>
+        <a href="/ai-money-machine.html">Ebook</a>
+        <a href="/about.html">About</a>
+        <a href="/services.html">Services</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+      <a class="btn btn-primary nav-cta" href="/blog.html">Get Templates</a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero section">
+    <div class="container">
+      <p class="kicker" data-reveal>Free AI Tools</p>
+      <h1 class="section-title" data-reveal>Free AI Tools for Students, Developers &amp; Creators</h1>
+      <p class="section-subtitle" data-reveal>Use powerful AI tools instantly. No login required. Built for global students and practical teams, including learners across Pakistan.</p>
+      <div class="hero-actions" data-reveal style="margin-top:1.15rem;">
+        <a class="btn btn-primary" href="#tool-grid">Try AI Tools</a>
+        <a class="btn btn-glass" href="/resources">Explore Resources</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="tool-grid">
+    <div class="container">
+      <p class="kicker" data-reveal>Tool Hub</p>
+      <h2 class="section-title" data-reveal>Featured Free AI Tools</h2>
+      <div class="tools-grid">
+        <article class="glass-card tool-card hover-lift" data-reveal>
+          <div class="tool-icon" aria-hidden="true">TXT</div>
+          <h3>AI Text Summarizer</h3>
+          <p>Turn long articles into concise key points for fast revision and content planning.</p>
+          <a class="btn btn-secondary" href="#sim-text">Use Tool</a>
+        </article>
+        <article class="glass-card tool-card hover-lift" data-reveal>
+          <div class="tool-icon" aria-hidden="true">YT</div>
+          <h3>YouTube Video Summarizer</h3>
+          <p>Extract highlights from long videos so students can revise faster and smarter.</p>
+          <a class="btn btn-secondary" href="#sim-youtube">Use Tool</a>
+        </article>
+        <article class="glass-card tool-card hover-lift" data-reveal>
+          <div class="tool-icon" aria-hidden="true">PDF</div>
+          <h3>PDF to Word Converter</h3>
+          <p>Convert PDFs into editable text files for assignments, editing, and reformatting.</p>
+          <a class="btn btn-secondary" href="#sim-pdf">Use Tool</a>
+        </article>
+        <article class="glass-card tool-card hover-lift" data-reveal>
+          <div class="tool-icon" aria-hidden="true">CV</div>
+          <h3>Resume Bullet Generator</h3>
+          <p>Create sharp achievement bullets tailored for internships and entry-level roles.</p>
+          <a class="btn btn-secondary" href="#sim-text">Use Tool</a>
+        </article>
+        <article class="glass-card tool-card hover-lift" data-reveal>
+          <div class="tool-icon" aria-hidden="true">GH</div>
+          <h3>GitHub README Generator</h3>
+          <p>Build clean, portfolio-ready README drafts for projects and open-source repos.</p>
+          <a class="btn btn-secondary" href="#sim-text">Use Tool</a>
+        </article>
+        <article class="glass-card tool-card hover-lift" data-reveal>
+          <div class="tool-icon" aria-hidden="true">PR</div>
+          <h3>AI Prompt Generator</h3>
+          <p>Generate structured prompts for writing, coding, design, and research tasks.</p>
+          <a class="btn btn-secondary" href="#sim-text">Use Tool</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="kicker" data-reveal>Tool Simulators</p>
+      <h2 class="section-title" data-reveal>Interactive Tool Detail Blocks</h2>
+      <p class="section-subtitle" data-reveal>These UI simulators demonstrate how each free AI tool works before backend integration.</p>
+      <div class="simulator-stack" style="margin-top:1.2rem;">
+        <details class="glass-card simulator-card" id="sim-text" data-reveal open>
+          <summary><span>AI Text Summarizer</span><span aria-hidden="true">+</span></summary>
+          <div class="simulator-body">
+            <textarea class="tool-input" aria-label="Paste text for summarization" placeholder="Paste your text here..."></textarea>
+            <div class="sim-actions">
+              <button class="btn btn-primary js-dummy-run" type="button" data-output="This is a sample summary output. It highlights key points and keeps only the most important context.">Summarize Text</button>
+              <span class="tool-loader" aria-hidden="true"></span>
+            </div>
+            <div class="tool-output" aria-live="polite">Output preview will appear here.</div>
+            <p class="disclaimer-mini">Demo only: output is simulated. No content is stored.</p>
+          </div>
+        </details>
+
+        <details class="glass-card simulator-card" id="sim-youtube" data-reveal>
+          <summary><span>YouTube Video Summarizer</span><span aria-hidden="true">+</span></summary>
+          <div class="simulator-body">
+            <textarea class="tool-input" aria-label="Paste YouTube URL" placeholder="Paste YouTube URL or transcript..."></textarea>
+            <div class="sim-actions">
+              <button class="btn btn-primary js-dummy-run" type="button" data-output="Sample video summary: Introduction, core ideas, practical steps, and final takeaway with timestamps.">Summarize Video</button>
+              <span class="tool-loader" aria-hidden="true"></span>
+            </div>
+            <div class="tool-output" aria-live="polite">Output preview will appear here.</div>
+            <p class="disclaimer-mini">Demo only: this interface does not fetch video data yet.</p>
+          </div>
+        </details>
+
+        <details class="glass-card simulator-card" id="sim-pdf" data-reveal>
+          <summary><span>PDF to Word Converter</span><span aria-hidden="true">+</span></summary>
+          <div class="simulator-body">
+            <label class="upload-zone" for="pdf-upload">Upload area: Select a PDF file (UI placeholder)
+              <input id="pdf-upload" type="file" accept=".pdf" style="display:block;margin-top:0.6rem;">
+            </label>
+            <div class="sim-actions">
+              <button class="btn btn-primary js-dummy-run" type="button" data-output="Conversion complete (sample). Your editable .docx download link will appear here after backend integration.">Convert PDF</button>
+              <span class="tool-loader" aria-hidden="true"></span>
+            </div>
+            <div class="tool-output" aria-live="polite">Converted output preview will appear here.</div>
+            <p class="disclaimer-mini">Demo only: no file processing is active in this version.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="kicker" data-reveal>Internal Links</p>
+      <h2 class="section-title" data-reveal>Guides To Use These Tools Better</h2>
+      <div class="links-grid">
+        <article class="glass-card link-card" data-reveal>
+          <h3><a href="/posts/how-to-create-free-ai-chatbot-for-business-2026.html">How to Create a Free AI Chatbot for Business in 2026</a></h3>
+          <p style="margin-top:0.6rem;">Step-by-step guide for launching a no-cost chatbot workflow.</p>
+        </article>
+        <article class="glass-card link-card" data-reveal>
+          <h3><a href="/posts/ai-tool-overload-fix-2026.html">AI Tool Overload Fix (2026)</a></h3>
+          <p style="margin-top:0.6rem;">Framework for picking only tools that actually improve outcomes.</p>
+        </article>
+        <article class="glass-card link-card" data-reveal>
+          <h3><a href="/posts/ai-automation-explained-guide-2026.html">AI Automation Explained Guide</a></h3>
+          <p style="margin-top:0.6rem;">Understand core automation patterns for students and founders.</p>
+        </article>
+      </div>
+      <p style="margin-top:1rem;" data-reveal>
+        Also explore <a href="/resources"><strong>Free AI Resources &amp; Templates</strong></a> and <a href="/recommended-tools"><strong>Recommended Tools</strong></a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="kicker" data-reveal>FAQ</p>
+      <h2 class="section-title" data-reveal>Free AI Tools FAQ</h2>
+      <div class="faq-stack">
+        <article class="glass-card faq-entry" data-reveal>
+          <h3>What are the best free AI tools for students?</h3>
+          <p>Start with a text summarizer, prompt generator, and PDF utility to save study time and improve assignments.</p>
+        </article>
+        <article class="glass-card faq-entry" data-reveal>
+          <h3>Can these tools help students in Pakistan?</h3>
+          <p>Yes. They are designed for university workflows in Pakistan and built for global students with lightweight, fast-loading pages.</p>
+        </article>
+        <article class="glass-card faq-entry" data-reveal>
+          <h3>Are these online AI summarizer tools free?</h3>
+          <p>The current hub is fully free to explore. Functional backend connections can be added in later updates.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <section>
+      <h3 class="footer-title">HJ Automations</h3>
+      <p>AI automation systems, workflow playbooks, and practical tools for modern operators.</p>
+      <div class="social-row">
+        <a href="https://www.linkedin.com/company/111718821" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+        <a href="https://www.facebook.com/profile.php?id=61588027225877" target="_blank" rel="noopener noreferrer" aria-label="Facebook">f</a>
+        <a href="mailto:hamzajadoon71@gmail.com" aria-label="Email">@</a>
+      </div>
+    </section>
+    <section>
+      <h3 class="footer-title">Quick Links</h3>
+      <nav class="footer-links" aria-label="Quick links">
+        <a href="/">Home</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/services.html">Services</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </section>
+    <section>
+      <h3 class="footer-title">Resources</h3>
+      <nav class="footer-links" aria-label="Resources">
+        <a href="/tools">Tools</a>
+        <a href="/resources">Resources</a>
+        <a href="/recommended-tools">Recommended Tools</a>
+        <a href="/disclaimer.html">Affiliate Disclaimer</a>
+      </nav>
+    </section>
+    <section>
+      <h3 class="footer-title">Newsletter</h3>
+      <form class="newsletter-form" action="https://formspree.io/f/mvzbzloa" method="POST">
+        <input type="email" name="email" placeholder="Email address" aria-label="Newsletter email" required>
+        <button class="btn btn-primary" type="submit">Subscribe</button>
+      </form>
+    </section>
+  </div>
+  <div class="container footer-bottom">
+    <span>Copyright &copy; <span data-year></span> HJ Automations. All rights reserved.</span>
+    <nav aria-label="Legal links">
+      <a href="/privacy-policy.html">Privacy</a>
+      <a href="/terms-of-service.html">Terms</a>
+      <a href="/cookie-policy.html">Cookies</a>
+    </nav>
+  </div>
+</footer>
+<script>
+  (function () {
+    var buttons = document.querySelectorAll('.js-dummy-run');
+    buttons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        var card = button.closest('.simulator-body');
+        if (!card) return;
+        var loader = card.querySelector('.tool-loader');
+        var output = card.querySelector('.tool-output');
+        if (!output || !loader) return;
+        loader.classList.add('active');
+        output.textContent = 'Generating result...';
+        window.setTimeout(function () {
+          loader.classList.remove('active');
+          output.textContent = button.getAttribute('data-output') || 'Sample output complete.';
+        }, 850);
+      });
+    });
+  })();
+</script>
+<script src="/assets/js/cookie-consent.js" defer></script>
+</body>
+</html>
