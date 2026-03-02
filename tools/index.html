@@ -24,11 +24,11 @@
 <meta property="og:url" content="https://hamzajadoon.cloud/tools">
 <meta property="og:title" content="Free AI Tools for Students, Developers & Creators">
 <meta property="og:description" content="Free AI tools hub with summarizers, generators, and student productivity utilities.">
-<meta property="og:image" content="https://hamzajadoon.cloud/og-image.jpg">
+<meta property="og:image" content="https://hamzajadoon.cloud/assets/images/AI%20Text%20Summarizer.jpeg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Free AI Tools for Students, Developers & Creators">
 <meta name="twitter:description" content="Online AI summarizer, free PDF tools online, and practical tools for students in Pakistan and worldwide.">
-<meta name="twitter:image" content="https://hamzajadoon.cloud/og-image.jpg">
+<meta name="twitter:image" content="https://hamzajadoon.cloud/assets/images/AI%20Text%20Summarizer.jpeg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
@@ -132,6 +132,12 @@
     padding: 120px 0 80px;
     position: relative;
   }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 34px;
+    align-items: center;
+  }
 
   .hero-badge {
     display: inline-flex;
@@ -169,6 +175,35 @@
     max-width: 600px;
     margin-bottom: 40px;
     line-height: 1.7;
+  }
+  .hero-media {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: rgba(0, 0, 0, 0.28);
+    box-shadow: 0 22px 45px rgba(0, 0, 0, 0.35);
+  }
+  .hero-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+  .hero-media-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    border-radius: 999px;
+    padding: 6px 12px;
+    border: 1px solid rgba(255, 61, 61, 0.4);
+    background: rgba(255, 61, 61, 0.18);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
   }
 
   .hero-stats {
@@ -594,6 +629,16 @@
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.2);
   }
+  .guide-link-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  .guide-link-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(255, 61, 61, 0.35) !important;
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.3);
+  }
 
   /* Responsive */
   @media (max-width: 968px) {
@@ -607,6 +652,10 @@
     
     .hero-stats {
       flex-direction: column;
+      gap: 24px;
+    }
+    .hero-grid {
+      grid-template-columns: 1fr;
       gap: 24px;
     }
     
@@ -683,7 +732,7 @@
           "name": "Do I need an account to test these tools?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "No account is required for this demo interface. Tool actions are currently sample UI only."
+            "text": "No account is required. The AI Text Summarizer is live, and additional tools are being rolled out."
           }
         },
         {
@@ -749,68 +798,46 @@
   <!-- Hero Section -->
   <section class="hero-section">
     <div class="container">
-      <div class="hero-badge" data-reveal>
-        <span>⚡</span>
-        <span>No Login Required</span>
-      </div>
-      <h1 class="hero-title font-display" data-reveal>
-        Free AI Tools for Students, Developers & Creators
-      </h1>
-      <p class="hero-subtitle" data-reveal>
-        Powerful AI utilities designed for productivity. Built for students in Pakistan and global learners who need instant, no-frills solutions.
-      </p>
-      <div class="hero-actions" data-reveal>
-        <a href="#tools-grid" class="btn-premium">
-          Explore Tools
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M7 17L17 7M17 7H7M17 7V17"/>
-          </svg>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="hero-badge" data-reveal>
+            <span>AI</span>
+            <span>No Login Required</span>
+          </div>
+          <h1 class="hero-title font-display" data-reveal>
+            Free AI Tools for Students, Developers &amp; Creators
+          </h1>
+          <p class="hero-subtitle" data-reveal>
+            Powerful AI utilities designed for productivity. Built for students in Pakistan and global learners who need instant, no-frills solutions.
+          </p>
+          <div class="hero-actions" data-reveal>
+            <a href="https://ai-text-summarizer-for-web--hamzajadoon71.replit.app/" target="_blank" rel="noopener noreferrer" class="btn-premium">
+              Launch AI Text Summarizer
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
+              </svg>
+            </a>
+            <a href="#tools-grid" class="btn-secondary-premium">Explore All Tools</a>
+          </div>
+          <div class="hero-stats" data-reveal>
+            <div class="stat-item">
+              <span class="stat-value">6</span>
+              <span class="stat-label">AI Tools</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">100%</span>
+              <span class="stat-label">Free Forever</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value">1</span>
+              <span class="stat-label">Live Tool</span>
+            </div>
+          </div>
+        </div>
+        <a class="hero-media" href="https://ai-text-summarizer-for-web--hamzajadoon71.replit.app/" target="_blank" rel="noopener noreferrer" data-reveal aria-label="Open AI Text Summarizer">
+          <span class="hero-media-badge">Now Live</span>
+          <img src="/assets/images/AI%20Text%20Summarizer.jpeg" alt="AI Text Summarizer highlight banner" loading="eager" fetchpriority="high">
         </a>
-        <a href="/resources" class="btn-secondary-premium">View Resources</a>
-      </div>
-      
-      <div class="hero-stats" data-reveal>
-        <div class="stat-item">
-          <span class="stat-value">6</span>
-          <span class="stat-label">AI Tools</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-value">100%</span>
-          <span class="stat-label">Free Forever</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-value">0</span>
-          <span class="stat-label">Login Required</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Featured Active Tool -->
-  <section class="featured-tool">
-    <div class="featured-container">
-      <div class="featured-grid" data-reveal>
-        <div class="featured-visual">
-          <div class="featured-badge">Now Live</div>
-          <img src="/assets/images/HeroFeatured%20Image.jpeg" alt="AI tools hero showcase" loading="eager" fetchpriority="high">
-        </div>
-        <div class="featured-content">
-          <div class="section-eyebrow">Featured Tool</div>
-          <h2 class="font-display">AI Text Summarizer</h2>
-          <p>Transform lengthy articles, research papers, and documents into concise, actionable summaries. Perfect for students who need to review content quickly and efficiently.</p>
-          <ul class="feature-list">
-            <li>Instant summarization of any text</li>
-            <li>Preserves key information and context</li>
-            <li>Perfect for research and study sessions</li>
-            <li>100% free, no registration needed</li>
-          </ul>
-          <a href="https://ai-text-summarizer-for-web--hamzajadoon71.replit.app/" target="_blank" rel="noopener noreferrer" class="btn-premium">
-            Launch Tool
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/>
-            </svg>
-          </a>
-        </div>
       </div>
     </div>
   </section>
@@ -835,8 +862,7 @@
           </div>
         </div>
         <div class="tool-content">
-          <div class="tool-icon-wrapper">📝</div>
-          <h3 class="tool-name">AI Text Summarizer</h3>
+          <div class="tool-icon-wrapper">TXT</div>`r`n          <h3 class="tool-name">AI Text Summarizer</h3>
           <p class="tool-description">Turn long articles into concise key points for fast revision and content planning. Live and ready to use.</p>
           <div class="tool-meta">
             <div class="tool-tags">
@@ -862,8 +888,7 @@
           </div>
         </div>
         <div class="tool-content">
-          <div class="tool-icon-wrapper">🎥</div>
-          <h3 class="tool-name">YouTube Video Summarizer</h3>
+          <div class="tool-icon-wrapper">VID</div>`r`n          <h3 class="tool-name">YouTube Video Summarizer</h3>
           <p class="tool-description">Extract highlights from long videos so students can revise faster and smarter. Get key points without watching hours of content.</p>
           <div class="tool-meta">
             <div class="tool-tags">
@@ -888,8 +913,7 @@
           </div>
         </div>
         <div class="tool-content">
-          <div class="tool-icon-wrapper">📄</div>
-          <h3 class="tool-name">PDF to Word Converter</h3>
+          <div class="tool-icon-wrapper">PDF</div>`r`n          <h3 class="tool-name">PDF to Word Converter</h3>
           <p class="tool-description">Convert PDFs into editable text files for assignments, editing, and reformatting. Maintain formatting while making documents editable.</p>
           <div class="tool-meta">
             <div class="tool-tags">
@@ -914,8 +938,7 @@
           </div>
         </div>
         <div class="tool-content">
-          <div class="tool-icon-wrapper">💼</div>
-          <h3 class="tool-name">Resume Bullet Generator</h3>
+          <div class="tool-icon-wrapper">CV</div>`r`n          <h3 class="tool-name">Resume Bullet Generator</h3>
           <p class="tool-description">Create sharp achievement bullets tailored for internships and entry-level roles. Transform boring job descriptions into compelling achievements.</p>
           <div class="tool-meta">
             <div class="tool-tags">
@@ -940,8 +963,7 @@
           </div>
         </div>
         <div class="tool-content">
-          <div class="tool-icon-wrapper">⚡</div>
-          <h3 class="tool-name">GitHub README Generator</h3>
+          <div class="tool-icon-wrapper">GH</div>`r`n          <h3 class="tool-name">GitHub README Generator</h3>
           <p class="tool-description">Build clean, portfolio-ready README drafts for projects and open-source repos. Impress recruiters with professional documentation.</p>
           <div class="tool-meta">
             <div class="tool-tags">
@@ -966,8 +988,7 @@
           </div>
         </div>
         <div class="tool-content">
-          <div class="tool-icon-wrapper">🎯</div>
-          <h3 class="tool-name">AI Prompt Generator</h3>
+          <div class="tool-icon-wrapper">PRM</div>`r`n          <h3 class="tool-name">AI Prompt Generator</h3>
           <p class="tool-description">Generate structured prompts for writing, coding, design, and research tasks. Get better AI outputs with expertly crafted prompts.</p>
           <div class="tool-meta">
             <div class="tool-tags">
@@ -1013,26 +1034,26 @@
       </div>
       
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
-        <article class="glass-card link-card" data-reveal style="padding: 32px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card); transition: all 0.3s ease;">
-          <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; margin-bottom: 12px;">
-            <a href="/posts/how-to-create-free-ai-chatbot-for-business-2026.html" style="color: var(--text-primary); text-decoration: none;">How to Create a Free AI Chatbot for Business in 2026</a>
+        <a class="glass-card link-card guide-link-card" data-reveal href="/posts/how-to-create-free-ai-chatbot-for-business-2026.html" style="padding: 32px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card); transition: all 0.3s ease;">
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; margin-bottom: 12px; color: var(--text-primary);">
+            How to Create a Free AI Chatbot for Business in 2026
           </h3>
           <p style="color: var(--text-secondary); line-height: 1.6;">Step-by-step guide for launching a no-cost chatbot workflow.</p>
-        </article>
+        </a>
         
-        <article class="glass-card link-card" data-reveal style="padding: 32px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card); transition: all 0.3s ease;">
-          <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; margin-bottom: 12px;">
-            <a href="/posts/ai-tool-overload-fix-2026.html" style="color: var(--text-primary); text-decoration: none;">AI Tool Overload Fix (2026)</a>
+        <a class="glass-card link-card guide-link-card" data-reveal href="/posts/ai-tool-overload-fix-2026.html" style="padding: 32px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card); transition: all 0.3s ease;">
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; margin-bottom: 12px; color: var(--text-primary);">
+            AI Tool Overload Fix (2026)
           </h3>
           <p style="color: var(--text-secondary); line-height: 1.6;">Framework for picking only tools that actually improve outcomes.</p>
-        </article>
+        </a>
         
-        <article class="glass-card link-card" data-reveal style="padding: 32px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card); transition: all 0.3s ease;">
-          <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; margin-bottom: 12px;">
-            <a href="/posts/ai-automation-explained-guide-2026.html" style="color: var(--text-primary); text-decoration: none;">AI Automation Explained Guide</a>
+        <a class="glass-card link-card guide-link-card" data-reveal href="/posts/ai-automation-explained-guide-2026.html" style="padding: 32px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card); transition: all 0.3s ease;">
+          <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; margin-bottom: 12px; color: var(--text-primary);">
+            AI Automation Explained Guide
           </h3>
           <p style="color: var(--text-secondary); line-height: 1.6;">Understand core automation patterns for students and founders.</p>
-        </article>
+        </a>
       </div>
     </div>
   </section>
@@ -1147,7 +1168,7 @@
     `;
     notification.innerHTML = `
       <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-        <span style="font-size: 1.5rem;">🚀</span>
+        <span style="font-size: 1.5rem;">AI</span>
         <strong style="font-family: 'Space Grotesk', sans-serif;">${toolName}</strong>
       </div>
       <p style="color: var(--text-secondary); font-size: 0.9375rem; margin: 0;">This tool is coming soon. Subscribe to get notified when it launches!</p>
@@ -1181,3 +1202,5 @@
 <script src="/assets/js/cookie-consent.js" defer></script>
 </body>
 </html>
+
+
