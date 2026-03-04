@@ -161,6 +161,78 @@ const IMAGE_POOLS = {
   ]
 };
 
+// ─────────────────────────────────────────────────────────────────────────────
+// SANITIZE MARKDOWN BODY
+// Strips injected blocks that should never appear on the live page.
+// Runs on every post before HTML conversion — fixes all existing and future posts.
+// ─────────────────────────────────────────────────────────────────────────────
+function sanitizeMarkdownBody(body) {
+  let text = String(body || "");
+
+  // 1. Remove "Quick Start Blueprint" section injected by Codex
+  //    Matches from the heading (## or plain text) through the next ## heading or end
+  text = text.replace(
+    /^(?:##\s+)?Quick Start Blueprint[\s\S]*?(?=\n##\s|\n---\n|\n\*\*Published by)/m,
+    ""
+  );
+
+  // 2. Remove "Use this guide to ship practical wins" block (fallback if above misses it)
+  text = text.replace(
+    /^##\s+Use this guide to ship practical wins[\s\S]*?(?=\n##\s)/m,
+    ""
+  );
+
+  // 3. Remove Jump to FAQ / Go to CTA links injected by Codex
+  text = text.replace(/^\[Jump to FAQ\]\(#faq\)\s*\n?/gm, "");
+  text = text.replace(/^\[Go to CTA\]\(#work-with-me\)\s*\n?/gm, "");
+
+  // 4. Remove Thumbnail Image Prompt section (## 🖼️ ... through closing ```)
+  text = text.replace(
+    /^##\s+🖼️\s+Thumbnail Image Prompt[\s\S]*?```\s*\n?/m,
+    ""
+  );
+
+  // 5. Remove SEO Metadata section — everything from that heading to end of file
+  text = text.replace(
+    /^##\s+📋\s+SEO Metadata for This Blog Post[\s\S]*$/m,
+    ""
+  );
+
+  // 6. Remove generic injected FAQ block (3-question AI workflow one, not real FAQs)
+  //    Detected by its known first question
+  text = text.replace(
+    /^##\s+FAQ\s*\n+How should I start implementing this AI workflow approach\?[\s\S]*?(?=\n##\s|$)/m,
+    ""
+  );
+
+  // 7. Remove "Ready to build smarter AI workflows?" CTA block
+  text = text.replace(
+    /^##\s+Ready to build smarter AI workflows\?[\s\S]*?(?=\n##\s|$)/m,
+    ""
+  );
+
+  // 8. Fix "Target Audience" line — normalize to Pakistan-first
+  text = text.replace(
+    /(\*\*Target Audience:\*\*[^\n]*?)\bin\s+Us(?:,|$)/gm,
+    "$1in Pakistan, India, and globally"
+  );
+  text = text.replace(
+    /(\*\*Target Audience:\*\*[^\n]*?)\bin\s+USA,\s*Canada/gm,
+    "$1in Pakistan, India, and globally"
+  );
+
+  // 9. Fix "GEO Section:" prefix from any H2 heading
+  text = text.replace(
+    /^(##\s+)GEO Section:\s*/gm,
+    "$1"
+  );
+
+  // 10. Clean up any triple+ blank lines left by removals
+  text = text.replace(/\n{4,}/g, "\n\n\n");
+
+  return text.trim();
+}
+
 function slugify(value) {
   return String(value || "")
     .toLowerCase()
@@ -471,6 +543,8 @@ function inferExcerpt(body) {
     .replace(/^##\s+.*$/gm, "")
     .replace(/^###\s+.*$/gm, "")
     .replace(/`{3}[\s\S]*?`{3}/g, "")
+    // Also strip bold metadata lines like **Published by:** from excerpt
+    .replace(/^\*\*[^*]+:\*\*.*$/gm, "")
     .trim();
   return withoutHeaders.slice(0, 170).replace(/\s+\S*$/, "").trim();
 }
@@ -551,7 +625,11 @@ function injectImageCards(contentHtml, images) {
 }
 
 function postMetaFromMarkdown(fileName, raw) {
-  const { meta, body } = parseFrontmatter(raw);
+  const { meta, body: rawBody } = parseFrontmatter(raw);
+
+  // ── Sanitize body before any further processing ──
+  const body = sanitizeMarkdownBody(rawBody);
+
   const faqData = extractFaqSection(body);
   const cleanBody = faqData.body;
   const firstTitleMatch = cleanBody.match(/^#\s+(.+)$/m);
@@ -908,45 +986,6 @@ img { max-width: 100%; display: block; }
   opacity: 1;
   transform: translateY(0);
 }
-.hook-panel {
-  margin: 0 0 26px;
-  padding: 16px;
-  border: 1px solid rgba(99, 102, 241, .3);
-  border-radius: 14px;
-  background: linear-gradient(140deg, rgba(99, 102, 241, .08), #ffffff);
-}
-.hook-kicker {
-  margin: 0 0 6px;
-  font-size: .78rem;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  color: var(--accent-hover);
-  font-weight: 700;
-}
-.hook-panel h2 {
-  margin: 0 0 8px;
-  font-size: 1.1rem;
-  color: var(--text);
-}
-.hook-panel ul {
-  margin: 0;
-  padding-left: 18px;
-}
-.hook-panel li {
-  color: var(--text-soft);
-  margin-bottom: 4px;
-}
-.hook-links {
-  margin-top: 12px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.hook-links a {
-  color: var(--accent-hover);
-  font-size: .85rem;
-  text-decoration: underline;
-}
 .article p,
 .article li {
   color: var(--text-body);
@@ -1058,11 +1097,6 @@ img { max-width: 100%; display: block; }
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
-.image-card figcaption {
-  padding: 10px 12px;
-  color: var(--text-soft);
-  font-size: .88rem;
-}
 .faq {
   margin-top: 34px;
   border: 1px solid var(--border);
@@ -1108,10 +1142,7 @@ img { max-width: 100%; display: block; }
   border-radius: 16px;
   padding: 18px;
 }
-.cta h2 {
-  margin: 0 0 6px;
-  color: var(--text);
-}
+.cta h2 { margin: 0 0 6px; color: var(--text); }
 .cta ul { margin: 10px 0 14px; padding-left: 18px; }
 .cta li { color: var(--text-soft); }
 .cta-btn {
@@ -1119,23 +1150,19 @@ img { max-width: 100%; display: block; }
   align-items: center;
   gap: 8px;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #fff;
+  color: #ffffff !important;
   border: 0;
   border-radius: 10px;
   padding: 11px 14px;
   font-weight: 700;
   text-decoration: none !important;
-  color: #ffffff !important;
 }
 .cta-btn:hover {
   transform: translateY(-1px);
   box-shadow: 0 10px 22px rgba(99, 102, 241, .24);
 }
 .lead-form .cta-btn,
-.lead-download .cta-btn {
-  color: #ffffff !important;
-  text-decoration: none !important;
-}
+.lead-download .cta-btn { color: #ffffff !important; text-decoration: none !important; }
 .author {
   margin-top: 28px;
   border: 1px solid var(--border);
@@ -1174,20 +1201,9 @@ img { max-width: 100%; display: block; }
   letter-spacing: .1em;
   text-transform: uppercase;
 }
-.lead-magnet h2 {
-  margin: 0 0 10px;
-  font-size: 1.25rem;
-  color: var(--text);
-}
-.lead-subtle {
-  margin: 0 0 8px;
-  color: var(--text-soft);
-  font-size: .92rem;
-}
-.lead-subtle a {
-  color: #b91c1c;
-  font-weight: 600;
-}
+.lead-magnet h2 { margin: 0 0 10px; font-size: 1.25rem; color: var(--text); }
+.lead-subtle { margin: 0 0 8px; color: var(--text-soft); font-size: .92rem; }
+.lead-subtle a { color: #b91c1c; font-weight: 600; }
 .lead-brevo {
   margin-top: 8px;
   max-width: 760px;
@@ -1197,12 +1213,6 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
   border: 1px solid var(--border);
   background: #ffffff;
-}
-.lead-brevo iframe {
-  width: 100%;
-  max-width: 100%;
-  min-height: 420px;
-  display: block;
 }
 .lead-form {
   display: flex;
@@ -1216,9 +1226,7 @@ img { max-width: 100%; display: block; }
   border-radius: 10px;
   padding: 10px 12px;
 }
-.lead-download {
-  padding: 0 14px 14px;
-}
+.lead-download { padding: 0 14px 14px; }
 .footer {
   width: min(1180px, 92%);
   margin: 44px auto 20px;
@@ -1240,9 +1248,7 @@ img { max-width: 100%; display: block; }
   .site-nav { display: none; }
   .hero-content { padding: 18px; }
   .meta { font-size: .83rem; }
-  .article p,
-  .article li { font-size: .98rem; }
-  .lead-brevo iframe { min-height: 440px; }
+  .article p, .article li { font-size: .98rem; }
 }
 </style>
 </head>
@@ -1319,7 +1325,7 @@ ${faqSection}
 
 <footer class="footer">
   <span>&copy; <span id="year"></span> ${DEFAULT_SITE_NAME}</span>
-  <span><a href="../blog.html">Back to blog</a></span>
+  <span><a href="/blog.html">Back to blog</a></span>
 </footer>
 
 <script>
@@ -1397,16 +1403,7 @@ document.querySelectorAll('.article a[href*="try.elevenlabs.io"]').forEach((link
 
 const newsletterEndpoint = 'https://formspree.io/f/mvzbzloa';
 const completedKey = 'hj_starter_kit_completed_at';
-const legacyCompletedKey = 'hj_starter_kit_completed';
 const completionTtlMs = 30 * 24 * 60 * 60 * 1000;
-const isCompletedRecently = () => {
-  const legacy = localStorage.getItem(legacyCompletedKey);
-  if (legacy === '1') localStorage.removeItem(legacyCompletedKey);
-  const raw = localStorage.getItem(completedKey);
-  const completedAt = Number(raw || 0);
-  if (!completedAt) return false;
-  return Date.now() - completedAt < completionTtlMs;
-};
 document.querySelectorAll('form[data-lead-form]').forEach((form) => {
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -1466,7 +1463,6 @@ document.querySelectorAll('form[data-lead-form]').forEach((form) => {
     }
   });
 });
-
 </script>
 </body>
 </html>`;
@@ -1552,4 +1548,3 @@ function main() {
 }
 
 main();
-
