@@ -537,7 +537,7 @@ function getPostImages(post) {
 }
 
 function figureBlock(image) {
-  return `<figure class="image-card">\n  <img src="${escapeHtml(image.url)}" alt="${escapeHtml(image.alt)}" loading="lazy" width="1200" height="675">\n  <figcaption>${escapeHtml(image.caption)}</figcaption>\n</figure>`;
+  return `<figure class="image-card">\n  <img src="${escapeHtml(image.url)}" alt="${escapeHtml(image.alt)}" loading="lazy" width="1200" height="675">\n</figure>`;
 }
 
 function injectImageCards(contentHtml, images) {
@@ -648,14 +648,7 @@ function buildFaq(post) {
     return `<section class="faq" id="faq">\n  <h2>${renderInline(title)}</h2>\n${itemsHtml}\n</section>`;
   }
 
-  const topic = post.category.toLowerCase().includes("automation") ? "automation" : "AI workflow";
-  return `<section class="faq" id="faq">\n  <h2>FAQ</h2>\n  <div class="faq-item">\n    <button class="faq-question" type="button">How should I start implementing this ${escapeHtml(topic)} approach?</button>\n    <div class="faq-answer"><p>Start with one measurable workflow, define guardrails, and track outcomes weekly before scaling.</p></div>\n  </div>\n  <div class="faq-item">\n    <button class="faq-question" type="button">What metric should I track first?</button>\n    <div class="faq-answer"><p>Track cycle time or error rate first. Both usually reveal value faster than vanity metrics.</p></div>\n  </div>\n  <div class="faq-item">\n    <button class="faq-question" type="button">How long until results are visible?</button>\n    <div class="faq-answer"><p>Most teams see meaningful direction in 2 to 6 weeks if the workflow is scoped tightly and reviewed each week.</p></div>\n  </div>\n</section>`;
-}
-
-function buildHookSection(post) {
-  const primaryTag = post.tags[0] || post.category;
-  const secondaryTag = post.tags[1] || "Workflow Automation";
-  return `<section class="hook-panel reveal-on-scroll">\n  <p class="hook-kicker">Quick Start Blueprint</p>\n  <h2>Use this guide to ship practical wins</h2>\n  <ul>\n    <li>Identify one high-impact ${escapeHtml(primaryTag.toLowerCase())} bottleneck this week.</li>\n    <li>Deploy one testable improvement with clear KPI tracking in your ${escapeHtml(secondaryTag.toLowerCase())} workflow.</li>\n    <li>Use the FAQ and CTA below to turn insights into an execution plan.</li>\n  </ul>\n  <div class=\"hook-links\">\n    <a href=\"#faq\">Jump to FAQ</a>\n    <a href=\"#work-with-me\">Go to CTA</a>\n  </div>\n</section>`;
+  return "";
 }
 
 function renderPostHtml(post) {
@@ -671,14 +664,6 @@ function renderPostHtml(post) {
   const canonical = `${DOMAIN}/posts/${post.slug}.html`;
   const keywords = buildKeywords(post);
   const displayDate = formatDisplayDate(post.date);
-  const ctaHref = post.affiliateLink ? sanitizeHref(post.affiliateLink) : "../contact.html";
-  const ctaLabel = post.affiliateLink ? "Try ElevenLabs Free" : "Go to Contact Form";
-  const ctaRel = post.affiliateLink ? "noopener noreferrer sponsored" : "";
-  const ctaTarget = post.affiliateLink ? "_blank" : "";
-  const ctaHeading = post.affiliateLink ? "Ready to launch with ElevenLabs?" : "Ready to build smarter AI workflows?";
-  const ctaBody = post.affiliateLink
-    ? "Start with the free plan and test real AI voice workflows in minutes."
-    : "Book a workflow consultation and get a practical execution roadmap.";
   const schema = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -1307,13 +1292,13 @@ img { max-width: 100%; display: block; }
 <div id="progress" aria-hidden="true"></div>
 <header class="site-header">
   <div class="nav-wrap">
-    <a class="brand" href="../index.html">HJ Automations</a>
+    <a class="brand" href="/">HJ Automations</a>
     <nav class="site-nav">
-      <a href="../index.html">Home</a>
-      <a class="active" href="../blog.html">Blog</a>
-      <a href="../about.html">About</a>
-      <a href="../services.html">Services</a>
-      <a href="../contact.html">Contact</a>
+      <a href="/">Home</a>
+      <a class="active" href="/blog.html">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/services.html">Services</a>
+      <a href="/contact.html">Contact</a>
     </nav>
   </div>
 </header>
@@ -1339,22 +1324,9 @@ img { max-width: 100%; display: block; }
     </aside>
 
     <article class="article" id="article-content">
-${buildHookSection(post)}
-
 ${articleHtmlWithFaqAnchor}
 
 ${faqSection}
-
-      <section class="cta reveal-on-scroll" id="work-with-me">
-        <h2>${escapeHtml(ctaHeading)}</h2>
-        <p>${escapeHtml(ctaBody)}</p>
-        <ul>
-          <li>Identify the highest ROI automation path</li>
-          <li>Define guardrails and rollout milestones</li>
-          <li>Deploy with measurable outcomes</li>
-        </ul>
-        <a class="cta-btn" href="${escapeHtml(ctaHref)}"${ctaTarget ? ` target="${ctaTarget}"` : ""}${ctaRel ? ` rel="${ctaRel}"` : ""}>${escapeHtml(ctaLabel)}</a>
-      </section>
 
       <section class="author reveal-on-scroll">
         <div class="author-avatar" aria-hidden="true">HJ</div>
