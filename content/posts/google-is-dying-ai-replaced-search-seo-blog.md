@@ -11,15 +11,6 @@ imageAlt: AI chat-based search replacing traditional search engine behavior
 ---
 # Google Is Dying: How AI Just Replaced Search — And Most People Don't Know It Yet
 
-**Meta Title:** Google Is Dying: AI Has Replaced Search in 2026 | What You Must Do Now  
-**Meta Description:** Discover how AI search engines like ChatGPT, Perplexity, and Google AI Overviews are replacing traditional Google search. Learn what GEO (Generative Engine Optimization) means for your website, SEO strategy, and online visibility in 2026.  
-**Focus Keyword:** AI replacing Google search  
-**Secondary Keywords:** GEO vs SEO, generative engine optimization, AI search 2026, future of SEO, ChatGPT search, Google AI Overviews, SEO is dead, AI SEO strategy, Perplexity AI search, zero-click search  
-**Slug:** /google-is-dying-ai-replaced-search-2026  
-**Category:** Digital Marketing / SEO / AI Technology  
-**Tags:** SEO, GEO, AI Search, ChatGPT, Google AI Overviews, Perplexity, Digital Marketing 2026, Generative Engine Optimization, Future of Search, AI Marketing  
-**Word Count Target:** 2,800+  
-**Canonical URL:** https://yourwebsite.com/google-is-dying-ai-replaced-search-2026  
 
 ---
 

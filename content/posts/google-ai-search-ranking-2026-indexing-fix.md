@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Google AI Search Ranking 2026: Why New Websites Are Not Indexing (Exact Recovery Plan)"
 date: 2026-02-24
 slug: google-ai-search-ranking-2026-indexing-fix
@@ -18,9 +18,6 @@ inlineImage2Caption: LLM optimization increases the chance of being cited in AI-
 
 # Google AI Search Ranking 2026: Why New Websites Are Not Indexing (Exact Recovery Plan)
 
-**Last Updated:** February 24, 2026  
-**Focus Keyword:** google ai search ranking 2026  
-**Secondary Keywords:** website not indexing, seo 2026, geo optimization, llm optimization, ai overviews seo, technical seo checklist
 
 If your website is published but still not ranking, the issue is usually not one bug. It is a signal gap.
 
