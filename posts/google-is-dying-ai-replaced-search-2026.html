@@ -218,45 +218,6 @@ img { max-width: 100%; display: block; }
   opacity: 1;
   transform: translateY(0);
 }
-.hook-panel {
-  margin: 0 0 26px;
-  padding: 16px;
-  border: 1px solid rgba(99, 102, 241, .3);
-  border-radius: 14px;
-  background: linear-gradient(140deg, rgba(99, 102, 241, .08), #ffffff);
-}
-.hook-kicker {
-  margin: 0 0 6px;
-  font-size: .78rem;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  color: var(--accent-hover);
-  font-weight: 700;
-}
-.hook-panel h2 {
-  margin: 0 0 8px;
-  font-size: 1.1rem;
-  color: var(--text);
-}
-.hook-panel ul {
-  margin: 0;
-  padding-left: 18px;
-}
-.hook-panel li {
-  color: var(--text-soft);
-  margin-bottom: 4px;
-}
-.hook-links {
-  margin-top: 12px;
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-.hook-links a {
-  color: var(--accent-hover);
-  font-size: .85rem;
-  text-decoration: underline;
-}
 .article p,
 .article li {
   color: var(--text-body);
@@ -368,11 +329,6 @@ img { max-width: 100%; display: block; }
   aspect-ratio: 16 / 9;
   object-fit: cover;
 }
-.image-card figcaption {
-  padding: 10px 12px;
-  color: var(--text-soft);
-  font-size: .88rem;
-}
 .faq {
   margin-top: 34px;
   border: 1px solid var(--border);
@@ -418,10 +374,7 @@ img { max-width: 100%; display: block; }
   border-radius: 16px;
   padding: 18px;
 }
-.cta h2 {
-  margin: 0 0 6px;
-  color: var(--text);
-}
+.cta h2 { margin: 0 0 6px; color: var(--text); }
 .cta ul { margin: 10px 0 14px; padding-left: 18px; }
 .cta li { color: var(--text-soft); }
 .cta-btn {
@@ -429,23 +382,19 @@ img { max-width: 100%; display: block; }
   align-items: center;
   gap: 8px;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  color: #fff;
+  color: #ffffff !important;
   border: 0;
   border-radius: 10px;
   padding: 11px 14px;
   font-weight: 700;
   text-decoration: none !important;
-  color: #ffffff !important;
 }
 .cta-btn:hover {
   transform: translateY(-1px);
   box-shadow: 0 10px 22px rgba(99, 102, 241, .24);
 }
 .lead-form .cta-btn,
-.lead-download .cta-btn {
-  color: #ffffff !important;
-  text-decoration: none !important;
-}
+.lead-download .cta-btn { color: #ffffff !important; text-decoration: none !important; }
 .author {
   margin-top: 28px;
   border: 1px solid var(--border);
@@ -484,20 +433,9 @@ img { max-width: 100%; display: block; }
   letter-spacing: .1em;
   text-transform: uppercase;
 }
-.lead-magnet h2 {
-  margin: 0 0 10px;
-  font-size: 1.25rem;
-  color: var(--text);
-}
-.lead-subtle {
-  margin: 0 0 8px;
-  color: var(--text-soft);
-  font-size: .92rem;
-}
-.lead-subtle a {
-  color: #b91c1c;
-  font-weight: 600;
-}
+.lead-magnet h2 { margin: 0 0 10px; font-size: 1.25rem; color: var(--text); }
+.lead-subtle { margin: 0 0 8px; color: var(--text-soft); font-size: .92rem; }
+.lead-subtle a { color: #b91c1c; font-weight: 600; }
 .lead-brevo {
   margin-top: 8px;
   max-width: 760px;
@@ -507,12 +445,6 @@ img { max-width: 100%; display: block; }
   overflow: hidden;
   border: 1px solid var(--border);
   background: #ffffff;
-}
-.lead-brevo iframe {
-  width: 100%;
-  max-width: 100%;
-  min-height: 420px;
-  display: block;
 }
 .lead-form {
   display: flex;
@@ -526,9 +458,7 @@ img { max-width: 100%; display: block; }
   border-radius: 10px;
   padding: 10px 12px;
 }
-.lead-download {
-  padding: 0 14px 14px;
-}
+.lead-download { padding: 0 14px 14px; }
 .footer {
   width: min(1180px, 92%);
   margin: 44px auto 20px;
@@ -550,9 +480,7 @@ img { max-width: 100%; display: block; }
   .site-nav { display: none; }
   .hero-content { padding: 18px; }
   .meta { font-size: .83rem; }
-  .article p,
-  .article li { font-size: .98rem; }
-  .lead-brevo iframe { min-height: 440px; }
+  .article p, .article li { font-size: .98rem; }
 }
 </style>
 </head>
@@ -989,7 +917,7 @@ img { max-width: 100%; display: block; }
 
 <footer class="footer">
   <span>&copy; <span id="year"></span> HJ Automations</span>
-  <span><a href="../blog.html">Back to blog</a></span>
+  <span><a href="/blog.html">Back to blog</a></span>
 </footer>
 
 <script>
@@ -1067,16 +995,7 @@ document.querySelectorAll('.article a[href*="try.elevenlabs.io"]').forEach((link
 
 const newsletterEndpoint = 'https://formspree.io/f/mvzbzloa';
 const completedKey = 'hj_starter_kit_completed_at';
-const legacyCompletedKey = 'hj_starter_kit_completed';
 const completionTtlMs = 30 * 24 * 60 * 60 * 1000;
-const isCompletedRecently = () => {
-  const legacy = localStorage.getItem(legacyCompletedKey);
-  if (legacy === '1') localStorage.removeItem(legacyCompletedKey);
-  const raw = localStorage.getItem(completedKey);
-  const completedAt = Number(raw || 0);
-  if (!completedAt) return false;
-  return Date.now() - completedAt < completionTtlMs;
-};
 document.querySelectorAll('form[data-lead-form]').forEach((form) => {
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -1136,7 +1055,6 @@ document.querySelectorAll('form[data-lead-form]').forEach((form) => {
     }
   });
 });
-
 </script>
 </body>
 </html>
