@@ -10,7 +10,7 @@ const POSTS = [
       "final year project ideas computer science",
       "Pakistan students"
     ],
-    "excerpt": "**Published by:** HJ Automations | **Category:** Student Resources, Final Year Projects  \n**Target Audience:** CS, Software Engineering & IT students in Pakistan, India,",
+    "excerpt": "Looking for the best FYP project ideas in 2025? Explore 50+ practical ideas across AI, CS, mobile, cybersecurity, and engineering, plus get tailored suggestions instantly.",
     "readTime": "8 min read",
     "image": "/assets/images/fyp-thumbnail.jpeg",
     "imageAlt": "CS students working on final year project ideas",
