@@ -4,8 +4,13 @@ const POSTS = [
     "slug": "50-best-fyp-project-ideas-for-20252026-ai-powered-cs-engineering-get-yours-instantly",
     "date": "2026-03-04",
     "category": "AI Tools",
-    "tags": [],
-    "excerpt": "**Published by:** HJ Automations | **Category:** Student Resources, Final Year Projects  \n**Target Audience:** CS, Software Engineering & IT students in USA, Canada,",
+    "tags": [
+      "FYP project ideas",
+      "AI FYP project ideas",
+      "final year project ideas computer science",
+      "Pakistan students"
+    ],
+    "excerpt": "**Published by:** HJ Automations | **Category:** Student Resources, Final Year Projects  \n**Target Audience:** CS, Software Engineering & IT students in Pakistan, India,",
     "readTime": "8 min read",
     "image": "/assets/images/fyp-thumbnail.jpeg",
     "imageAlt": "CS students working on final year project ideas",

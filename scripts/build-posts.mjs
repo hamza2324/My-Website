@@ -80,22 +80,22 @@ const IMAGE_POOLS = {
     {
       hero: { url: pexels(8386434), alt: "Neon AI circuitry and digital system map" },
       inline: [
-        { url: pexels(3861969), alt: "Code and analytics view on monitor", caption: "Modern AI execution depends on clean data flow and observability." },
-        { url: pexels(6801648), alt: "Futuristic dashboard with visual signals", caption: "Operational visibility turns AI experiments into repeatable systems." }
+        { url: pexels(3861969), alt: "Code and analytics view on monitor" },
+        { url: pexels(6801648), alt: "Futuristic dashboard with visual signals" }
       ]
     },
     {
       hero: { url: pexels(8728380), alt: "Abstract machine intelligence network pattern" },
       inline: [
-        { url: pexels(8386422), alt: "Digital control center with live metrics", caption: "AI outcomes improve when teams track quality and cycle time continuously." },
-        { url: pexels(17489157), alt: "High-tech abstract blue network background", caption: "Workflow speed compounds when every process handoff is streamlined." }
+        { url: pexels(8386422), alt: "Digital control center with live metrics" },
+        { url: pexels(17489157), alt: "High-tech abstract blue network background" }
       ]
     },
     {
       hero: { url: pexels(7567538), alt: "Autonomous technology concept in dark workspace" },
       inline: [
-        { url: pexels(3861458), alt: "Developer workspace with multi-screen setup", caption: "Execution quality comes from strong prompts, context, and guardrails." },
-        { url: pexels(17483868), alt: "AI system visualization with layered data", caption: "The best teams treat AI as part of operations, not as isolated tooling." }
+        { url: pexels(3861458), alt: "Developer workspace with multi-screen setup" },
+        { url: pexels(17483868), alt: "AI system visualization with layered data" }
       ]
     }
   ],
@@ -103,36 +103,36 @@ const IMAGE_POOLS = {
     {
       hero: { url: pexels(5380664), alt: "Automation pipeline running across connected apps" },
       inline: [
-        { url: pexels(546819), alt: "Hands on keyboard in software workflow", caption: "Reliable automation starts with clear process design." },
-        { url: pexels(577585), alt: "Team tracking KPIs on laptop dashboard", caption: "Weekly reporting systems should be measurable and easy to maintain." }
+        { url: pexels(546819), alt: "Hands on keyboard in software workflow" },
+        { url: pexels(577585), alt: "Team tracking KPIs on laptop dashboard" }
       ]
     },
     {
       hero: { url: pexels(4145190), alt: "Operations dashboard and automated alerts" },
       inline: [
-        { url: pexels(325229), alt: "Developer reviewing workflow steps", caption: "Simple pipelines outperform complex flows when reliability matters." },
-        { url: pexels(1181675), alt: "Spreadsheet metrics and planning notes", caption: "Structured reporting helps teams make faster decisions." }
+        { url: pexels(325229), alt: "Developer reviewing workflow steps" },
+        { url: pexels(1181675), alt: "Spreadsheet metrics and planning notes" }
       ]
     },
     {
       hero: { url: pexels(2582937), alt: "Digital operations workspace with layered metrics" },
       inline: [
-        { url: pexels(577210), alt: "Laptop view with analytics and process tools", caption: "Good automations reduce repetitive work without losing control." },
-        { url: pexels(935949), alt: "Task management and reporting workflow on desk", caption: "A lightweight review loop keeps automations aligned with outcomes." }
+        { url: pexels(577210), alt: "Laptop view with analytics and process tools" },
+        { url: pexels(935949), alt: "Task management and reporting workflow on desk" }
       ]
     },
     {
       hero: { url: pexels(3861969), alt: "Automation code pipeline and deployment dashboard" },
       inline: [
-        { url: pexels(373543), alt: "Analytics report and planning sheet", caption: "Tracking changes weekly helps automation systems stay reliable." },
-        { url: pexels(6801648), alt: "Data network graph for operations monitoring", caption: "Operational telemetry is key for improving workflow performance." }
+        { url: pexels(373543), alt: "Analytics report and planning sheet" },
+        { url: pexels(6801648), alt: "Data network graph for operations monitoring" }
       ]
     },
     {
       hero: { url: pexels(8728380), alt: "Futuristic operations layer with AI-assisted controls" },
       inline: [
-        { url: pexels(1181675), alt: "KPI spreadsheet and forecasting workspace", caption: "Reporting automation should surface decisions, not just summaries." },
-        { url: pexels(325229), alt: "Developer reviewing integration logic", caption: "Strong process boundaries reduce failure risk in automated flows." }
+        { url: pexels(1181675), alt: "KPI spreadsheet and forecasting workspace" },
+        { url: pexels(325229), alt: "Developer reviewing integration logic" }
       ]
     }
   ],
@@ -140,22 +140,22 @@ const IMAGE_POOLS = {
     {
       hero: { url: pexels(7988079), alt: "Language model concept in dark abstract interface" },
       inline: [
-        { url: pexels(8386435), alt: "Developer testing prompts in terminal environment", caption: "Prompt quality improves when tasks are constrained and explicit." },
-        { url: pexels(8297478), alt: "Digital assistant interface and context panels", caption: "LLM reliability depends on feedback loops and evaluation rules." }
+        { url: pexels(8386435), alt: "Developer testing prompts in terminal environment" },
+        { url: pexels(8297478), alt: "Digital assistant interface and context panels" }
       ]
     },
     {
       hero: { url: pexels(270404), alt: "AI-generated text workflow and interface blocks" },
       inline: [
-        { url: pexels(373543), alt: "Data and text analysis view on laptop", caption: "Clear context windows reduce hallucinations and output drift." },
-        { url: pexels(5380650), alt: "Abstract neural network and data points", caption: "Model performance is strongest when measured against business KPIs." }
+        { url: pexels(373543), alt: "Data and text analysis view on laptop" },
+        { url: pexels(5380650), alt: "Abstract neural network and data points" }
       ]
     },
     {
       hero: { url: pexels(3862132), alt: "Large model operations dashboard in dark mode" },
       inline: [
-        { url: pexels(7988079), alt: "AI interface with layered prompt interactions", caption: "Reusable prompt patterns make LLM workflows easier to scale." },
-        { url: pexels(6801648), alt: "Technical analytics board with network graph", caption: "Instrumentation is essential for long-term LLM quality." }
+        { url: pexels(7988079), alt: "AI interface with layered prompt interactions" },
+        { url: pexels(6801648), alt: "Technical analytics board with network graph" }
       ]
     }
   ]

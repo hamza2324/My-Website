@@ -3,12 +3,13 @@ image: /assets/images/fyp-thumbnail.jpeg
 imageAlt: CS students working on final year project ideas
 inlineImage1: /assets/images/What%20Makes%20a%20Good%20FYP%20Project%20Idea%20%28What%20Supervisors%20Look%20For%29.jpeg
 inlineImage1Alt: University students coding and collaborating on a project
+tags: ["FYP project ideas", "AI FYP project ideas", "final year project ideas computer science", "Pakistan students"]
 ---
 
 # 50+ Best FYP Project Ideas for 2025–2026 (AI-Powered, CS & Engineering) — Get Yours Instantly
 
 **Published by:** HJ Automations | **Category:** Student Resources, Final Year Projects  
-**Target Audience:** CS, Software Engineering & IT students in USA, Canada, Germany, and across Asia  
+**Target Audience:** CS, Software Engineering & IT students in Pakistan, India, and globally  
 **Last Updated:** March 2026
 
 ---
