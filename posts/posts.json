@@ -5,11 +5,17 @@
     "date": "2026-03-04",
     "category": "AI Tools",
     "tags": [],
-    "excerpt": "**Published by:** HJ Automations | **Category:** Student Resources, Final Year Projects  \n**Target Audience:** CS, Software Engineering & IT students in Pakistan, India,",
+    "excerpt": "**Published by:** HJ Automations | **Category:** Student Resources, Final Year Projects  \n**Target Audience:** CS, Software Engineering & IT students in USA, Canada,",
     "readTime": "8 min read",
-    "image": "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=1600",
-    "imageAlt": "",
-    "customInlineImages": [],
+    "image": "/assets/images/fyp-thumbnail.jpeg",
+    "imageAlt": "CS students working on final year project ideas",
+    "customInlineImages": [
+      {
+        "url": "/assets/images/What%20Makes%20a%20Good%20FYP%20Project%20Idea%20%28What%20Supervisors%20Look%20For%29.jpeg",
+        "alt": "University students coding and collaborating on a project",
+        "caption": ""
+      }
+    ],
     "affiliateLink": "",
     "priority": 0,
     "faqTitle": "",
