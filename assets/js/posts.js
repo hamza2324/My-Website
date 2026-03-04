@@ -1,5 +1,29 @@
 const POSTS = [
   {
+    "title": "50+ Best FYP Project Ideas for 2025-2026 (AI-Powered, CS & Engineering) - Get Yours Instantly",
+    "slug": "50-best-fyp-project-ideas-for-20252026-ai-powered-cs-engineering-get-yours-instantly",
+    "date": "2026-03-04",
+    "category": "Student Resources",
+    "tags": [
+      "FYP project ideas",
+      "AI FYP project ideas",
+      "final year project ideas computer science",
+      "CS project ideas",
+      "final year project ideas for engineering students"
+    ],
+    "excerpt": "Looking for the best FYP project ideas in 2025? Get 50+ final year project ideas for CS, AI, mobile, cybersecurity & more - plus use our free AI FYP Project Suggester tool. No login needed.",
+    "readTime": "13 min read",
+    "image": "/assets/images/fyp-blog-thumbnail.jpeg",
+    "imageAlt": "CS students working on final year project on laptops",
+    "customInlineImages": [],
+    "affiliateLink": "",
+    "priority": 0,
+    "faqTitle": "Frequently Asked Questions (FAQs)",
+    "faqItems": [],
+    "url": "posts/50-best-fyp-project-ideas-for-20252026-ai-powered-cs-engineering-get-yours-instantly.html",
+    "id": 0
+  },
+  {
     "title": "GEO Content Refresh Playbook 2026: Update Old Posts to Win AI Search Traffic",
     "slug": "geo-content-refresh-playbook-2026",
     "date": "2026-02-26",

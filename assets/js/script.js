@@ -156,12 +156,13 @@ function initHomePage(posts) {
 }
 
 function initBlogPage(posts) {
-  const blogGrid = document.getElementById("blog-post-grid");
+  const blogGrid = document.getElementById("blog-post-grid") || document.getElementById("blog-list");
   if (!blogGrid || !posts.length) return;
 
-  const searchInput = document.getElementById("blog-search");
-  const filterRoot = document.getElementById("category-filters");
+  const searchInput = document.getElementById("blog-search") || document.getElementById("search-input");
+  const filterRoot = document.getElementById("category-filters") || document.getElementById("filter-row");
   const pagination = document.getElementById("pagination");
+  const loadMoreBtn = document.getElementById("load-more");
   const popular = document.getElementById("popular-posts");
   const tagList = document.getElementById("tag-list");
   const pageSize = 10;
@@ -169,14 +170,27 @@ function initBlogPage(posts) {
   let activeCategory = "All";
   let query = "";
   let currentPage = 1;
+  let visibleCount = pageSize;
 
   const urlParams = new URLSearchParams(window.location.search);
   const categoryFromQuery = urlParams.get("category");
   if (categoryFromQuery) activeCategory = categoryFromQuery;
 
+  function categoryMatch(post, filter) {
+    if (filter === "All") return true;
+    if ((post.category || "") === filter) return true;
+    const cat = String(post.category || "").toLowerCase();
+    const text = `${post.title || ""} ${(Array.isArray(post.tags) ? post.tags.join(" ") : "")}`.toLowerCase();
+    if (filter === "AI Tools") return /ai tools?|ai productivity|reviews?/.test(cat) || /ai tools?|review/.test(text);
+    if (filter === "Automation") return /automation/.test(cat) || /automation|workflow/.test(text);
+    if (filter === "LLM Guides") return /llm/.test(cat) || /llm|prompt|agent/.test(text);
+    if (filter === "Case Studies") return /case stud/.test(cat) || /case stud/.test(text);
+    return false;
+  }
+
   function filteredPosts() {
     return posts.filter((p) => {
-      const categoryOk = activeCategory === "All" || p.category === activeCategory;
+      const categoryOk = categoryMatch(p, activeCategory);
       const q = query.toLowerCase();
       const tags = Array.isArray(p.tags) ? p.tags : [];
       const searchOk = !q || p.title.toLowerCase().includes(q) || p.excerpt.toLowerCase().includes(q) || tags.join(" ").toLowerCase().includes(q);
@@ -185,6 +199,7 @@ function initBlogPage(posts) {
   }
 
   function renderPagination(totalItems) {
+    if (!pagination) return;
     const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
     if (currentPage > totalPages) currentPage = totalPages;
     pagination.innerHTML = "";
@@ -203,18 +218,29 @@ function initBlogPage(posts) {
 
   function render() {
     const data = filteredPosts();
-    const start = (currentPage - 1) * pageSize;
-    const chunk = data.slice(start, start + pageSize);
-    blogGrid.innerHTML = chunk.length ? chunk.map(postCard).join("") : '<p class="empty">No posts match your search.</p>';
-    renderPagination(data.length);
+    if (pagination) {
+      const start = (currentPage - 1) * pageSize;
+      const chunk = data.slice(start, start + pageSize);
+      blogGrid.innerHTML = chunk.length ? chunk.map(postCard).join("") : "<p class=\"empty\">No posts match your search.</p>";
+      renderPagination(data.length);
+      return;
+    }
+
+    const chunk = data.slice(0, visibleCount);
+    blogGrid.innerHTML = chunk.length ? chunk.map(postCard).join("") : "<p class=\"empty\">No posts match your search.</p>";
+    if (loadMoreBtn) {
+      loadMoreBtn.style.display = visibleCount >= data.length ? "none" : "inline-flex";
+    }
   }
 
   if (filterRoot) {
-    filterRoot.querySelectorAll("button[data-category]").forEach((btn) => {
-      if (btn.dataset.category === activeCategory) btn.classList.add("active");
+    filterRoot.querySelectorAll("button[data-category], button[data-filter]").forEach((btn) => {
+      const val = btn.dataset.category || btn.dataset.filter || "All";
+      if (val === activeCategory) btn.classList.add("active");
       btn.addEventListener("click", () => {
-        activeCategory = btn.dataset.category || "All";
+        activeCategory = btn.dataset.category || btn.dataset.filter || "All";
         currentPage = 1;
+        visibleCount = pageSize;
         filterRoot.querySelectorAll("button").forEach((b) => b.classList.remove("active"));
         btn.classList.add("active");
         render();
@@ -226,6 +252,14 @@ function initBlogPage(posts) {
     searchInput.addEventListener("input", (e) => {
       query = e.target.value || "";
       currentPage = 1;
+      visibleCount = pageSize;
+      render();
+    });
+  }
+
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener("click", () => {
+      visibleCount += pageSize;
       render();
     });
   }
