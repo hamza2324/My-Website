@@ -29,175 +29,6 @@
     "id": 1
   },
   {
-    "title": "GEO Content Refresh Playbook 2026: Update Old Posts to Win AI Search Traffic",
-    "slug": "geo-content-refresh-playbook-2026",
-    "date": "2026-02-26",
-    "category": "SEO & Digital Growth",
-    "tags": [
-      "GEO Content Refresh",
-      "AI SEO 2026",
-      "Content Optimization",
-      "AI Overviews SEO",
-      "Internal Linking Strategy",
-      "Generative Engine Optimization"
-    ],
-    "excerpt": "Use this 2026 GEO content refresh playbook to upgrade old blog posts for AI search visibility, stronger rankings, and better lead conversion without publishing from scratch.",
-    "readTime": "10 min read",
-    "image": "https://images.pexels.com/photos/7947664/pexels-photo-7947664.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "imageAlt": "SEO team refreshing content for AI search visibility",
-    "customInlineImages": [],
-    "affiliateLink": "",
-    "priority": 0,
-    "faqTitle": "FAQ",
-    "faqItems": [
-      {
-        "question": "How many posts should be refreshed monthly?",
-        "answer": "For most sites, 4-8 high-intent posts per month is effective."
-      },
-      {
-        "question": "Should slugs be changed during refresh?",
-        "answer": "Only when necessary to avoid avoidable migration risks."
-      },
-      {
-        "question": "When should new content be published instead?",
-        "answer": "When new topical coverage is required."
-      },
-      {
-        "question": "How quickly do refresh results appear?",
-        "answer": "Often within 1-4 weeks depending on crawl frequency and competition."
-      }
-    ],
-    "url": "posts/geo-content-refresh-playbook-2026.html",
-    "id": 2
-  },
-  {
-    "title": "AI Workflow Documentation Framework 2026: Build SOPs That Keep Automations Reliable",
-    "slug": "ai-workflow-documentation-framework-2026",
-    "date": "2026-02-26",
-    "category": "Automation Tutorials",
-    "tags": [
-      "AI Workflow Documentation",
-      "Automation SOP",
-      "AI Operations",
-      "Workflow Reliability",
-      "Incident Runbook",
-      "Business Automation"
-    ],
-    "excerpt": "Use this 2026 AI workflow documentation framework to create SOPs, incident runbooks, and ownership maps that reduce automation failures and improve team execution.",
-    "readTime": "10 min read",
-    "image": "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "imageAlt": "Operations team creating workflow documentation and automation SOPs",
-    "customInlineImages": [],
-    "affiliateLink": "",
-    "priority": 0,
-    "faqTitle": "FAQ",
-    "faqItems": [
-      {
-        "question": "Do small teams need formal docs?",
-        "answer": "Yes. Single-owner dependency is higher in small teams."
-      },
-      {
-        "question": "How often should docs be reviewed?",
-        "answer": "Monthly at minimum and after major changes."
-      },
-      {
-        "question": "Should SOPs include prompts verbatim?",
-        "answer": "Yes, including output constraints and parser rules."
-      },
-      {
-        "question": "What should we create first?",
-        "answer": "Start with workflow overview and incident runbook."
-      }
-    ],
-    "url": "posts/ai-workflow-documentation-framework-2026.html",
-    "id": 3
-  },
-  {
-    "title": "Why Your AI Chatbot Is Not Converting Leads in 2026 (And the Fix)",
-    "slug": "ai-chatbot-not-converting-leads-2026-fix",
-    "date": "2026-02-26",
-    "category": "AI Tools",
-    "tags": [
-      "AI Chatbot Conversion",
-      "Chatbot Lead Generation",
-      "Conversational Marketing",
-      "AI Sales Funnel",
-      "Lead Qualification",
-      "No-Code Chatbot"
-    ],
-    "excerpt": "Your chatbot gets traffic but no leads? This 2026 conversion guide shows how to fix intent mapping, conversation flow, and handoff design to increase qualified inquiries.",
-    "readTime": "10 min read",
-    "image": "https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "imageAlt": "Business owner reviewing chatbot lead performance dashboard",
-    "customInlineImages": [],
-    "affiliateLink": "",
-    "priority": 0,
-    "faqTitle": "FAQ",
-    "faqItems": [
-      {
-        "question": "What is a good chatbot conversion rate in 2026?",
-        "answer": "Qualified-lead rate is usually a better KPI than raw chat-to-form conversion."
-      },
-      {
-        "question": "Should I force email capture early?",
-        "answer": "Usually no. Provide value first, then request contact details at the right moment."
-      },
-      {
-        "question": "Can one chatbot script work for all pages?",
-        "answer": "Not effectively. Page-specific intent mapping is key."
-      },
-      {
-        "question": "How quickly can conversion improve after fixes?",
-        "answer": "Many teams see measurable changes in 7 to 14 days."
-      }
-    ],
-    "url": "posts/ai-chatbot-not-converting-leads-2026-fix.html",
-    "id": 4
-  },
-  {
-    "title": "AI Automation Not Working? 2026 Troubleshooting Guide to Fix Broken Workflows Fast",
-    "slug": "ai-automation-not-working-2026-troubleshooting-guide",
-    "date": "2026-02-26",
-    "category": "Automation Tutorials",
-    "tags": [
-      "AI Automation Troubleshooting",
-      "Workflow Debugging",
-      "Automation Reliability",
-      "n8n Troubleshooting",
-      "AI Operations",
-      "Workflow Monitoring",
-      "Business Automation"
-    ],
-    "excerpt": "AI automation failing in production? Use this 2026 troubleshooting framework to diagnose workflow bottlenecks, fix breakpoints, and recover ROI with measurable KPIs.",
-    "readTime": "11 min read",
-    "image": "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "imageAlt": "Operations dashboard showing failed automations and workflow metrics",
-    "customInlineImages": [],
-    "affiliateLink": "",
-    "priority": 0,
-    "faqTitle": "FAQ",
-    "faqItems": [
-      {
-        "question": "How long does it take to stabilize a broken automation?",
-        "answer": "Most teams can stabilize the first workflow in 3 to 10 days if they fix data validation and output controls first."
-      },
-      {
-        "question": "Should we switch models when failures rise?",
-        "answer": "Not immediately. First verify data contracts, prompt constraints, and parser behavior."
-      },
-      {
-        "question": "What is the best leading KPI for reliability?",
-        "answer": "Manual intervention rate is often the strongest early signal."
-      },
-      {
-        "question": "Can small teams run this process without DevOps support?",
-        "answer": "Yes. Start with lightweight monitoring and clear ownership."
-      }
-    ],
-    "url": "posts/ai-automation-not-working-2026-troubleshooting-guide.html",
-    "id": 5
-  },
-  {
     "title": "The AI Agent Trap in 2026: Why Business Owners Lose Money and the 3-Step Escape Plan",
     "slug": "ai-agent-trap-business-owners-2026-escape-plan",
     "date": "2026-02-26",
@@ -250,6 +81,175 @@
       }
     ],
     "url": "posts/ai-agent-trap-business-owners-2026-escape-plan.html",
+    "id": 2
+  },
+  {
+    "title": "GEO Content Refresh Playbook 2026: Update Old Posts to Win AI Search Traffic",
+    "slug": "geo-content-refresh-playbook-2026",
+    "date": "2026-02-26",
+    "category": "SEO & Digital Growth",
+    "tags": [
+      "GEO Content Refresh",
+      "AI SEO 2026",
+      "Content Optimization",
+      "AI Overviews SEO",
+      "Internal Linking Strategy",
+      "Generative Engine Optimization"
+    ],
+    "excerpt": "Use this 2026 GEO content refresh playbook to upgrade old blog posts for AI search visibility, stronger rankings, and better lead conversion without publishing from scratch.",
+    "readTime": "10 min read",
+    "image": "https://images.pexels.com/photos/7947664/pexels-photo-7947664.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "imageAlt": "SEO team refreshing content for AI search visibility",
+    "customInlineImages": [],
+    "affiliateLink": "",
+    "priority": 0,
+    "faqTitle": "FAQ",
+    "faqItems": [
+      {
+        "question": "How many posts should be refreshed monthly?",
+        "answer": "For most sites, 4-8 high-intent posts per month is effective."
+      },
+      {
+        "question": "Should slugs be changed during refresh?",
+        "answer": "Only when necessary to avoid avoidable migration risks."
+      },
+      {
+        "question": "When should new content be published instead?",
+        "answer": "When new topical coverage is required."
+      },
+      {
+        "question": "How quickly do refresh results appear?",
+        "answer": "Often within 1-4 weeks depending on crawl frequency and competition."
+      }
+    ],
+    "url": "posts/geo-content-refresh-playbook-2026.html",
+    "id": 3
+  },
+  {
+    "title": "AI Workflow Documentation Framework 2026: Build SOPs That Keep Automations Reliable",
+    "slug": "ai-workflow-documentation-framework-2026",
+    "date": "2026-02-26",
+    "category": "Automation Tutorials",
+    "tags": [
+      "AI Workflow Documentation",
+      "Automation SOP",
+      "AI Operations",
+      "Workflow Reliability",
+      "Incident Runbook",
+      "Business Automation"
+    ],
+    "excerpt": "Use this 2026 AI workflow documentation framework to create SOPs, incident runbooks, and ownership maps that reduce automation failures and improve team execution.",
+    "readTime": "10 min read",
+    "image": "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "imageAlt": "Operations team creating workflow documentation and automation SOPs",
+    "customInlineImages": [],
+    "affiliateLink": "",
+    "priority": 0,
+    "faqTitle": "FAQ",
+    "faqItems": [
+      {
+        "question": "Do small teams need formal docs?",
+        "answer": "Yes. Single-owner dependency is higher in small teams."
+      },
+      {
+        "question": "How often should docs be reviewed?",
+        "answer": "Monthly at minimum and after major changes."
+      },
+      {
+        "question": "Should SOPs include prompts verbatim?",
+        "answer": "Yes, including output constraints and parser rules."
+      },
+      {
+        "question": "What should we create first?",
+        "answer": "Start with workflow overview and incident runbook."
+      }
+    ],
+    "url": "posts/ai-workflow-documentation-framework-2026.html",
+    "id": 4
+  },
+  {
+    "title": "Why Your AI Chatbot Is Not Converting Leads in 2026 (And the Fix)",
+    "slug": "ai-chatbot-not-converting-leads-2026-fix",
+    "date": "2026-02-26",
+    "category": "AI Tools",
+    "tags": [
+      "AI Chatbot Conversion",
+      "Chatbot Lead Generation",
+      "Conversational Marketing",
+      "AI Sales Funnel",
+      "Lead Qualification",
+      "No-Code Chatbot"
+    ],
+    "excerpt": "Your chatbot gets traffic but no leads? This 2026 conversion guide shows how to fix intent mapping, conversation flow, and handoff design to increase qualified inquiries.",
+    "readTime": "10 min read",
+    "image": "https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "imageAlt": "Business owner reviewing chatbot lead performance dashboard",
+    "customInlineImages": [],
+    "affiliateLink": "",
+    "priority": 0,
+    "faqTitle": "FAQ",
+    "faqItems": [
+      {
+        "question": "What is a good chatbot conversion rate in 2026?",
+        "answer": "Qualified-lead rate is usually a better KPI than raw chat-to-form conversion."
+      },
+      {
+        "question": "Should I force email capture early?",
+        "answer": "Usually no. Provide value first, then request contact details at the right moment."
+      },
+      {
+        "question": "Can one chatbot script work for all pages?",
+        "answer": "Not effectively. Page-specific intent mapping is key."
+      },
+      {
+        "question": "How quickly can conversion improve after fixes?",
+        "answer": "Many teams see measurable changes in 7 to 14 days."
+      }
+    ],
+    "url": "posts/ai-chatbot-not-converting-leads-2026-fix.html",
+    "id": 5
+  },
+  {
+    "title": "AI Automation Not Working? 2026 Troubleshooting Guide to Fix Broken Workflows Fast",
+    "slug": "ai-automation-not-working-2026-troubleshooting-guide",
+    "date": "2026-02-26",
+    "category": "Automation Tutorials",
+    "tags": [
+      "AI Automation Troubleshooting",
+      "Workflow Debugging",
+      "Automation Reliability",
+      "n8n Troubleshooting",
+      "AI Operations",
+      "Workflow Monitoring",
+      "Business Automation"
+    ],
+    "excerpt": "AI automation failing in production? Use this 2026 troubleshooting framework to diagnose workflow bottlenecks, fix breakpoints, and recover ROI with measurable KPIs.",
+    "readTime": "11 min read",
+    "image": "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    "imageAlt": "Operations dashboard showing failed automations and workflow metrics",
+    "customInlineImages": [],
+    "affiliateLink": "",
+    "priority": 0,
+    "faqTitle": "FAQ",
+    "faqItems": [
+      {
+        "question": "How long does it take to stabilize a broken automation?",
+        "answer": "Most teams can stabilize the first workflow in 3 to 10 days if they fix data validation and output controls first."
+      },
+      {
+        "question": "Should we switch models when failures rise?",
+        "answer": "Not immediately. First verify data contracts, prompt constraints, and parser behavior."
+      },
+      {
+        "question": "What is the best leading KPI for reliability?",
+        "answer": "Manual intervention rate is often the strongest early signal."
+      },
+      {
+        "question": "Can small teams run this process without DevOps support?",
+        "answer": "Yes. Start with lightweight monitoring and clear ownership."
+      }
+    ],
+    "url": "posts/ai-automation-not-working-2026-troubleshooting-guide.html",
     "id": 6
   },
   {
