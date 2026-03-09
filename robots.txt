@@ -1,7 +1,10 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 Allow: /tools/chess-clock-timer
 Disallow: /admin/
 Disallow: /private/
 
 Sitemap: https://hamzajadoon.cloud/sitemap.xml
+Allow: /tools/chess-clock-timer/
+Sitemap: https://hamzajadoon.cloud/tools/chess-clock-timer/sitemap.xml
+

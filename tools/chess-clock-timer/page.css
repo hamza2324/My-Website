@@ -1,0 +1,119 @@
+﻿:root {
+  --bg: #0b1020;
+  --surface: #111934;
+  --text: #f4f7ff;
+  --muted: #b8c0d9;
+  --accent: #2bd576;
+  --border: rgba(255, 255, 255, 0.15);
+}
+* { box-sizing: border-box; }
+body {
+  background: radial-gradient(circle at top, #12214a 0%, var(--bg) 55%);
+  color: var(--text);
+  line-height: 1.5;
+}
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+.home-link {
+  color: var(--muted);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+.home-link:hover { color: #fff; }
+h1 {
+  margin: 0 0 10px;
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
+  line-height: 1.2;
+}
+.intro {
+  margin: 0 0 18px;
+  color: var(--muted);
+  max-width: 920px;
+}
+.hero-image {
+  width: 100%;
+  height: auto;
+  max-height: 360px;
+  display: block;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  margin-bottom: 20px;
+  object-fit: cover;
+}
+.tool-shell {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.tool-frame {
+  width: 100%;
+  min-height: 72vh;
+  border: 0;
+  display: block;
+  background: #080c18;
+}
+.fallback {
+  padding: 14px 16px 18px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+}
+.fallback a, #info a, .topic-nav a {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+.fallback a:hover, #info a:hover, .topic-nav a:hover { text-decoration: underline; }
+.topic-nav ul {
+  list-style: none;
+  margin: 22px 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.topic-nav li {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+#info {
+  margin-top: 28px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+}
+#info h2 { margin-top: 22px; }
+#info h2:first-child { margin-top: 0; }
+#info table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+#info th, #info td {
+  border: 1px solid var(--border);
+  padding: 8px;
+  text-align: left;
+}
+#info details {
+  margin-bottom: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  background: rgba(255,255,255,0.02);
+}
+footer {
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+@media (max-width: 768px) {
+  .hero-image { max-height: 240px; }
+  .tool-frame { min-height: 66vh; }
+}

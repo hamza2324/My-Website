@@ -1,0 +1,4 @@
+﻿User-agent: *
+Allow: /
+
+Sitemap: https://hamzajadoon.cloud/tools/chess-clock-timer/sitemap.xml

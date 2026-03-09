@@ -1,0 +1,33 @@
+﻿{
+  "name": "Chess Clock Online",
+  "short_name": "Chess Clock",
+  "description": "Free online chess clock with Fischer, Bronstein, and delay timing modes.",
+  "start_url": "/tools/chess-clock-timer/",
+  "scope": "/tools/chess-clock-timer/",
+  "display": "standalone",
+  "background_color": "#1a1a2e",
+  "theme_color": "#1a1a2e",
+  "orientation": "landscape",
+  "lang": "en",
+  "categories": ["games", "utilities"],
+  "icons": [
+    { "src": "/tools/chess-clock-timer/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/tools/chess-clock-timer/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "screenshots": [
+    {
+      "src": "/tools/chess-clock-timer/screenshots/desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Chess Clock running on desktop"
+    },
+    {
+      "src": "/tools/chess-clock-timer/screenshots/mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Chess Clock on mobile"
+    }
+  ]
+}

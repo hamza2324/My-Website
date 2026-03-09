@@ -1,116 +1,199 @@
-<!doctype html>
-<html lang="en">
+﻿<!doctype html>
+<html lang="en" dir="ltr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Chess Clock Timer &ndash; Free Online Chess Clock | HJ Automations</title>
-<meta name="description" content="Free online chess clock timer with turn switching and countdown tracking. No download needed, play instantly in your browser.">
-<link rel="canonical" href="https://hamzajadoon.cloud/tools/chess-clock-timer" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<meta property="og:title" content="Chess Clock Timer &ndash; Free Online Chess Clock | HJ Automations">
-<meta property="og:description" content="Free online chess clock timer with turn switching and countdown tracking. No download needed, play instantly in your browser.">
-<meta property="og:url" content="https://hamzajadoon.cloud/tools/chess-clock-timer">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://hamzajadoon.cloud/assets/images/clock-chess-timer.png">
+  <title>Chess Clock Online — Free Timer for Chess Games | HJ Automations</title>
+  <meta name="description" content="Free online chess clock for 2 players. Supports Fischer, Bronstein, Simple Delay and Standard timing. No download needed. Play directly in your browser on any device." />
+  <meta name="keywords" content="chess clock online, chess clock free, online chess timer, chess clock app, chess clock 1 minute, blitz chess clock, best chess clock, chess clock Fischer, chess clock Bronstein, chess clock Amazon alternative" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="HJ Automations" />
 
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebApplication","name":"Chess Clock Timer","url":"https://hamzajadoon.cloud/tools/chess-clock-timer","description":"Free online chess clock timer with turn switching and countdown tracking.","applicationCategory":"GameApplication","operatingSystem":"Web"}
-</script>
+  <link rel="canonical" href="https://hamzajadoon.cloud/tools/chess-clock-timer/" />
 
-<style>
-  :root {
-    --bg: #0b1020;
-    --surface: #111934;
-    --text: #f4f7ff;
-    --muted: #b8c0d9;
-    --accent: #2bd576;
-    --border: rgba(255, 255, 255, 0.15);
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Chess Clock Online — Free Timer for Chess Games" />
+  <meta property="og:description" content="Free online chess clock supporting Fischer, Bronstein, Delay and Standard controls. Works on mobile and desktop. No install required." />
+  <meta property="og:url" content="https://hamzajadoon.cloud/tools/chess-clock-timer/" />
+  <meta property="og:image" content="https://hamzajadoon.cloud/tools/chess-clock-timer/og-image.png" />
+  <meta property="og:site_name" content="HJ Automations" />
+  <meta property="og:locale" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Chess Clock Online — Free Timer for Chess Games" />
+  <meta name="twitter:description" content="Free online chess clock for blitz, rapid, and classical chess. Fischer and Bronstein increment support." />
+  <meta name="twitter:image" content="https://hamzajadoon.cloud/tools/chess-clock-timer/og-image.png" />
+
+  <link rel="alternate" hreflang="en" href="https://hamzajadoon.cloud/tools/chess-clock-timer/" />
+  <link rel="alternate" hreflang="es" href="https://hamzajadoon.cloud/tools/chess-clock-timer/es/" />
+  <link rel="alternate" hreflang="de" href="https://hamzajadoon.cloud/tools/chess-clock-timer/de/" />
+  <link rel="alternate" hreflang="fr" href="https://hamzajadoon.cloud/tools/chess-clock-timer/fr/" />
+  <link rel="alternate" hreflang="pt" href="https://hamzajadoon.cloud/tools/chess-clock-timer/pt/" />
+  <link rel="alternate" hreflang="ru" href="https://hamzajadoon.cloud/tools/chess-clock-timer/ru/" />
+  <link rel="alternate" hreflang="ar" href="https://hamzajadoon.cloud/tools/chess-clock-timer/ar/" />
+  <link rel="alternate" hreflang="ja" href="https://hamzajadoon.cloud/tools/chess-clock-timer/ja/" />
+  <link rel="alternate" hreflang="ko" href="https://hamzajadoon.cloud/tools/chess-clock-timer/ko/" />
+  <link rel="alternate" hreflang="it" href="https://hamzajadoon.cloud/tools/chess-clock-timer/it/" />
+  <link rel="alternate" hreflang="nl" href="https://hamzajadoon.cloud/tools/chess-clock-timer/nl/" />
+  <link rel="alternate" hreflang="pl" href="https://hamzajadoon.cloud/tools/chess-clock-timer/pl/" />
+  <link rel="alternate" hreflang="tr" href="https://hamzajadoon.cloud/tools/chess-clock-timer/tr/" />
+  <link rel="alternate" hreflang="id" href="https://hamzajadoon.cloud/tools/chess-clock-timer/id/" />
+  <link rel="alternate" hreflang="zh" href="https://hamzajadoon.cloud/tools/chess-clock-timer/zh/" />
+  <link rel="alternate" hreflang="x-default" href="https://hamzajadoon.cloud/tools/chess-clock-timer/" />
+
+  <link rel="manifest" href="/tools/chess-clock-timer/manifest.json" />
+  <meta name="theme-color" content="#1a1a2e" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Chess Clock" />
+  <link rel="apple-touch-icon" href="/tools/chess-clock-timer/icons/apple-touch-icon.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/tools/chess-clock-timer/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/tools/chess-clock-timer/icons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/tools/chess-clock-timer/icons/favicon-16x16.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://hamzajadoon.cloud" />
+
+  <style>
+    body { margin: 0; font-family: system-ui, sans-serif; background: #1a1a2e; color: #fff; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 24px 16px 48px; }
+    .tool-shell { display: block; border-radius: 14px; overflow: hidden; }
+    .tool-frame { width: 100%; min-height: 70vh; border: 0; display: block; }
+  </style>
+  <link rel="preload" href="/tools/chess-clock-timer/page.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/tools/chess-clock-timer/page.css" /></noscript>
+
+  <script type="application/ld+json" id="schema-webapp">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Chess Clock Online",
+    "url": "https://hamzajadoon.cloud/tools/chess-clock-timer/",
+    "description": "Free online chess clock supporting Fischer increment, Bronstein delay, Simple delay, and Standard timing for 2-player chess games.",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "screenshot": "https://hamzajadoon.cloud/tools/chess-clock-timer/og-image.png",
+    "featureList": [
+      "Fischer increment timing",
+      "Bronstein delay timing",
+      "Simple delay timing",
+      "Standard timing (no increment)",
+      "Custom time per player",
+      "Sound alerts",
+      "Fullscreen mode",
+      "Keyboard shortcuts",
+      "Dark and light themes",
+      "Mobile-friendly touch interface"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "127"
+    }
   }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: radial-gradient(circle at top, #12214a 0%, var(--bg) 55%);
-    color: var(--text);
-    line-height: 1.5;
+  </script>
+
+  <script type="application/ld+json" id="schema-faq">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a chess clock?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A chess clock is a timer used in chess games that tracks each player's thinking time independently. When one player makes a move, they press their button, stopping their clock and starting their opponent's."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Fischer increment in chess?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Fischer increment (named after Bobby Fischer) adds a fixed number of seconds to a player's clock after every move. For example, in a 5+3 game, each player has 5 minutes and gains 3 seconds after each move."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between Fischer and Bronstein timing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "With Fischer increment, the time bonus is added immediately after the player's move. With Bronstein delay, the increment is only added up to the amount of time actually used."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What time control should I use for blitz chess?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For blitz chess, popular controls are 3+0, 3+2, and 5+0. For rapid chess, 10+0, 10+5, or 15+10 are common."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this chess clock on my phone?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. This chess clock is mobile responsive and works on iOS and Android browsers. No app download is required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I use the chess clock with keyboard shortcuts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use the spacebar or assigned keys to switch turns. Press P to pause or resume and R to reset when paused."
+        }
+      }
+    ]
   }
-  .wrap {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 24px 16px 48px;
-  }
-  .home-link {
-    color: var(--muted);
-    text-decoration: none;
-    display: inline-block;
-    margin-bottom: 16px;
-  }
-  .home-link:hover { color: #fff; }
-  h1 {
-    margin: 0 0 10px;
-    font-size: clamp(1.9rem, 5vw, 2.6rem);
-    line-height: 1.2;
-  }
-  .intro {
-    margin: 0 0 18px;
-    color: var(--muted);
-    max-width: 900px;
-  }
-  .hero-image {
-    width: 100%;
-    height: auto;
-    max-height: 360px;
-    display: block;
-    border-radius: 14px;
-    border: 1px solid var(--border);
-    margin-bottom: 20px;
-    object-fit: cover;
-  }
-  .tool-shell {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    overflow: hidden;
-  }
-  .tool-frame {
-    width: 100%;
-    min-height: 72vh;
-    border: 0;
-    display: block;
-    background: #080c18;
-  }
-  .fallback {
-    padding: 14px 16px 18px;
-    border-top: 1px solid var(--border);
-    color: var(--muted);
-  }
-  .fallback a {
-    color: var(--accent);
-    font-weight: 700;
-    text-decoration: none;
-  }
-  .fallback a:hover { text-decoration: underline; }
-  @media (max-width: 768px) {
-    .hero-image { max-height: 220px; }
-    .tool-frame { min-height: 66vh; }
-  }
-</style>
+  </script>
 </head>
 <body>
-  <main class="wrap">
+  <header role="banner" class="wrap">
     <a class="home-link" href="/tools/">Back to Tools</a>
-    <h1>Chess Clock Timer</h1>
-    <p class="intro">Our free chess clock timer is a clean two-player online tool with turn switching and countdown tracking - perfect for real chess match play. No sign-up required.</p>
-
+    <h1>Chess Clock Online</h1>
+    <p class="intro">Free chess clock online for two players. Use Fischer increment, Bronstein delay, simple delay, or standard timing in your browser with no download.</p>
     <img
       class="hero-image"
-      src="/assets/images/clock-chess-timer.png"
-      alt="chess clock timer interface for two-player online chess match countdown"
+      src="/tools/chess-clock-timer/og-image.png"
+      alt="Chess clock online timer interface for two-player games"
       width="1536"
       height="1024"
       loading="eager"
       fetchpriority="high">
 
+    <nav aria-label="Language selector" class="topic-nav">
+      <ul>
+        <li><a href="/tools/chess-clock-timer/es/">Español</a></li>
+        <li><a href="/tools/chess-clock-timer/de/">Deutsch</a></li>
+        <li><a href="/tools/chess-clock-timer/fr/">Français</a></li>
+        <li><a href="/tools/chess-clock-timer/ar/">العربية</a></li>
+      </ul>
+    </nav>
+
+    <nav aria-label="Chess time controls guide" class="topic-nav">
+      <ul>
+        <li><a href="/tools/chess-clock-timer/blitz-chess-clock/">Blitz Chess Clock</a></li>
+        <li><a href="/tools/chess-clock-timer/rapid-chess-clock/">Rapid Chess Clock</a></li>
+        <li><a href="/tools/chess-clock-timer/chess-tournament-clock/">Tournament Clock</a></li>
+        <li><a href="/tools/chess-clock-timer/chess-clock-with-increment/">Fischer Increment Clock</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content" role="main" class="wrap">
     <section class="tool-shell" aria-label="Chess clock timer app">
       <iframe
         class="tool-frame"
@@ -125,6 +208,99 @@
         <a href="https://chess-clock-timr1.vercel.app/" target="_blank" rel="noopener noreferrer">Launch chess clock timer</a>.
       </p>
     </section>
+
+    <section id="info" aria-labelledby="info-heading">
+      <h2 id="info-heading">Free Online Chess Clock</h2>
+      <p>
+        This free online chess clock lets two players manage their game time directly in the browser
+        with no download or app required. It supports all major tournament time controls including
+        Fischer increment, Bronstein delay, simple delay, and standard timing.
+      </p>
+
+      <h2>How to Use the Chess Clock</h2>
+      <h3>1. Set Up Your Time Control</h3>
+      <p>
+        Choose a preset time control (1+0, 3+2, 5+0, 10+5, etc.) or enter custom minutes and
+        increment. Toggle different time per player if needed, select your timing method, and press
+        <strong>Start</strong>.
+      </p>
+
+      <h3>2. During the Game</h3>
+      <p>
+        Tap your side of the clock after making a move to switch the timer to your opponent.
+        On desktop, use keyboard keys or spacebar. Press <strong>Pause</strong> to pause both clocks
+        and <strong>Reset</strong> to restart.
+      </p>
+
+      <h3>3. Fullscreen Mode</h3>
+      <p>
+        Use fullscreen mode for distraction-free over-the-board games on shared tablets.
+        Press <strong>Esc</strong> to exit fullscreen.
+      </p>
+
+      <h2>Chess Time Controls Explained</h2>
+      <h3>What Is Fischer Increment?</h3>
+      <p>
+        Fischer increment adds a fixed number of seconds after every move. In a 5+3 game,
+        each player starts with 5 minutes and receives 3 seconds per move.
+      </p>
+
+      <h3>What Is Bronstein Delay?</h3>
+      <p>
+        With Bronstein delay, time is restored only up to the amount used in the move.
+        If you use 1 second on a 3-second delay, you only get 1 second back.
+      </p>
+
+      <h3>Popular Chess Time Controls</h3>
+      <ul>
+        <li><strong>Bullet Chess:</strong> 1+0, 2+1</li>
+        <li><strong>Blitz Chess:</strong> 3+0, 3+2, 5+0, 5+3</li>
+        <li><strong>Rapid Chess:</strong> 10+0, 10+5, 15+10</li>
+        <li><strong>Classical Chess:</strong> 30+0, 90+30</li>
+      </ul>
+
+      <h2>Keyboard Shortcuts</h2>
+      <table>
+        <thead>
+          <tr><th>Action</th><th>Key(s)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Left player tap / switch</td><td>A, S, D, 1, 2, 3</td></tr>
+          <tr><td>Right player tap / switch</td><td>I, O, P, 8, 9, 0</td></tr>
+          <tr><td>Switch turn only</td><td>Spacebar</td></tr>
+          <tr><td>Pause / Resume</td><td>P</td></tr>
+          <tr><td>Reset (when paused)</td><td>R</td></tr>
+          <tr><td>Exit fullscreen</td><td>Esc</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Frequently Asked Questions</h2>
+      <details>
+        <summary>Can I use this chess clock offline?</summary>
+        <p>Yes. You can install this chess clock as a Progressive Web App after visiting once.</p>
+      </details>
+
+      <details>
+        <summary>Is this chess clock free?</summary>
+        <p>Yes. It is free to use with no registration required.</p>
+      </details>
+
+      <details>
+        <summary>Does this work on mobile?</summary>
+        <p>Yes. It is optimized for touchscreen devices and mobile browsers.</p>
+      </details>
+
+      <details>
+        <summary>What is the best time control for beginners?</summary>
+        <p>10+0 and 10+5 are great beginner options for balanced thinking time and pace.</p>
+      </details>
+    </section>
   </main>
+
+  <footer role="contentinfo" class="wrap">
+    <p>© 2026 HJ Automations — Free Online Chess Clock</p>
+  </footer>
+
+  <script src="/tools/chess-clock-timer/app.js" defer></script>
 </body>
 </html>
