@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chess Clock Timer &ndash; Free Online Chess Clock | HJ Automations</title>
+<meta name="description" content="Free online chess clock timer with turn switching and countdown tracking. No download needed, play instantly in your browser.">
+<link rel="canonical" href="https://hamzajadoon.cloud/tools/chess-clock-timer" />
+
+<meta property="og:title" content="Chess Clock Timer &ndash; Free Online Chess Clock | HJ Automations">
+<meta property="og:description" content="Free online chess clock timer with turn switching and countdown tracking. No download needed, play instantly in your browser.">
+<meta property="og:url" content="https://hamzajadoon.cloud/tools/chess-clock-timer">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://hamzajadoon.cloud/assets/images/clock-chess-timer.png">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Chess Clock Timer","url":"https://hamzajadoon.cloud/tools/chess-clock-timer","description":"Free online chess clock timer with turn switching and countdown tracking.","applicationCategory":"GameApplication","operatingSystem":"Web"}
+</script>
+
+<style>
+  :root {
+    --bg: #0b1020;
+    --surface: #111934;
+    --text: #f4f7ff;
+    --muted: #b8c0d9;
+    --accent: #2bd576;
+    --border: rgba(255, 255, 255, 0.15);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: radial-gradient(circle at top, #12214a 0%, var(--bg) 55%);
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 16px 48px;
+  }
+  .home-link {
+    color: var(--muted);
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+  .home-link:hover { color: #fff; }
+  h1 {
+    margin: 0 0 10px;
+    font-size: clamp(1.9rem, 5vw, 2.6rem);
+    line-height: 1.2;
+  }
+  .intro {
+    margin: 0 0 18px;
+    color: var(--muted);
+    max-width: 900px;
+  }
+  .hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+  }
+  .tool-shell {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .tool-frame {
+    width: 100%;
+    min-height: 72vh;
+    border: 0;
+    display: block;
+    background: #080c18;
+  }
+  .fallback {
+    padding: 14px 16px 18px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+  }
+  .fallback a {
+    color: var(--accent);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .fallback a:hover { text-decoration: underline; }
+  @media (max-width: 768px) {
+    .tool-frame { min-height: 66vh; }
+  }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <a class="home-link" href="/tools/">Back to Tools</a>
+    <h1>Chess Clock Timer</h1>
+    <p class="intro">Our free chess clock timer is a clean two-player online tool with turn switching and countdown tracking - perfect for real chess match play. No sign-up required.</p>
+
+    <img
+      class="hero-image"
+      src="/assets/images/clock-chess-timer.png"
+      alt="chess clock timer interface for two-player online chess match countdown"
+      width="1536"
+      height="1024"
+      loading="eager"
+      fetchpriority="high">
+
+    <section class="tool-shell" aria-label="Chess clock timer app">
+      <iframe
+        class="tool-frame"
+        src="https://chess-clock-timr1.vercel.app/"
+        title="Chess clock timer online tool"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+      <p class="fallback">
+        If the embedded chess clock timer does not load, open it directly:
+        <a href="https://chess-clock-timr1.vercel.app/" target="_blank" rel="noopener noreferrer">Launch chess clock timer</a>.
+      </p>
+    </section>
+  </main>
+</body>
+</html>
