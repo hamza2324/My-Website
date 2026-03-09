@@ -59,10 +59,12 @@
   .hero-image {
     width: 100%;
     height: auto;
+    max-height: 360px;
     display: block;
     border-radius: 14px;
     border: 1px solid var(--border);
     margin-bottom: 20px;
+    object-fit: cover;
   }
   .tool-shell {
     background: var(--surface);
@@ -89,6 +91,7 @@
   }
   .fallback a:hover { text-decoration: underline; }
   @media (max-width: 768px) {
+    .hero-image { max-height: 220px; }
     .tool-frame { min-height: 66vh; }
   }
 </style>
