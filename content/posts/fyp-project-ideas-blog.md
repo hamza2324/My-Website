@@ -310,7 +310,7 @@ Most FYPs run for 6 to 12 months, divided into phases: ideation, proposal, liter
 
 ### What tools should I use for my FYP?
 
-This depends on your domain. Common stacks for 2025 FYPs: Python + TensorFlow/PyTorch for AI, Flutter for mobile, React or Next.js for web, Node.js or Django for backend, Firebase or PostgreSQL for database. Use free tools from **[HJ Automations](https://hamzajadoon.cloud/tools)** for research and writing support during your project.
+This depends on your domain. Common stacks for 2025 FYPs: Python + TensorFlow/PyTorch for AI, Flutter for mobile, React or Next.js for web, Node.js or Django for backend, Firebase or PostgreSQL for database. Use free tools from **[HJ Automations](https://hamzajadoon.cloud/tools/)** for research and writing support during your project.
 
 ### Are there FYP project ideas for engineering students specifically?
 
@@ -328,7 +328,7 @@ Every great software engineer, data scientist, and product builder started somew
 
 Choose a project that actually interests you. Pick a domain where you can imagine real users benefiting from your work. Apply the best tools available to you — including AI tools that help you research faster, write better, and build smarter.
 
-Speaking of which — all four tools at **[HJ Automations](https://hamzajadoon.cloud/tools)** are free, open, and built exactly for students like you:
+Speaking of which — all four tools at **[HJ Automations](https://hamzajadoon.cloud/tools/)** are free, open, and built exactly for students like you:
 
 - **[FYP Project Suggester](https://fyp-intelligence-tool--marrkhenry2020.replit.app)** — Get your personalised idea now
 - **[AI Text Summarizer](https://ai-text-summarizer-for-web--hamzajadoon71.replit.app/)** — Speed through research papers
@@ -339,6 +339,6 @@ Good luck with your FYP. You've got this.
 
 ---
 
-*Written by HJ Automations — Free AI tools for students, developers, and creators in Pakistan and beyond. Visit [hamzajadoon.cloud/tools](https://hamzajadoon.cloud/tools) for all tools.*
+*Written by HJ Automations — Free AI tools for students, developers, and creators in Pakistan and beyond. Visit [hamzajadoon.cloud/tools](https://hamzajadoon.cloud/tools/) for all tools.*
 
 ---
