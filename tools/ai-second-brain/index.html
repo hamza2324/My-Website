@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>AI Second Brain Tool (Free) - Organize Notes, Ideas & Tasks Instantly</title>
+  <meta name="description" content="Build your AI second brain free. Save notes, organize ideas, store links, and get smart summaries with this AI second brain tool and note organizer.">
+  <meta name="keywords" content="ai second brain free, ai second brain app free, ai second brain tool online, ai second brain for students, ai second brain for productivity, ai second brain notes organizer, ai second brain chrome extension, ai second brain personal knowledge management, ai second brain like notion ai, ai second brain for youtube creators, ai second brain for research notes, ai second brain workflow tool, build ai second brain free, second brain app, ai second brain software, ai second brain github, ai second brain download, ai knowledge management tool, personal ai assistant for notes, ai note taking tool, second brain, notion ai alternative, productivity ai tools, ai tools list">
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Hamza Jadoon" />
+  <link rel="canonical" href="https://hamzajadoon.cloud/tools/ai-second-brain/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AI Second Brain Tool (Free) - Organize Notes, Ideas & Tasks Instantly">
+  <meta property="og:description" content="AI second brain free tool to capture notes, organize ideas, and build a personal knowledge management system.">
+  <meta property="og:url" content="https://hamzajadoon.cloud/tools/ai-second-brain/">
+  <meta property="og:image" content="https://hamzajadoon.cloud/assets/images/AI%20Text%20Summarizer.jpeg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Second Brain Tool (Free) - HJ Automations">
+  <meta name="twitter:description" content="Build your AI second brain free. Save notes, organize ideas, and summarize knowledge fast.">
+  <meta name="twitter:image" content="https://hamzajadoon.cloud/assets/images/AI%20Text%20Summarizer.jpeg">
+
+  <link rel="alternate" hreflang="en" href="https://hamzajadoon.cloud/tools/ai-second-brain/" />
+  <link rel="alternate" hreflang="x-default" href="https://hamzajadoon.cloud/tools/ai-second-brain/" />
+
+  <style>
+    :root {
+      --bg: #0b0f16;
+      --surface: #111827;
+      --card: #0f172a;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #22d3ee;
+      --accent-soft: rgba(34, 211, 238, 0.14);
+      --border: rgba(148, 163, 184, 0.2);
+      --success: #22c55e;
+      --warning: #fbbf24;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at top, rgba(34, 211, 238, 0.12), transparent 45%), var(--bg);
+      color: var(--text);
+    }
+    a { color: var(--accent); }
+    img { max-width: 100%; height: auto; }
+
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 28px 18px 80px; }
+    .hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 32px; align-items: center; }
+    .hero h1 { font-size: clamp(2.2rem, 4vw, 3rem); margin: 12px 0 16px; }
+    .hero p { color: var(--muted); line-height: 1.7; }
+    .hero-card { background: linear-gradient(145deg, rgba(34, 211, 238, 0.15), rgba(15, 23, 42, 0.9)); border: 1px solid var(--border); border-radius: 20px; padding: 24px; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-weight: 600; font-size: 0.85rem; margin-right: 8px; }
+
+    .tool-card { margin-top: 28px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; box-shadow: 0 18px 40px rgba(0,0,0,0.35); }
+    .tool-shell { display: grid; grid-template-columns: 240px 1fr; gap: 20px; }
+    .panel { border: 1px solid var(--border); border-radius: 12px; background: #0b1220; padding: 16px; }
+    .panel h3 { margin-top: 0; }
+
+    label { font-weight: 600; font-size: 0.95rem; margin-bottom: 6px; display: block; }
+    input, textarea, select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #0b1220;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+    textarea { min-height: 120px; resize: vertical; }
+
+    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--accent);
+      color: #042f2e;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-ghost {
+      background: transparent;
+      border: 1px dashed var(--border);
+      color: var(--muted);
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .status-pill {
+      background: rgba(34, 197, 94, 0.15);
+      color: var(--success);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .warn-pill {
+      background: rgba(251, 191, 36, 0.15);
+      color: var(--warning);
+      border: 1px solid rgba(251, 191, 36, 0.3);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .stat-card {
+      padding: 16px;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid var(--border);
+    }
+    .stat-value { font-size: 1.4rem; font-weight: 700; }
+    .stat-label { color: var(--muted); font-size: 0.85rem; }
+
+    .note-list { display: grid; gap: 12px; }
+    .note-card { border: 1px solid var(--border); border-radius: 12px; padding: 14px; background: rgba(15, 23, 42, 0.7); }
+    .note-card h4 { margin: 0 0 6px; }
+    .note-meta { display: flex; flex-wrap: wrap; gap: 8px; font-size: 0.8rem; color: var(--muted); }
+    .tag { background: rgba(34, 211, 238, 0.15); color: var(--accent); border-radius: 999px; padding: 4px 10px; font-size: 0.75rem; font-weight: 600; }
+
+    .content { margin-top: 40px; background: var(--surface); border-radius: 18px; padding: 32px; border: 1px solid var(--border); }
+    .content h2, .content h3 { margin-top: 28px; }
+    .content p, .content li { color: var(--muted); line-height: 1.8; }
+    .content ul, .content ol { padding-left: 22px; }
+    .content strong { color: #fff; }
+    .cta-inline { margin-top: 36px; padding: 28px; border-radius: 16px; border: 1px solid rgba(34, 211, 238, 0.3); background: rgba(34, 211, 238, 0.12); text-align: center; }
+
+    .floating-cta {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      background: var(--accent);
+      color: #042f2e;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 12px 30px rgba(34, 211, 238, 0.35);
+      z-index: 999;
+    }
+
+    .related-tools { margin-top: 28px; border: 1px solid var(--border); border-radius: 14px; padding: 20px; background: #0b1220; }
+    .related-tools ul { padding-left: 20px; }
+
+    footer { margin-top: 32px; color: var(--muted); font-size: 0.95rem; }
+
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .tool-shell { grid-template-columns: 1fr; }
+      .floating-cta { right: 16px; left: 16px; text-align: center; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "name": "AI Second Brain Tool",
+        "applicationCategory": "Productivity",
+        "operatingSystem": "Web",
+        "url": "https://hamzajadoon.cloud/tools/ai-second-brain/",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "creator": {
+          "@type": "Person",
+          "name": "Hamza Jadoon"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is this AI second brain free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. This AI second brain free tool works in your browser and does not require a login."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this an AI second brain app or a web tool?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It is a web-based second brain app that runs in the browser with local storage for your notes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this AI second brain tool replace Notion AI?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "It is a lighter alternative for fast personal knowledge management. Use it alongside Notion AI if you want a focused, no-login workflow."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can students use this for research notes?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. It is built for students, researchers, and creators who want organized notes and quick summaries."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://hamzajadoon.cloud/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Tools",
+            "item": "https://hamzajadoon.cloud/tools/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "AI Second Brain",
+            "item": "https://hamzajadoon.cloud/tools/ai-second-brain/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="floating-cta" href="https://second-brain-tool1.vercel.app/" target="_blank" rel="noopener noreferrer">Open Full AI Second Brain</a>
+
+  <header class="wrap">
+    <a class="home-link" href="/tools/">Back to Tools</a>
+    <div class="hero">
+      <div>
+        <span class="badge">No Login</span>
+        <span class="badge">AI Second Brain Free</span>
+        <span class="badge">Personal Knowledge Management</span>
+        <h1>Build Your AI Second Brain (Free Tool)</h1>
+        <p>
+          Capture ideas, organize notes, and build a personal knowledge base with this <strong>ai second brain tool</strong>.
+          Use it as a <strong>second brain app</strong> to save research, tasks, links, and summaries in one place.
+          It is a fast <strong>ai note organizer</strong> and <strong>ai knowledge management tool</strong> for students, creators, and teams.
+          Think of it as an <strong>ai second brain notes organizer</strong> and <strong>ai second brain app free</strong> for daily capture.
+        </p>
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-value" id="notes-count">0</div>
+            <div class="stat-label">Notes saved on this device</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">Instant</div>
+            <div class="stat-label">Summaries and smart tags</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">100% Free</div>
+            <div class="stat-label">No download required</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <span class="status-pill">Live</span>
+        <h2>Organize Notes, Ideas, Links, and Tasks</h2>
+        <p>
+          This <strong>ai second brain tool online</strong> helps you store research notes, YouTube insights, project ideas,
+          and daily tasks. It works as a lightweight alternative when you want a focused workflow like a
+          <strong>personal ai assistant for notes</strong>.
+        </p>
+        <div class="btn-row" style="margin-top: 16px;">
+          <a class="btn-primary" href="https://second-brain-tool1.vercel.app/" target="_blank" rel="noopener noreferrer">Launch Full App</a>
+          <a class="btn-secondary" href="#main-content">Try the Mini Tool</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap" id="main-content" role="main">
+    <section class="tool-card" aria-label="AI Second Brain Tool">
+      <div class="tool-shell">
+        <aside class="panel">
+          <h3>Categories</h3>
+          <p style="color: var(--muted);">Organize your second brain by category or workflow.</p>
+          <select id="category-filter">
+            <option value="all" selected>All categories</option>
+            <option value="Students">Students</option>
+            <option value="Creators">Creators</option>
+            <option value="Research">Research</option>
+            <option value="Work">Work</option>
+            <option value="Personal">Personal</option>
+          </select>
+
+          <div style="margin-top: 16px;">
+            <label for="search">Smart search</label>
+            <input id="search" type="search" placeholder="Search notes, tags, links...">
+          </div>
+
+          <div style="margin-top: 16px;">
+            <span class="warn-pill">Local Only</span>
+            <p style="color: var(--muted); margin-top: 10px;">Your notes stay on this device using local storage.</p>
+          </div>
+        </aside>
+
+        <div class="panel">
+          <div class="tool-grid" style="display:grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="full" style="grid-column: 1 / -1;">
+              <label for="note-title">Note title</label>
+              <input id="note-title" type="text" placeholder="Example: AI second brain workflow for YouTube creators">
+            </div>
+            <div class="full" style="grid-column: 1 / -1;">
+              <label for="note-content">Note content</label>
+              <textarea id="note-content" placeholder="Capture ideas, research notes, or action items..."></textarea>
+            </div>
+            <div>
+              <label for="note-links">Links or resources</label>
+              <input id="note-links" type="text" placeholder="Paste URLs separated by commas">
+            </div>
+            <div>
+              <label for="note-tags">Tags</label>
+              <input id="note-tags" type="text" placeholder="ai, second brain, productivity">
+            </div>
+            <div>
+              <label for="note-category">Category</label>
+              <select id="note-category">
+                <option value="Students">Students</option>
+                <option value="Creators">Creators</option>
+                <option value="Research">Research</option>
+                <option value="Work" selected>Work</option>
+                <option value="Personal">Personal</option>
+              </select>
+            </div>
+            <div>
+              <label for="note-priority">Priority</label>
+              <select id="note-priority">
+                <option value="Low">Low</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="High">High</option>
+              </select>
+            </div>
+            <div class="full" style="grid-column: 1 / -1;">
+              <label for="note-summary">AI summary</label>
+              <textarea id="note-summary" placeholder="Summary will appear here..." readonly></textarea>
+            </div>
+          </div>
+
+          <div class="btn-row" style="margin-top: 18px;">
+            <button class="btn-primary" id="save-note">Save Note</button>
+            <button class="btn-secondary" id="summarize-note">Summarize</button>
+            <button class="btn-secondary" id="suggest-tags">Suggest Tags</button>
+            <button class="btn-secondary" id="organize-note">Organize</button>
+            <button class="btn-ghost" id="load-example">Load Example</button>
+          </div>
+
+          <div class="panel" style="margin-top: 20px;">
+            <div style="display:flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;">
+              <h3 style="margin:0;">Saved Notes</h3>
+              <button class="btn-ghost" id="clear-notes">Clear All</button>
+            </div>
+            <div class="note-list" id="notes-list" style="margin-top: 16px;"></div>
+          </div>
+
+          <div class="panel" style="margin-top: 20px;">
+            <h3>AI insights</h3>
+            <p id="insights-text" style="color: var(--muted);">Add notes to generate insights.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <article class="content">
+      <h1>AI Second Brain Tool (Free) - Organize Notes, Ideas & Tasks Instantly</h1>
+      <p>
+        The goal of an <strong>AI second brain</strong> is simple: capture everything you learn, store it cleanly, and retrieve it fast.
+        This page helps you <strong>build ai second brain free</strong> with a built-in <strong>ai second brain tool</strong> and a link to the full app.
+        It is a lightweight <strong>ai note taking tool</strong> and <strong>personal knowledge management</strong> system designed for speed.
+      </p>
+      <p>
+        If you are searching for an <strong>ai second brain app free</strong> or a quick <strong>ai second brain tool online</strong>, this is a solid starting point.
+        There is no download required, no account needed, and it works as a clean <strong>second brain app</strong> right in your browser.
+      </p>
+
+      <h2>What is an AI Second Brain?</h2>
+      <p>
+        An AI second brain is a personal knowledge base that helps you save notes, organize ideas, and surface insights when you need them.
+        Think of it as a smarter notebook that can summarize content, suggest tags, and keep your workflow structured.
+      </p>
+
+      <h2>Features of Our AI Second Brain Tool</h2>
+      <ul>
+        <li>Save notes, ideas, tasks, and research in seconds.</li>
+        <li>Summarize long notes into quick takeaways.</li>
+        <li>Suggest tags to keep your second brain tidy.</li>
+        <li>Smart search across titles, tags, and links.</li>
+        <li>Local storage for fast access with no login.</li>
+      </ul>
+      <p>
+        This is built as an <strong>ai second brain for productivity</strong> and a flexible <strong>ai second brain workflow tool</strong>.
+        If you already use an <strong>ai second brain chrome extension</strong> to capture links, you can paste them here and organize them in one place.
+      </p>
+
+      <h2>Who Should Use This?</h2>
+      <ul>
+        <li><strong>Students:</strong> Keep course notes, summaries, and study checklists in one place. Perfect as an <strong>ai second brain for students</strong>.</li>
+        <li><strong>YouTube creators:</strong> Store video ideas, research notes, and scripts. Works great as an <strong>ai second brain for youtube creators</strong>.</li>
+        <li><strong>Researchers:</strong> Save sources and insights as an <strong>ai second brain for research notes</strong>.</li>
+        <li><strong>Founders and teams:</strong> Organize workflows and product ideas with a lightweight <strong>ai knowledge management tool</strong>.</li>
+      </ul>
+
+      <h2>How It Works</h2>
+      <ol>
+        <li>Create a note with a title, content, and links.</li>
+        <li>Use the AI summary and tag suggestions to organize faster.</li>
+        <li>Search, filter, and recall information instantly.</li>
+      </ol>
+      <p>
+        This is a clean <strong>ai second brain software</strong> experience without heavy setup. It is also a great fit if you want an
+        <strong>ai second brain like Notion AI</strong> but with a faster, no-login workflow.
+      </p>
+
+      <h2>Why This is Better Than Notion AI</h2>
+      <p>
+        Notion is powerful, but many users want a quicker flow for capture and recall. This tool is focused on speed, clarity, and minimal friction.
+        If you want a <strong>notion ai alternative</strong> for quick notes, this second brain app keeps things simple and fast.
+        It also belongs in your shortlist of <strong>productivity ai tools</strong> when you want less setup and faster retrieval.
+      </p>
+
+      <h2>FAQs</h2>
+      <p><strong>Is this AI second brain free?</strong> Yes. This is an <strong>ai second brain free</strong> tool with no login required.</p>
+      <p><strong>Do I need to download anything?</strong> No. There is no <strong>ai second brain download</strong> needed. It runs in your browser.</p>
+      <p><strong>Can I use this with GitHub projects?</strong> Yes. If you track work in <strong>ai second brain github</strong> workflows, store notes here to keep ideas aligned with your repos.</p>
+      <p><strong>Is this a personal knowledge management tool?</strong> Yes. It is built for <strong>personal knowledge management</strong> and quick recall.</p>
+      <p><strong>Is this an AI tools list or just one tool?</strong> This is a focused tool. For a full <strong>ai tools list</strong>, visit the tools hub.</p>
+
+      <div class="cta-inline">
+        <h3>Launch the full AI Second Brain app</h3>
+        <p>Open the advanced version with deeper workflows and a cleaner workspace.</p>
+        <a href="https://second-brain-tool1.vercel.app/" class="btn-primary" style="text-decoration:none;">Open Full Tool</a>
+      </div>
+    </article>
+
+    <section class="related-tools">
+      <h2>Related AI Tools</h2>
+      <ul>
+        <li><a href="https://hamzajadoon.cloud/tools/ai-email-reply-generator/">AI Email Reply Generator</a></li>
+        <li><a href="https://hamzajadoon.cloud/tools/fyp-project-suggester/">FYP Project Suggester</a></li>
+        <li><a href="https://hamzajadoon.cloud/tools/">All Free Tools</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <p>Serving users in Pakistan, India, UAE and worldwide.</p>
+    <p>(c) 2026 HJ Automations - AI Second Brain Tool</p>
+  </footer>
+
+  <script>
+    const storageKey = 'ai_second_brain_notes';
+    const notesCount = document.getElementById('notes-count');
+    const notesList = document.getElementById('notes-list');
+    const insightsText = document.getElementById('insights-text');
+
+    const stopwords = new Set([
+      'the','and','for','with','that','this','you','your','from','into','about','have','has','will','are','was','were','can','but','not','its','our','their','they','them','use','using','used','able','make','made','more','most','just','like','one','two','three','free','tool','tools','note','notes','second','brain','ai'
+    ]);
+
+    function getNotes() {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey) || '[]');
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function setNotes(notes) {
+      localStorage.setItem(storageKey, JSON.stringify(notes));
+      notesCount.textContent = notes.length.toLocaleString();
+    }
+
+    function summarizeText(text) {
+      if (!text) return '';
+      const cleaned = text.replace(/\s+/g, ' ').trim();
+      const sentences = cleaned.split(/(?<=[.!?])\s+/).filter(Boolean);
+      if (sentences.length === 0) return cleaned.slice(0, 160);
+      return sentences.slice(0, 2).join(' ');
+    }
+
+    function suggestTags(text) {
+      const words = text.toLowerCase().replace(/[^a-z0-9\s]/g, '').split(/\s+/).filter(Boolean);
+      const counts = {};
+      words.forEach(word => {
+        if (stopwords.has(word) || word.length < 4) return;
+        counts[word] = (counts[word] || 0) + 1;
+      });
+      return Object.keys(counts)
+        .sort((a, b) => counts[b] - counts[a])
+        .slice(0, 4);
+    }
+
+    function autoCategory(text) {
+      const lower = text.toLowerCase();
+      if (lower.includes('youtube') || lower.includes('video') || lower.includes('creator')) return 'Creators';
+      if (lower.includes('study') || lower.includes('exam') || lower.includes('class') || lower.includes('student')) return 'Students';
+      if (lower.includes('research') || lower.includes('paper') || lower.includes('source')) return 'Research';
+      if (lower.includes('project') || lower.includes('client') || lower.includes('team')) return 'Work';
+      return 'Personal';
+    }
+
+    function renderNotes() {
+      const notes = getNotes();
+      const query = document.getElementById('search').value.toLowerCase().trim();
+      const categoryFilter = document.getElementById('category-filter').value;
+
+      const filtered = notes.filter(note => {
+        const inCategory = categoryFilter === 'all' || note.category === categoryFilter;
+        if (!inCategory) return false;
+        if (!query) return true;
+        const haystack = `${note.title} ${note.content} ${note.tags.join(' ')} ${note.links}`.toLowerCase();
+        return haystack.includes(query);
+      });
+
+      notesList.innerHTML = '';
+
+      if (filtered.length === 0) {
+        notesList.innerHTML = '<p style="color: var(--muted);">No notes match your search.</p>';
+        return;
+      }
+
+      filtered.forEach(note => {
+        const card = document.createElement('div');
+        card.className = 'note-card';
+
+        const tags = note.tags.map(tag => `<span class="tag">${tag}</span>`).join(' ');
+        const links = note.links ? `<div class="note-meta">Links: ${note.links}</div>` : '';
+
+        card.innerHTML = `
+          <h4>${note.title}</h4>
+          <div class="note-meta">Category: ${note.category} | Priority: ${note.priority}</div>
+          <p style="color: var(--muted);">${note.summary}</p>
+          <div style="display:flex; flex-wrap:wrap; gap:8px; margin: 10px 0;">${tags}</div>
+          ${links}
+        `;
+        notesList.appendChild(card);
+      });
+    }
+
+    function updateInsights() {
+      const notes = getNotes();
+      if (notes.length === 0) {
+        insightsText.textContent = 'Add notes to generate insights.';
+        return;
+      }
+      const tagCounts = {};
+      notes.forEach(note => {
+        note.tags.forEach(tag => {
+          tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+        });
+      });
+      const topTags = Object.keys(tagCounts).sort((a, b) => tagCounts[b] - tagCounts[a]).slice(0, 3);
+      const latest = notes.slice().sort((a, b) => b.updatedAt - a.updatedAt)[0];
+
+      insightsText.textContent = `You have ${notes.length} notes saved. Top tags: ${topTags.join(', ') || 'None'}. Latest update: ${new Date(latest.updatedAt).toLocaleDateString()}.`;
+    }
+
+    function saveNote() {
+      const title = document.getElementById('note-title').value.trim();
+      const content = document.getElementById('note-content').value.trim();
+      const links = document.getElementById('note-links').value.trim();
+      const tagsInput = document.getElementById('note-tags').value.trim();
+      const category = document.getElementById('note-category').value;
+      const priority = document.getElementById('note-priority').value;
+
+      if (!title || !content) {
+        alert('Please add a title and note content.');
+        return;
+      }
+
+      const summary = summarizeText(content);
+      const tags = tagsInput ? tagsInput.split(',').map(tag => tag.trim()).filter(Boolean) : suggestTags(`${title} ${content}`);
+
+      const notes = getNotes();
+      notes.unshift({
+        id: Date.now(),
+        title,
+        content,
+        links,
+        tags,
+        category,
+        priority,
+        summary,
+        createdAt: Date.now(),
+        updatedAt: Date.now()
+      });
+
+      setNotes(notes);
+      renderNotes();
+      updateInsights();
+    }
+
+    document.getElementById('summarize-note').addEventListener('click', () => {
+      const content = document.getElementById('note-content').value.trim();
+      document.getElementById('note-summary').value = summarizeText(content);
+    });
+
+    document.getElementById('suggest-tags').addEventListener('click', () => {
+      const content = document.getElementById('note-content').value.trim();
+      const title = document.getElementById('note-title').value.trim();
+      document.getElementById('note-tags').value = suggestTags(`${title} ${content}`).join(', ');
+    });
+
+    document.getElementById('organize-note').addEventListener('click', () => {
+      const content = document.getElementById('note-content').value.trim();
+      const title = document.getElementById('note-title').value.trim();
+      document.getElementById('note-category').value = autoCategory(`${title} ${content}`);
+    });
+
+    document.getElementById('save-note').addEventListener('click', saveNote);
+
+    document.getElementById('load-example').addEventListener('click', () => {
+      document.getElementById('note-title').value = 'AI second brain workflow for YouTube creators';
+      document.getElementById('note-content').value = 'Capture video ideas, research notes, and thumbnails in one place. Summarize scripts before recording and store sources for future content.';
+      document.getElementById('note-links').value = 'https://youtube.com, https://notion.so';
+      document.getElementById('note-tags').value = 'youtube, creators, research';
+      document.getElementById('note-category').value = 'Creators';
+      document.getElementById('note-priority').value = 'High';
+      document.getElementById('note-summary').value = summarizeText(document.getElementById('note-content').value);
+    });
+
+    document.getElementById('clear-notes').addEventListener('click', () => {
+      if (confirm('Clear all notes on this device?')) {
+        setNotes([]);
+        renderNotes();
+        updateInsights();
+      }
+    });
+
+    document.getElementById('search').addEventListener('input', renderNotes);
+    document.getElementById('category-filter').addEventListener('change', renderNotes);
+
+    setNotes(getNotes());
+    renderNotes();
+    updateInsights();
+  </script>
+</body>
+</html>
