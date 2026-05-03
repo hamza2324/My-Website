@@ -1,0 +1,1 @@
+window.dataLayer=window.dataLayer||[];window.trackToolUse=(name)=>window.dataLayer.push({event:'tool_use',tool_name:name});

@@ -1,0 +1,18 @@
+{
+  "name": "HamzaKit — Free Online Tools",
+  "short_name": "HamzaKit",
+  "description": "35+ free online tools by Hamza Jadoon. No login required.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0F1E",
+  "theme_color": "#0066FF",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "/assets/images/favicon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/assets/images/favicon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "categories": ["utilities", "productivity"],
+  "screenshots": [
+    { "src": "/assets/images/og-image.png", "sizes": "1200x630", "type": "image/png" }
+  ]
+}
